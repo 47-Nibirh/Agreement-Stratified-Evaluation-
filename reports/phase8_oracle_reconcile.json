@@ -1,0 +1,203 @@
+{
+ "generated": "2026-07-30T20:08:52",
+ "phase": "8 / P8.1 oracle reconciliation",
+ "why": "Chapter 4 and Chapter 7 both reported a 'modal-vote oracle'. They are different estimands with different reference panel sizes. This artefact recomputes both from the committed votes, names them apart, and measures the mechanism that separates them.",
+ "definitions": {
+  "panel_ceiling": "modal label of all four votes, scored by annotator-marginalized macro F1 against all four annotators. Chapter 4's estimand; nothing is held out, so the bound must face the whole panel.",
+  "loo_oracle": "for each held-out annotator, the modal label of the other three scored against those same three, averaged over the four folds. Chapter 7's estimand; it must face the same three references as the held-out human or the comparison is not like-for-like."
+ },
+ "mechanism": "removing a reference changes the tie structure of the modal vote, and the direction of that change is fixed by the vote pattern rather than by anything a model does. On a 2-2 image the modal label of four references is a two-way tie worth 2/4 in expected hit; against any three it becomes a 2-1 split with a unique mode worth 2/3, so the oracle's task becomes strictly easier. S-no-majority is composed almost entirely of such images, the tie breaks on 100% of them, and that is where the two series diverge by 14.29 points. On a 2-1-1 image the effect cancels exactly: dropping one of the two modal voters leaves a 1-1-1 three-way tie worth 1/3, dropping either singleton leaves a unique mode worth 2/3, and the four folds average to 0.5000 -- identical to the four-reference value. The 0.37-point residue on S-plurality is therefore not a difficulty difference at all; it is the residue of macro F1 being a nonlinear class-wise aggregate rather than expected accuracy. Where the mode is already unique and survives removal -- S-unanimous and S-majority -- the two series coincide to five decimal places.",
+ "by_stratum": {
+  "S-unanimous": {
+   "n": 803,
+   "panel_ceiling_recomputed": 1.0,
+   "loo_oracle_recomputed": 1.0,
+   "panel_ceiling_in_register": 1.0,
+   "loo_oracle_in_register": 1.0,
+   "difference_loo_minus_panel": 0.0,
+   "coincide_to_3dp": true,
+   "tie": {
+    "vote_pattern_census": {
+     "4": 803
+    },
+    "mean_tie_depth_4refs": 1.0,
+    "mean_tie_depth_3refs": 1.0,
+    "max_expected_hit_4refs": 1.0,
+    "max_expected_hit_3refs": 1.0,
+    "hit_delta_3_minus_4": 0.0,
+    "pct_images_tie_breaks_on_removal": 0.0,
+    "pct_images_tie_forms_on_removal": 0.0
+   }
+  },
+  "S-majority": {
+   "n": 342,
+   "panel_ceiling_recomputed": 0.74231,
+   "loo_oracle_recomputed": 0.74231,
+   "panel_ceiling_in_register": 0.74231,
+   "loo_oracle_in_register": 0.74231,
+   "difference_loo_minus_panel": 0.0,
+   "coincide_to_3dp": true,
+   "tie": {
+    "vote_pattern_census": {
+     "3-1": 342
+    },
+    "mean_tie_depth_4refs": 1.0,
+    "mean_tie_depth_3refs": 1.0,
+    "max_expected_hit_4refs": 0.75,
+    "max_expected_hit_3refs": 0.75,
+    "hit_delta_3_minus_4": 0.0,
+    "pct_images_tie_breaks_on_removal": 0.0,
+    "pct_images_tie_forms_on_removal": 0.0
+   }
+  },
+  "S-plurality": {
+   "n": 127,
+   "panel_ceiling_recomputed": 0.44555,
+   "loo_oracle_recomputed": 0.44922,
+   "panel_ceiling_in_register": 0.44555,
+   "loo_oracle_in_register": 0.44922,
+   "difference_loo_minus_panel": 0.00368,
+   "coincide_to_3dp": false,
+   "tie": {
+    "vote_pattern_census": {
+     "2-1-1": 127
+    },
+    "mean_tie_depth_4refs": 1.0,
+    "mean_tie_depth_3refs": 2.0,
+    "max_expected_hit_4refs": 0.5,
+    "max_expected_hit_3refs": 0.5,
+    "hit_delta_3_minus_4": 0.0,
+    "pct_images_tie_breaks_on_removal": 0.0,
+    "pct_images_tie_forms_on_removal": 100.0
+   }
+  },
+  "S-no-majority": {
+   "n": 81,
+   "panel_ceiling_recomputed": 0.40228,
+   "loo_oracle_recomputed": 0.54521,
+   "panel_ceiling_in_register": 0.40228,
+   "loo_oracle_in_register": 0.54474,
+   "difference_loo_minus_panel": 0.14293,
+   "coincide_to_3dp": false,
+   "tie": {
+    "vote_pattern_census": {
+     "2-2": 73,
+     "1-1-1-1": 8
+    },
+    "mean_tie_depth_4refs": 2.19753,
+    "mean_tie_depth_3refs": 1.19753,
+    "max_expected_hit_4refs": 0.47531,
+    "max_expected_hit_3refs": 0.63374,
+    "hit_delta_3_minus_4": 0.15844,
+    "pct_images_tie_breaks_on_removal": 100.0,
+    "pct_images_tie_forms_on_removal": 0.0
+   }
+  },
+  "S-contested (pooled)": {
+   "n": 550,
+   "panel_ceiling_recomputed": 0.64758,
+   "loo_oracle_recomputed": 0.66968,
+   "panel_ceiling_in_register": null,
+   "loo_oracle_in_register": 0.67001,
+   "difference_loo_minus_panel": 0.0221,
+   "coincide_to_3dp": false,
+   "tie": {
+    "vote_pattern_census": {
+     "3-1": 342,
+     "2-1-1": 127,
+     "2-2": 73,
+     "1-1-1-1": 8
+    },
+    "mean_tie_depth_4refs": 1.17636,
+    "mean_tie_depth_3refs": 1.26,
+    "max_expected_hit_4refs": 0.65182,
+    "max_expected_hit_3refs": 0.67515,
+    "hit_delta_3_minus_4": 0.02333,
+    "pct_images_tie_breaks_on_removal": 14.73,
+    "pct_images_tie_forms_on_removal": 23.09
+   }
+  }
+ },
+ "reproduction_gate": {
+  "n_checks": 9,
+  "n_reproduce": 9,
+  "all_reproduce": true,
+  "tolerance": 0.002,
+  "checks": [
+   {
+    "stratum": "S-unanimous",
+    "series": "panel_ceiling",
+    "recomputed": 1.0,
+    "committed": 1.0,
+    "abs_delta": 0.0,
+    "reproduces": true
+   },
+   {
+    "stratum": "S-unanimous",
+    "series": "loo_oracle",
+    "recomputed": 1.0,
+    "committed": 1.0,
+    "abs_delta": 0.0,
+    "reproduces": true
+   },
+   {
+    "stratum": "S-majority",
+    "series": "panel_ceiling",
+    "recomputed": 0.74231,
+    "committed": 0.74231,
+    "abs_delta": 0.0,
+    "reproduces": true
+   },
+   {
+    "stratum": "S-majority",
+    "series": "loo_oracle",
+    "recomputed": 0.74231,
+    "committed": 0.74231,
+    "abs_delta": 0.0,
+    "reproduces": true
+   },
+   {
+    "stratum": "S-plurality",
+    "series": "panel_ceiling",
+    "recomputed": 0.44555,
+    "committed": 0.44555,
+    "abs_delta": 0.0,
+    "reproduces": true
+   },
+   {
+    "stratum": "S-plurality",
+    "series": "loo_oracle",
+    "recomputed": 0.44922,
+    "committed": 0.44922,
+    "abs_delta": 0.0,
+    "reproduces": true
+   },
+   {
+    "stratum": "S-no-majority",
+    "series": "panel_ceiling",
+    "recomputed": 0.40228,
+    "committed": 0.40228,
+    "abs_delta": 0.0,
+    "reproduces": true
+   },
+   {
+    "stratum": "S-no-majority",
+    "series": "loo_oracle",
+    "recomputed": 0.54521,
+    "committed": 0.54474,
+    "abs_delta": 0.00047,
+    "reproduces": true
+   },
+   {
+    "stratum": "S-contested (pooled)",
+    "series": "loo_oracle",
+    "recomputed": 0.66968,
+    "committed": 0.67001,
+    "abs_delta": 0.00033,
+    "reproduces": true
+   }
+  ]
+ },
+ "consequence_for_rq1": "RQ1's confirmatory endpoint is the ceiling-normalised S-unanimous minus S-majority gap. Both series are identical on S-unanimous (1.0) and on S-majority, so the confirmatory claim does not depend on which definition is used. The divergence is confined to the S-plurality and S-no-majority strata, which carry exploratory results only.",
+ "runtime_sec": 4.0
+}

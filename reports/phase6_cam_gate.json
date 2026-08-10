@@ -1,0 +1,213 @@
+{
+ "generated": "2026-07-28 23:46:42",
+ "phase": 6,
+ "step": "P6.4",
+ "method": "Grad-CAM",
+ "layer": "model.features[-1] (final ConvNeXt stage output)",
+ "target_class": "the model's own predicted class, NOT the reference label, so the map explains what the model did rather than what it should have done",
+ "autocast": "DISABLED for the backward pass; float16 activations underflow small gradients on this Turing card and would silently flatten the maps",
+ "target_selection": "the CAM targets the class recorded in the committed prediction file, not this pass's argmax. Phases 3-5 ran inference under float16 autocast; this pass runs in float32. On images where the top two classes are near-tied (the smallest observed top1-top2 margin in the frozen posteriors is 3.08e-03) the two precisions can disagree about the argmax. Explaining the live argmax would then explain a decision no other number in the thesis was computed from. The divergence count is recorded per checkpoint below as a numerical fact about the evaluation path rather than suppressed.",
+ "amendment": "P6-AMD-3: the pre-registration says the CAM target is 'the model's own predicted class'. That phrase is ambiguous between the live argmax and the committed one; it is resolved here in favour of the committed prediction, because that is the decision every other Phase 3-6 endpoint scores. The resolution was forced by gate P6.4b firing on 1 of 1,353 images, and is recorded rather than silently adopted.",
+ "device": "cuda",
+ "batch": 12,
+ "gates": {
+  "C0_seed1": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 0,
+   "live_argmax_divergence_pct": 0.0,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  },
+  "C0_seed2": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 1,
+   "live_argmax_divergence_pct": 0.0739,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  },
+  "C0_seed3": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 0,
+   "live_argmax_divergence_pct": 0.0,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  },
+  "C1_seed1": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 0,
+   "live_argmax_divergence_pct": 0.0,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  },
+  "C1_seed2": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 0,
+   "live_argmax_divergence_pct": 0.0,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  },
+  "C1_seed3": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 1,
+   "live_argmax_divergence_pct": 0.0739,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  },
+  "C2_seed1": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 0,
+   "live_argmax_divergence_pct": 0.0,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  },
+  "C2_seed2": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 0,
+   "live_argmax_divergence_pct": 0.0,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  },
+  "C2_seed3": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 0,
+   "live_argmax_divergence_pct": 0.0,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  },
+  "C3_seed1": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 0,
+   "live_argmax_divergence_pct": 0.0,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  },
+  "C3_seed2": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 2,
+   "live_argmax_divergence_pct": 0.1478,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  },
+  "C3_seed3": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 1,
+   "live_argmax_divergence_pct": 0.0739,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  },
+  "C4_seed1": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 0,
+   "live_argmax_divergence_pct": 0.0,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  },
+  "C4_seed2": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 1,
+   "live_argmax_divergence_pct": 0.0739,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  },
+  "C4_seed3": {
+   "P6.4a": "PASS",
+   "P6.4b": "PASS -- CAM targets the frozen prediction for all 1353 images",
+   "P6.4c": "PASS",
+   "live_argmax_divergence": 0,
+   "live_argmax_divergence_pct": 0.0,
+   "cam_shape": [
+    1353,
+    7,
+    7
+   ]
+  }
+ },
+ "timings_sec": {
+  "C0_seed1": 55.0,
+  "C0_seed2": 50.9,
+  "C0_seed3": 51.9,
+  "C1_seed1": 53.3,
+  "C1_seed2": 59.8,
+  "C1_seed3": 52.0,
+  "C2_seed1": 54.3,
+  "C2_seed2": 62.8,
+  "C2_seed3": 55.8,
+  "C3_seed1": 54.8,
+  "C3_seed2": 58.0,
+  "C3_seed3": 59.4,
+  "C4_seed1": 60.6,
+  "C4_seed2": 57.0,
+  "C4_seed3": 57.6
+ },
+ "runtime_sec": 843.6
+}

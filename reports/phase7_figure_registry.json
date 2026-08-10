@@ -1,0 +1,291 @@
+{
+ "generated": "2026-07-29 05:08:02",
+ "phase": 7,
+ "step": "P7.4",
+ "principle": "figures are SELECTED and RENUMBERED, never redrawn. Redrawing would create a second code path capable of disagreeing with the phase figure it duplicates. Each thesis figure traces to the phase script that produced it, recorded below.",
+ "n_selected": 31,
+ "n_available_total": 63,
+ "missing_sources": [],
+ "registry": [
+  {
+   "thesis_figure": "T01",
+   "file": "T01_conceptual_framework.png",
+   "chapter": 1,
+   "source_dir": "figures_v2",
+   "source_file": "F19_conceptual_framework.png",
+   "drawn_by": "src/report/figures_v2.py",
+   "why_it_earns_its_place": "the thesis's framing: ground truth as a constructed object"
+  },
+  {
+   "thesis_figure": "T02",
+   "file": "T02_workflow.png",
+   "chapter": 1,
+   "source_dir": "figures_v2",
+   "source_file": "F01_thesis_workflow.png",
+   "drawn_by": "src/report/figures_v2.py",
+   "why_it_earns_its_place": "the seven-phase structure and what each phase gates"
+  },
+  {
+   "thesis_figure": "T03",
+   "file": "T03_sss_taxonomy.png",
+   "chapter": 2,
+   "source_dir": "figures_v2",
+   "source_file": "F03_sss_taxonomy.png",
+   "drawn_by": "src/report/figures_v2.py",
+   "why_it_earns_its_place": "the wall x station grid that is the thesis's main analytical lever"
+  },
+  {
+   "thesis_figure": "T04",
+   "file": "T04_kappa_matrix.png",
+   "chapter": 2,
+   "source_dir": "figures_v2",
+   "source_file": "F05_kappa_matrix.png",
+   "drawn_by": "src/report/figures_v2.py",
+   "why_it_earns_its_place": "seniority does not predict agreement; FG1-FG2 is the weakest pair"
+  },
+  {
+   "thesis_figure": "T05",
+   "file": "T05_agreement_cascade.png",
+   "chapter": 2,
+   "source_dir": "figures_v2",
+   "source_file": "F06_agreement_cascade.png",
+   "drawn_by": "src/report/figures_v2.py",
+   "why_it_earns_its_place": "only 60.2% of the corpus is unanimous -- the fact the literature evaluates on"
+  },
+  {
+   "thesis_figure": "T06",
+   "file": "T06_disagreement_decomposition.png",
+   "chapter": 2,
+   "source_dir": "figures_v2",
+   "source_file": "F07_disagreement_decomposition.png",
+   "drawn_by": "src/report/figures_v2.py",
+   "why_it_earns_its_place": "50.96% of disagreement is wall-within-station: disagreement is structured"
+  },
+  {
+   "thesis_figure": "T07",
+   "file": "T07_otherclass.png",
+   "chapter": 2,
+   "source_dir": "figures_v2",
+   "source_file": "F09_otherclass.png",
+   "drawn_by": "src/report/figures_v2.py",
+   "why_it_earns_its_place": "a 6x spread in rejection rate: quality judgement is a different task"
+  },
+  {
+   "thesis_figure": "T08",
+   "file": "T08_dup_calibration.png",
+   "chapter": 2,
+   "source_dir": "figures_v2",
+   "source_file": "F15b_dup_calibration.png",
+   "drawn_by": "src/report/figures_v2.py",
+   "why_it_earns_its_place": "54 contamination pairs became 0 once the threshold was calibrated"
+  },
+  {
+   "thesis_figure": "T09",
+   "file": "T09_test_power.png",
+   "chapter": 2,
+   "source_dir": "figures_v2",
+   "source_file": "F13_test_power.png",
+   "drawn_by": "src/report/figures_v2.py",
+   "why_it_earns_its_place": "22/23 classes underpowered -- the basis for limitation L1"
+  },
+  {
+   "thesis_figure": "T10",
+   "file": "T10_prisma.png",
+   "chapter": 3,
+   "source_dir": "figures_v2",
+   "source_file": "F17_prisma.png",
+   "drawn_by": "src/report/figures_v2.py",
+   "why_it_earns_its_place": "PRISMA 2020 flow, 1,349 unique records to 82 included"
+  },
+  {
+   "thesis_figure": "T11",
+   "file": "T11_literature_gaps.png",
+   "chapter": 3,
+   "source_dir": "figures_v2",
+   "source_file": "F18_literature.png",
+   "drawn_by": "src/report/figures_v2.py",
+   "why_it_earns_its_place": "the four commonest omissions this design addresses"
+  },
+  {
+   "thesis_figure": "T12",
+   "file": "T12_baseline_reproduction.png",
+   "chapter": 4,
+   "source_dir": "figures_phase2",
+   "source_file": "P2_F10_verdict.png",
+   "drawn_by": "src/report/figures_phase2.py",
+   "why_it_earns_its_place": "the pipeline reproduces the published baseline before anything is changed"
+  },
+  {
+   "thesis_figure": "T13",
+   "file": "T13_stratified_curve_raw.png",
+   "chapter": 4,
+   "source_dir": "figures_phase3",
+   "source_file": "P3_F21_stratified_curve.png",
+   "drawn_by": "src/report/figures_phase3.py (and figures_phase3b.py)",
+   "why_it_earns_its_place": "the raw stratified decline -- the number the literature would report"
+  },
+  {
+   "thesis_figure": "T14",
+   "file": "T14_stratified_curve_ceiling.png",
+   "chapter": 4,
+   "source_dir": "figures_phase3",
+   "source_file": "P3_F25_ceiling_normalised_curve.png",
+   "drawn_by": "src/report/figures_phase3.py (and figures_phase3b.py)",
+   "why_it_earns_its_place": "the same decline once the attainable ceiling is held constant"
+  },
+  {
+   "thesis_figure": "T15",
+   "file": "T15_gap_forest.png",
+   "chapter": 4,
+   "source_dir": "figures_phase3",
+   "source_file": "P3_F26_pairwise_gap_forest.png",
+   "drawn_by": "src/report/figures_phase3.py (and figures_phase3b.py)",
+   "why_it_earns_its_place": "RQ1's confirmatory endpoint with patient-clustered intervals"
+  },
+  {
+   "thesis_figure": "T16",
+   "file": "T16_calibration_by_stratum.png",
+   "chapter": 4,
+   "source_dir": "figures_phase3",
+   "source_file": "P3_F27_calibration_by_stratum.png",
+   "drawn_by": "src/report/figures_phase3.py (and figures_phase3b.py)",
+   "why_it_earns_its_place": "the calibration collapse: ECE 9.15% to 56.40% -- the durable finding"
+  },
+  {
+   "thesis_figure": "T17",
+   "file": "T17_confound_controls.png",
+   "chapter": 4,
+   "source_dir": "figures_phase3",
+   "source_file": "P3_F30_confound_controls.png",
+   "drawn_by": "src/report/figures_phase3.py (and figures_phase3b.py)",
+   "why_it_earns_its_place": "class and acquisition-stream composition do not explain the effect"
+  },
+  {
+   "thesis_figure": "T18",
+   "file": "T18_config_design.png",
+   "chapter": 5,
+   "source_dir": "figures_phase4",
+   "source_file": "P4_F25_design.png",
+   "drawn_by": "src/report/figures_phase4.py",
+   "why_it_earns_its_place": "five targets, one cohort, one thing varying"
+  },
+  {
+   "thesis_figure": "T19",
+   "file": "T19_rq2_forest.png",
+   "chapter": 5,
+   "source_dir": "figures_phase4",
+   "source_file": "P4_F27_contrast_forest.png",
+   "drawn_by": "src/report/figures_phase4.py",
+   "why_it_earns_its_place": "RQ2's pre-registered contrast against the matched control"
+  },
+  {
+   "thesis_figure": "T20",
+   "file": "T20_calibration_by_config.png",
+   "chapter": 5,
+   "source_dir": "figures_phase4",
+   "source_file": "P4_F28_calibration.png",
+   "drawn_by": "src/report/figures_phase4.py",
+   "why_it_earns_its_place": "the reversal: the control is better calibrated where it matters"
+  },
+  {
+   "thesis_figure": "T21",
+   "file": "T21_overconfidence.png",
+   "chapter": 5,
+   "source_dir": "figures_phase4",
+   "source_file": "P4_F29_overconfidence.png",
+   "drawn_by": "src/report/figures_phase4.py",
+   "why_it_earns_its_place": "confidence falls 9 points while accuracy falls 57"
+  },
+  {
+   "thesis_figure": "T22",
+   "file": "T22_external_label_space.png",
+   "chapter": 6,
+   "source_dir": "figures_phase5",
+   "source_file": "P5_F33_label_space.png",
+   "drawn_by": "src/report/figures_phase5.py",
+   "why_it_earns_its_place": "the label-space finding that precedes any transfer number"
+  },
+  {
+   "thesis_figure": "T23",
+   "file": "T23_external_transfer.png",
+   "chapter": 6,
+   "source_dir": "figures_phase5",
+   "source_file": "P5_F35_transfer.png",
+   "drawn_by": "src/report/figures_phase5.py",
+   "why_it_earns_its_place": "P5-A: transfer with a drop twice the pre-registered expectation"
+  },
+  {
+   "thesis_figure": "T24",
+   "file": "T24_external_rejection.png",
+   "chapter": 6,
+   "source_dir": "figures_phase5",
+   "source_file": "P5_F36_rejection.png",
+   "drawn_by": "src/report/figures_phase5.py",
+   "why_it_earns_its_place": "P5-B falsified favourably: rejection at 63.4% against a 4.35% floor"
+  },
+  {
+   "thesis_figure": "T25",
+   "file": "T25_human_comparator.png",
+   "chapter": 7,
+   "source_dir": "figures_phase6",
+   "source_file": "P6_F38_human_comparator.png",
+   "drawn_by": "src/report/figures_phase6.py",
+   "why_it_earns_its_place": "the model between an individual annotator and the modal-vote oracle"
+  },
+  {
+   "thesis_figure": "T26",
+   "file": "T26_confusion_geometry.png",
+   "chapter": 7,
+   "source_dir": "figures_phase6",
+   "source_file": "P6_F39_confusion_geometry.png",
+   "drawn_by": "src/report/figures_phase6.py",
+   "why_it_earns_its_place": "wall geometry mirrors humans; station geometry does not"
+  },
+  {
+   "thesis_figure": "T27",
+   "file": "T27_attribution_not_estimable.png",
+   "chapter": 7,
+   "source_dir": "figures_phase6",
+   "source_file": "P6_F40_dispersion_vs_entropy.png",
+   "drawn_by": "src/report/figures_phase6.py",
+   "why_it_earns_its_place": "why the pre-registered attribution endpoint cannot be computed"
+  },
+  {
+   "thesis_figure": "T28",
+   "file": "T28_attribution_stability.png",
+   "chapter": 7,
+   "source_dir": "figures_phase6",
+   "source_file": "P6_F41_attribution_stability.png",
+   "drawn_by": "src/report/figures_phase6.py",
+   "why_it_earns_its_place": "soft targets buy spatial consistency across seeds"
+  },
+  {
+   "thesis_figure": "T29",
+   "file": "T29_risk_coverage_external.png",
+   "chapter": 7,
+   "source_dir": "figures_phase6",
+   "source_file": "P6_F44_risk_coverage_external.png",
+   "drawn_by": "src/report/figures_phase6.py",
+   "why_it_earns_its_place": "the endpoint that actually separates the configurations"
+  },
+  {
+   "thesis_figure": "T30",
+   "file": "T30_endpoint_synthesis.png",
+   "chapter": 7,
+   "source_dir": "figures_phase6",
+   "source_file": "P6_F45_synthesis.png",
+   "drawn_by": "src/report/figures_phase6.py",
+   "why_it_earns_its_place": "no configuration wins everywhere -- the rows disagree"
+  },
+  {
+   "thesis_figure": "T31",
+   "file": "T31_negative_control.png",
+   "chapter": 8,
+   "source_dir": "figures_v2",
+   "source_file": "F16_negative_control.png",
+   "drawn_by": "src/report/figures_v2.py",
+   "why_it_earns_its_place": "the retired corpus as the audit protocol's negative control"
+  }
+ ],
+ "runtime_sec": 0.0
+}

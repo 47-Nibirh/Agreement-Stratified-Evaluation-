@@ -1,0 +1,1866 @@
+{
+ "generated": "2026-07-29 00:37:57",
+ "phase": 6,
+ "step": "P6.2",
+ "endpoint": "P6-A",
+ "question": "Is the model's per-stratum performance distinguishable from that of a held-out human annotator scored the same way?",
+ "construction": "For each held-out annotator a in {0,1,2,3}: human_a = mean over b != a of macroF1(votes[:,b], votes[:,a]); model_a = mean over b != a of macroF1(votes[:,b], model_pred); delta_a = model_a - human_a. Reported as the mean over the four held-out annotators, per stratum.",
+ "why_exclude_self": "Scoring an annotator against a reference set that contains themselves makes one of the terms an identity and inflates the human side. Excluding a from the reference costs precision and buys a comparison that is not rigged. The model is scored against the SAME three references so the two sides differ only in who produced the prediction.",
+ "verdict_rule": "BELOW THE HUMAN PANEL if the 95% CI on delta excludes 0 below; ABOVE THE HUMAN PANEL if it excludes 0 above; INDISTINGUISHABLE FROM THE HUMAN PANEL if it contains 0.",
+ "interpretation_fixed_in_advance": "If the model is INDISTINGUISHABLE from the human panel on the contested strata while scoring 26-49 macro F1 there, then the low absolute scores reported in Phase 3 are a property of the task and not of the model. That inference is licensed only for the strata where the verdict is INDISTINGUISHABLE or ABOVE.",
+ "interpretation_superseded": "The pre-registration fixed the interpretation 'if the model is INDISTINGUISHABLE from the human panel on the contested strata while scoring 26-49 macro F1, the low absolute scores are a property of the task and not of the model.' That inference is now only PARTLY licensed. The modal-vote oracle added in P6-AMD-5 shows the attainable ceiling on contested images is 0.67, not 1.0, so a large part of the Phase 3 decline IS the ceiling moving -- consistent with the Phase 3B ceiling-normalised analysis. But the model reaches only about a quarter of the way from an individual annotator to that ceiling, so a substantial model shortfall remains and 'the low scores are a property of the task' overstates it. The thesis must use the qualified_verdict field, not verdict_summary.",
+ "annotator_order": [
+  "G1",
+  "G2",
+  "FG1",
+  "FG2"
+ ],
+ "arms": [
+  "C0",
+  "C1",
+  "C2",
+  "C3",
+  "C4"
+ ],
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "bootstrap_note": "the bootstrap uses seed 1 for the model side, because resampling 4 held-out panels x 5 arms x 3 seeds x 1,000 resamples is not affordable on this hardware; the 3-seed point estimates above show the seed spread, which is small relative to the intervals",
+ "gates": {
+  "P6.1a": "PASS -- row order identical to phase3_cache_index.csv",
+  "P6.1b": {
+   "status": "PASS",
+   "worst_abs_delta": 0.0,
+   "per_stratum": {
+    "S-unanimous": {
+     "recomputed": 0.83915,
+     "phase3_published": 0.83915,
+     "abs_delta": 0.0
+    },
+    "S-majority": {
+     "recomputed": 0.48947,
+     "phase3_published": 0.48947,
+     "abs_delta": 0.0
+    },
+    "S-plurality": {
+     "recomputed": 0.26154,
+     "phase3_published": 0.26154,
+     "abs_delta": 0.0
+    },
+    "S-no-majority": {
+     "recomputed": 0.30788,
+     "phase3_published": 0.30788,
+     "abs_delta": 0.0
+    }
+   }
+  },
+  "P6.2a": {
+   "status": "PASS",
+   "worst_abs_delta": 0.0,
+   "per_stratum": {
+    "S-unanimous": {
+     "recomputed": 0.83915,
+     "published": 0.83915,
+     "abs_delta": 0.0
+    },
+    "S-majority": {
+     "recomputed": 0.48947,
+     "published": 0.48947,
+     "abs_delta": 0.0
+    },
+    "S-plurality": {
+     "recomputed": 0.26154,
+     "published": 0.26154,
+     "abs_delta": 0.0
+    },
+    "S-no-majority": {
+     "recomputed": 0.30788,
+     "published": 0.30788,
+     "abs_delta": 0.0
+    }
+   }
+  }
+ },
+ "headline_arm": "C2",
+ "sensitivity_P6-AMD-5": {
+  "what": "two asymmetries in the P6-A construction, found after scoring and measured rather than argued: the model is optimised to predict THIS panel's consensus and the held-out annotator is not (exposure); and the model chooses a label while the held-out annotator is stuck with the one they gave (choice).",
+  "why_it_matters": "the pre-registered verdict 'ABOVE THE HUMAN PANEL' invites the reading that the classifier out-performs a board-certified endoscopist. The measurements below do not support that reading in general. They support a narrower and more interesting one, stated per stratum.",
+  "modal_vote_oracle": "the modal label of the same three references is the best any single-label predictor can achieve against them. It bounds the comparison. A model that merely reaches it is doing what any modal-vote rule does; only a model that EXCEEDS it is doing something an aggregation rule could not.",
+  "singleton_rate": "the fraction of images on which the held-out annotator's label is shared by none of the other three. Such an annotator cannot score well whatever their skill. It is fixed by the stratum definition: 0% where all four agree, 25% on a 3-1 stratum, 50% on a 2-1-1 stratum. Where it is high, the human side is structurally handicapped and the contrast is not a like-for-like skill test.",
+  "by_stratum": {
+   "S-unanimous": {
+    "human_held_out": 1.0,
+    "modal_vote_oracle": 1.0,
+    "structural_headroom": 0.0,
+    "mean_singleton_rate": 0.0,
+    "by_arm": {
+     "C0": {
+      "model": 0.83915,
+      "vs_human": -0.16085,
+      "vs_oracle": -0.16085,
+      "position_in_headroom": null,
+      "exceeds_oracle": false
+     },
+     "C1": {
+      "model": 0.84486,
+      "vs_human": -0.15514,
+      "vs_oracle": -0.15514,
+      "position_in_headroom": null,
+      "exceeds_oracle": false
+     },
+     "C2": {
+      "model": 0.85139,
+      "vs_human": -0.14861,
+      "vs_oracle": -0.14861,
+      "position_in_headroom": null,
+      "exceeds_oracle": false
+     },
+     "C3": {
+      "model": 0.85027,
+      "vs_human": -0.14973,
+      "vs_oracle": -0.14973,
+      "position_in_headroom": null,
+      "exceeds_oracle": false
+     },
+     "C4": {
+      "model": 0.85251,
+      "vs_human": -0.14749,
+      "vs_oracle": -0.14749,
+      "position_in_headroom": null,
+      "exceeds_oracle": false
+     }
+    },
+    "exposure_contrast_C0_vs_soft": {
+     "C0_vs_human": -0.16085,
+     "C2_vs_human": -0.14861,
+     "interpretation": "C0 was trained only on unanimous 4/4 images and never saw this panel's contested aggregation. Where C0's advantage over the held-out human is ~0 while the soft-target arms' is positive, the effect IS panel exposure. Where C0 matches the soft-target arms, exposure cannot explain it and the structural headroom below is the operative explanation."
+    }
+   },
+   "S-majority": {
+    "human_held_out": 0.48933,
+    "modal_vote_oracle": 0.74231,
+    "structural_headroom": 0.25298,
+    "mean_singleton_rate": 0.25,
+    "by_arm": {
+     "C0": {
+      "model": 0.48947,
+      "vs_human": 0.00014,
+      "vs_oracle": -0.25284,
+      "position_in_headroom": 0.0005,
+      "exceeds_oracle": false
+     },
+     "C1": {
+      "model": 0.50757,
+      "vs_human": 0.01824,
+      "vs_oracle": -0.23474,
+      "position_in_headroom": 0.0721,
+      "exceeds_oracle": false
+     },
+     "C2": {
+      "model": 0.53007,
+      "vs_human": 0.04074,
+      "vs_oracle": -0.21224,
+      "position_in_headroom": 0.161,
+      "exceeds_oracle": false
+     },
+     "C3": {
+      "model": 0.5195,
+      "vs_human": 0.03017,
+      "vs_oracle": -0.22281,
+      "position_in_headroom": 0.1193,
+      "exceeds_oracle": false
+     },
+     "C4": {
+      "model": 0.52598,
+      "vs_human": 0.03665,
+      "vs_oracle": -0.21633,
+      "position_in_headroom": 0.1449,
+      "exceeds_oracle": false
+     }
+    },
+    "exposure_contrast_C0_vs_soft": {
+     "C0_vs_human": 0.00014,
+     "C2_vs_human": 0.04074,
+     "interpretation": "C0 was trained only on unanimous 4/4 images and never saw this panel's contested aggregation. Where C0's advantage over the held-out human is ~0 while the soft-target arms' is positive, the effect IS panel exposure. Where C0 matches the soft-target arms, exposure cannot explain it and the structural headroom below is the operative explanation."
+    }
+   },
+   "S-plurality": {
+    "human_held_out": 0.14365,
+    "modal_vote_oracle": 0.44922,
+    "structural_headroom": 0.30557,
+    "mean_singleton_rate": 0.5,
+    "by_arm": {
+     "C0": {
+      "model": 0.26154,
+      "vs_human": 0.1179,
+      "vs_oracle": -0.18768,
+      "position_in_headroom": 0.3858,
+      "exceeds_oracle": false
+     },
+     "C1": {
+      "model": 0.26416,
+      "vs_human": 0.12051,
+      "vs_oracle": -0.18506,
+      "position_in_headroom": 0.3944,
+      "exceeds_oracle": false
+     },
+     "C2": {
+      "model": 0.26679,
+      "vs_human": 0.12314,
+      "vs_oracle": -0.18243,
+      "position_in_headroom": 0.403,
+      "exceeds_oracle": false
+     },
+     "C3": {
+      "model": 0.25667,
+      "vs_human": 0.11302,
+      "vs_oracle": -0.19256,
+      "position_in_headroom": 0.3699,
+      "exceeds_oracle": false
+     },
+     "C4": {
+      "model": 0.26584,
+      "vs_human": 0.12219,
+      "vs_oracle": -0.18338,
+      "position_in_headroom": 0.3999,
+      "exceeds_oracle": false
+     }
+    },
+    "exposure_contrast_C0_vs_soft": {
+     "C0_vs_human": 0.1179,
+     "C2_vs_human": 0.12314,
+     "interpretation": "C0 was trained only on unanimous 4/4 images and never saw this panel's contested aggregation. Where C0's advantage over the held-out human is ~0 while the soft-target arms' is positive, the effect IS panel exposure. Where C0 matches the soft-target arms, exposure cannot explain it and the structural headroom below is the operative explanation."
+    }
+   },
+   "S-no-majority": {
+    "human_held_out": 0.25061,
+    "modal_vote_oracle": 0.54474,
+    "structural_headroom": 0.29413,
+    "mean_singleton_rate": 0.09877,
+    "by_arm": {
+     "C0": {
+      "model": 0.30788,
+      "vs_human": 0.05727,
+      "vs_oracle": -0.23686,
+      "position_in_headroom": 0.1947,
+      "exceeds_oracle": false
+     },
+     "C1": {
+      "model": 0.31148,
+      "vs_human": 0.06087,
+      "vs_oracle": -0.23326,
+      "position_in_headroom": 0.207,
+      "exceeds_oracle": false
+     },
+     "C2": {
+      "model": 0.31349,
+      "vs_human": 0.06289,
+      "vs_oracle": -0.23125,
+      "position_in_headroom": 0.2138,
+      "exceeds_oracle": false
+     },
+     "C3": {
+      "model": 0.31055,
+      "vs_human": 0.05994,
+      "vs_oracle": -0.23419,
+      "position_in_headroom": 0.2038,
+      "exceeds_oracle": false
+     },
+     "C4": {
+      "model": 0.33476,
+      "vs_human": 0.08415,
+      "vs_oracle": -0.20998,
+      "position_in_headroom": 0.2861,
+      "exceeds_oracle": false
+     }
+    },
+    "exposure_contrast_C0_vs_soft": {
+     "C0_vs_human": 0.05727,
+     "C2_vs_human": 0.06289,
+     "interpretation": "C0 was trained only on unanimous 4/4 images and never saw this panel's contested aggregation. Where C0's advantage over the held-out human is ~0 while the soft-target arms' is positive, the effect IS panel exposure. Where C0 matches the soft-target arms, exposure cannot explain it and the structural headroom below is the operative explanation."
+    }
+   },
+   "S-contested (pooled)": {
+    "human_held_out": 0.39022,
+    "modal_vote_oracle": 0.67001,
+    "structural_headroom": 0.27979,
+    "mean_singleton_rate": 0.28545,
+    "by_arm": {
+     "C0": {
+      "model": 0.42418,
+      "vs_human": 0.03396,
+      "vs_oracle": -0.24583,
+      "position_in_headroom": 0.1214,
+      "exceeds_oracle": false
+     },
+     "C1": {
+      "model": 0.4376,
+      "vs_human": 0.04738,
+      "vs_oracle": -0.23241,
+      "position_in_headroom": 0.1693,
+      "exceeds_oracle": false
+     },
+     "C2": {
+      "model": 0.45751,
+      "vs_human": 0.0673,
+      "vs_oracle": -0.21249,
+      "position_in_headroom": 0.2405,
+      "exceeds_oracle": false
+     },
+     "C3": {
+      "model": 0.4435,
+      "vs_human": 0.05329,
+      "vs_oracle": -0.22651,
+      "position_in_headroom": 0.1904,
+      "exceeds_oracle": false
+     },
+     "C4": {
+      "model": 0.45469,
+      "vs_human": 0.06447,
+      "vs_oracle": -0.21532,
+      "position_in_headroom": 0.2304,
+      "exceeds_oracle": false
+     }
+    },
+    "exposure_contrast_C0_vs_soft": {
+     "C0_vs_human": 0.03396,
+     "C2_vs_human": 0.0673,
+     "interpretation": "C0 was trained only on unanimous 4/4 images and never saw this panel's contested aggregation. Where C0's advantage over the held-out human is ~0 while the soft-target arms' is positive, the effect IS panel exposure. Where C0 matches the soft-target arms, exposure cannot explain it and the structural headroom below is the operative explanation."
+    }
+   }
+  }
+ },
+ "declared_degeneracy": {
+  "S-unanimous": {
+   "human_panel_score": 1.0,
+   "degenerate": true,
+   "reason": "the stratum is DEFINED by all four annotators agreeing, so a held-out annotator reproduces the other three exactly and the human side is 1.0 by construction. The contrast on this stratum is tautological and carries no information about human ability."
+  },
+  "S-majority": {
+   "human_panel_score": 0.489331,
+   "degenerate": false,
+   "reason": "annotators genuinely disagree on this stratum, so the held-out score is a measurement rather than an identity"
+  },
+  "S-plurality": {
+   "human_panel_score": 0.143648,
+   "degenerate": false,
+   "reason": "annotators genuinely disagree on this stratum, so the held-out score is a measurement rather than an identity"
+  },
+  "S-no-majority": {
+   "human_panel_score": 0.250606,
+   "degenerate": false,
+   "reason": "annotators genuinely disagree on this stratum, so the held-out score is a measurement rather than an identity"
+  },
+  "S-contested (pooled)": {
+   "human_panel_score": 0.390215,
+   "degenerate": false,
+   "reason": "annotators genuinely disagree on this stratum, so the held-out score is a measurement rather than an identity"
+  }
+ },
+ "amendment": "P6-AMD-1: the pre-registration did not anticipate that the human side of P6-A is 1.0 by construction on any stratum defined by unanimity. The S-unanimous verdict is therefore reported as UNINFORMATIVE (BY CONSTRUCTION) rather than as BELOW THE HUMAN PANEL. The contested strata, where annotators genuinely disagree, are unaffected and carry the endpoint.",
+ "results": {
+  "S-unanimous": {
+   "n_images": 803,
+   "n_patients": 58,
+   "per_held_out_annotator": {
+    "G1": {
+     "held_out_annotator_score": 1.0,
+     "reference_panel": [
+      "G2",
+      "FG1",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.83915,
+       "per_seed": [
+        0.83673,
+        0.83136,
+        0.84936
+       ],
+       "delta_vs_human": -0.16085
+      },
+      "C1": {
+       "model_3seed_mean": 0.84486,
+       "per_seed": [
+        0.84929,
+        0.84354,
+        0.84177
+       ],
+       "delta_vs_human": -0.15514
+      },
+      "C2": {
+       "model_3seed_mean": 0.85139,
+       "per_seed": [
+        0.85749,
+        0.84547,
+        0.85121
+       ],
+       "delta_vs_human": -0.14861
+      },
+      "C3": {
+       "model_3seed_mean": 0.85027,
+       "per_seed": [
+        0.85386,
+        0.85271,
+        0.84425
+       ],
+       "delta_vs_human": -0.14973
+      },
+      "C4": {
+       "model_3seed_mean": 0.85251,
+       "per_seed": [
+        0.85502,
+        0.85155,
+        0.85097
+       ],
+       "delta_vs_human": -0.14749
+      }
+     }
+    },
+    "G2": {
+     "held_out_annotator_score": 1.0,
+     "reference_panel": [
+      "G1",
+      "FG1",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.83915,
+       "per_seed": [
+        0.83673,
+        0.83136,
+        0.84936
+       ],
+       "delta_vs_human": -0.16085
+      },
+      "C1": {
+       "model_3seed_mean": 0.84486,
+       "per_seed": [
+        0.84929,
+        0.84354,
+        0.84177
+       ],
+       "delta_vs_human": -0.15514
+      },
+      "C2": {
+       "model_3seed_mean": 0.85139,
+       "per_seed": [
+        0.85749,
+        0.84547,
+        0.85121
+       ],
+       "delta_vs_human": -0.14861
+      },
+      "C3": {
+       "model_3seed_mean": 0.85027,
+       "per_seed": [
+        0.85386,
+        0.85271,
+        0.84425
+       ],
+       "delta_vs_human": -0.14973
+      },
+      "C4": {
+       "model_3seed_mean": 0.85251,
+       "per_seed": [
+        0.85502,
+        0.85155,
+        0.85097
+       ],
+       "delta_vs_human": -0.14749
+      }
+     }
+    },
+    "FG1": {
+     "held_out_annotator_score": 1.0,
+     "reference_panel": [
+      "G1",
+      "G2",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.83915,
+       "per_seed": [
+        0.83673,
+        0.83136,
+        0.84936
+       ],
+       "delta_vs_human": -0.16085
+      },
+      "C1": {
+       "model_3seed_mean": 0.84486,
+       "per_seed": [
+        0.84929,
+        0.84354,
+        0.84177
+       ],
+       "delta_vs_human": -0.15514
+      },
+      "C2": {
+       "model_3seed_mean": 0.85139,
+       "per_seed": [
+        0.85749,
+        0.84547,
+        0.85121
+       ],
+       "delta_vs_human": -0.14861
+      },
+      "C3": {
+       "model_3seed_mean": 0.85027,
+       "per_seed": [
+        0.85386,
+        0.85271,
+        0.84425
+       ],
+       "delta_vs_human": -0.14973
+      },
+      "C4": {
+       "model_3seed_mean": 0.85251,
+       "per_seed": [
+        0.85502,
+        0.85155,
+        0.85097
+       ],
+       "delta_vs_human": -0.14749
+      }
+     }
+    },
+    "FG2": {
+     "held_out_annotator_score": 1.0,
+     "reference_panel": [
+      "G1",
+      "G2",
+      "FG1"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.83915,
+       "per_seed": [
+        0.83673,
+        0.83136,
+        0.84936
+       ],
+       "delta_vs_human": -0.16085
+      },
+      "C1": {
+       "model_3seed_mean": 0.84486,
+       "per_seed": [
+        0.84929,
+        0.84354,
+        0.84177
+       ],
+       "delta_vs_human": -0.15514
+      },
+      "C2": {
+       "model_3seed_mean": 0.85139,
+       "per_seed": [
+        0.85749,
+        0.84547,
+        0.85121
+       ],
+       "delta_vs_human": -0.14861
+      },
+      "C3": {
+       "model_3seed_mean": 0.85027,
+       "per_seed": [
+        0.85386,
+        0.85271,
+        0.84425
+       ],
+       "delta_vs_human": -0.14973
+      },
+      "C4": {
+       "model_3seed_mean": 0.85251,
+       "per_seed": [
+        0.85502,
+        0.85155,
+        0.85097
+       ],
+       "delta_vs_human": -0.14749
+      }
+     }
+    }
+   },
+   "bootstrap": {
+    "n_resamples": 1000,
+    "unit": "patient",
+    "gate_P6.2b": "PASS -- human and model scored on the identical row index array in every one of the 1000 resamples",
+    "human_panel_mean_ci95": [
+     1.0,
+     1.0
+    ],
+    "by_arm": {
+     "C0": {
+      "model_mean_ci95": [
+       0.8098,
+       0.86336
+      ],
+      "delta_mean": -0.16368,
+      "delta_ci95": [
+       -0.1902,
+       -0.13664
+      ],
+      "verdict": "UNINFORMATIVE (BY CONSTRUCTION)"
+     },
+     "C1": {
+      "model_mean_ci95": [
+       0.82371,
+       0.87468
+      ],
+      "delta_mean": -0.15073,
+      "delta_ci95": [
+       -0.17629,
+       -0.12532
+      ],
+      "verdict": "UNINFORMATIVE (BY CONSTRUCTION)"
+     },
+     "C2": {
+      "model_mean_ci95": [
+       0.8306,
+       0.88149
+      ],
+      "delta_mean": -0.14289,
+      "delta_ci95": [
+       -0.1694,
+       -0.11851
+      ],
+      "verdict": "UNINFORMATIVE (BY CONSTRUCTION)",
+      "verdict_original": "BELOW THE HUMAN PANEL"
+     },
+     "C3": {
+      "model_mean_ci95": [
+       0.82672,
+       0.87974
+      ],
+      "delta_mean": -0.14606,
+      "delta_ci95": [
+       -0.17328,
+       -0.12026
+      ],
+      "verdict": "UNINFORMATIVE (BY CONSTRUCTION)"
+     },
+     "C4": {
+      "model_mean_ci95": [
+       0.82958,
+       0.87992
+      ],
+      "delta_mean": -0.145,
+      "delta_ci95": [
+       -0.17042,
+       -0.12008
+      ],
+      "verdict": "UNINFORMATIVE (BY CONSTRUCTION)"
+     }
+    }
+   }
+  },
+  "S-majority": {
+   "n_images": 342,
+   "n_patients": 57,
+   "per_held_out_annotator": {
+    "G1": {
+     "held_out_annotator_score": 0.50721,
+     "reference_panel": [
+      "G2",
+      "FG1",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.50906,
+       "per_seed": [
+        0.50532,
+        0.51151,
+        0.51034
+       ],
+       "delta_vs_human": 0.00185
+      },
+      "C1": {
+       "model_3seed_mean": 0.51967,
+       "per_seed": [
+        0.52639,
+        0.53369,
+        0.49893
+       ],
+       "delta_vs_human": 0.01246
+      },
+      "C2": {
+       "model_3seed_mean": 0.54365,
+       "per_seed": [
+        0.54699,
+        0.54747,
+        0.53651
+       ],
+       "delta_vs_human": 0.03645
+      },
+      "C3": {
+       "model_3seed_mean": 0.52653,
+       "per_seed": [
+        0.53522,
+        0.52804,
+        0.51632
+       ],
+       "delta_vs_human": 0.01932
+      },
+      "C4": {
+       "model_3seed_mean": 0.53981,
+       "per_seed": [
+        0.54418,
+        0.55374,
+        0.52153
+       ],
+       "delta_vs_human": 0.03261
+      }
+     }
+    },
+    "G2": {
+     "held_out_annotator_score": 0.38065,
+     "reference_panel": [
+      "G1",
+      "FG1",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.48394,
+       "per_seed": [
+        0.48316,
+        0.48912,
+        0.47953
+       ],
+       "delta_vs_human": 0.10328
+      },
+      "C1": {
+       "model_3seed_mean": 0.50739,
+       "per_seed": [
+        0.51481,
+        0.52899,
+        0.47836
+       ],
+       "delta_vs_human": 0.12674
+      },
+      "C2": {
+       "model_3seed_mean": 0.52696,
+       "per_seed": [
+        0.52954,
+        0.5281,
+        0.52323
+       ],
+       "delta_vs_human": 0.1463
+      },
+      "C3": {
+       "model_3seed_mean": 0.52412,
+       "per_seed": [
+        0.52425,
+        0.52532,
+        0.52278
+       ],
+       "delta_vs_human": 0.14346
+      },
+      "C4": {
+       "model_3seed_mean": 0.52167,
+       "per_seed": [
+        0.52398,
+        0.54212,
+        0.49889
+       ],
+       "delta_vs_human": 0.14101
+      }
+     }
+    },
+    "FG1": {
+     "held_out_annotator_score": 0.55143,
+     "reference_panel": [
+      "G1",
+      "G2",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.47496,
+       "per_seed": [
+        0.47451,
+        0.47506,
+        0.4753
+       ],
+       "delta_vs_human": -0.07647
+      },
+      "C1": {
+       "model_3seed_mean": 0.49107,
+       "per_seed": [
+        0.50626,
+        0.50183,
+        0.46511
+       ],
+       "delta_vs_human": -0.06036
+      },
+      "C2": {
+       "model_3seed_mean": 0.51567,
+       "per_seed": [
+        0.51769,
+        0.52006,
+        0.50926
+       ],
+       "delta_vs_human": -0.03576
+      },
+      "C3": {
+       "model_3seed_mean": 0.50153,
+       "per_seed": [
+        0.5076,
+        0.50028,
+        0.49669
+       ],
+       "delta_vs_human": -0.04991
+      },
+      "C4": {
+       "model_3seed_mean": 0.51122,
+       "per_seed": [
+        0.51533,
+        0.52287,
+        0.49547
+       ],
+       "delta_vs_human": -0.04021
+      }
+     }
+    },
+    "FG2": {
+     "held_out_annotator_score": 0.51803,
+     "reference_panel": [
+      "G1",
+      "G2",
+      "FG1"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.48993,
+       "per_seed": [
+        0.48377,
+        0.49035,
+        0.49566
+       ],
+       "delta_vs_human": -0.02811
+      },
+      "C1": {
+       "model_3seed_mean": 0.51216,
+       "per_seed": [
+        0.52038,
+        0.5245,
+        0.49159
+       ],
+       "delta_vs_human": -0.00588
+      },
+      "C2": {
+       "model_3seed_mean": 0.534,
+       "per_seed": [
+        0.5371,
+        0.53694,
+        0.52796
+       ],
+       "delta_vs_human": 0.01597
+      },
+      "C3": {
+       "model_3seed_mean": 0.52584,
+       "per_seed": [
+        0.53633,
+        0.52261,
+        0.51857
+       ],
+       "delta_vs_human": 0.0078
+      },
+      "C4": {
+       "model_3seed_mean": 0.53123,
+       "per_seed": [
+        0.53153,
+        0.54408,
+        0.51807
+       ],
+       "delta_vs_human": 0.0132
+      }
+     }
+    }
+   },
+   "bootstrap": {
+    "n_resamples": 1000,
+    "unit": "patient",
+    "gate_P6.2b": "PASS -- human and model scored on the identical row index array in every one of the 1000 resamples",
+    "human_panel_mean_ci95": [
+     0.46985,
+     0.49182
+    ],
+    "by_arm": {
+     "C0": {
+      "model_mean_ci95": [
+       0.44077,
+       0.51359
+      ],
+      "delta_mean": -0.00439,
+      "delta_ci95": [
+       -0.04121,
+       0.03239
+      ],
+      "verdict": "INDISTINGUISHABLE FROM THE HUMAN PANEL"
+     },
+     "C1": {
+      "model_mean_ci95": [
+       0.47335,
+       0.54334
+      ],
+      "delta_mean": 0.02626,
+      "delta_ci95": [
+       -0.00952,
+       0.06008
+      ],
+      "verdict": "INDISTINGUISHABLE FROM THE HUMAN PANEL"
+     },
+     "C2": {
+      "model_mean_ci95": [
+       0.47706,
+       0.56846
+      ],
+      "delta_mean": 0.04056,
+      "delta_ci95": [
+       -0.00461,
+       0.08426
+      ],
+      "verdict": "INDISTINGUISHABLE FROM THE HUMAN PANEL"
+     },
+     "C3": {
+      "model_mean_ci95": [
+       0.48322,
+       0.55269
+      ],
+      "delta_mean": 0.03595,
+      "delta_ci95": [
+       -0.00032,
+       0.07272
+      ],
+      "verdict": "INDISTINGUISHABLE FROM THE HUMAN PANEL"
+     },
+     "C4": {
+      "model_mean_ci95": [
+       0.4771,
+       0.55952
+      ],
+      "delta_mean": 0.03677,
+      "delta_ci95": [
+       -0.00428,
+       0.07452
+      ],
+      "verdict": "INDISTINGUISHABLE FROM THE HUMAN PANEL"
+     }
+    }
+   }
+  },
+  "S-plurality": {
+   "n_images": 127,
+   "n_patients": 38,
+   "per_held_out_annotator": {
+    "G1": {
+     "held_out_annotator_score": 0.1392,
+     "reference_panel": [
+      "G2",
+      "FG1",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.2595,
+       "per_seed": [
+        0.2447,
+        0.27912,
+        0.25468
+       ],
+       "delta_vs_human": 0.1203
+      },
+      "C1": {
+       "model_3seed_mean": 0.26767,
+       "per_seed": [
+        0.28139,
+        0.24722,
+        0.2744
+       ],
+       "delta_vs_human": 0.12847
+      },
+      "C2": {
+       "model_3seed_mean": 0.2685,
+       "per_seed": [
+        0.26331,
+        0.26904,
+        0.27316
+       ],
+       "delta_vs_human": 0.1293
+      },
+      "C3": {
+       "model_3seed_mean": 0.25603,
+       "per_seed": [
+        0.24627,
+        0.2402,
+        0.28163
+       ],
+       "delta_vs_human": 0.11683
+      },
+      "C4": {
+       "model_3seed_mean": 0.2692,
+       "per_seed": [
+        0.27242,
+        0.26563,
+        0.26956
+       ],
+       "delta_vs_human": 0.13
+      }
+     }
+    },
+    "G2": {
+     "held_out_annotator_score": 0.11173,
+     "reference_panel": [
+      "G1",
+      "FG1",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.26729,
+       "per_seed": [
+        0.25212,
+        0.28348,
+        0.26627
+       ],
+       "delta_vs_human": 0.15556
+      },
+      "C1": {
+       "model_3seed_mean": 0.26857,
+       "per_seed": [
+        0.2644,
+        0.25793,
+        0.28339
+       ],
+       "delta_vs_human": 0.15684
+      },
+      "C2": {
+       "model_3seed_mean": 0.26691,
+       "per_seed": [
+        0.25741,
+        0.27883,
+        0.26448
+       ],
+       "delta_vs_human": 0.15518
+      },
+      "C3": {
+       "model_3seed_mean": 0.2648,
+       "per_seed": [
+        0.25274,
+        0.25474,
+        0.2869
+       ],
+       "delta_vs_human": 0.15306
+      },
+      "C4": {
+       "model_3seed_mean": 0.26261,
+       "per_seed": [
+        0.27161,
+        0.258,
+        0.25823
+       ],
+       "delta_vs_human": 0.15088
+      }
+     }
+    },
+    "FG1": {
+     "held_out_annotator_score": 0.18054,
+     "reference_panel": [
+      "G1",
+      "G2",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.25795,
+       "per_seed": [
+        0.24797,
+        0.26873,
+        0.25715
+       ],
+       "delta_vs_human": 0.07741
+      },
+      "C1": {
+       "model_3seed_mean": 0.25169,
+       "per_seed": [
+        0.25321,
+        0.24906,
+        0.2528
+       ],
+       "delta_vs_human": 0.07115
+      },
+      "C2": {
+       "model_3seed_mean": 0.26376,
+       "per_seed": [
+        0.26186,
+        0.26905,
+        0.26036
+       ],
+       "delta_vs_human": 0.08322
+      },
+      "C3": {
+       "model_3seed_mean": 0.2515,
+       "per_seed": [
+        0.23645,
+        0.24199,
+        0.27606
+       ],
+       "delta_vs_human": 0.07096
+      },
+      "C4": {
+       "model_3seed_mean": 0.26542,
+       "per_seed": [
+        0.27429,
+        0.26323,
+        0.25873
+       ],
+       "delta_vs_human": 0.08488
+      }
+     }
+    },
+    "FG2": {
+     "held_out_annotator_score": 0.14312,
+     "reference_panel": [
+      "G1",
+      "G2",
+      "FG1"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.26144,
+       "per_seed": [
+        0.2565,
+        0.27074,
+        0.25707
+       ],
+       "delta_vs_human": 0.11832
+      },
+      "C1": {
+       "model_3seed_mean": 0.2687,
+       "per_seed": [
+        0.26432,
+        0.25989,
+        0.28189
+       ],
+       "delta_vs_human": 0.12558
+      },
+      "C2": {
+       "model_3seed_mean": 0.26798,
+       "per_seed": [
+        0.26436,
+        0.27862,
+        0.26097
+       ],
+       "delta_vs_human": 0.12486
+      },
+      "C3": {
+       "model_3seed_mean": 0.25434,
+       "per_seed": [
+        0.24311,
+        0.23842,
+        0.28148
+       ],
+       "delta_vs_human": 0.11122
+      },
+      "C4": {
+       "model_3seed_mean": 0.26614,
+       "per_seed": [
+        0.28113,
+        0.25418,
+        0.26311
+       ],
+       "delta_vs_human": 0.12302
+      }
+     }
+    }
+   },
+   "bootstrap": {
+    "n_resamples": 1000,
+    "unit": "patient",
+    "gate_P6.2b": "PASS -- human and model scored on the identical row index array in every one of the 1000 resamples",
+    "human_panel_mean_ci95": [
+     0.117,
+     0.14379
+    ],
+    "by_arm": {
+     "C0": {
+      "model_mean_ci95": [
+       0.19871,
+       0.26716
+      ],
+      "delta_mean": 0.10151,
+      "delta_ci95": [
+       0.07088,
+       0.135
+      ],
+      "verdict": "ABOVE THE HUMAN PANEL"
+     },
+     "C1": {
+      "model_mean_ci95": [
+       0.21929,
+       0.27391
+      ],
+      "delta_mean": 0.11685,
+      "delta_ci95": [
+       0.09148,
+       0.14084
+      ],
+      "verdict": "ABOVE THE HUMAN PANEL"
+     },
+     "C2": {
+      "model_mean_ci95": [
+       0.20523,
+       0.27873
+      ],
+      "delta_mean": 0.11248,
+      "delta_ci95": [
+       0.07511,
+       0.1469
+      ],
+      "verdict": "ABOVE THE HUMAN PANEL"
+     },
+     "C3": {
+      "model_mean_ci95": [
+       0.19678,
+       0.25868
+      ],
+      "delta_mean": 0.09818,
+      "delta_ci95": [
+       0.06659,
+       0.12897
+      ],
+      "verdict": "ABOVE THE HUMAN PANEL"
+     },
+     "C4": {
+      "model_mean_ci95": [
+       0.2185,
+       0.28682
+      ],
+      "delta_mean": 0.12388,
+      "delta_ci95": [
+       0.09138,
+       0.15272
+      ],
+      "verdict": "ABOVE THE HUMAN PANEL"
+     }
+    }
+   }
+  },
+  "S-no-majority": {
+   "n_images": 81,
+   "n_patients": 39,
+   "per_held_out_annotator": {
+    "G1": {
+     "held_out_annotator_score": 0.26303,
+     "reference_panel": [
+      "G2",
+      "FG1",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.32622,
+       "per_seed": [
+        0.32512,
+        0.33385,
+        0.31969
+       ],
+       "delta_vs_human": 0.06319
+      },
+      "C1": {
+       "model_3seed_mean": 0.32602,
+       "per_seed": [
+        0.31315,
+        0.33836,
+        0.32653
+       ],
+       "delta_vs_human": 0.06299
+      },
+      "C2": {
+       "model_3seed_mean": 0.33387,
+       "per_seed": [
+        0.31517,
+        0.37466,
+        0.31179
+       ],
+       "delta_vs_human": 0.07085
+      },
+      "C3": {
+       "model_3seed_mean": 0.32224,
+       "per_seed": [
+        0.30477,
+        0.31172,
+        0.35024
+       ],
+       "delta_vs_human": 0.05922
+      },
+      "C4": {
+       "model_3seed_mean": 0.3569,
+       "per_seed": [
+        0.34621,
+        0.36895,
+        0.35555
+       ],
+       "delta_vs_human": 0.09388
+      }
+     }
+    },
+    "G2": {
+     "held_out_annotator_score": 0.23205,
+     "reference_panel": [
+      "G1",
+      "FG1",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.30385,
+       "per_seed": [
+        0.29436,
+        0.31308,
+        0.30411
+       ],
+       "delta_vs_human": 0.07181
+      },
+      "C1": {
+       "model_3seed_mean": 0.30208,
+       "per_seed": [
+        0.29098,
+        0.30644,
+        0.30883
+       ],
+       "delta_vs_human": 0.07004
+      },
+      "C2": {
+       "model_3seed_mean": 0.30067,
+       "per_seed": [
+        0.29005,
+        0.32532,
+        0.28664
+       ],
+       "delta_vs_human": 0.06862
+      },
+      "C3": {
+       "model_3seed_mean": 0.30219,
+       "per_seed": [
+        0.28289,
+        0.28352,
+        0.34018
+       ],
+       "delta_vs_human": 0.07015
+      },
+      "C4": {
+       "model_3seed_mean": 0.3219,
+       "per_seed": [
+        0.30778,
+        0.33296,
+        0.32496
+       ],
+       "delta_vs_human": 0.08986
+      }
+     }
+    },
+    "FG1": {
+     "held_out_annotator_score": 0.2642,
+     "reference_panel": [
+      "G1",
+      "G2",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.27609,
+       "per_seed": [
+        0.27251,
+        0.28274,
+        0.27304
+       ],
+       "delta_vs_human": 0.01189
+      },
+      "C1": {
+       "model_3seed_mean": 0.28418,
+       "per_seed": [
+        0.29351,
+        0.28842,
+        0.27061
+       ],
+       "delta_vs_human": 0.01998
+      },
+      "C2": {
+       "model_3seed_mean": 0.29861,
+       "per_seed": [
+        0.29202,
+        0.31287,
+        0.29093
+       ],
+       "delta_vs_human": 0.03441
+      },
+      "C3": {
+       "model_3seed_mean": 0.28527,
+       "per_seed": [
+        0.27159,
+        0.28364,
+        0.30059
+       ],
+       "delta_vs_human": 0.02107
+      },
+      "C4": {
+       "model_3seed_mean": 0.32033,
+       "per_seed": [
+        0.32119,
+        0.32053,
+        0.31927
+       ],
+       "delta_vs_human": 0.05613
+      }
+     }
+    },
+    "FG2": {
+     "held_out_annotator_score": 0.24315,
+     "reference_panel": [
+      "G1",
+      "G2",
+      "FG1"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.32536,
+       "per_seed": [
+        0.32321,
+        0.32547,
+        0.3274
+       ],
+       "delta_vs_human": 0.08221
+      },
+      "C1": {
+       "model_3seed_mean": 0.33363,
+       "per_seed": [
+        0.30543,
+        0.3514,
+        0.34405
+       ],
+       "delta_vs_human": 0.09048
+      },
+      "C2": {
+       "model_3seed_mean": 0.32082,
+       "per_seed": [
+        0.30645,
+        0.3474,
+        0.30859
+       ],
+       "delta_vs_human": 0.07767
+      },
+      "C3": {
+       "model_3seed_mean": 0.33249,
+       "per_seed": [
+        0.31663,
+        0.30832,
+        0.37251
+       ],
+       "delta_vs_human": 0.08934
+      },
+      "C4": {
+       "model_3seed_mean": 0.33989,
+       "per_seed": [
+        0.33065,
+        0.35115,
+        0.33786
+       ],
+       "delta_vs_human": 0.09674
+      }
+     }
+    }
+   },
+   "bootstrap": {
+    "n_resamples": 1000,
+    "unit": "patient",
+    "gate_P6.2b": "PASS -- human and model scored on the identical row index array in every one of the 1000 resamples",
+    "human_panel_mean_ci95": [
+     0.19837,
+     0.24559
+    ],
+    "by_arm": {
+     "C0": {
+      "model_mean_ci95": [
+       0.22528,
+       0.31579
+      ],
+      "delta_mean": 0.04976,
+      "delta_ci95": [
+       0.00197,
+       0.0932
+      ],
+      "verdict": "ABOVE THE HUMAN PANEL"
+     },
+     "C1": {
+      "model_mean_ci95": [
+       0.23507,
+       0.30807
+      ],
+      "delta_mean": 0.05074,
+      "delta_ci95": [
+       0.01112,
+       0.08578
+      ],
+      "verdict": "ABOVE THE HUMAN PANEL"
+     },
+     "C2": {
+      "model_mean_ci95": [
+       0.23267,
+       0.3103
+      ],
+      "delta_mean": 0.05156,
+      "delta_ci95": [
+       0.00615,
+       0.08985
+      ],
+      "verdict": "ABOVE THE HUMAN PANEL"
+     },
+     "C3": {
+      "model_mean_ci95": [
+       0.22155,
+       0.3058
+      ],
+      "delta_mean": 0.04405,
+      "delta_ci95": [
+       -0.00272,
+       0.08329
+      ],
+      "verdict": "INDISTINGUISHABLE FROM THE HUMAN PANEL"
+     },
+     "C4": {
+      "model_mean_ci95": [
+       0.25,
+       0.32759
+      ],
+      "delta_mean": 0.06906,
+      "delta_ci95": [
+       0.02959,
+       0.10335
+      ],
+      "verdict": "ABOVE THE HUMAN PANEL"
+     }
+    }
+   }
+  },
+  "S-contested (pooled)": {
+   "n_images": 550,
+   "n_patients": 58,
+   "per_held_out_annotator": {
+    "G1": {
+     "held_out_annotator_score": 0.40181,
+     "reference_panel": [
+      "G2",
+      "FG1",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.43888,
+       "per_seed": [
+        0.4322,
+        0.4485,
+        0.43593
+       ],
+       "delta_vs_human": 0.03707
+      },
+      "C1": {
+       "model_3seed_mean": 0.44884,
+       "per_seed": [
+        0.45488,
+        0.45609,
+        0.43554
+       ],
+       "delta_vs_human": 0.04703
+      },
+      "C2": {
+       "model_3seed_mean": 0.47051,
+       "per_seed": [
+        0.46911,
+        0.47418,
+        0.46824
+       ],
+       "delta_vs_human": 0.0687
+      },
+      "C3": {
+       "model_3seed_mean": 0.45085,
+       "per_seed": [
+        0.4548,
+        0.44943,
+        0.44834
+       ],
+       "delta_vs_human": 0.04904
+      },
+      "C4": {
+       "model_3seed_mean": 0.46745,
+       "per_seed": [
+        0.46963,
+        0.47652,
+        0.45619
+       ],
+       "delta_vs_human": 0.06564
+      }
+     }
+    },
+    "G2": {
+     "held_out_annotator_score": 0.31166,
+     "reference_panel": [
+      "G1",
+      "FG1",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.42045,
+       "per_seed": [
+        0.41659,
+        0.4299,
+        0.41486
+       ],
+       "delta_vs_human": 0.10879
+      },
+      "C1": {
+       "model_3seed_mean": 0.4357,
+       "per_seed": [
+        0.43906,
+        0.44662,
+        0.42141
+       ],
+       "delta_vs_human": 0.12404
+      },
+      "C2": {
+       "model_3seed_mean": 0.45104,
+       "per_seed": [
+        0.44935,
+        0.45443,
+        0.44932
+       ],
+       "delta_vs_human": 0.13938
+      },
+      "C3": {
+       "model_3seed_mean": 0.44411,
+       "per_seed": [
+        0.4411,
+        0.4418,
+        0.44943
+       ],
+       "delta_vs_human": 0.13245
+      },
+      "C4": {
+       "model_3seed_mean": 0.44796,
+       "per_seed": [
+        0.44907,
+        0.46205,
+        0.43276
+       ],
+       "delta_vs_human": 0.1363
+      }
+     }
+    },
+    "FG1": {
+     "held_out_annotator_score": 0.44156,
+     "reference_panel": [
+      "G1",
+      "G2",
+      "FG2"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.41115,
+       "per_seed": [
+        0.40757,
+        0.41725,
+        0.40864
+       ],
+       "delta_vs_human": -0.03041
+      },
+      "C1": {
+       "model_3seed_mean": 0.42248,
+       "per_seed": [
+        0.43352,
+        0.42993,
+        0.40401
+       ],
+       "delta_vs_human": -0.01908
+      },
+      "C2": {
+       "model_3seed_mean": 0.44762,
+       "per_seed": [
+        0.44859,
+        0.44869,
+        0.44559
+       ],
+       "delta_vs_human": 0.00606
+      },
+      "C3": {
+       "model_3seed_mean": 0.4299,
+       "per_seed": [
+        0.43081,
+        0.42754,
+        0.43135
+       ],
+       "delta_vs_human": -0.01166
+      },
+      "C4": {
+       "model_3seed_mean": 0.44482,
+       "per_seed": [
+        0.44988,
+        0.45129,
+        0.43331
+       ],
+       "delta_vs_human": 0.00326
+      }
+     }
+    },
+    "FG2": {
+     "held_out_annotator_score": 0.40583,
+     "reference_panel": [
+      "G1",
+      "G2",
+      "FG1"
+     ],
+     "by_arm": {
+      "C0": {
+       "model_3seed_mean": 0.42623,
+       "per_seed": [
+        0.42204,
+        0.43044,
+        0.42621
+       ],
+       "delta_vs_human": 0.0204
+      },
+      "C1": {
+       "model_3seed_mean": 0.44337,
+       "per_seed": [
+        0.44437,
+        0.45018,
+        0.43555
+       ],
+       "delta_vs_human": 0.03754
+      },
+      "C2": {
+       "model_3seed_mean": 0.46088,
+       "per_seed": [
+        0.46002,
+        0.46489,
+        0.45774
+       ],
+       "delta_vs_human": 0.05506
+      },
+      "C3": {
+       "model_3seed_mean": 0.44914,
+       "per_seed": [
+        0.45442,
+        0.44072,
+        0.45228
+       ],
+       "delta_vs_human": 0.04331
+      },
+      "C4": {
+       "model_3seed_mean": 0.45853,
+       "per_seed": [
+        0.46199,
+        0.46455,
+        0.44905
+       ],
+       "delta_vs_human": 0.0527
+      }
+     }
+    }
+   },
+   "bootstrap": {
+    "n_resamples": 1000,
+    "unit": "patient",
+    "gate_P6.2b": "PASS -- human and model scored on the identical row index array in every one of the 1000 resamples",
+    "human_panel_mean_ci95": [
+     0.36623,
+     0.4072
+    ],
+    "by_arm": {
+     "C0": {
+      "model_mean_ci95": [
+       0.38507,
+       0.44277
+      ],
+      "delta_mean": 0.0281,
+      "delta_ci95": [
+       0.00023,
+       0.05457
+      ],
+      "verdict": "ABOVE THE HUMAN PANEL"
+     },
+     "C1": {
+      "model_mean_ci95": [
+       0.40474,
+       0.47021
+      ],
+      "delta_mean": 0.05157,
+      "delta_ci95": [
+       0.02284,
+       0.07846
+      ],
+      "verdict": "ABOVE THE HUMAN PANEL"
+     },
+     "C2": {
+      "model_mean_ci95": [
+       0.4121,
+       0.48991
+      ],
+      "delta_mean": 0.06466,
+      "delta_ci95": [
+       0.02807,
+       0.10007
+      ],
+      "verdict": "ABOVE THE HUMAN PANEL"
+     },
+     "C3": {
+      "model_mean_ci95": [
+       0.40999,
+       0.47415
+      ],
+      "delta_mean": 0.05408,
+      "delta_ci95": [
+       0.02446,
+       0.08388
+      ],
+      "verdict": "ABOVE THE HUMAN PANEL"
+     },
+     "C4": {
+      "model_mean_ci95": [
+       0.41916,
+       0.48527
+      ],
+      "delta_mean": 0.0653,
+      "delta_ci95": [
+       0.03434,
+       0.09562
+      ],
+      "verdict": "ABOVE THE HUMAN PANEL"
+     }
+    }
+   }
+  }
+ },
+ "runtime_sec": 28.9,
+ "verdict_summary": {
+  "S-unanimous": "UNINFORMATIVE (BY CONSTRUCTION)",
+  "S-majority": "INDISTINGUISHABLE FROM THE HUMAN PANEL",
+  "S-plurality": "ABOVE THE HUMAN PANEL",
+  "S-no-majority": "ABOVE THE HUMAN PANEL",
+  "S-contested (pooled)": "ABOVE THE HUMAN PANEL"
+ },
+ "qualified_verdict": {
+  "S-unanimous": "NOT A COMPARISON \u2014 the human side is 1.0 by construction on a stratum defined by unanimity.",
+  "S-majority": "OUT-PREDICTS AN INDIVIDUAL ANNOTATOR, BUT NOT THE PANEL'S OWN MODAL VOTE. The model recovers 16% of the headroom between a held-out annotator (0.4893) and the modal-vote oracle (0.7423). The pre-registered 'INDISTINGUISHABLE FROM THE HUMAN PANEL' therefore reflects that predicting a panel is an easier task than being a member of it \u2014 the model chooses a label, an annotator is stuck with theirs, and 25% of held-out annotators on this stratum are singletons who cannot score well whatever their skill. It is NOT evidence of superior anatomical judgement, and a substantial model shortfall against the attainable ceiling remains.",
+  "S-plurality": "OUT-PREDICTS AN INDIVIDUAL ANNOTATOR, BUT NOT THE PANEL'S OWN MODAL VOTE. The model recovers 40% of the headroom between a held-out annotator (0.1436) and the modal-vote oracle (0.4492). The pre-registered 'ABOVE THE HUMAN PANEL' therefore reflects that predicting a panel is an easier task than being a member of it \u2014 the model chooses a label, an annotator is stuck with theirs, and 50% of held-out annotators on this stratum are singletons who cannot score well whatever their skill. It is NOT evidence of superior anatomical judgement, and a substantial model shortfall against the attainable ceiling remains.",
+  "S-no-majority": "OUT-PREDICTS AN INDIVIDUAL ANNOTATOR, BUT NOT THE PANEL'S OWN MODAL VOTE. The model recovers 21% of the headroom between a held-out annotator (0.2506) and the modal-vote oracle (0.5447). The pre-registered 'ABOVE THE HUMAN PANEL' therefore reflects that predicting a panel is an easier task than being a member of it \u2014 the model chooses a label, an annotator is stuck with theirs, and 10% of held-out annotators on this stratum are singletons who cannot score well whatever their skill. It is NOT evidence of superior anatomical judgement, and a substantial model shortfall against the attainable ceiling remains.",
+  "S-contested (pooled)": "OUT-PREDICTS AN INDIVIDUAL ANNOTATOR, BUT NOT THE PANEL'S OWN MODAL VOTE. The model recovers 24% of the headroom between a held-out annotator (0.3902) and the modal-vote oracle (0.6700). The pre-registered 'ABOVE THE HUMAN PANEL' therefore reflects that predicting a panel is an easier task than being a member of it \u2014 the model chooses a label, an annotator is stuck with theirs, and 29% of held-out annotators on this stratum are singletons who cannot score well whatever their skill. It is NOT evidence of superior anatomical judgement, and a substantial model shortfall against the attainable ceiling remains."
+ }
+}

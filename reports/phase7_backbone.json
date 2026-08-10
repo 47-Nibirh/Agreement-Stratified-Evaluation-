@@ -1,0 +1,330 @@
+{
+ "generated": "2026-07-30 01:08:57",
+ "phase": 7,
+ "step": "P7.0-B",
+ "question": "does the thesis depend on ConvNeXt? Chapter 9 ranks this the highest-severity threat to validity.",
+ "backbone": "EfficientNet-B0 (4.0 M parameters against ConvNeXt-Tiny's 28 M)",
+ "what_is_held_fixed": "cohort E, the 224px cache, training-set normalisation, augmentation, the two-stage schedule, the soft-target loss, early stopping, the epoch cap and the seeds. phase7_backbone_train.py imports phase4_train and rebinds only build_model, so this is the Phase 4 code path with a different network in it.",
+ "fine_tuning_depth_match": {
+  "convnext_param_fraction_unfrozen": 0.945,
+  "efficientnet_b0_param_fraction_unfrozen": 0.923,
+  "why": "'top 40% of feature modules' unfreezes a different NUMBER of modules in each network, so the comparable quantity is the fraction of feature PARAMETERS it frees. They match to about two points, which removes the obvious confound."
+ },
+ "scoring_note": "every metric is computed by the function that produced the ConvNeXt number: ece_mce from phase4_calibration, marginalized_macro_f1 from phase3b_common, and the comparator primitives from phase6_human. Nothing is reimplemented.",
+ "arms": [
+  "C1",
+  "C2",
+  "C3"
+ ],
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "stop_reasons": {
+  "C1_seed1": "early_stopping",
+  "C1_seed2": "early_stopping",
+  "C1_seed3": "early_stopping",
+  "C2_seed1": "epoch_cap",
+  "C2_seed2": "epoch_cap",
+  "C2_seed3": "early_stopping",
+  "C3_seed1": "early_stopping",
+  "C3_seed2": "epoch_cap",
+  "C3_seed3": "early_stopping"
+ },
+ "levels_by_stratum": {
+  "S-unanimous": {
+   "n_images": 803,
+   "by_arm": {
+    "C1": {
+     "macro_f1_3seed": 0.8208,
+     "ece_3seed": 0.07087
+    },
+    "C2": {
+     "macro_f1_3seed": 0.82075,
+     "ece_3seed": 0.03494
+    },
+    "C3": {
+     "macro_f1_3seed": 0.82282,
+     "ece_3seed": 0.05316
+    }
+   }
+  },
+  "S-majority": {
+   "n_images": 342,
+   "by_arm": {
+    "C1": {
+     "macro_f1_3seed": 0.51471,
+     "ece_3seed": 0.32399
+    },
+    "C2": {
+     "macro_f1_3seed": 0.5142,
+     "ece_3seed": 0.24457
+    },
+    "C3": {
+     "macro_f1_3seed": 0.50822,
+     "ece_3seed": 0.17233
+    }
+   }
+  },
+  "S-plurality": {
+   "n_images": 127,
+   "by_arm": {
+    "C1": {
+     "macro_f1_3seed": 0.26979,
+     "ece_3seed": 0.49198
+    },
+    "C2": {
+     "macro_f1_3seed": 0.27948,
+     "ece_3seed": 0.40272
+    },
+    "C3": {
+     "macro_f1_3seed": 0.26509,
+     "ece_3seed": 0.2995
+    }
+   }
+  },
+  "S-no-majority": {
+   "n_images": 81,
+   "by_arm": {
+    "C1": {
+     "macro_f1_3seed": 0.2949,
+     "ece_3seed": 0.43721
+    },
+    "C2": {
+     "macro_f1_3seed": 0.30418,
+     "ece_3seed": 0.34234
+    },
+    "C3": {
+     "macro_f1_3seed": 0.29201,
+     "ece_3seed": 0.29157
+    }
+   }
+  },
+  "S-contested (pooled)": {
+   "n_images": 550,
+   "by_arm": {
+    "C1": {
+     "macro_f1_3seed": 0.44211,
+     "ece_3seed": 0.37683
+    },
+    "C2": {
+     "macro_f1_3seed": 0.44695,
+     "ece_3seed": 0.29394
+    },
+    "C3": {
+     "macro_f1_3seed": 0.44028,
+     "ece_3seed": 0.21784
+    }
+   }
+  }
+ },
+ "paired_contrasts": {
+  "S-unanimous": {
+   "macro_f1_C2_minus_C3_points": -0.202,
+   "macro_f1_ci95": [
+    -1.707,
+    1.327
+   ],
+   "macro_f1_verdict": "NOT RESOLVED",
+   "ece_C2_minus_C3_points": -1.729,
+   "ece_ci95": [
+    -4.015,
+    0.832
+   ],
+   "ece_verdict": "NOT RESOLVED"
+  },
+  "S-contested (pooled)": {
+   "macro_f1_C2_minus_C3_points": 0.67,
+   "macro_f1_ci95": [
+    -0.552,
+    1.902
+   ],
+   "macro_f1_verdict": "NOT RESOLVED",
+   "ece_C2_minus_C3_points": 7.536,
+   "ece_ci95": [
+    5.996,
+    9.093
+   ],
+   "ece_verdict": "C3 BETTER CALIBRATED"
+  }
+ },
+ "human_comparator": {
+  "S-unanimous": {
+   "human_held_out": 1.0,
+   "modal_vote_oracle": 1.0,
+   "mean_singleton_rate": 0.0,
+   "by_arm": {
+    "C1": {
+     "model": 0.8208,
+     "vs_human": -0.1792,
+     "position_in_headroom": null,
+     "exceeds_oracle": false
+    },
+    "C2": {
+     "model": 0.82075,
+     "vs_human": -0.17925,
+     "position_in_headroom": null,
+     "exceeds_oracle": false
+    },
+    "C3": {
+     "model": 0.82282,
+     "vs_human": -0.17718,
+     "position_in_headroom": null,
+     "exceeds_oracle": false
+    }
+   }
+  },
+  "S-majority": {
+   "human_held_out": 0.48933,
+   "modal_vote_oracle": 0.74231,
+   "mean_singleton_rate": 0.25,
+   "by_arm": {
+    "C1": {
+     "model": 0.51471,
+     "vs_human": 0.02538,
+     "position_in_headroom": 0.1003,
+     "exceeds_oracle": false
+    },
+    "C2": {
+     "model": 0.5142,
+     "vs_human": 0.02487,
+     "position_in_headroom": 0.0983,
+     "exceeds_oracle": false
+    },
+    "C3": {
+     "model": 0.50822,
+     "vs_human": 0.01889,
+     "position_in_headroom": 0.0747,
+     "exceeds_oracle": false
+    }
+   }
+  },
+  "S-plurality": {
+   "human_held_out": 0.14365,
+   "modal_vote_oracle": 0.44922,
+   "mean_singleton_rate": 0.5,
+   "by_arm": {
+    "C1": {
+     "model": 0.26979,
+     "vs_human": 0.12614,
+     "position_in_headroom": 0.4128,
+     "exceeds_oracle": false
+    },
+    "C2": {
+     "model": 0.27948,
+     "vs_human": 0.13583,
+     "position_in_headroom": 0.4445,
+     "exceeds_oracle": false
+    },
+    "C3": {
+     "model": 0.26509,
+     "vs_human": 0.12144,
+     "position_in_headroom": 0.3974,
+     "exceeds_oracle": false
+    }
+   }
+  },
+  "S-no-majority": {
+   "human_held_out": 0.25061,
+   "modal_vote_oracle": 0.54474,
+   "mean_singleton_rate": 0.09877,
+   "by_arm": {
+    "C1": {
+     "model": 0.2949,
+     "vs_human": 0.04429,
+     "position_in_headroom": 0.1506,
+     "exceeds_oracle": false
+    },
+    "C2": {
+     "model": 0.30418,
+     "vs_human": 0.05357,
+     "position_in_headroom": 0.1821,
+     "exceeds_oracle": false
+    },
+    "C3": {
+     "model": 0.29201,
+     "vs_human": 0.04141,
+     "position_in_headroom": 0.1408,
+     "exceeds_oracle": false
+    }
+   }
+  },
+  "S-contested (pooled)": {
+   "human_held_out": 0.39022,
+   "modal_vote_oracle": 0.67001,
+   "mean_singleton_rate": 0.28545,
+   "by_arm": {
+    "C1": {
+     "model": 0.44211,
+     "vs_human": 0.05189,
+     "position_in_headroom": 0.1855,
+     "exceeds_oracle": false
+    },
+    "C2": {
+     "model": 0.44695,
+     "vs_human": 0.05674,
+     "position_in_headroom": 0.2028,
+     "exceeds_oracle": false
+    },
+    "C3": {
+     "model": 0.44028,
+     "vs_human": 0.05006,
+     "position_in_headroom": 0.1789,
+     "exceeds_oracle": false
+    }
+   }
+  }
+ },
+ "replication": {
+  "R1_rq2_accuracy_null": {
+   "convnext": "NOT RESOLVED",
+   "efficientnet_b0": "NOT RESOLVED",
+   "convnext_estimate": 1.401,
+   "convnext_ci": [
+    -0.88,
+    3.68
+   ],
+   "b0_estimate": 0.67,
+   "b0_ci": [
+    -0.552,
+    1.902
+   ],
+   "replicates": true
+  },
+  "R2_calibration_reversal": {
+   "pattern": "C3 better calibrated on CONTESTED images and C2 better on UNANIMOUS ones -- the thesis's durable finding",
+   "convnext": {
+    "ece_C2_contested": 0.33079,
+    "ece_C3_contested": 0.19413,
+    "ece_C2_unanimous": 0.04719,
+    "ece_C3_unanimous": 0.06512,
+    "pattern_present": true
+   },
+   "efficientnet_b0": {
+    "ece_C2_contested": 0.29394,
+    "ece_C3_contested": 0.21784,
+    "ece_C2_unanimous": 0.03494,
+    "ece_C3_unanimous": 0.05316,
+    "pattern_present": true,
+    "paired_contest_ci": [
+     5.996,
+     9.093
+    ],
+    "paired_contest_verdict": "C3 BETTER CALIBRATED"
+   },
+   "replicates": true
+  },
+  "R3_human_comparator_position": {
+   "convnext_headroom_recovered": 0.2405,
+   "b0_headroom_recovered": 0.2028,
+   "convnext_exceeds_oracle_anywhere": false,
+   "b0_exceeds_oracle_anywhere": false,
+   "replicates": true,
+   "replication_criterion": "same oracle-exceedance status on every stratum, and headroom recovered within 20 percentage points of the ConvNeXt value"
+  }
+ },
+ "n_replicating": 3,
+ "n_tested": 3,
+ "runtime_sec": 102.7
+}

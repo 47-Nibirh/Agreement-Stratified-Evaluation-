@@ -1,0 +1,1262 @@
+{
+ "generated": "2026-07-31T10:43:16",
+ "phase": "8 / P8.4 literature synthesis",
+ "method": "case-insensitive regular-expression screen of title and abstract for each reporting dimension. Counts are MENTION counts and are therefore upper bounds on the fraction of studies that report the dimension. Patterns are deliberately generous, which weakens the bound rather than strengthening it.",
+ "limitations": [
+  "14 of 82 included studies ship no abstract in the MEDLINE record and are excluded from the denominator rather than counted as absences.",
+  "an abstract-level screen is not a full-text appraisal; a study may mention a dimension without reporting it, so every count is an upper bound."
+ ],
+ "n_included": 82,
+ "n_with_abstract": 68,
+ "n_without_abstract": 14,
+ "n_published_2020_or_later": 69,
+ "pct_published_2020_or_later": 84.1,
+ "themes": {
+  "T1": {
+   "code": "T1",
+   "label": "T1 Landmark recognition in UGI endoscopy",
+   "n": 17,
+   "median_year": 2023
+  },
+  "T2": {
+   "code": "T2",
+   "label": "T2 Endoscopic quality & blind-spot audit",
+   "n": 10,
+   "median_year": 2022
+  },
+  "T3": {
+   "code": "T3",
+   "label": "T3 Inter-observer variability in endoscopy",
+   "n": 14,
+   "median_year": 2024
+  },
+  "T4": {
+   "code": "T4",
+   "label": "T4 Noisy / soft / multi-annotator labels",
+   "n": 14,
+   "median_year": 2023
+  },
+  "T5": {
+   "code": "T5",
+   "label": "T5 Uncertainty & calibration",
+   "n": 11,
+   "median_year": 2024
+  },
+  "T6": {
+   "code": "T6",
+   "label": "T6 External validation & dataset shift",
+   "n": 8,
+   "median_year": 2025
+  },
+  "T7": {
+   "code": "T7",
+   "label": "T7 Reporting standards for medical AI",
+   "n": 8,
+   "median_year": 2025
+  }
+ },
+ "dimensions": {
+  "population_description": {
+   "label": "Population description (age / sex)",
+   "n_mentioning": 0,
+   "n_scored": 68,
+   "pct_mentioning": 0.0,
+   "pct_not_mentioning": 100.0,
+   "addressed_by_this_thesis": "NOT ADDRESSED -- the corpus ships no age or sex",
+   "proxy_quality": "WEAK -- this is the one dimension where the proxy should not be trusted as an upper bound on practice. Cohort demographics live in a baseline-characteristics table in the full text, not in the abstract, so a study can describe its population fully and still never say 'age' or 'sex' in the abstract. The count of zero should be read as 'demographics are not a headline in this literature', not as 'no study describes its population'."
+  },
+  "calibration": {
+   "label": "Calibration of predicted probability",
+   "n_mentioning": 7,
+   "n_scored": 68,
+   "pct_mentioning": 10.3,
+   "pct_not_mentioning": 89.7,
+   "addressed_by_this_thesis": "Chapters 5 and 6 -- ECE by stratum as a primary endpoint",
+   "proxy_quality": "GOOD -- calibration is reported as a result, and a study reporting it as an endpoint names it in the abstract."
+  },
+  "uncertainty": {
+   "label": "Predictive uncertainty",
+   "n_mentioning": 18,
+   "n_scored": 68,
+   "pct_mentioning": 26.5,
+   "pct_not_mentioning": 73.5,
+   "addressed_by_this_thesis": "Chapters 6 and 8 -- soft targets and selective prediction",
+   "proxy_quality": "GOOD -- uncertainty quantification is a method claim and is named."
+  },
+  "external_validation": {
+   "label": "External validation or shift",
+   "n_mentioning": 29,
+   "n_scored": 68,
+   "pct_mentioning": 42.6,
+   "pct_not_mentioning": 57.4,
+   "addressed_by_this_thesis": "Chapter 7 -- two external corpora, no adaptation",
+   "proxy_quality": "GOOD -- external validation is a headline claim and is stated in the abstract when it is done."
+  },
+  "ground_truth_construction": {
+   "label": "How the reference standard was built",
+   "n_mentioning": 29,
+   "n_scored": 68,
+   "pct_mentioning": 42.6,
+   "pct_not_mentioning": 57.4,
+   "addressed_by_this_thesis": "Chapters 3 and 5 -- the whole design",
+   "proxy_quality": "MODERATE -- multi-reader designs are usually named, but a study that collapsed several readers to a consensus in one sentence of its methods may not mention it in the abstract at all."
+  }
+ },
+ "gap_intersection": {
+  "n_mentioning_ground_truth_construction": 29,
+  "n_also_mentioning_calibration": 5,
+  "pct_of_those": 17.2,
+  "reading": "of the studies that engage with how the reference standard was built, this is the fraction that also say anything about whether predicted probabilities are trustworthy. It is the intersection this thesis occupies."
+ },
+ "per_study": [
+  {
+   "pmid": "34693407.0",
+   "year": "2021",
+   "first_author": "Adewole, S.",
+   "theme_code": "T1",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "41746872.0",
+   "year": "2026",
+   "first_author": "Ahn, B. Y.",
+   "theme_code": "T6",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "40021229.0",
+   "year": "2025",
+   "first_author": "Antonelli, G.",
+   "theme_code": "T6",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "41226916.0",
+   "year": "2025",
+   "first_author": "Bharwad, A. V.",
+   "theme_code": "T6",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "",
+   "year": "2020",
+   "first_author": "Borgli, H.",
+   "theme_code": "T1",
+   "has_abstract": false,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "40055348.0",
+   "year": "2025",
+   "first_author": "Carmo, D. S.",
+   "theme_code": "T4",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "23780842.0",
+   "year": "2013",
+   "first_author": "Chang, S. S.",
+   "theme_code": "T3",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "40592476.0",
+   "year": "2025",
+   "first_author": "Chen, S.",
+   "theme_code": "T2",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "",
+   "year": "1960",
+   "first_author": "Cohen, J.",
+   "theme_code": "T3",
+   "has_abstract": false,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "25883057.0",
+   "year": "2015",
+   "first_author": "D'Antiga, L.",
+   "theme_code": "T3",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "41859029.0",
+   "year": "2026",
+   "first_author": "Darby, P.",
+   "theme_code": "T4",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "37087899.0",
+   "year": "2023",
+   "first_author": "Del Amor, R.",
+   "theme_code": "T4",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": true,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "40707749.0",
+   "year": "2025",
+   "first_author": "Djinbachian, R.",
+   "theme_code": "T3",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "41801173.0",
+   "year": "2026",
+   "first_author": "Dong, Z.",
+   "theme_code": "T2",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "",
+   "year": "2021",
+   "first_author": "Dosovitskiy, A.",
+   "theme_code": "T1",
+   "has_abstract": false,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "39321961.0",
+   "year": "2025",
+   "first_author": "Esposito, G.",
+   "theme_code": "T3",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "38820714.0",
+   "year": "2024",
+   "first_author": "Fayyad, J.",
+   "theme_code": "T5",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "",
+   "year": "1971",
+   "first_author": "Fleiss, J. L.",
+   "theme_code": "T3",
+   "has_abstract": false,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "",
+   "year": "2016",
+   "first_author": "Gal, Y.",
+   "theme_code": "T5",
+   "has_abstract": false,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "38488970.0",
+   "year": "2024",
+   "first_author": "Gangi-Burton, A.",
+   "theme_code": "T3",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "38391619.0",
+   "year": "2024",
+   "first_author": "Gao, Z.",
+   "theme_code": "T4",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "41398240.0",
+   "year": "2025",
+   "first_author": "Gete, K. Y.",
+   "theme_code": "T7",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "39727787.0",
+   "year": "2024",
+   "first_author": "Gong, E. J.",
+   "theme_code": "T1",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "41025012.0",
+   "year": "2025",
+   "first_author": "Gong, E. J.",
+   "theme_code": "T6",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "36721878.0",
+   "year": "2023",
+   "first_author": "Guimaraes, P.",
+   "theme_code": "T1",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "",
+   "year": "2017",
+   "first_author": "Guo, C.",
+   "theme_code": "T5",
+   "has_abstract": false,
+   "mentions": {
+    "external_validation": false,
+    "calibration": true,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "39168143.0",
+   "year": "2025",
+   "first_author": "Gupta, S.",
+   "theme_code": "T3",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "",
+   "year": "2008",
+   "first_author": "Gwet, K. L.",
+   "theme_code": "T3",
+   "has_abstract": false,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "",
+   "year": "2007",
+   "first_author": "Hayes, A. F.",
+   "theme_code": "T3",
+   "has_abstract": false,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "39090234.0",
+   "year": "2024",
+   "first_author": "He, C.",
+   "theme_code": "T7",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "",
+   "year": "2016",
+   "first_author": "He, K.",
+   "theme_code": "T1",
+   "has_abstract": false,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "",
+   "year": "2015",
+   "first_author": "Hinton, G.",
+   "theme_code": "T4",
+   "has_abstract": false,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "38223070.0",
+   "year": "2024",
+   "first_author": "Hou, C.",
+   "theme_code": "T7",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "24477629.0",
+   "year": "2014",
+   "first_author": "Isajevs, S.",
+   "theme_code": "T3",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "41961248.0",
+   "year": "2026",
+   "first_author": "Ishida, K.",
+   "theme_code": "T5",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "37038389.0",
+   "year": "2022",
+   "first_author": "Jaiswal, A.",
+   "theme_code": "T4",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "",
+   "year": "2023",
+   "first_author": "Jha, D.",
+   "theme_code": "T1",
+   "has_abstract": false,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "34995185.0",
+   "year": "2022",
+   "first_author": "Ju, L.",
+   "theme_code": "T4",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "38192480.0",
+   "year": "2023",
+   "first_author": "Khan, Z.",
+   "theme_code": "T1",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "38282254.0",
+   "year": "2024",
+   "first_author": "Kustner, T.",
+   "theme_code": "T5",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": true,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "",
+   "year": "2017",
+   "first_author": "Lakshminarayanan, B.",
+   "theme_code": "T5",
+   "has_abstract": false,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "40805252.0",
+   "year": "2025",
+   "first_author": "Lee, D.",
+   "theme_code": "T7",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "38766682.0",
+   "year": "2024",
+   "first_author": "Lee, J. Y.",
+   "theme_code": "T3",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "41648898.0",
+   "year": "2024",
+   "first_author": "Li, D.",
+   "theme_code": "T1",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "40814087.0",
+   "year": "2025",
+   "first_author": "Li, J.",
+   "theme_code": "T6",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "36442274.0",
+   "year": "2022",
+   "first_author": "Li, X.",
+   "theme_code": "T4",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": true,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "33272862.0",
+   "year": "2021",
+   "first_author": "Li, Y. D.",
+   "theme_code": "T1",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "34973966.0",
+   "year": "2022",
+   "first_author": "Li, Y. D.",
+   "theme_code": "T2",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "36303579.0",
+   "year": "2022",
+   "first_author": "Liu, X.",
+   "theme_code": "T4",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "",
+   "year": "2022",
+   "first_author": "Liu, Z.",
+   "theme_code": "T1",
+   "has_abstract": false,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "42334709.0",
+   "year": "2026",
+   "first_author": "Long, F.",
+   "theme_code": "T6",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "41336747.0",
+   "year": "2025",
+   "first_author": "Lopes, I.",
+   "theme_code": "T1",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "36140296.0",
+   "year": "2022",
+   "first_author": "Mahmood, S.",
+   "theme_code": "T1",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "41404996.0",
+   "year": "2026",
+   "first_author": "Maida, M.",
+   "theme_code": "T3",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "34387253.0",
+   "year": "2021",
+   "first_author": "Moore, M.",
+   "theme_code": "T2",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "38901270.0",
+   "year": "2024",
+   "first_author": "Maenpaa, S. M.",
+   "theme_code": "T7",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "32213531.0",
+   "year": "2020",
+   "first_author": "Nagendran, M.",
+   "theme_code": "T7",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "40341783.0",
+   "year": "2025",
+   "first_author": "Nezhad, S. A.",
+   "theme_code": "T1",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "38101690.0",
+   "year": "2024",
+   "first_author": "Peluso, A.",
+   "theme_code": "T5",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": true,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "41642745.0",
+   "year": "2026",
+   "first_author": "Putera, M.",
+   "theme_code": "T2",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "39791555.0",
+   "year": "2025",
+   "first_author": "Qin, J.",
+   "theme_code": "T3",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "37408330.0",
+   "year": "2023",
+   "first_author": "Quek, S. X. Z.",
+   "theme_code": "T6",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "40455037.0",
+   "year": "2025",
+   "first_author": "Rashidisabet, H.",
+   "theme_code": "T5",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "40934552.0",
+   "year": "2025",
+   "first_author": "Riera-Marin, M.",
+   "theme_code": "T4",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": true,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "36646146.0",
+   "year": "2023",
+   "first_author": "Scheppach, M. W.",
+   "theme_code": "T6",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "40378868.0",
+   "year": "2025",
+   "first_author": "Schott, B.",
+   "theme_code": "T5",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "40297817.0",
+   "year": "2025",
+   "first_author": "Smiley, A.",
+   "theme_code": "T7",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "34363763.0",
+   "year": "2021",
+   "first_author": "Spadaccini, M.",
+   "theme_code": "T2",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "36777397.0",
+   "year": "2022",
+   "first_author": "Srivastava, A.",
+   "theme_code": "T1",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "",
+   "year": "2016",
+   "first_author": "Szegedy, C.",
+   "theme_code": "T4",
+   "has_abstract": false,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "42276856.0",
+   "year": "2026",
+   "first_author": "Thibodeau-Antonacci, A.",
+   "theme_code": "T4",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "41650580.0",
+   "year": "2026",
+   "first_author": "Tveter, M.",
+   "theme_code": "T5",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "40719310.0",
+   "year": "2025",
+   "first_author": "Vahdani, A. M.",
+   "theme_code": "T5",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": true,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "37811325.0",
+   "year": "2023",
+   "first_author": "Wang, H.",
+   "theme_code": "T1",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "42069608.0",
+   "year": "2026",
+   "first_author": "Wang, X.",
+   "theme_code": "T2",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "33429441.0",
+   "year": "2021",
+   "first_author": "Wu, L.",
+   "theme_code": "T2",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "36207701.0",
+   "year": "2022",
+   "first_author": "Xu, C.",
+   "theme_code": "T2",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "37413792.0",
+   "year": "2023",
+   "first_author": "Xu, Z.",
+   "theme_code": "T4",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "42269098.0",
+   "year": "2026",
+   "first_author": "Yan, S.",
+   "theme_code": "T7",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": true,
+    "calibration": true,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": true
+   }
+  },
+  {
+   "pmid": "34128480.0",
+   "year": "2021",
+   "first_author": "Yao, L.",
+   "theme_code": "T2",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "38995411.0",
+   "year": "2024",
+   "first_author": "Yoshida, M.",
+   "theme_code": "T1",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": false,
+    "population_description": false,
+    "uncertainty": false
+   }
+  },
+  {
+   "pmid": "35453986.0",
+   "year": "2022",
+   "first_author": "Zhou, Q.",
+   "theme_code": "T4",
+   "has_abstract": true,
+   "mentions": {
+    "external_validation": false,
+    "calibration": false,
+    "ground_truth_construction": true,
+    "population_description": false,
+    "uncertainty": false
+   }
+  }
+ ],
+ "runtime_sec": 0.03
+}

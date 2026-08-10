@@ -1,0 +1,134 @@
+{
+ "generated": "2026-07-28 20:05:50",
+ "phase": "5B",
+ "step": "P5.16",
+ "arm": "C2",
+ "seed": 3,
+ "warm_start": "checkpoints/phase4_C2_seed3.pt",
+ "n_internal_train": 5228,
+ "n_pseudo_external": 3591,
+ "n_train_total": 8819,
+ "n_validation": 1103,
+ "validation_source": "GastroHUN extended validation cohort",
+ "model_selection_touched_external_eval_split": false,
+ "cap_finetune": 12,
+ "patience": 5,
+ "stop_reason": "epoch_cap",
+ "best": {
+  "f1": 0.7965153370938858,
+  "epoch": 10,
+  "path": "D:\\Final defence\\checkpoints\\phase5b_C2_seed3.best.pt"
+ },
+ "history": [
+  {
+   "phase": "phase5b",
+   "epoch": 1,
+   "train_ce": 0.16486,
+   "train_struct": 0.0,
+   "val_macro_f1": 0.78356,
+   "lr": 9.83e-05,
+   "sec": 229.1
+  },
+  {
+   "phase": "phase5b",
+   "epoch": 2,
+   "train_ce": 0.15054,
+   "train_struct": 0.0,
+   "val_macro_f1": 0.7742,
+   "lr": 9.33e-05,
+   "sec": 210.8
+  },
+  {
+   "phase": "phase5b",
+   "epoch": 3,
+   "train_ce": 0.1408,
+   "train_struct": 0.0,
+   "val_macro_f1": 0.77638,
+   "lr": 8.536e-05,
+   "sec": 211.1
+  },
+  {
+   "phase": "phase5b",
+   "epoch": 4,
+   "train_ce": 0.13836,
+   "train_struct": 0.0,
+   "val_macro_f1": 0.79087,
+   "lr": 7.5e-05,
+   "sec": 210.9
+  },
+  {
+   "phase": "phase5b",
+   "epoch": 5,
+   "train_ce": 0.13392,
+   "train_struct": 0.0,
+   "val_macro_f1": 0.78101,
+   "lr": 6.294e-05,
+   "sec": 210.9
+  },
+  {
+   "phase": "phase5b",
+   "epoch": 6,
+   "train_ce": 0.13215,
+   "train_struct": 0.0,
+   "val_macro_f1": 0.78952,
+   "lr": 5e-05,
+   "sec": 210.8
+  },
+  {
+   "phase": "phase5b",
+   "epoch": 7,
+   "train_ce": 0.12258,
+   "train_struct": 0.0,
+   "val_macro_f1": 0.77815,
+   "lr": 3.706e-05,
+   "sec": 211.0
+  },
+  {
+   "phase": "phase5b",
+   "epoch": 8,
+   "train_ce": 0.11847,
+   "train_struct": 0.0,
+   "val_macro_f1": 0.78791,
+   "lr": 2.5e-05,
+   "sec": 211.0
+  },
+  {
+   "phase": "phase5b",
+   "epoch": 9,
+   "train_ce": 0.1169,
+   "train_struct": 0.0,
+   "val_macro_f1": 0.79144,
+   "lr": 1.464e-05,
+   "sec": 210.9
+  },
+  {
+   "phase": "phase5b",
+   "epoch": 10,
+   "train_ce": 0.11295,
+   "train_struct": 0.0,
+   "val_macro_f1": 0.79652,
+   "lr": 6.7e-06,
+   "sec": 210.9
+  },
+  {
+   "phase": "phase5b",
+   "epoch": 11,
+   "train_ce": 0.11134,
+   "train_struct": 0.0,
+   "val_macro_f1": 0.79163,
+   "lr": 1.7e-06,
+   "sec": 211.0
+  },
+  {
+   "phase": "phase5b",
+   "epoch": 12,
+   "train_ce": 0.11135,
+   "train_struct": 0.0,
+   "val_macro_f1": 0.79073,
+   "lr": 0.0,
+   "sec": 211.0
+  }
+ ],
+ "wallclock_sec": 2553.4,
+ "checkpoint": "phase5b_C2_seed3.pt"
+}

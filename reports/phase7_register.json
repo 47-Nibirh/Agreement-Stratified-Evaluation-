@@ -1,0 +1,1324 @@
+{
+ "generated": "2026-07-30 01:09:32",
+ "phase": 7,
+ "step": "P7.3",
+ "purpose": "resolve every headline number the thesis quotes exactly once, keyed by chapter, so that no two chapters can quote the same quantity differently",
+ "n_artefacts_read": 25,
+ "n_values_resolved": 175,
+ "register": {
+  "ch2_audit": {
+   "n_images": 8834,
+   "n_decoded_ok": 8834,
+   "n_missing": 0,
+   "n_orphan": 0,
+   "n_corrupt": 0,
+   "n_patients": 387,
+   "n_classes": 23,
+   "annotators": [
+    "FG1",
+    "FG2",
+    "G1",
+    "G2"
+   ],
+   "fleiss_kappa": 0.7475,
+   "krippendorff_alpha": 0.7475,
+   "gwet_ac1": 0.7475,
+   "pairwise_kappa": {
+    "FG1-FG2": {
+     "kappa": 0.6799,
+     "ci95": [
+      0.6618,
+      0.6989
+     ],
+     "raw_agreement": 0.6935,
+     "within_team": true
+    },
+    "FG1-G1": {
+     "kappa": 0.793,
+     "ci95": [
+      0.7768,
+      0.8082
+     ],
+     "raw_agreement": 0.8021,
+     "within_team": false
+    },
+    "FG1-G2": {
+     "kappa": 0.7627,
+     "ci95": [
+      0.7453,
+      0.7804
+     ],
+     "raw_agreement": 0.7729,
+     "within_team": false
+    },
+    "FG2-G1": {
+     "kappa": 0.726,
+     "ci95": [
+      0.7095,
+      0.7432
+     ],
+     "raw_agreement": 0.7377,
+     "within_team": false
+    },
+    "FG2-G2": {
+     "kappa": 0.7209,
+     "ci95": [
+      0.7069,
+      0.7336
+     ],
+     "raw_agreement": 0.7332,
+     "within_team": false
+    },
+    "G1-G2": {
+     "kappa": 0.8031,
+     "ci95": [
+      0.789,
+      0.8171
+     ],
+     "raw_agreement": 0.8116,
+     "within_team": true
+    }
+   },
+   "agreement_tiers": {
+    "all_images": 8834,
+    "complete_agreement_4of4": 5318,
+    "triple_agreement_3of4": 7476,
+    "FG_team_agreement": 6126,
+    "G_team_agreement": 7170
+   },
+   "agreement_tiers_pct": {
+    "all_images": 100.0,
+    "complete_agreement_4of4": 60.2,
+    "triple_agreement_3of4": 84.63,
+    "FG_team_agreement": 69.35,
+    "G_team_agreement": 81.16
+   },
+   "pct_no_majority": 6.95,
+   "split_class_chi2_p": 0.9999974944602527,
+   "n_underpowered_classes": 22,
+   "pct_with_clinical_record": 60.21,
+   "disagreement_decomposition_pct": {
+    "same_station_different_wall": 50.96,
+    "same_wall_different_station": 19.91,
+    "different_wall_and_station": 8.33,
+    "landmark_vs_OTHERCLASS": 20.8
+   },
+   "n_disagreement_events": 12800,
+   "kappa_by_granularity": {
+    "full": {
+     "mean_pairwise_kappa": 0.7476,
+     "min_pairwise_kappa": 0.6799,
+     "max_pairwise_kappa": 0.8031,
+     "mean_raw_agreement": 0.7585,
+     "n_categories": 23
+    },
+    "station": {
+     "mean_pairwise_kappa": 0.8597,
+     "min_pairwise_kappa": 0.8149,
+     "max_pairwise_kappa": 0.9161,
+     "mean_raw_agreement": 0.8816,
+     "n_categories": 7
+    },
+    "wall": {
+     "mean_pairwise_kappa": 0.7481,
+     "min_pairwise_kappa": 0.6761,
+     "max_pairwise_kappa": 0.8039,
+     "mean_raw_agreement": 0.8066,
+     "n_categories": 5
+    }
+   },
+   "unanimity_by_granularity": {
+    "full": 60.2,
+    "station": 78.99,
+    "wall": 66.86
+   },
+   "otherclass_per_rater": {
+    "FG1": 1.48,
+    "FG2": 8.9,
+    "G1": 2.06,
+    "G2": 5.41
+   },
+   "neardup_pairs_examined": 39015361,
+   "dup_flagged_uncalibrated": 54,
+   "dup_confirmed_calibrated": 0
+  },
+  "ch4_stratified": {
+   "macro_f1_by_tier": {
+    "S-unanimous": 0.83915,
+    "S-majority": 0.48947,
+    "S-plurality": 0.26154,
+    "S-no-majority": 0.30788
+   },
+   "n_by_tier": {
+    "S-unanimous": 803,
+    "S-majority": 342,
+    "S-plurality": 127,
+    "S-no-majority": 81
+   },
+   "ceilings": {
+    "S-unanimous": 1.0,
+    "S-majority": 0.74231,
+    "S-plurality": 0.44555,
+    "S-no-majority": 0.40228
+   },
+   "max_expected_accuracy": {
+    "S-unanimous": 1.0,
+    "S-majority": 0.75,
+    "S-plurality": 0.5,
+    "S-no-majority": 0.47531
+   },
+   "gap_4v3_ceiling_normalised": 17.976,
+   "gap_4v3_ci": [
+    12.494,
+    24.372
+   ],
+   "ece_by_tier": {
+    "S-unanimous": 0.0915,
+    "S-majority": 0.38233,
+    "S-plurality": 0.564,
+    "S-no-majority": 0.49051
+   },
+   "mean_confidence_by_tier": {
+    "S-unanimous": 0.93542,
+    "S-majority": 0.88917,
+    "S-plurality": 0.84204,
+    "S-no-majority": 0.86858
+   },
+   "expected_accuracy_by_tier": {
+    "S-unanimous": 0.84392,
+    "S-majority": 0.50707,
+    "S-plurality": 0.27822,
+    "S-no-majority": 0.38066
+   },
+   "corrections": null
+  },
+  "ch5_targets": {
+   "arms": [
+    "C0",
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+   ],
+   "macro_f1_pooled_contested": {
+    "C0": 0.42418,
+    "C1": 0.4376,
+    "C2": 0.45752,
+    "C3": 0.4435,
+    "C4": 0.45469
+   },
+   "ece_pooled_contested": {
+    "C0": 0.43965,
+    "C1": 0.43613,
+    "C2": 0.33079,
+    "C3": 0.19413,
+    "C4": 0.32715
+   },
+   "ece_unanimous": {
+    "C0": 0.0915,
+    "C1": 0.09494,
+    "C2": 0.04719,
+    "C3": 0.06512,
+    "C4": 0.04073
+   },
+   "contrast_C2_C3": 1.401,
+   "contrast_C2_C3_ci": [
+    -0.88,
+    3.68
+   ],
+   "epsilon_mass_matched": 0.07529,
+   "epsilon_entropy_matched": 0.021228,
+   "rq4_C4_C2": -0.0027,
+   "rq4_C4_C2_ci": [
+    -0.01068,
+    0.00469
+   ]
+  },
+  "ch6_external": {
+   "n_gastric": 3125,
+   "n_out_of_protocol": 13997,
+   "headline_arm": "C2",
+   "transfer_verdict": "TRANSFERS",
+   "external_f1": 78.413,
+   "internal_f1": 98.165,
+   "drop_points": -19.752,
+   "drop_ci": [
+    -21.293,
+    -18.278
+   ],
+   "chance_rate": 0.04348,
+   "rejection_by_arm": {
+    "C0": 0.41923,
+    "C1": 0.41792,
+    "C2": 0.63399,
+    "C3": 0.43059,
+    "C4": 0.56429
+   },
+   "p5b_verdicts": {
+    "P5-A": "HURTS",
+    "P5-B": "ADAPTATION HELPS",
+    "P5-C": "WORSE CALIBRATED",
+    "internal_retention": "NO SIGNIFICANT REGRESSION"
+   },
+   "p5b_split_weakness": "the split is image-level because neither corpus publishes a patient or case identifier. Frames from the same procedure can therefore fall on both sides of the split, which makes the ADAPTED arm look better than it would under a patient-level split. Any 5B gain is consequently an UPPER BOUND on what adaptation buys, and the report must say so."
+  },
+  "ch7_error": {
+   "human_by_stratum": {
+    "S-unanimous": 1.0,
+    "S-majority": 0.48933,
+    "S-plurality": 0.14365,
+    "S-no-majority": 0.25061,
+    "S-contested (pooled)": 0.39022
+   },
+   "oracle_by_stratum": {
+    "S-unanimous": 1.0,
+    "S-majority": 0.74231,
+    "S-plurality": 0.44922,
+    "S-no-majority": 0.54474,
+    "S-contested (pooled)": 0.67001
+   },
+   "model_by_stratum": {
+    "S-unanimous": 0.85139,
+    "S-majority": 0.53007,
+    "S-plurality": 0.26679,
+    "S-no-majority": 0.31349,
+    "S-contested (pooled)": 0.45751
+   },
+   "headroom_recovered": {
+    "S-unanimous": null,
+    "S-majority": 0.161,
+    "S-plurality": 0.403,
+    "S-no-majority": 0.2138,
+    "S-contested (pooled)": 0.2405
+   },
+   "singleton_rate": {
+    "S-unanimous": 0.0,
+    "S-majority": 0.25,
+    "S-plurality": 0.5,
+    "S-no-majority": 0.09877,
+    "S-contested (pooled)": 0.28545
+   },
+   "qualified_verdict": "OUT-PREDICTS AN INDIVIDUAL ANNOTATOR, BUT NOT THE PANEL'S OWN MODAL VOTE. The model recovers 24% of the headroom between a held-out annotator (0.3902) and the modal-vote oracle (0.6700). The pre-registered 'ABOVE THE HUMAN PANEL' therefore reflects that predicting a panel is an easier task than being a member of it \u2014 the model chooses a label, an annotator is stuck with theirs, and 29% of held-out annotators on this stratum are singletons who cannot score well whatever their skill. It is NOT evidence of superior anatomical judgement, and a substantial model shortfall against the attainable ceiling remains.",
+   "geometry_wall_delta": -0.92,
+   "geometry_wall_ci": [
+    -4.69,
+    2.78
+   ],
+   "geometry_station_delta": -8.19,
+   "geometry_station_ci": [
+    -15.1,
+    -2.85
+   ],
+   "x3_finding": "X3 is settled, and by a stronger argument than the one that raised it. The amendment withdrew the Phase 3 claim because a model INTERVAL was compared against a human POINT estimate. Measuring both sides on the same images shows something more basic: S-unanimous is defined by all four annotators agreeing, so it contains ZERO annotator disagreement events and the human error geometry is UNDEFINED there -- not imprecise, undefined. The Phase 3 comparison therefore set the model's geometry on the unanimous stratum against a human benchmark computed over the whole corpus, which is dominated by contested images. It was a cross-population comparison, and neither the 0.12-point 'match' nor the 7.5-point 'shortfall' was ever a like-for-like quantity.",
+   "attribution_primary_verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+   "attribution_secondary": {
+    "C0": "ATTRIBUTION DESTABILISES ON CONTESTED IMAGES",
+    "C1": "ATTRIBUTION DESTABILISES ON CONTESTED IMAGES",
+    "C2": "ATTRIBUTION DESTABILISES ON CONTESTED IMAGES",
+    "C3": "ATTRIBUTION DESTABILISES ON CONTESTED IMAGES",
+    "C4": "ATTRIBUTION DESTABILISES ON CONTESTED IMAGES"
+   },
+   "iou_unanimous": {
+    "C0": 0.48562,
+    "C1": 0.5033,
+    "C2": 0.67586,
+    "C3": 0.67828,
+    "C4": 0.6703
+   },
+   "aurc_internal": {
+    "C0": 0.09771,
+    "C1": 0.0927,
+    "C2": 0.0828,
+    "C3": 0.08216,
+    "C4": 0.08696
+   },
+   "aurc_external": {
+    "C0": 0.33151,
+    "C1": 0.33823,
+    "C2": 0.1906,
+    "C3": 0.32354,
+    "C4": 0.23188
+   },
+   "phase5_consistency": "CONSISTENT WITH THE PHASE 5 RANKING"
+  },
+  "ch8_rq5": {
+   "verdict": "PARTIALLY SUPPORTED",
+   "n_separating": 6,
+   "n_independent": 8,
+   "outright_fail": [
+    "G1",
+    "G4",
+    "G6",
+    "G7"
+   ],
+   "agreeing": [
+    "G2",
+    "G3"
+   ],
+   "reversed": [
+    "G8"
+   ],
+   "n_fatal": 4,
+   "n_fatal_caught": 1,
+   "verdict_statement": "RQ5 is PARTIALLY SUPPORTED. The protocol does discriminate: 6 of 8 modality-independent gates separate the two corpora and the unsound corpus fails G1, G4, G6, G7 outright. But the discrimination is not on the grounds that mattered. Only 1 of 4 fatal defects is caught by any gate, and that one (D2) only incidentally, via a G4 criterion aimed at something else. All four were in fact found by a separate signal-and-circularity battery that the protocol does not include. The honest conclusion is that the eight-gate protocol is a WELL-FORMEDNESS audit, not a VIABILITY audit, and the negative control is what revealed the difference. Three extensions (G9-G11) are proposed, each of which would have caught a fatal defect and each of which costs minutes."
+  },
+  "ch9_synthesis": {
+   "family_size": 3,
+   "n_significant": 1,
+   "n_surviving": 1,
+   "summary": "Of the 5 primary endpoints, 3 are sampling statistics with intervals. 1 of those exclude zero unadjusted. Adjustment can only widen an interval, so the 2 endpoints that already contain zero are unaffected -- RQ2 and RQ4 were reported as unresolved and remain so. 1 of 1 survive Holm at family-wise alpha 0.05. The thesis's confirmatory claims are therefore unchanged by multiplicity, which is the useful thing to be able to state and could not be stated before this analysis existed.",
+   "backbone": "EfficientNet-B0 (4.0 M parameters against ConvNeXt-Tiny's 28 M)",
+   "n_replicating": 3,
+   "n_tested": 3,
+   "R1": {
+    "convnext": "NOT RESOLVED",
+    "efficientnet_b0": "NOT RESOLVED",
+    "convnext_estimate": 1.401,
+    "convnext_ci": [
+     -0.88,
+     3.68
+    ],
+    "b0_estimate": 0.67,
+    "b0_ci": [
+     -0.552,
+     1.902
+    ],
+    "replicates": true
+   },
+   "R2": {
+    "pattern": "C3 better calibrated on CONTESTED images and C2 better on UNANIMOUS ones -- the thesis's durable finding",
+    "convnext": {
+     "ece_C2_contested": 0.33079,
+     "ece_C3_contested": 0.19413,
+     "ece_C2_unanimous": 0.04719,
+     "ece_C3_unanimous": 0.06512,
+     "pattern_present": true
+    },
+    "efficientnet_b0": {
+     "ece_C2_contested": 0.29394,
+     "ece_C3_contested": 0.21784,
+     "ece_C2_unanimous": 0.03494,
+     "ece_C3_unanimous": 0.05316,
+     "pattern_present": true,
+     "paired_contest_ci": [
+      5.996,
+      9.093
+     ],
+     "paired_contest_verdict": "C3 BETTER CALIBRATED"
+    },
+    "replicates": true
+   },
+   "R3": {
+    "convnext_headroom_recovered": 0.2405,
+    "b0_headroom_recovered": 0.2028,
+    "convnext_exceeds_oracle_anywhere": false,
+    "b0_exceeds_oracle_anywhere": false,
+    "replicates": true,
+    "replication_criterion": "same oracle-exceedance status on every stratum, and headroom recovered within 20 percentage points of the ConvNeXt value"
+   },
+   "b0_ece_contested": {
+    "C2": 0.29394,
+    "C3": 0.21784
+   },
+   "b0_ece_unanimous": {
+    "C2": 0.03494,
+    "C3": 0.05316
+   },
+   "b0_headroom": 0.2028,
+   "b0_stop_reasons": {
+    "C1_seed1": "early_stopping",
+    "C1_seed2": "early_stopping",
+    "C1_seed3": "early_stopping",
+    "C2_seed1": "epoch_cap",
+    "C2_seed2": "epoch_cap",
+    "C2_seed3": "early_stopping",
+    "C3_seed1": "early_stopping",
+    "C3_seed2": "epoch_cap",
+    "C3_seed3": "early_stopping"
+   },
+   "endpoints_WITHOUT_a_second_backbone": [
+    "confusion geometry (Chapter 7 \u00a77.3)",
+    "attribution stability (Chapter 7 \u00a77.4)",
+    "external transfer, rejection and selective prediction (Chapters 6, 7 \u00a77.5)"
+   ]
+  }
+ },
+ "provenance": [
+  {
+   "label": "n_manifest_rows",
+   "artefact": "gastrohun_inventory.json",
+   "json_path": "n_manifest_rows"
+  },
+  {
+   "label": "n_decoded_ok",
+   "artefact": "gastrohun_inventory.json",
+   "json_path": "n_decoded_ok"
+  },
+  {
+   "label": "n_missing_from_disk",
+   "artefact": "gastrohun_inventory.json",
+   "json_path": "n_missing_from_disk"
+  },
+  {
+   "label": "n_orphan_on_disk",
+   "artefact": "gastrohun_inventory.json",
+   "json_path": "n_orphan_on_disk"
+  },
+  {
+   "label": "n_corrupt",
+   "artefact": "gastrohun_inventory.json",
+   "json_path": "n_corrupt"
+  },
+  {
+   "label": "n_patients",
+   "artefact": "gastrohun_agreement.json",
+   "json_path": "n_patients"
+  },
+  {
+   "label": "n_classes",
+   "artefact": "gastrohun_agreement.json",
+   "json_path": "n_classes"
+  },
+  {
+   "label": "annotators",
+   "artefact": "gastrohun_agreement.json",
+   "json_path": "annotators"
+  },
+  {
+   "label": "fleiss_kappa",
+   "artefact": "gastrohun_agreement.json",
+   "json_path": "fleiss_kappa"
+  },
+  {
+   "label": "krippendorff_alpha",
+   "artefact": "gastrohun_agreement.json",
+   "json_path": "krippendorff_alpha"
+  },
+  {
+   "label": "gwet_ac1",
+   "artefact": "gastrohun_agreement.json",
+   "json_path": "gwet_ac1"
+  },
+  {
+   "label": "pairwise_cohen_kappa",
+   "artefact": "gastrohun_agreement.json",
+   "json_path": "pairwise_cohen_kappa"
+  },
+  {
+   "label": "agreement_tiers",
+   "artefact": "gastrohun_agreement.json",
+   "json_path": "agreement_tiers"
+  },
+  {
+   "label": "agreement_tiers_pct",
+   "artefact": "gastrohun_agreement.json",
+   "json_path": "agreement_tiers_pct"
+  },
+  {
+   "label": "pct_no_majority",
+   "artefact": "gastrohun_agreement.json",
+   "json_path": "pct_no_majority"
+  },
+  {
+   "label": "split_class_chi2/p",
+   "artefact": "gastrohun_agreement.json",
+   "json_path": "split_class_chi2/p"
+  },
+  {
+   "label": "n_test_classes_underpowered_hw_gt_10pct",
+   "artefact": "gastrohun_agreement.json",
+   "json_path": "n_test_classes_underpowered_hw_gt_10pct"
+  },
+  {
+   "label": "clinical_metadata/pct_image_patients_with_clinical_record",
+   "artefact": "gastrohun_agreement.json",
+   "json_path": "clinical_metadata/pct_image_patients_with_clinical_record"
+  },
+  {
+   "label": "disagreement_decomposition_pct",
+   "artefact": "gastrohun_structure.json",
+   "json_path": "disagreement_decomposition_pct"
+  },
+  {
+   "label": "n_disagreement_pair_events",
+   "artefact": "gastrohun_structure.json",
+   "json_path": "n_disagreement_pair_events"
+  },
+  {
+   "label": "agreement_by_granularity",
+   "artefact": "gastrohun_structure.json",
+   "json_path": "agreement_by_granularity"
+  },
+  {
+   "label": "unanimity_rate_pct_by_granularity",
+   "artefact": "gastrohun_structure.json",
+   "json_path": "unanimity_rate_pct_by_granularity"
+  },
+  {
+   "label": "otherclass/per_rater_OTHERCLASS_rate_pct",
+   "artefact": "gastrohun_structure.json",
+   "json_path": "otherclass/per_rater_OTHERCLASS_rate_pct"
+  },
+  {
+   "label": "n_pairs_examined",
+   "artefact": "gastrohun_neardup.json",
+   "json_path": "n_pairs_examined"
+  },
+  {
+   "label": "reassessment/n_flagged_by_provisional_rule",
+   "artefact": "gastrohun_dup_calibration.json",
+   "json_path": "reassessment/n_flagged_by_provisional_rule"
+  },
+  {
+   "label": "reassessment/n_confirmed_by_calibrated_rule",
+   "artefact": "gastrohun_dup_calibration.json",
+   "json_path": "reassessment/n_confirmed_by_calibrated_rule"
+  },
+  {
+   "label": "aggregate_3seed/S-unanimous/annotator_marginalized_macro_f1_mean_3seed",
+   "artefact": "phase3_stratified_metrics.json",
+   "json_path": "aggregate_3seed/S-unanimous/annotator_marginalized_macro_f1_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/S-majority/annotator_marginalized_macro_f1_mean_3seed",
+   "artefact": "phase3_stratified_metrics.json",
+   "json_path": "aggregate_3seed/S-majority/annotator_marginalized_macro_f1_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/S-plurality/annotator_marginalized_macro_f1_mean_3seed",
+   "artefact": "phase3_stratified_metrics.json",
+   "json_path": "aggregate_3seed/S-plurality/annotator_marginalized_macro_f1_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/S-no-majority/annotator_marginalized_macro_f1_mean_3seed",
+   "artefact": "phase3_stratified_metrics.json",
+   "json_path": "aggregate_3seed/S-no-majority/annotator_marginalized_macro_f1_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/S-unanimous/n_images",
+   "artefact": "phase3_stratified_metrics.json",
+   "json_path": "aggregate_3seed/S-unanimous/n_images"
+  },
+  {
+   "label": "aggregate_3seed/S-majority/n_images",
+   "artefact": "phase3_stratified_metrics.json",
+   "json_path": "aggregate_3seed/S-majority/n_images"
+  },
+  {
+   "label": "aggregate_3seed/S-plurality/n_images",
+   "artefact": "phase3_stratified_metrics.json",
+   "json_path": "aggregate_3seed/S-plurality/n_images"
+  },
+  {
+   "label": "aggregate_3seed/S-no-majority/n_images",
+   "artefact": "phase3_stratified_metrics.json",
+   "json_path": "aggregate_3seed/S-no-majority/n_images"
+  },
+  {
+   "label": "ceilings/S-unanimous/oracle_marginalized_macro_f1_mean",
+   "artefact": "phase3b_ceiling_gaps.json",
+   "json_path": "ceilings/S-unanimous/oracle_marginalized_macro_f1_mean"
+  },
+  {
+   "label": "ceilings/S-majority/oracle_marginalized_macro_f1_mean",
+   "artefact": "phase3b_ceiling_gaps.json",
+   "json_path": "ceilings/S-majority/oracle_marginalized_macro_f1_mean"
+  },
+  {
+   "label": "ceilings/S-plurality/oracle_marginalized_macro_f1_mean",
+   "artefact": "phase3b_ceiling_gaps.json",
+   "json_path": "ceilings/S-plurality/oracle_marginalized_macro_f1_mean"
+  },
+  {
+   "label": "ceilings/S-no-majority/oracle_marginalized_macro_f1_mean",
+   "artefact": "phase3b_ceiling_gaps.json",
+   "json_path": "ceilings/S-no-majority/oracle_marginalized_macro_f1_mean"
+  },
+  {
+   "label": "ceilings/S-unanimous/max_expected_accuracy_exact",
+   "artefact": "phase3b_ceiling_gaps.json",
+   "json_path": "ceilings/S-unanimous/max_expected_accuracy_exact"
+  },
+  {
+   "label": "ceilings/S-majority/max_expected_accuracy_exact",
+   "artefact": "phase3b_ceiling_gaps.json",
+   "json_path": "ceilings/S-majority/max_expected_accuracy_exact"
+  },
+  {
+   "label": "ceilings/S-plurality/max_expected_accuracy_exact",
+   "artefact": "phase3b_ceiling_gaps.json",
+   "json_path": "ceilings/S-plurality/max_expected_accuracy_exact"
+  },
+  {
+   "label": "ceilings/S-no-majority/max_expected_accuracy_exact",
+   "artefact": "phase3b_ceiling_gaps.json",
+   "json_path": "ceilings/S-no-majority/max_expected_accuracy_exact"
+  },
+  {
+   "label": "pairwise_gaps/S-unanimous - S-majority [ceiling_normalised]/gap_points_3seed_mean",
+   "artefact": "phase3b_ceiling_gaps.json",
+   "json_path": "pairwise_gaps/S-unanimous - S-majority [ceiling_normalised]/gap_points_3seed_mean"
+  },
+  {
+   "label": "pairwise_gaps/S-unanimous - S-majority [ceiling_normalised]/ci95_points_3seed_mean",
+   "artefact": "phase3b_ceiling_gaps.json",
+   "json_path": "pairwise_gaps/S-unanimous - S-majority [ceiling_normalised]/ci95_points_3seed_mean"
+  },
+  {
+   "label": "aggregate_3seed/S-unanimous/ece_vs_expected_accuracy",
+   "artefact": "phase3b_calibration.json",
+   "json_path": "aggregate_3seed/S-unanimous/ece_vs_expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/S-majority/ece_vs_expected_accuracy",
+   "artefact": "phase3b_calibration.json",
+   "json_path": "aggregate_3seed/S-majority/ece_vs_expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/S-plurality/ece_vs_expected_accuracy",
+   "artefact": "phase3b_calibration.json",
+   "json_path": "aggregate_3seed/S-plurality/ece_vs_expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/S-no-majority/ece_vs_expected_accuracy",
+   "artefact": "phase3b_calibration.json",
+   "json_path": "aggregate_3seed/S-no-majority/ece_vs_expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/S-unanimous/mean_confidence",
+   "artefact": "phase3b_calibration.json",
+   "json_path": "aggregate_3seed/S-unanimous/mean_confidence"
+  },
+  {
+   "label": "aggregate_3seed/S-majority/mean_confidence",
+   "artefact": "phase3b_calibration.json",
+   "json_path": "aggregate_3seed/S-majority/mean_confidence"
+  },
+  {
+   "label": "aggregate_3seed/S-plurality/mean_confidence",
+   "artefact": "phase3b_calibration.json",
+   "json_path": "aggregate_3seed/S-plurality/mean_confidence"
+  },
+  {
+   "label": "aggregate_3seed/S-no-majority/mean_confidence",
+   "artefact": "phase3b_calibration.json",
+   "json_path": "aggregate_3seed/S-no-majority/mean_confidence"
+  },
+  {
+   "label": "aggregate_3seed/S-unanimous/expected_accuracy",
+   "artefact": "phase3b_calibration.json",
+   "json_path": "aggregate_3seed/S-unanimous/expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/S-majority/expected_accuracy",
+   "artefact": "phase3b_calibration.json",
+   "json_path": "aggregate_3seed/S-majority/expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/S-plurality/expected_accuracy",
+   "artefact": "phase3b_calibration.json",
+   "json_path": "aggregate_3seed/S-plurality/expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/S-no-majority/expected_accuracy",
+   "artefact": "phase3b_calibration.json",
+   "json_path": "aggregate_3seed/S-no-majority/expected_accuracy"
+  },
+  {
+   "label": "configurations_evaluated",
+   "artefact": "phase4_stratified_metrics.json",
+   "json_path": "configurations_evaluated"
+  },
+  {
+   "label": "aggregate_3seed/C0/S-contested (pooled)/annotator_marginalized_macro_f1_mean_3seed",
+   "artefact": "phase4_stratified_metrics.json",
+   "json_path": "aggregate_3seed/C0/S-contested (pooled)/annotator_marginalized_macro_f1_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/C1/S-contested (pooled)/annotator_marginalized_macro_f1_mean_3seed",
+   "artefact": "phase4_stratified_metrics.json",
+   "json_path": "aggregate_3seed/C1/S-contested (pooled)/annotator_marginalized_macro_f1_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/C2/S-contested (pooled)/annotator_marginalized_macro_f1_mean_3seed",
+   "artefact": "phase4_stratified_metrics.json",
+   "json_path": "aggregate_3seed/C2/S-contested (pooled)/annotator_marginalized_macro_f1_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/C3/S-contested (pooled)/annotator_marginalized_macro_f1_mean_3seed",
+   "artefact": "phase4_stratified_metrics.json",
+   "json_path": "aggregate_3seed/C3/S-contested (pooled)/annotator_marginalized_macro_f1_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/C4/S-contested (pooled)/annotator_marginalized_macro_f1_mean_3seed",
+   "artefact": "phase4_stratified_metrics.json",
+   "json_path": "aggregate_3seed/C4/S-contested (pooled)/annotator_marginalized_macro_f1_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/C0/S-contested (pooled)/ece_vs_expected_accuracy",
+   "artefact": "phase4_calibration.json",
+   "json_path": "aggregate_3seed/C0/S-contested (pooled)/ece_vs_expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/C1/S-contested (pooled)/ece_vs_expected_accuracy",
+   "artefact": "phase4_calibration.json",
+   "json_path": "aggregate_3seed/C1/S-contested (pooled)/ece_vs_expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/C2/S-contested (pooled)/ece_vs_expected_accuracy",
+   "artefact": "phase4_calibration.json",
+   "json_path": "aggregate_3seed/C2/S-contested (pooled)/ece_vs_expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/C3/S-contested (pooled)/ece_vs_expected_accuracy",
+   "artefact": "phase4_calibration.json",
+   "json_path": "aggregate_3seed/C3/S-contested (pooled)/ece_vs_expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/C4/S-contested (pooled)/ece_vs_expected_accuracy",
+   "artefact": "phase4_calibration.json",
+   "json_path": "aggregate_3seed/C4/S-contested (pooled)/ece_vs_expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/C0/S-unanimous/ece_vs_expected_accuracy",
+   "artefact": "phase4_calibration.json",
+   "json_path": "aggregate_3seed/C0/S-unanimous/ece_vs_expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/C1/S-unanimous/ece_vs_expected_accuracy",
+   "artefact": "phase4_calibration.json",
+   "json_path": "aggregate_3seed/C1/S-unanimous/ece_vs_expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/C2/S-unanimous/ece_vs_expected_accuracy",
+   "artefact": "phase4_calibration.json",
+   "json_path": "aggregate_3seed/C2/S-unanimous/ece_vs_expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/C3/S-unanimous/ece_vs_expected_accuracy",
+   "artefact": "phase4_calibration.json",
+   "json_path": "aggregate_3seed/C3/S-unanimous/ece_vs_expected_accuracy"
+  },
+  {
+   "label": "aggregate_3seed/C4/S-unanimous/ece_vs_expected_accuracy",
+   "artefact": "phase4_calibration.json",
+   "json_path": "aggregate_3seed/C4/S-unanimous/ece_vs_expected_accuracy"
+  },
+  {
+   "label": "contrasts/C2 - C3/by_stratum/S-contested (pooled)/diff_points_3seed_mean",
+   "artefact": "phase4_stratified_metrics.json",
+   "json_path": "contrasts/C2 - C3/by_stratum/S-contested (pooled)/diff_points_3seed_mean"
+  },
+  {
+   "label": "contrasts/C2 - C3/by_stratum/S-contested (pooled)/ci95_points_3seed_mean",
+   "artefact": "phase4_stratified_metrics.json",
+   "json_path": "contrasts/C2 - C3/by_stratum/S-contested (pooled)/ci95_points_3seed_mean"
+  },
+  {
+   "label": "epsilon_derivation_detail/epsilon_mass_matched",
+   "artefact": "phase4_prereg.json",
+   "json_path": "epsilon_derivation_detail/epsilon_mass_matched"
+  },
+  {
+   "label": "epsilon_derivation_detail/epsilon_entropy_matched",
+   "artefact": "phase4_prereg.json",
+   "json_path": "epsilon_derivation_detail/epsilon_entropy_matched"
+  },
+  {
+   "label": "contrasts/C4 - C2/S-contested (pooled)/delta_distance_3seed_mean",
+   "artefact": "phase4_structure_eval.json",
+   "json_path": "contrasts/C4 - C2/S-contested (pooled)/delta_distance_3seed_mean"
+  },
+  {
+   "label": "contrasts/C4 - C2/S-contested (pooled)/ci95_3seed_mean",
+   "artefact": "phase4_structure_eval.json",
+   "json_path": "contrasts/C4 - C2/S-contested (pooled)/ci95_3seed_mean"
+  },
+  {
+   "label": "n_gastric_external",
+   "artefact": "phase5_transfer.json",
+   "json_path": "n_gastric_external"
+  },
+  {
+   "label": "n_out_of_protocol",
+   "artefact": "phase5_rejection.json",
+   "json_path": "n_out_of_protocol"
+  },
+  {
+   "label": "headline_arm",
+   "artefact": "phase5_transfer.json",
+   "json_path": "headline_arm"
+  },
+  {
+   "label": "verdict",
+   "artefact": "phase5_transfer.json",
+   "json_path": "verdict"
+  },
+  {
+   "label": "aggregate_3seed/C2/external_macro_f1_mean_3seed",
+   "artefact": "phase5_transfer.json",
+   "json_path": "aggregate_3seed/C2/external_macro_f1_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/C2/internal_macro_f1_mean_3seed",
+   "artefact": "phase5_transfer.json",
+   "json_path": "aggregate_3seed/C2/internal_macro_f1_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/C2/drop_points",
+   "artefact": "phase5_transfer.json",
+   "json_path": "aggregate_3seed/C2/drop_points"
+  },
+  {
+   "label": "aggregate_3seed/C2/drop_ci95",
+   "artefact": "phase5_transfer.json",
+   "json_path": "aggregate_3seed/C2/drop_ci95"
+  },
+  {
+   "label": "chance_rate",
+   "artefact": "phase5_rejection.json",
+   "json_path": "chance_rate"
+  },
+  {
+   "label": "aggregate_3seed/C0/rejection_rate_mean_3seed",
+   "artefact": "phase5_rejection.json",
+   "json_path": "aggregate_3seed/C0/rejection_rate_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/C1/rejection_rate_mean_3seed",
+   "artefact": "phase5_rejection.json",
+   "json_path": "aggregate_3seed/C1/rejection_rate_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/C2/rejection_rate_mean_3seed",
+   "artefact": "phase5_rejection.json",
+   "json_path": "aggregate_3seed/C2/rejection_rate_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/C3/rejection_rate_mean_3seed",
+   "artefact": "phase5_rejection.json",
+   "json_path": "aggregate_3seed/C3/rejection_rate_mean_3seed"
+  },
+  {
+   "label": "aggregate_3seed/C4/rejection_rate_mean_3seed",
+   "artefact": "phase5_rejection.json",
+   "json_path": "aggregate_3seed/C4/rejection_rate_mean_3seed"
+  },
+  {
+   "label": "results/P5-A/verdict",
+   "artefact": "phase5b_eval.json",
+   "json_path": "results/P5-A/verdict"
+  },
+  {
+   "label": "results/P5-B/verdict",
+   "artefact": "phase5b_eval.json",
+   "json_path": "results/P5-B/verdict"
+  },
+  {
+   "label": "results/P5-C/verdict",
+   "artefact": "phase5b_eval.json",
+   "json_path": "results/P5-C/verdict"
+  },
+  {
+   "label": "results/internal_retention/verdict",
+   "artefact": "phase5b_eval.json",
+   "json_path": "results/internal_retention/verdict"
+  },
+  {
+   "label": "split_weakness",
+   "artefact": "phase5b_eval.json",
+   "json_path": "split_weakness"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-unanimous/human_held_out",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-unanimous/human_held_out"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-majority/human_held_out",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-majority/human_held_out"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-plurality/human_held_out",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-plurality/human_held_out"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-no-majority/human_held_out",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-no-majority/human_held_out"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-contested (pooled)/human_held_out",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-contested (pooled)/human_held_out"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-unanimous/modal_vote_oracle",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-unanimous/modal_vote_oracle"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-majority/modal_vote_oracle",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-majority/modal_vote_oracle"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-plurality/modal_vote_oracle",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-plurality/modal_vote_oracle"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-no-majority/modal_vote_oracle",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-no-majority/modal_vote_oracle"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-contested (pooled)/modal_vote_oracle",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-contested (pooled)/modal_vote_oracle"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-unanimous/by_arm/C2/model",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-unanimous/by_arm/C2/model"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-majority/by_arm/C2/model",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-majority/by_arm/C2/model"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-plurality/by_arm/C2/model",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-plurality/by_arm/C2/model"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-no-majority/by_arm/C2/model",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-no-majority/by_arm/C2/model"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-contested (pooled)/by_arm/C2/model",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-contested (pooled)/by_arm/C2/model"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-unanimous/by_arm/C2/position_in_headroom",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-unanimous/by_arm/C2/position_in_headroom"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-majority/by_arm/C2/position_in_headroom",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-majority/by_arm/C2/position_in_headroom"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-plurality/by_arm/C2/position_in_headroom",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-plurality/by_arm/C2/position_in_headroom"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-no-majority/by_arm/C2/position_in_headroom",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-no-majority/by_arm/C2/position_in_headroom"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-contested (pooled)/by_arm/C2/position_in_headroom",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-contested (pooled)/by_arm/C2/position_in_headroom"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-unanimous/mean_singleton_rate",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-unanimous/mean_singleton_rate"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-majority/mean_singleton_rate",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-majority/mean_singleton_rate"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-plurality/mean_singleton_rate",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-plurality/mean_singleton_rate"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-no-majority/mean_singleton_rate",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-no-majority/mean_singleton_rate"
+  },
+  {
+   "label": "sensitivity_P6-AMD-5/by_stratum/S-contested (pooled)/mean_singleton_rate",
+   "artefact": "phase6_human.json",
+   "json_path": "sensitivity_P6-AMD-5/by_stratum/S-contested (pooled)/mean_singleton_rate"
+  },
+  {
+   "label": "qualified_verdict/S-contested (pooled)",
+   "artefact": "phase6_human.json",
+   "json_path": "qualified_verdict/S-contested (pooled)"
+  },
+  {
+   "label": "results/S-contested (pooled)/by_arm/C2/wall_adjacent_delta_mean",
+   "artefact": "phase6_geometry.json",
+   "json_path": "results/S-contested (pooled)/by_arm/C2/wall_adjacent_delta_mean"
+  },
+  {
+   "label": "results/S-contested (pooled)/by_arm/C2/wall_adjacent_delta_ci95",
+   "artefact": "phase6_geometry.json",
+   "json_path": "results/S-contested (pooled)/by_arm/C2/wall_adjacent_delta_ci95"
+  },
+  {
+   "label": "results/S-contested (pooled)/by_arm/C2/station_neighbouring_delta_mean",
+   "artefact": "phase6_geometry.json",
+   "json_path": "results/S-contested (pooled)/by_arm/C2/station_neighbouring_delta_mean"
+  },
+  {
+   "label": "results/S-contested (pooled)/by_arm/C2/station_neighbouring_delta_ci95",
+   "artefact": "phase6_geometry.json",
+   "json_path": "results/S-contested (pooled)/by_arm/C2/station_neighbouring_delta_ci95"
+  },
+  {
+   "label": "x3_settlement/finding",
+   "artefact": "phase6_geometry.json",
+   "json_path": "x3_settlement/finding"
+  },
+  {
+   "label": "verdict_summary/P6-C1_primary",
+   "artefact": "phase6_cam_eval.json",
+   "json_path": "verdict_summary/P6-C1_primary"
+  },
+  {
+   "label": "secondary/C0/verdict",
+   "artefact": "phase6_cam_eval.json",
+   "json_path": "secondary/C0/verdict"
+  },
+  {
+   "label": "secondary/C1/verdict",
+   "artefact": "phase6_cam_eval.json",
+   "json_path": "secondary/C1/verdict"
+  },
+  {
+   "label": "secondary/C2/verdict",
+   "artefact": "phase6_cam_eval.json",
+   "json_path": "secondary/C2/verdict"
+  },
+  {
+   "label": "secondary/C3/verdict",
+   "artefact": "phase6_cam_eval.json",
+   "json_path": "secondary/C3/verdict"
+  },
+  {
+   "label": "secondary/C4/verdict",
+   "artefact": "phase6_cam_eval.json",
+   "json_path": "secondary/C4/verdict"
+  },
+  {
+   "label": "secondary/C0/inter_seed_iou_unanimous",
+   "artefact": "phase6_cam_eval.json",
+   "json_path": "secondary/C0/inter_seed_iou_unanimous"
+  },
+  {
+   "label": "secondary/C1/inter_seed_iou_unanimous",
+   "artefact": "phase6_cam_eval.json",
+   "json_path": "secondary/C1/inter_seed_iou_unanimous"
+  },
+  {
+   "label": "secondary/C2/inter_seed_iou_unanimous",
+   "artefact": "phase6_cam_eval.json",
+   "json_path": "secondary/C2/inter_seed_iou_unanimous"
+  },
+  {
+   "label": "secondary/C3/inter_seed_iou_unanimous",
+   "artefact": "phase6_cam_eval.json",
+   "json_path": "secondary/C3/inter_seed_iou_unanimous"
+  },
+  {
+   "label": "secondary/C4/inter_seed_iou_unanimous",
+   "artefact": "phase6_cam_eval.json",
+   "json_path": "secondary/C4/inter_seed_iou_unanimous"
+  },
+  {
+   "label": "internal/by_arm/C0/aurc_3seed",
+   "artefact": "phase6_selective.json",
+   "json_path": "internal/by_arm/C0/aurc_3seed"
+  },
+  {
+   "label": "internal/by_arm/C1/aurc_3seed",
+   "artefact": "phase6_selective.json",
+   "json_path": "internal/by_arm/C1/aurc_3seed"
+  },
+  {
+   "label": "internal/by_arm/C2/aurc_3seed",
+   "artefact": "phase6_selective.json",
+   "json_path": "internal/by_arm/C2/aurc_3seed"
+  },
+  {
+   "label": "internal/by_arm/C3/aurc_3seed",
+   "artefact": "phase6_selective.json",
+   "json_path": "internal/by_arm/C3/aurc_3seed"
+  },
+  {
+   "label": "internal/by_arm/C4/aurc_3seed",
+   "artefact": "phase6_selective.json",
+   "json_path": "internal/by_arm/C4/aurc_3seed"
+  },
+  {
+   "label": "external/by_arm/C0/aurc_3seed",
+   "artefact": "phase6_selective.json",
+   "json_path": "external/by_arm/C0/aurc_3seed"
+  },
+  {
+   "label": "external/by_arm/C1/aurc_3seed",
+   "artefact": "phase6_selective.json",
+   "json_path": "external/by_arm/C1/aurc_3seed"
+  },
+  {
+   "label": "external/by_arm/C2/aurc_3seed",
+   "artefact": "phase6_selective.json",
+   "json_path": "external/by_arm/C2/aurc_3seed"
+  },
+  {
+   "label": "external/by_arm/C3/aurc_3seed",
+   "artefact": "phase6_selective.json",
+   "json_path": "external/by_arm/C3/aurc_3seed"
+  },
+  {
+   "label": "external/by_arm/C4/aurc_3seed",
+   "artefact": "phase6_selective.json",
+   "json_path": "external/by_arm/C4/aurc_3seed"
+  },
+  {
+   "label": "external/phase5_consistency/verdict",
+   "artefact": "phase6_selective.json",
+   "json_path": "external/phase5_consistency/verdict"
+  },
+  {
+   "label": "verdict",
+   "artefact": "phase7_rq5.json",
+   "json_path": "verdict"
+  },
+  {
+   "label": "discrimination/n_separating",
+   "artefact": "phase7_rq5.json",
+   "json_path": "discrimination/n_separating"
+  },
+  {
+   "label": "discrimination/n_modality_independent",
+   "artefact": "phase7_rq5.json",
+   "json_path": "discrimination/n_modality_independent"
+  },
+  {
+   "label": "discrimination/outright_fail_gates",
+   "artefact": "phase7_rq5.json",
+   "json_path": "discrimination/outright_fail_gates"
+  },
+  {
+   "label": "discrimination/agreeing_gates",
+   "artefact": "phase7_rq5.json",
+   "json_path": "discrimination/agreeing_gates"
+  },
+  {
+   "label": "discrimination/gates_where_the_UNSOUND_corpus_scores_HIGHER",
+   "artefact": "phase7_rq5.json",
+   "json_path": "discrimination/gates_where_the_UNSOUND_corpus_scores_HIGHER"
+  },
+  {
+   "label": "what_the_protocol_missed/n_fatal",
+   "artefact": "phase7_rq5.json",
+   "json_path": "what_the_protocol_missed/n_fatal"
+  },
+  {
+   "label": "what_the_protocol_missed/n_fatal_caught_by_any_gate",
+   "artefact": "phase7_rq5.json",
+   "json_path": "what_the_protocol_missed/n_fatal_caught_by_any_gate"
+  },
+  {
+   "label": "verdict_statement",
+   "artefact": "phase7_rq5.json",
+   "json_path": "verdict_statement"
+  },
+  {
+   "label": "family_size_tested",
+   "artefact": "phase7_multiplicity.json",
+   "json_path": "family_size_tested"
+  },
+  {
+   "label": "n_significant_unadjusted",
+   "artefact": "phase7_multiplicity.json",
+   "json_path": "n_significant_unadjusted"
+  },
+  {
+   "label": "n_surviving_holm",
+   "artefact": "phase7_multiplicity.json",
+   "json_path": "n_surviving_holm"
+  },
+  {
+   "label": "summary",
+   "artefact": "phase7_multiplicity.json",
+   "json_path": "summary"
+  },
+  {
+   "label": "backbone",
+   "artefact": "phase7_backbone.json",
+   "json_path": "backbone"
+  },
+  {
+   "label": "n_replicating",
+   "artefact": "phase7_backbone.json",
+   "json_path": "n_replicating"
+  },
+  {
+   "label": "n_tested",
+   "artefact": "phase7_backbone.json",
+   "json_path": "n_tested"
+  },
+  {
+   "label": "replication/R1_rq2_accuracy_null",
+   "artefact": "phase7_backbone.json",
+   "json_path": "replication/R1_rq2_accuracy_null"
+  },
+  {
+   "label": "replication/R2_calibration_reversal",
+   "artefact": "phase7_backbone.json",
+   "json_path": "replication/R2_calibration_reversal"
+  },
+  {
+   "label": "replication/R3_human_comparator_position",
+   "artefact": "phase7_backbone.json",
+   "json_path": "replication/R3_human_comparator_position"
+  },
+  {
+   "label": "levels_by_stratum/S-contested (pooled)/by_arm/C2/ece_3seed",
+   "artefact": "phase7_backbone.json",
+   "json_path": "levels_by_stratum/S-contested (pooled)/by_arm/C2/ece_3seed"
+  },
+  {
+   "label": "levels_by_stratum/S-contested (pooled)/by_arm/C3/ece_3seed",
+   "artefact": "phase7_backbone.json",
+   "json_path": "levels_by_stratum/S-contested (pooled)/by_arm/C3/ece_3seed"
+  },
+  {
+   "label": "levels_by_stratum/S-unanimous/by_arm/C2/ece_3seed",
+   "artefact": "phase7_backbone.json",
+   "json_path": "levels_by_stratum/S-unanimous/by_arm/C2/ece_3seed"
+  },
+  {
+   "label": "levels_by_stratum/S-unanimous/by_arm/C3/ece_3seed",
+   "artefact": "phase7_backbone.json",
+   "json_path": "levels_by_stratum/S-unanimous/by_arm/C3/ece_3seed"
+  },
+  {
+   "label": "human_comparator/S-contested (pooled)/by_arm/C2/position_in_headroom",
+   "artefact": "phase7_backbone.json",
+   "json_path": "human_comparator/S-contested (pooled)/by_arm/C2/position_in_headroom"
+  },
+  {
+   "label": "stop_reasons",
+   "artefact": "phase7_backbone.json",
+   "json_path": "stop_reasons"
+  }
+ ],
+ "runtime_sec": 0.4
+}

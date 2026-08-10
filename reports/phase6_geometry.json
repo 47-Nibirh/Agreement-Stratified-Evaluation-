@@ -1,0 +1,1079 @@
+{
+ "generated": "2026-07-28 23:27:58",
+ "phase": 6,
+ "step": "P6.3",
+ "endpoint": "P6-B",
+ "question": "Does the model's error geometry mirror the human disagreement geometry measured in Phase 0?",
+ "debt": "Phase 3 rev-1 amendment X3 withdrew the O3 claim because a model interval was compared against a human POINT estimate. Phase 0's 89.8% wall-adjacent and 93.1% station-neighbouring have never carried an interval.",
+ "definitions": "wall adjacency and station neighbouring are taken unchanged from phase4_structure.py / phase3_confusion.py: WALL_CYCLE G-A-L-P-G with cyclic distance 1 = adjacent, and |delta station| == 1 = neighbouring. OTHERCLASS has no geometry and is excluded from both shares.",
+ "verdict_rule": "MIRRORS HUMAN GEOMETRY if the 95% CI on (model share - human share) contains 0; DIVERGES FROM HUMAN GEOMETRY if it excludes 0. Stated per axis per stratum.",
+ "event_definitions": {
+  "model": "prediction differing from an annotator's label, marginalized over all four annotators",
+  "human": "a disagreeing annotator pair; all 6 pairs per image considered",
+  "excluded": "events involving OTHERCLASS, which has no position on the (wall x station) grid"
+ },
+ "arms": [
+  "C0",
+  "C1",
+  "C2",
+  "C3",
+  "C4"
+ ],
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "headline_arm": "C2",
+ "gates": {
+  "P6.1a": "PASS -- row order identical to phase3_cache_index.csv",
+  "P6.3a": {
+   "recomputed_wall_adjacent_pct": 89.68,
+   "phase3_published_wall_adjacent_pct": 89.68,
+   "recomputed_station_neighbouring_pct": 85.57,
+   "phase3_published_station_neighbouring_pct": 85.57,
+   "status": "PASS"
+  },
+  "P6.3b": "PASS -- asserted at import by phase6_common.selftest()"
+ },
+ "x3_settlement": {
+  "arm": "C2",
+  "s_unanimous_human_geometry_defined": false,
+  "finding": "X3 is settled, and by a stronger argument than the one that raised it. The amendment withdrew the Phase 3 claim because a model INTERVAL was compared against a human POINT estimate. Measuring both sides on the same images shows something more basic: S-unanimous is defined by all four annotators agreeing, so it contains ZERO annotator disagreement events and the human error geometry is UNDEFINED there -- not imprecise, undefined. The Phase 3 comparison therefore set the model's geometry on the unanimous stratum against a human benchmark computed over the whole corpus, which is dominated by contested images. It was a cross-population comparison, and neither the 0.12-point 'match' nor the 7.5-point 'shortfall' was ever a like-for-like quantity.",
+  "where_the_comparison_is_defined": "the contested strata, where annotators genuinely disagree and both geometries exist on the same images",
+  "pooled_contested": {
+   "wall": {
+    "delta": -0.92,
+    "ci95": [
+     -4.69,
+     2.78
+    ],
+    "verdict": "MIRRORS HUMAN GEOMETRY"
+   },
+   "station": {
+    "delta": -8.19,
+    "ci95": [
+     -15.1,
+     -2.85
+    ],
+    "verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+   }
+  },
+  "amendment": "P6-AMD-2: the pre-registration assumed the human geometry would be estimable on every stratum. It is not estimable on S-unanimous, for a structural reason. The S-unanimous row is reported as NOT DEFINED rather than as a verdict, and the endpoint is carried by the contested strata."
+ },
+ "results": {
+  "S-unanimous": {
+   "n_images": 803,
+   "human": {
+    "wall_adjacent_pct": null,
+    "station_neighbouring_pct": null,
+    "n_wall_differing": 0,
+    "n_station_differing": 0,
+    "wall_adjacent_ci95": [
+     null,
+     null
+    ],
+    "station_neighbouring_ci95": [
+     null,
+     null
+    ]
+   },
+   "by_arm": {
+    "C0": {
+     "wall_adjacent_pct_3seed": 89.68,
+     "station_neighbouring_pct_3seed": 85.57,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 91.67,
+       "station_neighbouring_pct": 87.5,
+       "n_wall_differing": 288,
+       "n_station_differing": 256
+      },
+      {
+       "wall_adjacent_pct": 85.07,
+       "station_neighbouring_pct": 81.16,
+       "n_wall_differing": 268,
+       "n_station_differing": 276
+      },
+      {
+       "wall_adjacent_pct": 92.31,
+       "station_neighbouring_pct": 88.06,
+       "n_wall_differing": 260,
+       "n_station_differing": 268
+      }
+     ],
+     "wall_adjacent_delta_ci95": [
+      null,
+      null
+     ],
+     "wall_adjacent_verdict": "NOT DEFINED (no human disagreement events on this stratum)",
+     "station_neighbouring_delta_ci95": [
+      null,
+      null
+     ],
+     "station_neighbouring_verdict": "NOT DEFINED (no human disagreement events on this stratum)"
+    },
+    "C1": {
+     "wall_adjacent_pct_3seed": 97.48,
+     "station_neighbouring_pct_3seed": 85.29,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 98.33,
+       "station_neighbouring_pct": 87.69,
+       "n_wall_differing": 240,
+       "n_station_differing": 260
+      },
+      {
+       "wall_adjacent_pct": 97.01,
+       "station_neighbouring_pct": 84.85,
+       "n_wall_differing": 268,
+       "n_station_differing": 264
+      },
+      {
+       "wall_adjacent_pct": 97.1,
+       "station_neighbouring_pct": 83.33,
+       "n_wall_differing": 276,
+       "n_station_differing": 264
+      }
+     ],
+     "wall_adjacent_delta_ci95": [
+      null,
+      null
+     ],
+     "wall_adjacent_verdict": "NOT DEFINED (no human disagreement events on this stratum)",
+     "station_neighbouring_delta_ci95": [
+      null,
+      null
+     ],
+     "station_neighbouring_verdict": "NOT DEFINED (no human disagreement events on this stratum)"
+    },
+    "C2": {
+     "wall_adjacent_pct_3seed": 96.25,
+     "station_neighbouring_pct_3seed": 86.98,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 95.16,
+       "station_neighbouring_pct": 85.96,
+       "n_wall_differing": 248,
+       "n_station_differing": 228
+      },
+      {
+       "wall_adjacent_pct": 96.72,
+       "station_neighbouring_pct": 88.71,
+       "n_wall_differing": 244,
+       "n_station_differing": 248
+      },
+      {
+       "wall_adjacent_pct": 96.88,
+       "station_neighbouring_pct": 86.27,
+       "n_wall_differing": 256,
+       "n_station_differing": 204
+      }
+     ],
+     "wall_adjacent_delta_ci95": [
+      null,
+      null
+     ],
+     "wall_adjacent_verdict": "NOT DEFINED (no human disagreement events on this stratum)",
+     "station_neighbouring_delta_ci95": [
+      null,
+      null
+     ],
+     "station_neighbouring_verdict": "NOT DEFINED (no human disagreement events on this stratum)"
+    },
+    "C3": {
+     "wall_adjacent_pct_3seed": 96.16,
+     "station_neighbouring_pct_3seed": 86.43,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 98.28,
+       "station_neighbouring_pct": 88.89,
+       "n_wall_differing": 232,
+       "n_station_differing": 252
+      },
+      {
+       "wall_adjacent_pct": 96.67,
+       "station_neighbouring_pct": 86.57,
+       "n_wall_differing": 240,
+       "n_station_differing": 268
+      },
+      {
+       "wall_adjacent_pct": 93.55,
+       "station_neighbouring_pct": 83.82,
+       "n_wall_differing": 248,
+       "n_station_differing": 272
+      }
+     ],
+     "wall_adjacent_delta_ci95": [
+      null,
+      null
+     ],
+     "wall_adjacent_verdict": "NOT DEFINED (no human disagreement events on this stratum)",
+     "station_neighbouring_delta_ci95": [
+      null,
+      null
+     ],
+     "station_neighbouring_verdict": "NOT DEFINED (no human disagreement events on this stratum)"
+    },
+    "C4": {
+     "wall_adjacent_pct_3seed": 96.35,
+     "station_neighbouring_pct_3seed": 89.15,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 96.77,
+       "station_neighbouring_pct": 88.33,
+       "n_wall_differing": 248,
+       "n_station_differing": 240
+      },
+      {
+       "wall_adjacent_pct": 95.45,
+       "station_neighbouring_pct": 89.83,
+       "n_wall_differing": 264,
+       "n_station_differing": 236
+      },
+      {
+       "wall_adjacent_pct": 96.83,
+       "station_neighbouring_pct": 89.29,
+       "n_wall_differing": 252,
+       "n_station_differing": 224
+      }
+     ],
+     "wall_adjacent_delta_ci95": [
+      null,
+      null
+     ],
+     "wall_adjacent_verdict": "NOT DEFINED (no human disagreement events on this stratum)",
+     "station_neighbouring_delta_ci95": [
+      null,
+      null
+     ],
+     "station_neighbouring_verdict": "NOT DEFINED (no human disagreement events on this stratum)"
+    }
+   },
+   "human_geometry_defined": false
+  },
+  "S-majority": {
+   "n_images": 342,
+   "human": {
+    "wall_adjacent_pct": 92.93,
+    "station_neighbouring_pct": 97.92,
+    "n_wall_differing": 594,
+    "n_station_differing": 288,
+    "wall_adjacent_ci95": [
+     88.52,
+     96.41
+    ],
+    "station_neighbouring_ci95": [
+     94.87,
+     100.0
+    ]
+   },
+   "by_arm": {
+    "C0": {
+     "wall_adjacent_pct_3seed": 87.77,
+     "station_neighbouring_pct_3seed": 81.34,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 88.53,
+       "station_neighbouring_pct": 76.51,
+       "n_wall_differing": 401,
+       "n_station_differing": 298
+      },
+      {
+       "wall_adjacent_pct": 86.47,
+       "station_neighbouring_pct": 82.47,
+       "n_wall_differing": 377,
+       "n_station_differing": 308
+      },
+      {
+       "wall_adjacent_pct": 88.3,
+       "station_neighbouring_pct": 85.03,
+       "n_wall_differing": 393,
+       "n_station_differing": 294
+      }
+     ],
+     "wall_adjacent_delta_mean": -4.22,
+     "wall_adjacent_delta_ci95": [
+      -9.8,
+      1.2
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -21.04,
+     "station_neighbouring_delta_ci95": [
+      -29.34,
+      -12.33
+     ],
+     "station_neighbouring_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+    },
+    "C1": {
+     "wall_adjacent_pct_3seed": 89.3,
+     "station_neighbouring_pct_3seed": 83.78,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 91.91,
+       "station_neighbouring_pct": 86.11,
+       "n_wall_differing": 371,
+       "n_station_differing": 288
+      },
+      {
+       "wall_adjacent_pct": 86.67,
+       "station_neighbouring_pct": 81.95,
+       "n_wall_differing": 375,
+       "n_station_differing": 266
+      },
+      {
+       "wall_adjacent_pct": 89.33,
+       "station_neighbouring_pct": 83.28,
+       "n_wall_differing": 403,
+       "n_station_differing": 299
+      }
+     ],
+     "wall_adjacent_delta_mean": -0.92,
+     "wall_adjacent_delta_ci95": [
+      -5.76,
+      3.66
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -11.77,
+     "station_neighbouring_delta_ci95": [
+      -20.46,
+      -4.19
+     ],
+     "station_neighbouring_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+    },
+    "C2": {
+     "wall_adjacent_pct_3seed": 93.02,
+     "station_neighbouring_pct_3seed": 88.59,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 92.16,
+       "station_neighbouring_pct": 86.87,
+       "n_wall_differing": 357,
+       "n_station_differing": 259
+      },
+      {
+       "wall_adjacent_pct": 94.02,
+       "station_neighbouring_pct": 89.96,
+       "n_wall_differing": 351,
+       "n_station_differing": 249
+      },
+      {
+       "wall_adjacent_pct": 92.88,
+       "station_neighbouring_pct": 88.93,
+       "n_wall_differing": 351,
+       "n_station_differing": 253
+      }
+     ],
+     "wall_adjacent_delta_mean": -0.74,
+     "wall_adjacent_delta_ci95": [
+      -5.26,
+      3.84
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -10.8,
+     "station_neighbouring_delta_ci95": [
+      -21.18,
+      -2.81
+     ],
+     "station_neighbouring_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+    },
+    "C3": {
+     "wall_adjacent_pct_3seed": 91.84,
+     "station_neighbouring_pct_3seed": 86.36,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 92.69,
+       "station_neighbouring_pct": 83.51,
+       "n_wall_differing": 342,
+       "n_station_differing": 279
+      },
+      {
+       "wall_adjacent_pct": 91.06,
+       "station_neighbouring_pct": 89.51,
+       "n_wall_differing": 358,
+       "n_station_differing": 286
+      },
+      {
+       "wall_adjacent_pct": 91.76,
+       "station_neighbouring_pct": 86.06,
+       "n_wall_differing": 376,
+       "n_station_differing": 287
+      }
+     ],
+     "wall_adjacent_delta_mean": -0.18,
+     "wall_adjacent_delta_ci95": [
+      -5.11,
+      4.46
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -14.17,
+     "station_neighbouring_delta_ci95": [
+      -22.75,
+      -5.7
+     ],
+     "station_neighbouring_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+    },
+    "C4": {
+     "wall_adjacent_pct_3seed": 93.07,
+     "station_neighbouring_pct_3seed": 88.9,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 91.76,
+       "station_neighbouring_pct": 88.55,
+       "n_wall_differing": 352,
+       "n_station_differing": 262
+      },
+      {
+       "wall_adjacent_pct": 95.56,
+       "station_neighbouring_pct": 92.77,
+       "n_wall_differing": 360,
+       "n_station_differing": 235
+      },
+      {
+       "wall_adjacent_pct": 91.91,
+       "station_neighbouring_pct": 85.39,
+       "n_wall_differing": 383,
+       "n_station_differing": 267
+      }
+     ],
+     "wall_adjacent_delta_mean": -1.07,
+     "wall_adjacent_delta_ci95": [
+      -5.64,
+      3.06
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -9.08,
+     "station_neighbouring_delta_ci95": [
+      -19.39,
+      -1.29
+     ],
+     "station_neighbouring_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+    }
+   },
+   "human_geometry_defined": true
+  },
+  "S-plurality": {
+   "n_images": 127,
+   "human": {
+    "wall_adjacent_pct": 86.15,
+    "station_neighbouring_pct": 90.05,
+    "n_wall_differing": 325,
+    "n_station_differing": 201,
+    "wall_adjacent_ci95": [
+     81.82,
+     89.9
+    ],
+    "station_neighbouring_ci95": [
+     80.73,
+     98.1
+    ]
+   },
+   "by_arm": {
+    "C0": {
+     "wall_adjacent_pct_3seed": 81.67,
+     "station_neighbouring_pct_3seed": 77.1,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 81.6,
+       "station_neighbouring_pct": 75.14,
+       "n_wall_differing": 212,
+       "n_station_differing": 177
+      },
+      {
+       "wall_adjacent_pct": 82.61,
+       "station_neighbouring_pct": 81.58,
+       "n_wall_differing": 184,
+       "n_station_differing": 152
+      },
+      {
+       "wall_adjacent_pct": 80.79,
+       "station_neighbouring_pct": 74.58,
+       "n_wall_differing": 203,
+       "n_station_differing": 177
+      }
+     ],
+     "wall_adjacent_delta_mean": -4.4,
+     "wall_adjacent_delta_ci95": [
+      -11.07,
+      2.42
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -15.0,
+     "station_neighbouring_delta_ci95": [
+      -27.42,
+      -3.19
+     ],
+     "station_neighbouring_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+    },
+    "C1": {
+     "wall_adjacent_pct_3seed": 85.41,
+     "station_neighbouring_pct_3seed": 76.71,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 88.12,
+       "station_neighbouring_pct": 75.16,
+       "n_wall_differing": 202,
+       "n_station_differing": 157
+      },
+      {
+       "wall_adjacent_pct": 83.1,
+       "station_neighbouring_pct": 78.29,
+       "n_wall_differing": 213,
+       "n_station_differing": 152
+      },
+      {
+       "wall_adjacent_pct": 85.02,
+       "station_neighbouring_pct": 76.67,
+       "n_wall_differing": 207,
+       "n_station_differing": 150
+      }
+     ],
+     "wall_adjacent_delta_mean": 2.04,
+     "wall_adjacent_delta_ci95": [
+      -3.19,
+      8.08
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -14.98,
+     "station_neighbouring_delta_ci95": [
+      -28.13,
+      -3.19
+     ],
+     "station_neighbouring_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+    },
+    "C2": {
+     "wall_adjacent_pct_3seed": 85.85,
+     "station_neighbouring_pct_3seed": 84.54,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 85.79,
+       "station_neighbouring_pct": 85.5,
+       "n_wall_differing": 190,
+       "n_station_differing": 131
+      },
+      {
+       "wall_adjacent_pct": 85.26,
+       "station_neighbouring_pct": 84.17,
+       "n_wall_differing": 190,
+       "n_station_differing": 139
+      },
+      {
+       "wall_adjacent_pct": 86.49,
+       "station_neighbouring_pct": 83.94,
+       "n_wall_differing": 185,
+       "n_station_differing": 137
+      }
+     ],
+     "wall_adjacent_delta_mean": -0.15,
+     "wall_adjacent_delta_ci95": [
+      -7.56,
+      6.72
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -4.56,
+     "station_neighbouring_delta_ci95": [
+      -12.92,
+      3.35
+     ],
+     "station_neighbouring_verdict": "MIRRORS HUMAN GEOMETRY"
+    },
+    "C3": {
+     "wall_adjacent_pct_3seed": 85.18,
+     "station_neighbouring_pct_3seed": 80.49,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 85.12,
+       "station_neighbouring_pct": 81.41,
+       "n_wall_differing": 215,
+       "n_station_differing": 156
+      },
+      {
+       "wall_adjacent_pct": 85.51,
+       "station_neighbouring_pct": 81.25,
+       "n_wall_differing": 207,
+       "n_station_differing": 160
+      },
+      {
+       "wall_adjacent_pct": 84.92,
+       "station_neighbouring_pct": 78.81,
+       "n_wall_differing": 199,
+       "n_station_differing": 151
+      }
+     ],
+     "wall_adjacent_delta_mean": -1.01,
+     "wall_adjacent_delta_ci95": [
+      -6.79,
+      5.41
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -8.66,
+     "station_neighbouring_delta_ci95": [
+      -22.82,
+      3.06
+     ],
+     "station_neighbouring_verdict": "MIRRORS HUMAN GEOMETRY"
+    },
+    "C4": {
+     "wall_adjacent_pct_3seed": 85.64,
+     "station_neighbouring_pct_3seed": 81.94,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 87.77,
+       "station_neighbouring_pct": 83.58,
+       "n_wall_differing": 188,
+       "n_station_differing": 134
+      },
+      {
+       "wall_adjacent_pct": 85.34,
+       "station_neighbouring_pct": 82.76,
+       "n_wall_differing": 191,
+       "n_station_differing": 145
+      },
+      {
+       "wall_adjacent_pct": 83.82,
+       "station_neighbouring_pct": 79.47,
+       "n_wall_differing": 204,
+       "n_station_differing": 151
+      }
+     ],
+     "wall_adjacent_delta_mean": 1.77,
+     "wall_adjacent_delta_ci95": [
+      -5.37,
+      8.07
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -6.49,
+     "station_neighbouring_delta_ci95": [
+      -17.39,
+      2.94
+     ],
+     "station_neighbouring_verdict": "MIRRORS HUMAN GEOMETRY"
+    }
+   },
+   "human_geometry_defined": true
+  },
+  "S-no-majority": {
+   "n_images": 81,
+   "human": {
+    "wall_adjacent_pct": 93.63,
+    "station_neighbouring_pct": 95.65,
+    "n_wall_differing": 204,
+    "n_station_differing": 92,
+    "wall_adjacent_ci95": [
+     87.95,
+     98.51
+    ],
+    "station_neighbouring_ci95": [
+     86.2,
+     100.0
+    ]
+   },
+   "by_arm": {
+    "C0": {
+     "wall_adjacent_pct_3seed": 87.7,
+     "station_neighbouring_pct_3seed": 82.23,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 85.6,
+       "station_neighbouring_pct": 80.49,
+       "n_wall_differing": 125,
+       "n_station_differing": 82
+      },
+      {
+       "wall_adjacent_pct": 88.79,
+       "station_neighbouring_pct": 81.58,
+       "n_wall_differing": 116,
+       "n_station_differing": 76
+      },
+      {
+       "wall_adjacent_pct": 88.71,
+       "station_neighbouring_pct": 84.62,
+       "n_wall_differing": 124,
+       "n_station_differing": 78
+      }
+     ],
+     "wall_adjacent_delta_mean": -8.05,
+     "wall_adjacent_delta_ci95": [
+      -14.91,
+      -1.33
+     ],
+     "wall_adjacent_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)",
+     "station_neighbouring_delta_mean": -15.6,
+     "station_neighbouring_delta_ci95": [
+      -30.77,
+      -3.37
+     ],
+     "station_neighbouring_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+    },
+    "C1": {
+     "wall_adjacent_pct_3seed": 92.03,
+     "station_neighbouring_pct_3seed": 85.97,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 94.69,
+       "station_neighbouring_pct": 91.89,
+       "n_wall_differing": 113,
+       "n_station_differing": 74
+      },
+      {
+       "wall_adjacent_pct": 91.23,
+       "station_neighbouring_pct": 84.21,
+       "n_wall_differing": 114,
+       "n_station_differing": 76
+      },
+      {
+       "wall_adjacent_pct": 90.16,
+       "station_neighbouring_pct": 81.82,
+       "n_wall_differing": 122,
+       "n_station_differing": 88
+      }
+     ],
+     "wall_adjacent_delta_mean": 0.83,
+     "wall_adjacent_delta_ci95": [
+      -5.07,
+      6.86
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -4.27,
+     "station_neighbouring_delta_ci95": [
+      -12.6,
+      2.6
+     ],
+     "station_neighbouring_verdict": "MIRRORS HUMAN GEOMETRY"
+    },
+    "C2": {
+     "wall_adjacent_pct_3seed": 90.94,
+     "station_neighbouring_pct_3seed": 87.21,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 91.15,
+       "station_neighbouring_pct": 87.5,
+       "n_wall_differing": 113,
+       "n_station_differing": 80
+      },
+      {
+       "wall_adjacent_pct": 90.43,
+       "station_neighbouring_pct": 81.82,
+       "n_wall_differing": 115,
+       "n_station_differing": 66
+      },
+      {
+       "wall_adjacent_pct": 91.23,
+       "station_neighbouring_pct": 92.31,
+       "n_wall_differing": 114,
+       "n_station_differing": 78
+      }
+     ],
+     "wall_adjacent_delta_mean": -2.55,
+     "wall_adjacent_delta_ci95": [
+      -8.43,
+      2.2
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -8.56,
+     "station_neighbouring_delta_ci95": [
+      -23.29,
+      1.31
+     ],
+     "station_neighbouring_verdict": "MIRRORS HUMAN GEOMETRY"
+    },
+    "C3": {
+     "wall_adjacent_pct_3seed": 93.84,
+     "station_neighbouring_pct_3seed": 85.53,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 93.44,
+       "station_neighbouring_pct": 89.47,
+       "n_wall_differing": 122,
+       "n_station_differing": 76
+      },
+      {
+       "wall_adjacent_pct": 93.16,
+       "station_neighbouring_pct": 84.62,
+       "n_wall_differing": 117,
+       "n_station_differing": 78
+      },
+      {
+       "wall_adjacent_pct": 94.92,
+       "station_neighbouring_pct": 82.5,
+       "n_wall_differing": 118,
+       "n_station_differing": 80
+      }
+     ],
+     "wall_adjacent_delta_mean": -0.42,
+     "wall_adjacent_delta_ci95": [
+      -7.29,
+      6.11
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -6.54,
+     "station_neighbouring_delta_ci95": [
+      -16.67,
+      1.2
+     ],
+     "station_neighbouring_verdict": "MIRRORS HUMAN GEOMETRY"
+    },
+    "C4": {
+     "wall_adjacent_pct_3seed": 91.23,
+     "station_neighbouring_pct_3seed": 86.17,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 89.38,
+       "station_neighbouring_pct": 83.78,
+       "n_wall_differing": 113,
+       "n_station_differing": 74
+      },
+      {
+       "wall_adjacent_pct": 89.66,
+       "station_neighbouring_pct": 88.24,
+       "n_wall_differing": 116,
+       "n_station_differing": 68
+      },
+      {
+       "wall_adjacent_pct": 94.64,
+       "station_neighbouring_pct": 86.49,
+       "n_wall_differing": 112,
+       "n_station_differing": 74
+      }
+     ],
+     "wall_adjacent_delta_mean": -4.4,
+     "wall_adjacent_delta_ci95": [
+      -9.82,
+      0.19
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -12.52,
+     "station_neighbouring_delta_ci95": [
+      -28.24,
+      -1.0
+     ],
+     "station_neighbouring_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+    }
+   },
+   "human_geometry_defined": true
+  },
+  "S-contested (pooled)": {
+   "n_images": 550,
+   "human": {
+    "wall_adjacent_pct": 91.1,
+    "station_neighbouring_pct": 94.84,
+    "n_wall_differing": 1123,
+    "n_station_differing": 581,
+    "wall_adjacent_ci95": [
+     88.17,
+     93.66
+    ],
+    "station_neighbouring_ci95": [
+     91.14,
+     98.49
+    ]
+   },
+   "by_arm": {
+    "C0": {
+     "wall_adjacent_pct_3seed": 86.04,
+     "station_neighbouring_pct_3seed": 80.12,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 86.04,
+       "station_neighbouring_pct": 76.66,
+       "n_wall_differing": 738,
+       "n_station_differing": 557
+      },
+      {
+       "wall_adjacent_pct": 85.82,
+       "station_neighbouring_pct": 82.09,
+       "n_wall_differing": 677,
+       "n_station_differing": 536
+      },
+      {
+       "wall_adjacent_pct": 86.25,
+       "station_neighbouring_pct": 81.6,
+       "n_wall_differing": 720,
+       "n_station_differing": 549
+      }
+     ],
+     "wall_adjacent_delta_mean": -5.01,
+     "wall_adjacent_delta_ci95": [
+      -9.21,
+      -0.68
+     ],
+     "wall_adjacent_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)",
+     "station_neighbouring_delta_mean": -18.14,
+     "station_neighbouring_delta_ci95": [
+      -24.79,
+      -11.8
+     ],
+     "station_neighbouring_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+    },
+    "C1": {
+     "wall_adjacent_pct_3seed": 88.61,
+     "station_neighbouring_pct_3seed": 82.0,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 91.25,
+       "station_neighbouring_pct": 83.62,
+       "n_wall_differing": 686,
+       "n_station_differing": 519
+      },
+      {
+       "wall_adjacent_pct": 86.32,
+       "station_neighbouring_pct": 81.17,
+       "n_wall_differing": 702,
+       "n_station_differing": 494
+      },
+      {
+       "wall_adjacent_pct": 88.25,
+       "station_neighbouring_pct": 81.19,
+       "n_wall_differing": 732,
+       "n_station_differing": 537
+      }
+     ],
+     "wall_adjacent_delta_mean": 0.19,
+     "wall_adjacent_delta_ci95": [
+      -3.7,
+      3.91
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -11.16,
+     "station_neighbouring_delta_ci95": [
+      -17.98,
+      -4.89
+     ],
+     "station_neighbouring_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+    },
+    "C2": {
+     "wall_adjacent_pct_3seed": 90.59,
+     "station_neighbouring_pct_3seed": 87.21,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 90.15,
+       "station_neighbouring_pct": 86.6,
+       "n_wall_differing": 660,
+       "n_station_differing": 470
+      },
+      {
+       "wall_adjacent_pct": 90.85,
+       "station_neighbouring_pct": 87.0,
+       "n_wall_differing": 656,
+       "n_station_differing": 454
+      },
+      {
+       "wall_adjacent_pct": 90.77,
+       "station_neighbouring_pct": 88.03,
+       "n_wall_differing": 650,
+       "n_station_differing": 468
+      }
+     ],
+     "wall_adjacent_delta_mean": -0.92,
+     "wall_adjacent_delta_ci95": [
+      -4.69,
+      2.78
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -8.19,
+     "station_neighbouring_delta_ci95": [
+      -15.1,
+      -2.85
+     ],
+     "station_neighbouring_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+    },
+    "C3": {
+     "wall_adjacent_pct_3seed": 90.17,
+     "station_neighbouring_pct_3seed": 84.47,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 90.43,
+       "station_neighbouring_pct": 83.76,
+       "n_wall_differing": 679,
+       "n_station_differing": 511
+      },
+      {
+       "wall_adjacent_pct": 89.74,
+       "station_neighbouring_pct": 86.26,
+       "n_wall_differing": 682,
+       "n_station_differing": 524
+      },
+      {
+       "wall_adjacent_pct": 90.33,
+       "station_neighbouring_pct": 83.4,
+       "n_wall_differing": 693,
+       "n_station_differing": 518
+      }
+     ],
+     "wall_adjacent_delta_mean": -0.6,
+     "wall_adjacent_delta_ci95": [
+      -4.71,
+      3.01
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -11.04,
+     "station_neighbouring_delta_ci95": [
+      -17.86,
+      -5.19
+     ],
+     "station_neighbouring_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+    },
+    "C4": {
+     "wall_adjacent_pct_3seed": 90.6,
+     "station_neighbouring_pct_3seed": 86.32,
+     "per_seed": [
+      {
+       "wall_adjacent_pct": 90.2,
+       "station_neighbouring_pct": 86.38,
+       "n_wall_differing": 653,
+       "n_station_differing": 470
+      },
+      {
+       "wall_adjacent_pct": 91.6,
+       "station_neighbouring_pct": 88.84,
+       "n_wall_differing": 667,
+       "n_station_differing": 448
+      },
+      {
+       "wall_adjacent_pct": 89.99,
+       "station_neighbouring_pct": 83.74,
+       "n_wall_differing": 699,
+       "n_station_differing": 492
+      }
+     ],
+     "wall_adjacent_delta_mean": -0.89,
+     "wall_adjacent_delta_ci95": [
+      -4.45,
+      2.38
+     ],
+     "wall_adjacent_verdict": "MIRRORS HUMAN GEOMETRY",
+     "station_neighbouring_delta_mean": -8.37,
+     "station_neighbouring_delta_ci95": [
+      -15.24,
+      -3.14
+     ],
+     "station_neighbouring_verdict": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+    }
+   },
+   "human_geometry_defined": true
+  }
+ },
+ "runtime_sec": 28.9,
+ "verdict_summary": {
+  "S-unanimous": {
+   "wall": "NOT DEFINED (no human disagreement events on this stratum)",
+   "station": "NOT DEFINED (no human disagreement events on this stratum)"
+  },
+  "S-majority": {
+   "wall": "MIRRORS HUMAN GEOMETRY",
+   "station": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+  },
+  "S-plurality": {
+   "wall": "MIRRORS HUMAN GEOMETRY",
+   "station": "MIRRORS HUMAN GEOMETRY"
+  },
+  "S-no-majority": {
+   "wall": "MIRRORS HUMAN GEOMETRY",
+   "station": "MIRRORS HUMAN GEOMETRY"
+  },
+  "S-contested (pooled)": {
+   "wall": "MIRRORS HUMAN GEOMETRY",
+   "station": "DIVERGES FROM HUMAN GEOMETRY (model less adjacent)"
+  }
+ }
+}

@@ -1,0 +1,113 @@
+{
+ "generated": "2026-07-29 00:54:40",
+ "phase": 7,
+ "step": "P7.2",
+ "purpose": "declare which endpoints are confirmatory and which are exploratory, and adjust the confirmatory family for multiplicity",
+ "why_this_is_needed": "Phases 3-6 report several hundred intervals with no multiplicity adjustment and no statement of which endpoint is primary for which research question. Pre-registration controls the garden of forking paths; it does not control the family-wise error rate. These are different problems and this project had addressed only the first.",
+ "declaration": {
+  "confirmatory_family": "one primary endpoint per research question, listed below. These and only these carry a family-wise error guarantee.",
+  "everything_else": "EXPLORATORY. This includes every per-class metric, every per-seed value, every stratum other than the primary one for its RQ, all Phase 5 external endpoints, all Phase 6 secondary endpoints, and all sensitivity analyses. Exploratory results may be reported and discussed but may not be described as confirmed.",
+  "family_wise_alpha": 0.05,
+  "method": "Holm-Bonferroni (uniformly more powerful than Bonferroni at the same family-wise error rate)"
+ },
+ "family": [
+  {
+   "rq": "RQ1",
+   "endpoint": "ceiling-normalised macro F1 gap, S-unanimous minus S-majority (Phase 3B)",
+   "why_primary": "RQ1's hypothesis is about the SIZE of the decline between adjacent agreement strata. The ceiling-normalised form is primary because Phase 3B showed most of the RAW decline is the attainable ceiling moving, not the model changing; the 4/4-to-3/4 contrast is the one with adequate n on both sides",
+   "estimate": 17.976,
+   "ci95": [
+    12.494,
+    24.372
+   ],
+   "source": "reports/phase3b_ceiling_gaps.json :: S-unanimous - S-majority [ceiling_normalised]",
+   "multiplicity": {
+    "factor_to_reach_zero": 3.104,
+    "contains_zero": false,
+    "significant_unadjusted": true,
+    "adjustment_can_change_verdict": true,
+    "explanation": "the interval excludes zero, so this endpoint is the one a correction could in principle overturn. The widening factor above is how much wider the interval would have to be to touch zero.",
+    "holm": {
+     "rank": 1,
+     "m": 3,
+     "alpha_k": 0.01667,
+     "required_z_inflation_vs_95pct": 1.2214,
+     "survives_if_factor_exceeds": 1.2214,
+     "survives": true,
+     "method_note": "Holm ranks by p-value. The per-resample bootstrap draws were not all retained, so endpoints are ranked here by distance from zero in interval half-widths, which is monotone in the p-value for intervals of the same shape. This is an approximation and is declared as one."
+    }
+   }
+  },
+  {
+   "rq": "RQ2",
+   "endpoint": "annotator-marginalized macro F1, C2 minus C3, on the pooled contested stratum (Phase 4)",
+   "why_primary": "the pre-registered contrast is against the matched-epsilon control C3, not against C1: beating an equally soft but uninformative target is what would localise the benefit in the disagreement pattern rather than in regularisation",
+   "estimate": 1.401,
+   "ci95": [
+    -0.88,
+    3.68
+   ],
+   "source": "reports/phase4_stratified_metrics.json :: contrasts/C2 - C3/S-contested (pooled)",
+   "multiplicity": {
+    "factor_to_reach_zero": 0.614,
+    "contains_zero": true,
+    "significant_unadjusted": false,
+    "adjustment_can_change_verdict": false,
+    "explanation": "the interval already contains zero. Any multiplicity adjustment only widens it, so the unadjusted non-significant verdict is unchanged and no correction is required for this endpoint."
+   }
+  },
+  {
+   "rq": "RQ3",
+   "endpoint": "within-stratum Spearman rho between model uncertainty and annotator vote entropy (Phase 4 predictive; Phase 6 spatial)",
+   "why_primary": "it is the only endpoint that tests RQ3's actual claim",
+   "estimate": null,
+   "ci95": [
+    null,
+    null
+   ],
+   "not_estimable": true,
+   "source": "reports/phase6_cam_eval.json (P6-AMD-4)",
+   "note": "NOT ESTIMABLE. Vote entropy is a deterministic function of the vote pattern and the strata are defined by that pattern, so it is constant within a stratum. An endpoint that cannot be computed does not enter the multiplicity family and does not consume alpha; it is reported as not estimable."
+  },
+  {
+   "rq": "RQ4",
+   "endpoint": "expected anatomical error distance, C4 minus C2, at lambda = 1, on the pooled contested stratum (Phase 4)",
+   "why_primary": "the pre-registered test of the structured loss. A null is evidence about unit lambda only, since no sweep was run (P4-DEV-3)",
+   "estimate": -0.0027,
+   "ci95": [
+    -0.01068,
+    0.00469
+   ],
+   "source": "reports/phase4_structure_eval.json :: contrasts/C4 - C2/S-contested (pooled)",
+   "multiplicity": {
+    "factor_to_reach_zero": 0.39,
+    "contains_zero": true,
+    "significant_unadjusted": false,
+    "adjustment_can_change_verdict": false,
+    "explanation": "the interval already contains zero. Any multiplicity adjustment only widens it, so the unadjusted non-significant verdict is unchanged and no correction is required for this endpoint."
+   }
+  },
+  {
+   "rq": "RQ5",
+   "endpoint": "number of modality-independent gates separating the sound from the unsound corpus, and the number of fatal defects caught by any gate",
+   "why_primary": "it is RQ5's only endpoint",
+   "estimate": 6,
+   "ci95": [
+    null,
+    null
+   ],
+   "source": "reports/phase7_rq5.json",
+   "note": "a deterministic count over a fixed pair of corpora, not a sampling statistic. It has no interval, consumes no alpha and is excluded from the Holm correction."
+  }
+ ],
+ "family_size_tested": 3,
+ "n_significant_unadjusted": 1,
+ "n_surviving_holm": 1,
+ "summary": "Of the 5 primary endpoints, 3 are sampling statistics with intervals. 1 of those exclude zero unadjusted. Adjustment can only widen an interval, so the 2 endpoints that already contain zero are unaffected -- RQ2 and RQ4 were reported as unresolved and remain so. 1 of 1 survive Holm at family-wise alpha 0.05. The thesis's confirmatory claims are therefore unchanged by multiplicity, which is the useful thing to be able to state and could not be stated before this analysis existed.",
+ "honest_limitations": [
+  "Per-resample bootstrap draws were not retained for every phase, so Holm ranking uses distance-from-zero as a monotone proxy for the p-value. Declared, not hidden.",
+  "The confirmatory family is defined retrospectively. It was not named in any pre-registration, and a family chosen after seeing results is weaker than one chosen before. The mitigation is that each RQ's primary endpoint was itself pre-registered as that RQ's test; only the grouping is new.",
+  "Phase 5 and Phase 6 endpoints are excluded from the confirmatory family and reported as exploratory, which is conservative: it means the striking external and human-comparator results carry no family-wise guarantee."
+ ],
+ "runtime_sec": 0.1
+}

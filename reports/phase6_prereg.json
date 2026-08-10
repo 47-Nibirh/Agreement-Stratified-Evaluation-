@@ -1,0 +1,154 @@
+{
+ "phase": 6,
+ "title": "Explainability and Error Analysis: what the model's mistakes are, and whose standard to judge them by",
+ "frozen": "2026-07-28 23:21:35",
+ "git_head_at_freeze": "a049a701fc4852eed36e4f466a7bcee669e4feb3",
+ "platform": {
+  "python": "3.14.5",
+  "machine": "AMD64",
+  "system": "Windows 11"
+ },
+ "inherits": {
+  "checkpoints": "frozen; no retraining, no threshold tuning, no reselection",
+  "test_split": "the 1,353-image GastroHUN official test split, row order fixed by data/phase3_cache_index.csv",
+  "arms": [
+   "C0",
+   "C1",
+   "C2",
+   "C3",
+   "C4"
+  ],
+  "seeds": [
+   1,
+   2,
+   3
+  ],
+  "interval_procedure": {
+   "internal": "patient-clustered bootstrap, 1,000 resamples, seed 20260726, via phase3b_common.patient_bootstrap",
+   "external": "image-level, per the Phase 5 declaration P5-DEV-3; these intervals are OPTIMISTIC and may not be compared against any patient-clustered interval from Phases 0-4 or 6"
+  },
+  "strata": [
+   "S-unanimous",
+   "S-majority",
+   "S-plurality",
+   "S-no-majority"
+  ],
+  "pooled_contested": [
+   "S-majority",
+   "S-plurality",
+   "S-no-majority"
+  ]
+ },
+ "endpoints": {
+  "P6-A": {
+   "name": "human comparator",
+   "question": "Is the model's per-stratum performance distinguishable from that of a held-out human annotator scored the same way?",
+   "construction": "For each held-out annotator a in {0,1,2,3}: human_a = mean over b != a of macroF1(votes[:,b], votes[:,a]); model_a = mean over b != a of macroF1(votes[:,b], model_pred); delta_a = model_a - human_a. Reported as the mean over the four held-out annotators, per stratum.",
+   "why_exclude_self": "Scoring an annotator against a reference set that contains themselves makes one of the terms an identity and inflates the human side. Excluding a from the reference costs precision and buys a comparison that is not rigged. The model is scored against the SAME three references so the two sides differ only in who produced the prediction.",
+   "primary_quantity": "delta = model - human, per stratum",
+   "interval": "paired patient-clustered bootstrap, 1,000 resamples; one resample scores BOTH sides before differencing",
+   "verdict_rule": "BELOW THE HUMAN PANEL if the 95% CI on delta excludes 0 below; ABOVE THE HUMAN PANEL if it excludes 0 above; INDISTINGUISHABLE FROM THE HUMAN PANEL if it contains 0.",
+   "headline_arm": "C2",
+   "interpretation_fixed_in_advance": "If the model is INDISTINGUISHABLE from the human panel on the contested strata while scoring 26-49 macro F1 there, then the low absolute scores reported in Phase 3 are a property of the task and not of the model. That inference is licensed only for the strata where the verdict is INDISTINGUISHABLE or ABOVE."
+  },
+  "P6-B": {
+   "name": "confusion geometry, both sides given intervals",
+   "question": "Does the model's error geometry mirror the human disagreement geometry measured in Phase 0?",
+   "debt": "Phase 3 rev-1 amendment X3 withdrew the O3 claim because a model interval was compared against a human POINT estimate. Phase 0's 89.8% wall-adjacent and 93.1% station-neighbouring have never carried an interval.",
+   "quantities": [
+    "wall_adjacent_share",
+    "station_neighbouring_share"
+   ],
+   "sides": {
+    "model": "share among the model's errors on the stratum, where an error is a prediction differing from the reference label",
+    "human": "share among the annotator disagreement events on the SAME images, using the identical adjacency definitions"
+   },
+   "definitions": "wall adjacency and station neighbouring are taken unchanged from phase4_structure.py / phase3_confusion.py: WALL_CYCLE G-A-L-P-G with cyclic distance 1 = adjacent, and |delta station| == 1 = neighbouring. OTHERCLASS has no geometry and is excluded from both shares.",
+   "strata": "all four, not only S-unanimous",
+   "interval": "paired patient-clustered bootstrap on (model - human), 1,000 resamples, both sides scored on the same resample",
+   "verdict_rule": "MIRRORS HUMAN GEOMETRY if the 95% CI on (model share - human share) contains 0; DIVERGES FROM HUMAN GEOMETRY if it excludes 0. Stated per axis per stratum."
+  },
+  "P6-C": {
+   "name": "attribution as a measurement",
+   "question": "Does spatial attribution track human disagreement where predictive entropy did not?",
+   "method": "Grad-CAM",
+   "method_note": "One attribution method, no sweep. A negative result is therefore evidence about Grad-CAM specifically, and the report must say so -- the same discipline applied to lambda in P4-DEV-3.",
+   "layer": "model.features[-1] (final ConvNeXt stage output)",
+   "target_class": "the model's own predicted class, NOT the reference label, so the map explains what the model did rather than what it should have done",
+   "quantities": {
+    "dispersion": "normalised Shannon entropy of the CAM treated as a spatial probability distribution after ReLU and sum-normalisation; 1.0 = uniform over the frame, 0.0 = all mass on one cell",
+    "inter_seed_iou": "mean pairwise IoU of the top-q attribution masks across the three seeds of one arm, per image",
+    "inter_arm_iou": "mean pairwise IoU across arms at fixed seed, per image"
+   },
+   "top_q": 0.2,
+   "top_q_note": "fixed a priori; no post-hoc selection of q is permitted",
+   "primary": {
+    "quantity": "Spearman rho(CAM dispersion, annotator vote entropy)",
+    "scope": "WITHIN stratum",
+    "stratum": "S-majority",
+    "why": "the same stratum Phase 4 pre-registered for RQ3, for the same reason: it is the largest contested stratum with a defined reference label. Phase 3B established that the POOLED correlation mostly measures which stratum an image is in, so the pooled value is reported only as a labelled contrast and never as the result.",
+    "verdict_rule": "SUPPORTED if the 95% CI on the within-stratum Spearman rho excludes 0 above; NOT SUPPORTED if it excludes 0 below; NOT RESOLVED if it contains 0."
+   },
+   "secondary": {
+    "quantity": "inter-seed IoU, S-unanimous minus pooled contested",
+    "verdict_rule": "ATTRIBUTION DESTABILISES ON CONTESTED IMAGES if the 95% CI on the difference excludes 0 above; STABLE if it contains 0."
+   },
+   "qualitative_panels": "rendered only AFTER the quantitative endpoint is computed and stated, and captioned with the quantitative result so they cannot be read as the evidence"
+  },
+  "P6-D": {
+   "name": "selective prediction",
+   "question": "Does the Phase 5 out-of-protocol rejection ranking survive a threshold-free risk-coverage treatment?",
+   "carry_forward": "Phase 5 carry-forward: 'Report out-of-protocol rejection as a primary endpoint in Phases 6-7: it separated the arms where every internal endpoint failed to.' Phase 5 measured it at ONE operating point (argmax == OTHERCLASS).",
+   "score": "max softmax probability",
+   "score_note": "the simplest and most widely reported confidence score, chosen so the endpoint measures the deployed model rather than a bolt-on detector. Predictive entropy and the top-two margin are computed and tabulated as declared secondaries.",
+   "quantities": [
+    "AURC",
+    "coverage_at_risk_10pct",
+    "risk_at_coverage_80pct"
+   ],
+   "panels": {
+    "internal": "the 1,353-image GastroHUN test split; risk = 0/1 error against the modal label, images with no modal label excluded exactly as in Phase 5",
+    "external": "the Phase 5 external panel; on out-of-protocol images the CORRECT action is rejection, so a non-OTHERCLASS prediction counts as an error"
+   },
+   "verdict_rule": "CONSISTENT WITH THE PHASE 5 RANKING if the Spearman rho between the five arms' AURC ordering and their Phase 5 rejection-rate ordering has a 95% CI excluding 0 above; INCONSISTENT otherwise, which would mean the single-operating-point result did not generalise."
+  }
+ },
+ "gates": {
+  "P6.1a": "panel row order identical to data/phase3_cache_index.csv",
+  "P6.1b": "C0 re-scored through the new panel reproduces the Phase 3 marginalized macro F1 per stratum to < 1e-9",
+  "P6.2a": "the 4-annotator-marginalized model score computed in P6-A equals the Phase 3 value to < 1e-9",
+  "P6.2b": "every held-out score computed on the same rows as its paired model score",
+  "P6.3a": "C0's S-unanimous wall-adjacent and station-neighbouring shares reproduce reports/phase3_confusion_structure.json exactly",
+  "P6.3b": "adjacency definitions identical to phase4_structure.py",
+  "P6.4a": "one CAM per image, finite and non-negative",
+  "P6.4b": "the class each CAM targets equals the saved argmax in the frozen prediction files, exactly, for every image",
+  "P6.4c": "CAM row order matches the cache index",
+  "P6.5a": "within-stratum rho is primary; pooled reported only as a contrast",
+  "P6.5b": "IoU computed at the pre-registered top_q, no post-hoc q selection",
+  "P6.6a": "risk at coverage 1.0 equals 1 - accuracy from the frozen predictions, to < 1e-9",
+  "P6.6b": "external panel row order matches data/phase5_cache_index.csv"
+ },
+ "declared_deviations": {
+  "P6-DEV-1": {
+   "item": "blueprint sec.4 PHASE 6 says 'Grad-CAM on contested images'",
+   "adopted": "Grad-CAM on ALL 1,353 test images",
+   "because": "the contested strata cannot be interpreted without the unanimous stratum as a reference level, and the secondary endpoint P6-C2 is defined as a difference between them. Computing the unanimous maps is cheap and refusing to compute them would make the contrast impossible."
+  },
+  "P6-DEV-2": {
+   "item": "blueprint sec.4 PHASE 6 frames the phase as a confusion-matrix comparison only",
+   "adopted": "P6-A (human comparator) and P6-D (selective prediction) added",
+   "because": "the blueprint's own stated purpose for the phase is to decide whether residual error reflects 'genuine visual ambiguity rather than model capacity'. Confusion geometry shows the errors have the same SHAPE, not the same DIFFICULTY; only a human comparator can license the ambiguity claim. P6-D discharges the Phase 5 carry-forward, which the blueprint assigns to Phases 6-7 but does not specify."
+  },
+  "P6-DEV-3": {
+   "item": "attribution method sweep",
+   "adopted": "Grad-CAM only",
+   "because": "a sweep over Grad-CAM++/ScoreCAM/IntegratedGradients would quadruple the backward passes and, more importantly, invite selection of whichever method produced the strongest correlation. One method, pre-registered, reported whatever it says."
+  }
+ },
+ "standing_rules": [
+  "No retraining, no threshold tuning, no checkpoint reselection.",
+  "No number typed into a report or a figure script; everything interpolated from the JSON artefacts this phase writes.",
+  "Every verdict selected from a rule in this file, never authored.",
+  "Every phase-boundary reproduction gate runs and is recorded in the JSON it gates."
+ ]
+}

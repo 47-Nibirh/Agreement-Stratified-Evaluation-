@@ -1,0 +1,18 @@
+D:\Final defence\src\models\phase6_cam.py:86: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:219.)
+  tgt = torch.as_tensor(frozen_target, device=device, dtype=torch.long)
+  C0 seed1: (1353, 7, 7) in 55.0s -> phase6_cams_C0_seed1.npz
+  C0 seed2: (1353, 7, 7) in 50.9s -> phase6_cams_C0_seed2.npz
+  C0 seed3: (1353, 7, 7) in 51.9s -> phase6_cams_C0_seed3.npz
+  C1 seed1: (1353, 7, 7) in 53.3s -> phase6_cams_C1_seed1.npz
+  C1 seed2: (1353, 7, 7) in 59.8s -> phase6_cams_C1_seed2.npz
+  C1 seed3: (1353, 7, 7) in 52.0s -> phase6_cams_C1_seed3.npz
+  C2 seed1: (1353, 7, 7) in 54.3s -> phase6_cams_C2_seed1.npz
+  C2 seed2: (1353, 7, 7) in 62.8s -> phase6_cams_C2_seed2.npz
+  C2 seed3: (1353, 7, 7) in 55.8s -> phase6_cams_C2_seed3.npz
+  C3 seed1: (1353, 7, 7) in 54.8s -> phase6_cams_C3_seed1.npz
+  C3 seed2: (1353, 7, 7) in 58.0s -> phase6_cams_C3_seed2.npz
+  C3 seed3: (1353, 7, 7) in 59.4s -> phase6_cams_C3_seed3.npz
+  C4 seed1: (1353, 7, 7) in 60.6s -> phase6_cams_C4_seed1.npz
+  C4 seed2: (1353, 7, 7) in 57.0s -> phase6_cams_C4_seed2.npz
+  C4 seed3: (1353, 7, 7) in 57.6s -> phase6_cams_C4_seed3.npz
+[P6.4] 15 checkpoint(s) mapped, all gates PASS -> phase6_cam_gate.json (843.6s)

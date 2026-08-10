@@ -1,0 +1,42 @@
+[P5.16] seed1: 5,228 internal + 2,645 pseudo-labelled external = 7,873 training images
+  [phase5b] ep001 ce=0.1716 struct=0.0000 valF1=0.7730 233.9s
+  [phase5b] ep002 ce=0.1657 struct=0.0000 valF1=0.7894 192.0s
+  [phase5b] ep003 ce=0.1583 struct=0.0000 valF1=0.7846 192.1s
+  [phase5b] ep004 ce=0.1492 struct=0.0000 valF1=0.7919 192.7s
+  [phase5b] ep005 ce=0.1483 struct=0.0000 valF1=0.7811 192.1s
+  [phase5b] ep006 ce=0.1416 struct=0.0000 valF1=0.7871 192.2s
+  [phase5b] ep007 ce=0.1376 struct=0.0000 valF1=0.7939 191.3s
+  [phase5b] ep008 ce=0.1359 struct=0.0000 valF1=0.7909 192.4s
+  [phase5b] ep009 ce=0.1306 struct=0.0000 valF1=0.7922 191.0s
+  [phase5b] ep010 ce=0.1272 struct=0.0000 valF1=0.7957 190.8s
+  [phase5b] ep011 ce=0.1246 struct=0.0000 valF1=0.7979 190.7s
+  [phase5b] ep012 ce=0.1246 struct=0.0000 valF1=0.7961 189.9s
+[P5.16] seed1 -> phase5b_C2_seed1.pt in 39.1 min (epoch_cap)
+[P5.16] seed2: 5,228 internal + 3,269 pseudo-labelled external = 8,497 training images
+  [phase5b] ep001 ce=0.1571 struct=0.0000 valF1=0.7703 243.2s
+  [phase5b] ep002 ce=0.1606 struct=0.0000 valF1=0.7807 203.7s
+  [phase5b] ep003 ce=0.1517 struct=0.0000 valF1=0.7777 205.0s
+  [phase5b] ep004 ce=0.1438 struct=0.0000 valF1=0.7874 204.8s
+  [phase5b] ep005 ce=0.1387 struct=0.0000 valF1=0.7749 204.9s
+  [phase5b] ep006 ce=0.1316 struct=0.0000 valF1=0.7920 204.9s
+  [phase5b] ep007 ce=0.1280 struct=0.0000 valF1=0.7905 204.8s
+  [phase5b] ep008 ce=0.1231 struct=0.0000 valF1=0.7887 204.8s
+  [phase5b] ep009 ce=0.1200 struct=0.0000 valF1=0.7927 204.7s
+  [phase5b] ep010 ce=0.1162 struct=0.0000 valF1=0.7949 204.7s
+  [phase5b] ep011 ce=0.1159 struct=0.0000 valF1=0.7929 204.4s
+  [phase5b] ep012 ce=0.1158 struct=0.0000 valF1=0.7941 204.4s
+[P5.16] seed2 -> phase5b_C2_seed2.pt in 41.6 min (epoch_cap)
+[P5.16] seed3: 5,228 internal + 3,591 pseudo-labelled external = 8,819 training images
+  [phase5b] ep001 ce=0.1649 struct=0.0000 valF1=0.7836 229.1s
+  [phase5b] ep002 ce=0.1505 struct=0.0000 valF1=0.7742 210.8s
+  [phase5b] ep003 ce=0.1408 struct=0.0000 valF1=0.7764 211.1s
+  [phase5b] ep004 ce=0.1384 struct=0.0000 valF1=0.7909 210.9s
+  [phase5b] ep005 ce=0.1339 struct=0.0000 valF1=0.7810 210.9s
+  [phase5b] ep006 ce=0.1321 struct=0.0000 valF1=0.7895 210.8s
+  [phase5b] ep007 ce=0.1226 struct=0.0000 valF1=0.7781 211.0s
+  [phase5b] ep008 ce=0.1185 struct=0.0000 valF1=0.7879 211.0s
+  [phase5b] ep009 ce=0.1169 struct=0.0000 valF1=0.7914 210.9s
+  [phase5b] ep010 ce=0.1129 struct=0.0000 valF1=0.7965 210.9s
+  [phase5b] ep011 ce=0.1113 struct=0.0000 valF1=0.7916 211.0s
+  [phase5b] ep012 ce=0.1114 struct=0.0000 valF1=0.7907 211.0s
+[P5.16] seed3 -> phase5b_C2_seed3.pt in 42.6 min (epoch_cap)

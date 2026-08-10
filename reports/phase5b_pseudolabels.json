@@ -1,0 +1,152 @@
+{
+ "generated": "2026-07-28 17:59:13",
+ "phase": "5B",
+ "step": "P5.15",
+ "arm": "C2",
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "confidence_threshold": 0.9,
+ "source": "the frozen Phase 5 prediction files; no re-inference, so the pseudo-labels come from exactly the predictions the committed Phase 5 report was written from",
+ "per_seed": {
+  "1": {
+   "n_adapt_split": 10272,
+   "n_retained": 2645,
+   "retention_rate": 0.2575,
+   "pseudo_label_accuracy_all_adapt": 0.62354,
+   "pseudo_label_accuracy_retained": 0.84802,
+   "artefact": "phase5b_pseudolabels_seed1.csv"
+  },
+  "2": {
+   "n_adapt_split": 10272,
+   "n_retained": 3269,
+   "retention_rate": 0.31824,
+   "pseudo_label_accuracy_all_adapt": 0.66482,
+   "pseudo_label_accuracy_retained": 0.87794,
+   "artefact": "phase5b_pseudolabels_seed2.csv"
+  },
+  "3": {
+   "n_adapt_split": 10272,
+   "n_retained": 3591,
+   "retention_rate": 0.34959,
+   "pseudo_label_accuracy_all_adapt": 0.6874,
+   "pseudo_label_accuracy_retained": 0.88499,
+   "artefact": "phase5b_pseudolabels_seed3.csv"
+  }
+ },
+ "confirmation_bias_diagnostics": {
+  "1": {
+   "per_collapsed_class": {
+    "RETROFLEXION": {
+     "n_in_adapt_split": 458,
+     "n_retained": 126,
+     "retention_rate": 0.27511,
+     "pseudo_label_accuracy_retained": 0.99206
+    },
+    "FORWARD_GASTRIC": {
+     "n_in_adapt_split": 1416,
+     "n_retained": 321,
+     "retention_rate": 0.22669,
+     "pseudo_label_accuracy_retained": 0.75701
+    },
+    "OTHERCLASS": {
+     "n_in_adapt_split": 8398,
+     "n_retained": 2198,
+     "retention_rate": 0.26173,
+     "pseudo_label_accuracy_retained": 0.85305
+    }
+   },
+   "true_distribution_adapt_split": {
+    "OTHERCLASS": 0.81756,
+    "FORWARD_GASTRIC": 0.13785,
+    "RETROFLEXION": 0.04459
+   },
+   "pseudo_label_distribution_retained": {
+    "OTHERCLASS": 0.71607,
+    "FORWARD_GASTRIC": 0.20227,
+    "RETROFLEXION": 0.08166
+   },
+   "n_distinct_23way_labels_used": 23
+  },
+  "2": {
+   "per_collapsed_class": {
+    "RETROFLEXION": {
+     "n_in_adapt_split": 458,
+     "n_retained": 143,
+     "retention_rate": 0.31223,
+     "pseudo_label_accuracy_retained": 0.99301
+    },
+    "FORWARD_GASTRIC": {
+     "n_in_adapt_split": 1416,
+     "n_retained": 371,
+     "retention_rate": 0.26201,
+     "pseudo_label_accuracy_retained": 0.71159
+    },
+    "OTHERCLASS": {
+     "n_in_adapt_split": 8398,
+     "n_retained": 2755,
+     "retention_rate": 0.32805,
+     "pseudo_label_accuracy_retained": 0.89437
+    }
+   },
+   "true_distribution_adapt_split": {
+    "OTHERCLASS": 0.81756,
+    "FORWARD_GASTRIC": 0.13785,
+    "RETROFLEXION": 0.04459
+   },
+   "pseudo_label_distribution_retained": {
+    "OTHERCLASS": 0.76507,
+    "FORWARD_GASTRIC": 0.15999,
+    "RETROFLEXION": 0.07495
+   },
+   "n_distinct_23way_labels_used": 23
+  },
+  "3": {
+   "per_collapsed_class": {
+    "RETROFLEXION": {
+     "n_in_adapt_split": 458,
+     "n_retained": 155,
+     "retention_rate": 0.33843,
+     "pseudo_label_accuracy_retained": 0.98065
+    },
+    "FORWARD_GASTRIC": {
+     "n_in_adapt_split": 1416,
+     "n_retained": 392,
+     "retention_rate": 0.27684,
+     "pseudo_label_accuracy_retained": 0.69133
+    },
+    "OTHERCLASS": {
+     "n_in_adapt_split": 8398,
+     "n_retained": 3044,
+     "retention_rate": 0.36247,
+     "pseudo_label_accuracy_retained": 0.90506
+    }
+   },
+   "true_distribution_adapt_split": {
+    "OTHERCLASS": 0.81756,
+    "FORWARD_GASTRIC": 0.13785,
+    "RETROFLEXION": 0.04459
+   },
+   "pseudo_label_distribution_retained": {
+    "OTHERCLASS": 0.77889,
+    "FORWARD_GASTRIC": 0.14703,
+    "RETROFLEXION": 0.07407
+   },
+   "n_distinct_23way_labels_used": 23
+  }
+ },
+ "how_to_read_the_diagnostics": "retention_rate says how much of the target domain the model was already confident about; pseudo_label_accuracy_retained says how right it was where it was confident. A high retention rate with low accuracy means 5B is training on its own mistakes. A very low retention rate on one collapsed class means adaptation cannot help that class, whatever the headline number does.",
+ "gates": {
+  "P5.15a_pseudo_labels_from_frozen_checkpoints": true,
+  "P5.15b_threshold_is_the_preregistered_one": true,
+  "P5.15c_adapt_and_eval_disjoint": {
+   "n_adapt": 10272,
+   "n_eval": 6850,
+   "overlap": 0,
+   "split_drawn_before_pseudolabelling": true,
+   "pass": true
+  }
+ }
+}

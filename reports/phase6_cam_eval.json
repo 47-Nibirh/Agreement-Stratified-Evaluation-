@@ -1,0 +1,681 @@
+{
+ "generated": "2026-07-28 23:49:56",
+ "phase": 6,
+ "step": "P6.5",
+ "endpoint": "P6-C",
+ "question": "Does spatial attribution track human disagreement where predictive entropy did not?",
+ "method": "Grad-CAM",
+ "method_note": "One attribution method, no sweep. A negative result is therefore evidence about Grad-CAM specifically, and the report must say so -- the same discipline applied to lambda in P4-DEV-3.",
+ "layer": "model.features[-1] (final ConvNeXt stage output)",
+ "target_class": "the model's own predicted class, NOT the reference label, so the map explains what the model did rather than what it should have done",
+ "top_q": 0.2,
+ "top_q_note": "fixed a priori; no post-hoc selection of q is permitted",
+ "quantities": {
+  "dispersion": "normalised Shannon entropy of the CAM treated as a spatial probability distribution after ReLU and sum-normalisation; 1.0 = uniform over the frame, 0.0 = all mass on one cell",
+  "inter_seed_iou": "mean pairwise IoU of the top-q attribution masks across the three seeds of one arm, per image",
+  "inter_arm_iou": "mean pairwise IoU across arms at fixed seed, per image"
+ },
+ "arms": [
+  "C0",
+  "C1",
+  "C2",
+  "C3",
+  "C4"
+ ],
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "headline_arm": "C2",
+ "n_zero_maps": {
+  "C0_seed1": 0,
+  "C0_seed2": 0,
+  "C0_seed3": 0,
+  "C1_seed1": 0,
+  "C1_seed2": 0,
+  "C1_seed3": 0,
+  "C2_seed1": 0,
+  "C2_seed2": 0,
+  "C2_seed3": 0,
+  "C3_seed1": 0,
+  "C3_seed2": 0,
+  "C3_seed3": 0,
+  "C4_seed1": 0,
+  "C4_seed2": 0,
+  "C4_seed3": 0
+ },
+ "gates": {
+  "P6.1a": "PASS -- row order identical to phase3_cache_index.csv",
+  "P6.5a": "PASS -- the primary quantity is the within-stratum rho on S-majority; the pooled value is carried below explicitly labelled as a confound demonstration, never as the result",
+  "P6.5b": "PASS -- IoU computed at the pre-registered top_q = 0.2"
+ },
+ "primary_rule": {
+  "quantity": "Spearman rho(CAM dispersion, annotator vote entropy)",
+  "scope": "WITHIN stratum",
+  "stratum": "S-majority",
+  "why": "the same stratum Phase 4 pre-registered for RQ3, for the same reason: it is the largest contested stratum with a defined reference label. Phase 3B established that the POOLED correlation mostly measures which stratum an image is in, so the pooled value is reported only as a labelled contrast and never as the result.",
+  "verdict_rule": "SUPPORTED if the 95% CI on the within-stratum Spearman rho excludes 0 above; NOT SUPPORTED if it excludes 0 below; NOT RESOLVED if it contains 0."
+ },
+ "primary": {
+  "stratum": "S-majority",
+  "by_arm": {
+   "C0": {
+    "dispersion_mean": 0.67227,
+    "dispersion_sd": 0.07296,
+    "inter_seed_iou_mean": 0.45684,
+    "spearman_rho": null,
+    "spearman_ci95": [
+     null,
+     null
+    ],
+    "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+    "spread_spearman_rho": -0.0099,
+    "spread_spearman_ci95": [
+     -0.1072,
+     0.0958
+    ],
+    "spread_verdict": "NO ASSOCIATION"
+   },
+   "C1": {
+    "dispersion_mean": 0.68314,
+    "dispersion_sd": 0.07598,
+    "inter_seed_iou_mean": 0.49197,
+    "spearman_rho": null,
+    "spearman_ci95": [
+     null,
+     null
+    ],
+    "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+    "spread_spearman_rho": -0.031,
+    "spread_spearman_ci95": [
+     -0.1348,
+     0.0845
+    ],
+    "spread_verdict": "NO ASSOCIATION"
+   },
+   "C2": {
+    "dispersion_mean": 0.632,
+    "dispersion_sd": 0.07059,
+    "inter_seed_iou_mean": 0.66156,
+    "spearman_rho": null,
+    "spearman_ci95": [
+     null,
+     null
+    ],
+    "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+    "spread_spearman_rho": 0.0358,
+    "spread_spearman_ci95": [
+     -0.0654,
+     0.1497
+    ],
+    "spread_verdict": "NO ASSOCIATION"
+   },
+   "C3": {
+    "dispersion_mean": 0.61424,
+    "dispersion_sd": 0.06765,
+    "inter_seed_iou_mean": 0.64265,
+    "spearman_rho": null,
+    "spearman_ci95": [
+     null,
+     null
+    ],
+    "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+    "spread_spearman_rho": 0.1062,
+    "spread_spearman_ci95": [
+     -0.0068,
+     0.2338
+    ],
+    "spread_verdict": "NO ASSOCIATION"
+   },
+   "C4": {
+    "dispersion_mean": 0.62821,
+    "dispersion_sd": 0.06903,
+    "inter_seed_iou_mean": 0.64411,
+    "spearman_rho": null,
+    "spearman_ci95": [
+     null,
+     null
+    ],
+    "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+    "spread_spearman_rho": 0.0294,
+    "spread_spearman_ci95": [
+     -0.0875,
+     0.1519
+    ],
+    "spread_verdict": "NO ASSOCIATION"
+   }
+  },
+  "estimable": false
+ },
+ "by_stratum": {
+  "S-unanimous": {
+   "n_images": 803,
+   "vote_entropy_distinct_values": 1,
+   "vote_spread_distinct_values": 1,
+   "by_arm": {
+    "C0": {
+     "dispersion_mean": 0.67476,
+     "dispersion_sd": 0.07041,
+     "inter_seed_iou_mean": 0.48562,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_verdict": "NOT ESTIMABLE (spread constant on this stratum)"
+    },
+    "C1": {
+     "dispersion_mean": 0.6874,
+     "dispersion_sd": 0.0696,
+     "inter_seed_iou_mean": 0.5033,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_verdict": "NOT ESTIMABLE (spread constant on this stratum)"
+    },
+    "C2": {
+     "dispersion_mean": 0.63799,
+     "dispersion_sd": 0.06126,
+     "inter_seed_iou_mean": 0.67586,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_verdict": "NOT ESTIMABLE (spread constant on this stratum)"
+    },
+    "C3": {
+     "dispersion_mean": 0.6201,
+     "dispersion_sd": 0.06028,
+     "inter_seed_iou_mean": 0.67828,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_verdict": "NOT ESTIMABLE (spread constant on this stratum)"
+    },
+    "C4": {
+     "dispersion_mean": 0.63387,
+     "dispersion_sd": 0.06046,
+     "inter_seed_iou_mean": 0.6703,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_verdict": "NOT ESTIMABLE (spread constant on this stratum)"
+    }
+   },
+   "note": "vote entropy is CONSTANT on this stratum, so a correlation against it does not exist -- it is undefined, not weak. Entropy is a deterministic function of the vote pattern (3-1 is always 0.5623 nats, 2-1-1 always 1.0397) and the strata are defined by that same pattern. See the P6-AMD-4 amendment."
+  },
+  "S-majority": {
+   "n_images": 342,
+   "vote_entropy_distinct_values": 1,
+   "vote_spread_distinct_values": 8,
+   "by_arm": {
+    "C0": {
+     "dispersion_mean": 0.67227,
+     "dispersion_sd": 0.07296,
+     "inter_seed_iou_mean": 0.45684,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_spearman_rho": -0.0099,
+     "spread_spearman_ci95": [
+      -0.1072,
+      0.0958
+     ],
+     "spread_verdict": "NO ASSOCIATION"
+    },
+    "C1": {
+     "dispersion_mean": 0.68314,
+     "dispersion_sd": 0.07598,
+     "inter_seed_iou_mean": 0.49197,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_spearman_rho": -0.031,
+     "spread_spearman_ci95": [
+      -0.1348,
+      0.0845
+     ],
+     "spread_verdict": "NO ASSOCIATION"
+    },
+    "C2": {
+     "dispersion_mean": 0.632,
+     "dispersion_sd": 0.07059,
+     "inter_seed_iou_mean": 0.66156,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_spearman_rho": 0.0358,
+     "spread_spearman_ci95": [
+      -0.0654,
+      0.1497
+     ],
+     "spread_verdict": "NO ASSOCIATION"
+    },
+    "C3": {
+     "dispersion_mean": 0.61424,
+     "dispersion_sd": 0.06765,
+     "inter_seed_iou_mean": 0.64265,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_spearman_rho": 0.1062,
+     "spread_spearman_ci95": [
+      -0.0068,
+      0.2338
+     ],
+     "spread_verdict": "NO ASSOCIATION"
+    },
+    "C4": {
+     "dispersion_mean": 0.62821,
+     "dispersion_sd": 0.06903,
+     "inter_seed_iou_mean": 0.64411,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_spearman_rho": 0.0294,
+     "spread_spearman_ci95": [
+      -0.0875,
+      0.1519
+     ],
+     "spread_verdict": "NO ASSOCIATION"
+    }
+   },
+   "note": "vote entropy is CONSTANT on this stratum, so a correlation against it does not exist -- it is undefined, not weak. Entropy is a deterministic function of the vote pattern (3-1 is always 0.5623 nats, 2-1-1 always 1.0397) and the strata are defined by that same pattern. See the P6-AMD-4 amendment."
+  },
+  "S-plurality": {
+   "n_images": 127,
+   "vote_entropy_distinct_values": 1,
+   "vote_spread_distinct_values": 23,
+   "by_arm": {
+    "C0": {
+     "dispersion_mean": 0.68283,
+     "dispersion_sd": 0.068,
+     "inter_seed_iou_mean": 0.45924,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_spearman_rho": 0.2834,
+     "spread_spearman_ci95": [
+      0.0633,
+      0.4634
+     ],
+     "spread_verdict": "POSITIVE ASSOCIATION"
+    },
+    "C1": {
+     "dispersion_mean": 0.69017,
+     "dispersion_sd": 0.07043,
+     "inter_seed_iou_mean": 0.4534,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_spearman_rho": 0.2152,
+     "spread_spearman_ci95": [
+      -0.0022,
+      0.3919
+     ],
+     "spread_verdict": "NO ASSOCIATION"
+    },
+    "C2": {
+     "dispersion_mean": 0.64614,
+     "dispersion_sd": 0.06476,
+     "inter_seed_iou_mean": 0.62449,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_spearman_rho": 0.3419,
+     "spread_spearman_ci95": [
+      0.1511,
+      0.5019
+     ],
+     "spread_verdict": "POSITIVE ASSOCIATION"
+    },
+    "C3": {
+     "dispersion_mean": 0.62533,
+     "dispersion_sd": 0.06283,
+     "inter_seed_iou_mean": 0.57247,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_spearman_rho": 0.176,
+     "spread_spearman_ci95": [
+      -0.0311,
+      0.3489
+     ],
+     "spread_verdict": "NO ASSOCIATION"
+    },
+    "C4": {
+     "dispersion_mean": 0.64022,
+     "dispersion_sd": 0.06575,
+     "inter_seed_iou_mean": 0.59201,
+     "spearman_rho": null,
+     "spearman_ci95": [
+      null,
+      null
+     ],
+     "verdict": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+     "spread_spearman_rho": 0.3006,
+     "spread_spearman_ci95": [
+      0.1077,
+      0.4681
+     ],
+     "spread_verdict": "POSITIVE ASSOCIATION"
+    }
+   },
+   "note": "vote entropy is CONSTANT on this stratum, so a correlation against it does not exist -- it is undefined, not weak. Entropy is a deterministic function of the vote pattern (3-1 is always 0.5623 nats, 2-1-1 always 1.0397) and the strata are defined by that same pattern. See the P6-AMD-4 amendment."
+  },
+  "S-no-majority": {
+   "n_images": 81,
+   "vote_entropy_distinct_values": 2,
+   "vote_spread_distinct_values": 10,
+   "by_arm": {
+    "C0": {
+     "dispersion_mean": 0.67921,
+     "dispersion_sd": 0.07381,
+     "inter_seed_iou_mean": 0.47391,
+     "spearman_rho": -0.0655,
+     "spearman_ci95": [
+      -0.1725,
+      0.042
+     ],
+     "verdict": "NOT RESOLVED",
+     "spread_spearman_rho": -0.0593,
+     "spread_spearman_ci95": [
+      -0.2642,
+      0.1898
+     ],
+     "spread_verdict": "NO ASSOCIATION"
+    },
+    "C1": {
+     "dispersion_mean": 0.69296,
+     "dispersion_sd": 0.07193,
+     "inter_seed_iou_mean": 0.48732,
+     "spearman_rho": -0.0513,
+     "spearman_ci95": [
+      -0.1967,
+      0.0888
+     ],
+     "verdict": "NOT RESOLVED",
+     "spread_spearman_rho": -0.1986,
+     "spread_spearman_ci95": [
+      -0.4345,
+      0.0962
+     ],
+     "spread_verdict": "NO ASSOCIATION"
+    },
+    "C2": {
+     "dispersion_mean": 0.63755,
+     "dispersion_sd": 0.06236,
+     "inter_seed_iou_mean": 0.65826,
+     "spearman_rho": -0.0938,
+     "spearman_ci95": [
+      -0.2378,
+      0.0951
+     ],
+     "verdict": "NOT RESOLVED",
+     "spread_spearman_rho": -0.0109,
+     "spread_spearman_ci95": [
+      -0.2561,
+      0.2381
+     ],
+     "spread_verdict": "NO ASSOCIATION"
+    },
+    "C3": {
+     "dispersion_mean": 0.62125,
+     "dispersion_sd": 0.06452,
+     "inter_seed_iou_mean": 0.61955,
+     "spearman_rho": -0.1044,
+     "spearman_ci95": [
+      -0.2876,
+      0.0991
+     ],
+     "verdict": "NOT RESOLVED",
+     "spread_spearman_rho": -0.0082,
+     "spread_spearman_ci95": [
+      -0.2935,
+      0.2928
+     ],
+     "spread_verdict": "NO ASSOCIATION"
+    },
+    "C4": {
+     "dispersion_mean": 0.631,
+     "dispersion_sd": 0.06273,
+     "inter_seed_iou_mean": 0.63502,
+     "spearman_rho": -0.1097,
+     "spearman_ci95": [
+      -0.2726,
+      0.0682
+     ],
+     "verdict": "NOT RESOLVED",
+     "spread_spearman_rho": -0.0232,
+     "spread_spearman_ci95": [
+      -0.2691,
+      0.2343
+     ],
+     "spread_verdict": "NO ASSOCIATION"
+    }
+   }
+  },
+  "S-contested (pooled)": {
+   "n_images": 550,
+   "vote_entropy_distinct_values": 4,
+   "vote_spread_distinct_values": 33,
+   "by_arm": {
+    "C0": {
+     "dispersion_mean": 0.67573,
+     "dispersion_sd": 0.07212,
+     "inter_seed_iou_mean": 0.45991,
+     "spearman_rho": 0.066,
+     "spearman_ci95": [
+      -0.0331,
+      0.1711
+     ],
+     "verdict": "NOT RESOLVED",
+     "spread_spearman_rho": 0.0705,
+     "spread_spearman_ci95": [
+      -0.0251,
+      0.1562
+     ],
+     "spread_verdict": "NO ASSOCIATION"
+    },
+    "C1": {
+     "dispersion_mean": 0.68621,
+     "dispersion_sd": 0.07425,
+     "inter_seed_iou_mean": 0.48238,
+     "spearman_rho": 0.0478,
+     "spearman_ci95": [
+      -0.0504,
+      0.1499
+     ],
+     "verdict": "NOT RESOLVED",
+     "spread_spearman_rho": 0.022,
+     "spread_spearman_ci95": [
+      -0.0707,
+      0.1081
+     ],
+     "spread_verdict": "NO ASSOCIATION"
+    },
+    "C2": {
+     "dispersion_mean": 0.63609,
+     "dispersion_sd": 0.06836,
+     "inter_seed_iou_mean": 0.65251,
+     "spearman_rho": 0.0847,
+     "spearman_ci95": [
+      -0.0303,
+      0.2022
+     ],
+     "verdict": "NOT RESOLVED",
+     "spread_spearman_rho": 0.1292,
+     "spread_spearman_ci95": [
+      0.0296,
+      0.2289
+     ],
+     "spread_verdict": "POSITIVE ASSOCIATION"
+    },
+    "C3": {
+     "dispersion_mean": 0.61784,
+     "dispersion_sd": 0.06628,
+     "inter_seed_iou_mean": 0.62304,
+     "spearman_rho": 0.0728,
+     "spearman_ci95": [
+      -0.0405,
+      0.1905
+     ],
+     "verdict": "NOT RESOLVED",
+     "spread_spearman_rho": 0.1276,
+     "spread_spearman_ci95": [
+      0.0289,
+      0.2319
+     ],
+     "spread_verdict": "POSITIVE ASSOCIATION"
+    },
+    "C4": {
+     "dispersion_mean": 0.63139,
+     "dispersion_sd": 0.06757,
+     "inter_seed_iou_mean": 0.63074,
+     "spearman_rho": 0.0646,
+     "spearman_ci95": [
+      -0.0525,
+      0.1822
+     ],
+     "verdict": "NOT RESOLVED",
+     "spread_spearman_rho": 0.1115,
+     "spread_spearman_ci95": [
+      0.0103,
+      0.2099
+     ],
+     "spread_verdict": "POSITIVE ASSOCIATION"
+    }
+   }
+  }
+ },
+ "pooled_contrast": {
+  "spearman_rho_pooled": {
+   "C0": 0.0193,
+   "C1": 0.0077,
+   "C2": 0.0012,
+   "C3": -0.006,
+   "C4": -0.0043
+  },
+  "why_not_the_result": "Phase 3B established that a correlation pooled across strata mostly measures which stratum an image is in, because vote entropy is identically zero on S-unanimous and positive elsewhere. The pooled value is reported to demonstrate the size of that confound against the within-stratum value, not as evidence for or against P6-C."
+ },
+ "amendment_P6-AMD-4": {
+  "what": "the pre-registered primary endpoint is NOT ESTIMABLE on its pre-registered stratum, for a structural reason the pre-registration did not anticipate.",
+  "why": "annotator vote entropy is a deterministic function of the vote PATTERN -- a 3-1 split is always 0.5623 nats, a 2-1-1 split always 1.0397 -- and the agreement strata are DEFINED by that same pattern. Vote entropy is therefore constant within S-unanimous, S-majority and S-plurality alike (1 distinct value each), and takes only 2 values on S-no-majority. A within-stratum correlation against a constant does not exist.",
+  "consequence": "P6-C1 is reported as NOT ESTIMABLE rather than as a null. Reporting it as 'no association' would assert a measurement that was never possible.",
+  "carry_back": "this also bears on Phase 4's RQ3, which reported 'within-stratum' entropy correlations of 0.02-0.08. On this corpus that quantity can only be non-degenerate where a stratum mixes vote patterns. Phase 7 should restate the RQ3 finding with this structural limit made explicit.",
+  "substitute": "a declared EXPLORATORY substitute is reported alongside: the mean pairwise ANATOMICAL distance between the four annotators' labels under the frozen Phase 4 distance matrix. It carries the same disagreement information but distinguishes a dissenter one wall away from a dissenter at the far end of the stomach, so it varies within a tier (8, 23 and 10 distinct values on S-majority, S-plurality and S-no-majority). It is post-hoc and is labelled exploratory everywhere it appears; it is NOT a substitute pre-registered endpoint."
+ },
+ "secondary_rule": {
+  "quantity": "inter-seed IoU, S-unanimous minus pooled contested",
+  "verdict_rule": "ATTRIBUTION DESTABILISES ON CONTESTED IMAGES if the 95% CI on the difference excludes 0 above; STABLE if it contains 0."
+ },
+ "secondary": {
+  "C0": {
+   "inter_seed_iou_unanimous": 0.48562,
+   "inter_seed_iou_contested": 0.45991,
+   "delta": 0.02571,
+   "delta_ci95": [
+    0.00791,
+    0.04498
+   ],
+   "verdict": "ATTRIBUTION DESTABILISES ON CONTESTED IMAGES"
+  },
+  "C1": {
+   "inter_seed_iou_unanimous": 0.5033,
+   "inter_seed_iou_contested": 0.48238,
+   "delta": 0.02092,
+   "delta_ci95": [
+    0.00534,
+    0.03717
+   ],
+   "verdict": "ATTRIBUTION DESTABILISES ON CONTESTED IMAGES"
+  },
+  "C2": {
+   "inter_seed_iou_unanimous": 0.67586,
+   "inter_seed_iou_contested": 0.65251,
+   "delta": 0.02334,
+   "delta_ci95": [
+    0.00297,
+    0.04134
+   ],
+   "verdict": "ATTRIBUTION DESTABILISES ON CONTESTED IMAGES"
+  },
+  "C3": {
+   "inter_seed_iou_unanimous": 0.67828,
+   "inter_seed_iou_contested": 0.62304,
+   "delta": 0.05524,
+   "delta_ci95": [
+    0.03471,
+    0.08016
+   ],
+   "verdict": "ATTRIBUTION DESTABILISES ON CONTESTED IMAGES"
+  },
+  "C4": {
+   "inter_seed_iou_unanimous": 0.6703,
+   "inter_seed_iou_contested": 0.63074,
+   "delta": 0.03956,
+   "delta_ci95": [
+    0.01902,
+    0.06173
+   ],
+   "verdict": "ATTRIBUTION DESTABILISES ON CONTESTED IMAGES"
+  }
+ },
+ "inter_arm_iou_mean": 0.50154,
+ "runtime_sec": 37.0,
+ "verdict_summary": {
+  "P6-C1_primary": "NOT ESTIMABLE (vote entropy is constant on this stratum by construction)",
+  "P6-C1_primary_rho": null,
+  "P6-C1_primary_ci95": [
+   null,
+   null
+  ],
+  "P6-C1b_exploratory_spread": "NO ASSOCIATION",
+  "P6-C1b_exploratory_rho": 0.0358,
+  "P6-C1b_exploratory_ci95": [
+   -0.0654,
+   0.1497
+  ],
+  "P6-C2_secondary": "ATTRIBUTION DESTABILISES ON CONTESTED IMAGES"
+ }
+}

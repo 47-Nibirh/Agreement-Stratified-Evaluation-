@@ -1,0 +1,229 @@
+{
+ "generated": "2026-07-29 00:52:28",
+ "phase": 7,
+ "step": "P7.1",
+ "research_question": "RQ5",
+ "question": "Does the Phase 0 audit protocol discriminate a sound corpus from an unsound one?",
+ "blueprint_hypothesis": "Yes - demonstrated against the retired dataset as negative control. Primary endpoint: gate verdicts on both corpora.",
+ "corpora": {
+  "sound": "GastroHUN (adopted)",
+  "unsound": "Peptic-ulcer corpus (retired, negative control)"
+ },
+ "negative_control_integrity": {
+  "file": "Peptic Ulcer_Dataset.xlsx",
+  "sha256_recorded_in_audit": "c259fb1fbe402f2223b1fd46fc7cd3eef2568270e32ce55ee21c42d190d8a301",
+  "sha256_observed_now": "c259fb1fbe402f2223b1fd46fc7cd3eef2568270e32ce55ee21c42d190d8a301",
+  "unchanged_since_audit": true,
+  "why": "the negative control must still be the file its audit was computed from, or this is a comparison against a moving target"
+ },
+ "modality_caveat": "the retired corpus is tabular and GastroHUN is imaging. A gate that fails merely because a spreadsheet contains no JPEGs would discriminate nothing, so each gate is reduced to a criterion that is meaningful in both modalities and the headline count uses only those.",
+ "gates": [
+  {
+   "id": "G1",
+   "name": "Provenance, ethics and licence",
+   "criterion": "a named, citable source; documented ethics approval; documented consent; an explicit licence",
+   "modality_independent": true,
+   "GastroHUN (adopted)": {
+    "verdict": "PASS",
+    "evidence": "Sci Data 12:102 (2025), doi:10.1038/s41597-025-04401-5; ethics CEI-2019-06-10; informed consent; CC BY 4.0 (licence discrepancy resolved in favour of Figshare)"
+   },
+   "Peptic-ulcer corpus (retired, negative control)": {
+    "verdict": "FAIL",
+    "evidence": "no citable source, no ethics approval and no consent record for Peptic Ulcer_Dataset.xlsx (1269 rows); defect D10 records a re-identification exposure"
+   }
+  },
+  {
+   "id": "G2",
+   "name": "Physical integrity",
+   "criterion": "every record parses/decodes; zero missing, orphan or corrupt",
+   "modality_independent": true,
+   "note": "the imaging form of this gate is JPEG decoding; the tabular analogue is row parsing. Both are 'does the payload load'.",
+   "GastroHUN (adopted)": {
+    "verdict": "PASS",
+    "evidence": "8834/8834 decoded; 0 missing, 0 orphan, 0 corrupt"
+   },
+   "Peptic-ulcer corpus (retired, negative control)": {
+    "verdict": "PASS",
+    "evidence": "1269 rows x 12 cols parsed; 0 unparsed dates"
+   }
+  },
+  {
+   "id": "G3",
+   "name": "Duplication and contamination",
+   "criterion": "zero exact duplicates; near-duplicate rule calibrated against a positive control before any count is believed",
+   "modality_independent": true,
+   "GastroHUN (adopted)": {
+    "verdict": "PASS",
+    "evidence": "0 exact (SHA-256) duplicates; 39,015,361 pairs scanned; 54 cross-split pairs flagged by an uncalibrated rule fell to 0 once calibrated against a synthetic-duplicate positive control"
+   },
+   "Peptic-ulcer corpus (retired, negative control)": {
+    "verdict": "PASS",
+    "evidence": "0 exact duplicates, 0 excluding the ID column, 0 ID collisions"
+   }
+  },
+  {
+   "id": "G4",
+   "name": "Label architecture",
+   "criterion": "per-annotator labels retained separately rather than pre-aggregated",
+   "modality_independent": true,
+   "GastroHUN (adopted)": {
+    "verdict": "PASS",
+    "evidence": "4 annotators (FG1, FG2, G1, G2) retained separately across 23 classes"
+   },
+   "Peptic-ulcer corpus (retired, negative control)": {
+    "verdict": "FAIL",
+    "evidence": "a single derived label with no annotator identity; defect D2 records that it was constructed by rule over the same text fields that become the features"
+   }
+  },
+  {
+   "id": "G5",
+   "name": "Agreement quantified",
+   "criterion": "chance-corrected inter-annotator agreement reported with intervals",
+   "modality_independent": true,
+   "GastroHUN (adopted)": {
+    "verdict": "PASS",
+    "evidence": "Fleiss kappa 0.7475, Krippendorff alpha 0.7475, Gwet AC1 0.7475; all 6 pairwise kappas with patient-clustered CIs"
+   },
+   "Peptic-ulcer corpus (retired, negative control)": {
+    "verdict": "NOT ASSESSABLE",
+    "evidence": "a single annotator makes agreement undefined. The gate cannot fire, which is itself diagnostic: a corpus that cannot be scored on G5 has already failed G4"
+   }
+  },
+  {
+   "id": "G6",
+   "name": "Split integrity",
+   "criterion": "predefined splits with zero subject overlap and balanced composition",
+   "modality_independent": true,
+   "GastroHUN (adopted)": {
+    "verdict": "PASS",
+    "evidence": "0 patient overlaps across all three split pairs; class chi2 p = 1.00000; 0 duplicate filenames"
+   },
+   "Peptic-ulcer corpus (retired, negative control)": {
+    "verdict": "FAIL",
+    "evidence": "no predefined splits ship with the corpus and no subject grouping key exists; defect D11 records the resulting contamination risk as unmitigable"
+   }
+  },
+  {
+   "id": "G7",
+   "name": "Statistical power",
+   "criterion": "per-class test-set precision adequate for the claims to be made",
+   "modality_independent": true,
+   "GastroHUN (adopted)": {
+    "verdict": "CONDITIONAL",
+    "evidence": "22/23 classes exceed a +/-10 pp Wilson half-width; declared as limitation L1 and per-class claims restricted to exploratory"
+   },
+   "Peptic-ulcer corpus (retired, negative control)": {
+    "verdict": "FAIL",
+    "evidence": "defect D7: 1269 rows across the target's categories leave no category adequately powered"
+   }
+  },
+  {
+   "id": "G8",
+   "name": "Population description",
+   "criterion": "age, sex and clinical context available for the cohort",
+   "modality_independent": true,
+   "GastroHUN (adopted)": {
+    "verdict": "CONDITIONAL",
+    "evidence": "no age or sex anywhere in the release; clinical record coverage 60.21% of patients; declared as limitations L2 and L6"
+   },
+   "Peptic-ulcer corpus (retired, negative control)": {
+    "verdict": "PASS",
+    "evidence": "age 18-90 (mean 53.8), sex 637M/632F, indication and medication fields all present and complete"
+   }
+  }
+ ],
+ "discrimination": {
+  "n_gates": 8,
+  "n_modality_independent": 8,
+  "n_separating": 6,
+  "separating_gates": [
+   "G1",
+   "G4",
+   "G5",
+   "G6",
+   "G7",
+   "G8"
+  ],
+  "n_agreeing": 2,
+  "agreeing_gates": [
+   "G2",
+   "G3"
+  ],
+  "n_outright_fail_on_unsound": 4,
+  "outright_fail_gates": [
+   "G1",
+   "G4",
+   "G6",
+   "G7"
+  ],
+  "not_assessable_gates": [
+   "G5"
+  ],
+  "gates_where_the_UNSOUND_corpus_scores_HIGHER": [
+   "G8"
+  ],
+  "interpretation": "6 of 8 gates separate the corpora, but the separation is weaker than that count suggests. Only 4 (G1, G4, G6, G7) are outright failures; G5 cannot fire at all on a single-annotator corpus; G2, G3 pass on BOTH; and on G8 the UNSOUND corpus scores HIGHER than the adopted one, because it ships the age and sex that GastroHUN omits. Gate-counting is therefore not a quality score: a report presenting a tally of passes as evidence of soundness would have described the retired corpus favourably on 3 of 8 gates."
+ },
+ "what_the_protocol_missed": {
+  "fatal_defects": [
+   {
+    "id": "D1",
+    "defect": "Zero predictive signal",
+    "measured": "maximum feature-target Cramer's V = 0.0614 across all 8 features; permutation test p = 0.7622",
+    "caught_by_gate": null,
+    "why": "no gate in G1-G8 measures whether the features carry information about the target. A corpus of pure noise with clean provenance, clean integrity, no duplicates and a full population description passes six of the eight gates."
+   },
+   {
+    "id": "D2",
+    "defect": "Circular label construction",
+    "measured": "the target was built by regex over the same text fields that become the TF-IDF features; dropping the obvious culprit column still left accuracy at 0.9165 because three other fields re-encode the same rules",
+    "caught_by_gate": "G4 (partially)",
+    "why": "G4 fails the corpus for having no per-annotator labels, which is a different fault that happens to co-occur. G4 as specified does not test whether the target is derivable from the features, so a corpus with four annotators AND a circular target would pass it."
+   },
+   {
+    "id": "D5",
+    "defect": "Consistent with uniform random generation",
+    "measured": "age uniform on [18,90] (KS p = 0.5366); categorical fields balanced to within 1%; 2 of 36 field pairs associated against 1.8 expected by chance; corpus vocabulary only 71 distinct phrases",
+    "caught_by_gate": null,
+    "why": "no gate tests whether the data is consistent with having been synthesised. Every marker here -- uniformity, balance, independence, a tiny phrase bank -- is invisible to G1-G8."
+   },
+   {
+    "id": "D12",
+    "defect": "No external validity",
+    "measured": "no comparable public corpus exists for the NLP framing",
+    "caught_by_gate": null,
+    "why": "the protocol audits the corpus in isolation and never asks what it could be validated against."
+   }
+  ],
+  "n_fatal": 4,
+  "n_fatal_caught_by_any_gate": 1,
+  "finding": "every defect that actually killed the retired corpus was found by the Phase 1.5 signal-and-circularity battery, not by the eight-gate protocol. The gates verify that a corpus is well-formed; they do not verify that it is informative. Those are different questions and this thesis conflated them until the negative control was scored."
+ },
+ "proposed_protocol_extension": [
+  {
+   "id": "G9",
+   "name": "Signal existence",
+   "criterion": "feature-target association must exceed a permutation null at a pre-registered level; report the effect size, not only the p-value",
+   "would_have_caught": "D1",
+   "cost": "minutes; the statistic is already computed in the Phase 1.5 battery"
+  },
+  {
+   "id": "G10",
+   "name": "Label independence",
+   "criterion": "the target must not be reconstructible from the features by rule. Test by fitting a trivial rule-based predictor and by ablating each feature field in turn",
+   "would_have_caught": "D2",
+   "cost": "minutes; the ablation that exposed D2 is a dozen lines"
+  },
+  {
+   "id": "G11",
+   "name": "Synthesis markers",
+   "criterion": "test for uniformity of continuous fields, near-exact categorical balance, pairwise independence of clinically coupled fields, and a small closed vocabulary",
+   "would_have_caught": "D5",
+   "cost": "minutes; all four statistics exist in the Phase 1.5 battery"
+  }
+ ],
+ "verdict": "PARTIALLY SUPPORTED",
+ "verdict_statement": "RQ5 is PARTIALLY SUPPORTED. The protocol does discriminate: 6 of 8 modality-independent gates separate the two corpora and the unsound corpus fails G1, G4, G6, G7 outright. But the discrimination is not on the grounds that mattered. Only 1 of 4 fatal defects is caught by any gate, and that one (D2) only incidentally, via a G4 criterion aimed at something else. All four were in fact found by a separate signal-and-circularity battery that the protocol does not include. The honest conclusion is that the eight-gate protocol is a WELL-FORMEDNESS audit, not a VIABILITY audit, and the negative control is what revealed the difference. Three extensions (G9-G11) are proposed, each of which would have caught a fatal defect and each of which costs minutes.",
+ "why_this_matters_for_the_thesis": "a negative control that flattered the protocol would have been worth nothing. This one changed the protocol, which is what a negative control is for, and it is the reason RQ5 belongs in the thesis as a chapter rather than as a remark.",
+ "runtime_sec": 0.0
+}
