@@ -1,0 +1,914 @@
+{
+ "generated": "2026-07-28 14:52:13",
+ "phase": 5,
+ "step": "P5.2",
+ "purpose": "external-to-GastroHUN label mapping at the granularity the external corpora can actually express",
+ "why_not_23_way": "GastroHUN's label space is wall x station. Neither external corpus carries the wall axis, and neither has a class for four of the six stations. A 23-way external macro F1 would have a meaningless denominator, so the target space is collapsed to the distinctions the external labels encode, and that collapse is fixed here, before any external image is scored.",
+ "collapse_definition": {
+  "RETROFLEXION": {
+   "stations": [
+    4,
+    5
+   ],
+   "codes": [
+    "A4",
+    "A5",
+    "G4",
+    "L4",
+    "L5",
+    "P4",
+    "P5"
+   ],
+   "class_indices": [
+    3,
+    4,
+    9,
+    13,
+    14,
+    20,
+    21
+   ]
+  },
+  "FORWARD_GASTRIC": {
+   "stations": [
+    1,
+    2,
+    3,
+    6
+   ],
+   "codes": [
+    "A1",
+    "A2",
+    "A3",
+    "A6",
+    "G1",
+    "G2",
+    "G3",
+    "L1",
+    "L2",
+    "L3",
+    "L6",
+    "P1",
+    "P2",
+    "P3",
+    "P6"
+   ],
+   "class_indices": [
+    0,
+    1,
+    2,
+    5,
+    6,
+    7,
+    8,
+    10,
+    11,
+    12,
+    15,
+    17,
+    18,
+    19,
+    22
+   ]
+  },
+  "OTHERCLASS": {
+   "codes": [
+    "OTHERCLASS"
+   ],
+   "class_indices": [
+    16
+   ]
+  }
+ },
+ "n_external_classes": 50,
+ "n_external_images": 18662,
+ "images_by_decision": {
+  "discard": 1540,
+  "OTHERCLASS": 13997,
+  "FORWARD_GASTRIC": 2361,
+  "RETROFLEXION": 764
+ },
+ "endpoints": {
+  "P5-A": {
+   "question": "retroflexion vs forward gastric view, on external images that are gastric at all",
+   "positive_class": "RETROFLEXION",
+   "n_retroflexion": 764,
+   "n_forward": 2361,
+   "contributing_classes": [
+    "gastrovision/Normal stomach (FORWARD_GASTRIC, n=969)",
+    "gastrovision/Pylorus (FORWARD_GASTRIC, n=393)",
+    "hyperkvasir/pylorus (FORWARD_GASTRIC, n=999)",
+    "hyperkvasir/retroflex-stomach (RETROFLEXION, n=764)"
+   ],
+   "note": "every retroflexion image comes from HyperKvasir; GastroVision has no retroflex-stomach class."
+  },
+  "P5-B": {
+   "question": "does the model route an image that is not a gastric SSS station to OTHERCLASS, or does it confidently assert a station?",
+   "n_out_of_protocol": 13997,
+   "n_discarded_as_indeterminate": 1540,
+   "note": "discarded classes are those whose label does not fix the anatomical site; including them would score the model against a negative we cannot ourselves verify. They are re-included in the P5.10 sensitivity re-run."
+  },
+  "P5-C": {
+   "question": "is the Phase 4 calibration ordering preserved under shift?",
+   "evaluated_on": "the union of the P5-A and P5-B images, where a collapsed ground truth exists"
+  }
+ },
+ "table": [
+  {
+   "corpus": "gastrovision",
+   "external_class": "Accessory tools",
+   "n_images": 1266,
+   "decision": "discard",
+   "gastrohun_target_group": null,
+   "gastrohun_target_codes": [],
+   "rationale": "the frame is dominated by an instrument and the label says nothing about which tract is being viewed, so it can be neither a station nor a confident out-of-protocol negative.",
+   "ambiguous_for": [
+    "P5-B"
+   ],
+   "alternative_decision_for_sensitivity": "OTHERCLASS"
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Angiectasia",
+   "n_images": 17,
+   "decision": "discard",
+   "gastrohun_target_group": null,
+   "gastrohun_target_codes": [],
+   "rationale": "site not specified; angiectasia occurs in the stomach and the small bowel alike.",
+   "ambiguous_for": [
+    "P5-B"
+   ],
+   "alternative_decision_for_sensitivity": "OTHERCLASS"
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Barrett's esophagus",
+   "n_images": 95,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "oesophagus or the oesophago-gastric junction; proximal to the gastric protocol",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Blood in lumen",
+   "n_images": 171,
+   "decision": "discard",
+   "gastrohun_target_group": null,
+   "gastrohun_target_codes": [],
+   "rationale": "site not specified by the label; may be upper or lower GI.",
+   "ambiguous_for": [
+    "P5-B"
+   ],
+   "alternative_decision_for_sensitivity": "OTHERCLASS"
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Cecum",
+   "n_images": 113,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Colon diverticula",
+   "n_images": 29,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Colon polyps",
+   "n_images": 820,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Colorectal cancer",
+   "n_images": 139,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Duodenal bulb",
+   "n_images": 205,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "distal to the pylorus, outside the gastric protocol",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Dyed-lifted-polyps",
+   "n_images": 141,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "therapeutic/interventional frame from the lower GI tract",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Dyed-resection-margins",
+   "n_images": 246,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "therapeutic/interventional frame from the lower GI tract",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Erythema",
+   "n_images": 15,
+   "decision": "discard",
+   "gastrohun_target_group": null,
+   "gastrohun_target_codes": [],
+   "rationale": "site not specified by the label.",
+   "ambiguous_for": [
+    "P5-B"
+   ],
+   "alternative_decision_for_sensitivity": "OTHERCLASS"
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Esophageal varices",
+   "n_images": 7,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "oesophagus or the oesophago-gastric junction; proximal to the gastric protocol",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Esophagitis",
+   "n_images": 107,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "oesophagus or the oesophago-gastric junction; proximal to the gastric protocol",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Gastric polyps",
+   "n_images": 65,
+   "decision": "discard",
+   "gastrohun_target_group": null,
+   "gastrohun_target_codes": [],
+   "rationale": "anatomically gastric, but the label is pathology-defined and the frame is centred on a lesion rather than on an SSS station, so neither the station nor the retroflex/forward axis is recoverable.",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": "OTHERCLASS"
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Gastroesophageal_junction_normal z-line",
+   "n_images": 330,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "oesophagus or the oesophago-gastric junction; proximal to the gastric protocol",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Ileocecal valve",
+   "n_images": 200,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Mucosal inflammation large bowel",
+   "n_images": 29,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Normal esophagus",
+   "n_images": 140,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "oesophagus or the oesophago-gastric junction; proximal to the gastric protocol",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Normal mucosa and vascular pattern in the large bowel",
+   "n_images": 1467,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Normal stomach",
+   "n_images": 969,
+   "decision": "FORWARD_GASTRIC",
+   "gastrohun_target_group": "FORWARD_GASTRIC",
+   "gastrohun_target_codes": [
+    "A1",
+    "A2",
+    "A3",
+    "A6",
+    "G1",
+    "G2",
+    "G3",
+    "L1",
+    "L2",
+    "L3",
+    "L6",
+    "P1",
+    "P2",
+    "P3",
+    "P6"
+   ],
+   "rationale": "normal gastric mucosa. GastroVision has NO retroflex-stomach class, so retroflexed gastric frames in this corpus have nowhere else to be filed and may be present here. Treated as forward for the primary analysis and re-run as discarded in P5.10.",
+   "ambiguous_for": [
+    "P5-A"
+   ],
+   "alternative_decision_for_sensitivity": "discard"
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Pylorus",
+   "n_images": 393,
+   "decision": "FORWARD_GASTRIC",
+   "gastrohun_target_group": "FORWARD_GASTRIC",
+   "gastrohun_target_codes": [
+    "A1",
+    "A2",
+    "A3",
+    "A6",
+    "G1",
+    "G2",
+    "G3",
+    "L1",
+    "L2",
+    "L3",
+    "L6",
+    "P1",
+    "P2",
+    "P3",
+    "P6"
+   ],
+   "rationale": "forward view of the pyloric ring; same reasoning as the HyperKvasir pylorus class.",
+   "ambiguous_for": [
+    "station_identity"
+   ],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Resected polyps",
+   "n_images": 92,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "therapeutic/interventional frame from the lower GI tract",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Resection margins",
+   "n_images": 25,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "therapeutic/interventional frame from the lower GI tract",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Retroflex rectum",
+   "n_images": 67,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station. RECTAL retroflexion; must not be pooled with a gastric retroflexion.",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Small bowel_terminal ileum",
+   "n_images": 846,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "gastrovision",
+   "external_class": "Ulcer",
+   "n_images": 6,
+   "decision": "discard",
+   "gastrohun_target_group": null,
+   "gastrohun_target_codes": [],
+   "rationale": "site not specified by the label; gastric and duodenal ulcers are both present in this class, so it cannot be assigned.",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": "OTHERCLASS"
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "barretts",
+   "n_images": 41,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "oesophagus or the oesophago-gastric junction; proximal to the gastric protocol",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "barretts-short-segment",
+   "n_images": 53,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "oesophagus or the oesophago-gastric junction; proximal to the gastric protocol",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "bbps-0-1",
+   "n_images": 646,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "bowel-preparation quality score from the lower GI tract",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "bbps-2-3",
+   "n_images": 1148,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "bowel-preparation quality score from the lower GI tract",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "cecum",
+   "n_images": 1009,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "dyed-lifted-polyps",
+   "n_images": 1002,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "therapeutic/interventional frame from the lower GI tract",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "dyed-resection-margins",
+   "n_images": 989,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "therapeutic/interventional frame from the lower GI tract",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "esophagitis-a",
+   "n_images": 403,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "oesophagus or the oesophago-gastric junction; proximal to the gastric protocol",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "esophagitis-b-d",
+   "n_images": 260,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "oesophagus or the oesophago-gastric junction; proximal to the gastric protocol",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "hemorrhoids",
+   "n_images": 6,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "ileum",
+   "n_images": 9,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "impacted-stool",
+   "n_images": 131,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "polyps",
+   "n_images": 1028,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "pylorus",
+   "n_images": 999,
+   "decision": "FORWARD_GASTRIC",
+   "gastrohun_target_group": "FORWARD_GASTRIC",
+   "gastrohun_target_codes": [
+    "A1",
+    "A2",
+    "A3",
+    "A6",
+    "G1",
+    "G2",
+    "G3",
+    "L1",
+    "L2",
+    "L3",
+    "L6",
+    "P1",
+    "P2",
+    "P3",
+    "P6"
+   ],
+   "rationale": "forward view of the pyloric ring from the antrum. The pylorus is distal to the antrum and is NOT itself an SSS station, so this cannot be assigned a station; but the endoscope orientation is unambiguously forward, which is all P5-A requires.",
+   "ambiguous_for": [
+    "station_identity"
+   ],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "retroflex-rectum",
+   "n_images": 391,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station. Note this is a RECTAL retroflexion, not a gastric one; it must not be pooled with retroflex-stomach.",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "retroflex-stomach",
+   "n_images": 764,
+   "decision": "RETROFLEXION",
+   "gastrohun_target_group": "RETROFLEXION",
+   "gastrohun_target_codes": [
+    "A4",
+    "A5",
+    "G4",
+    "L4",
+    "L5",
+    "P4",
+    "P5"
+   ],
+   "rationale": "retroflexed view of the gastric cardia/fundus. This is the only class in either corpus that unambiguously denotes a stomach retroflexion, and P5-A rests on it.",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "ulcerative-colitis-grade-0-1",
+   "n_images": 35,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "ulcerative-colitis-grade-1",
+   "n_images": 201,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "ulcerative-colitis-grade-1-2",
+   "n_images": 11,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "ulcerative-colitis-grade-2",
+   "n_images": 443,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "ulcerative-colitis-grade-2-3",
+   "n_images": 28,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "ulcerative-colitis-grade-3",
+   "n_images": 133,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "lower gastrointestinal tract; not a gastric SSS station",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  },
+  {
+   "corpus": "hyperkvasir",
+   "external_class": "z-line",
+   "n_images": 932,
+   "decision": "OTHERCLASS",
+   "gastrohun_target_group": "OTHERCLASS",
+   "gastrohun_target_codes": [
+    "OTHERCLASS"
+   ],
+   "rationale": "oesophagus or the oesophago-gastric junction; proximal to the gastric protocol. The Z-line is the squamocolumnar junction, outside the gastric protocol, so a correctly behaving model should route it to OTHERCLASS.",
+   "ambiguous_for": [],
+   "alternative_decision_for_sensitivity": null
+  }
+ ],
+ "gates": {
+  "P5.2a_every_class_has_exactly_one_decision": {
+   "pass": true,
+   "n_classes_observed": 50,
+   "n_classes_mapped": 50,
+   "unmapped": [],
+   "mapped_but_not_observed": []
+  },
+  "P5.2b_every_decision_has_a_rationale": {
+   "pass": true
+  },
+  "P5.2c_ambiguous_decisions_flagged": {
+   "pass": true,
+   "endpoints_under_test": [
+    "P5-A",
+    "P5-B",
+    "P5-C"
+   ],
+   "n_ambiguous": 7,
+   "n_ambiguous_for_an_endpoint_under_test": 5,
+   "missing_alternative": [],
+   "ambiguous_classes": [
+    {
+     "corpus": "gastrovision",
+     "class": "Accessory tools",
+     "ambiguous_for": [
+      "P5-B"
+     ],
+     "affects_an_endpoint": true,
+     "primary": "discard",
+     "alternative": "OTHERCLASS"
+    },
+    {
+     "corpus": "gastrovision",
+     "class": "Angiectasia",
+     "ambiguous_for": [
+      "P5-B"
+     ],
+     "affects_an_endpoint": true,
+     "primary": "discard",
+     "alternative": "OTHERCLASS"
+    },
+    {
+     "corpus": "gastrovision",
+     "class": "Blood in lumen",
+     "ambiguous_for": [
+      "P5-B"
+     ],
+     "affects_an_endpoint": true,
+     "primary": "discard",
+     "alternative": "OTHERCLASS"
+    },
+    {
+     "corpus": "gastrovision",
+     "class": "Erythema",
+     "ambiguous_for": [
+      "P5-B"
+     ],
+     "affects_an_endpoint": true,
+     "primary": "discard",
+     "alternative": "OTHERCLASS"
+    },
+    {
+     "corpus": "gastrovision",
+     "class": "Normal stomach",
+     "ambiguous_for": [
+      "P5-A"
+     ],
+     "affects_an_endpoint": true,
+     "primary": "FORWARD_GASTRIC",
+     "alternative": "discard"
+    },
+    {
+     "corpus": "gastrovision",
+     "class": "Pylorus",
+     "ambiguous_for": [
+      "station_identity"
+     ],
+     "affects_an_endpoint": false,
+     "primary": "FORWARD_GASTRIC",
+     "alternative": null
+    },
+    {
+     "corpus": "hyperkvasir",
+     "class": "pylorus",
+     "ambiguous_for": [
+      "station_identity"
+     ],
+     "affects_an_endpoint": false,
+     "primary": "FORWARD_GASTRIC",
+     "alternative": null
+    }
+   ]
+  }
+ },
+ "limitation_to_state_in_the_report": "The wall axis of the GastroHUN label space is unrecoverable from either external corpus, and four of the six stations have no external counterpart. Phase 5 therefore tests a 2-way anatomical collapse and an out-of-protocol rejection endpoint. It does NOT and cannot test 23-way station classification externally. This is a property of the available public data, not of the model."
+}

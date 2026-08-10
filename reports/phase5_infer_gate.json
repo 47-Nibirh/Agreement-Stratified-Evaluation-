@@ -1,0 +1,192 @@
+{
+ "generated": "2026-07-28 17:20:41",
+ "phase": 5,
+ "step": "P5.5",
+ "device": "cuda",
+ "arms": [
+  "C0",
+  "C1",
+  "C2",
+  "C3",
+  "C4"
+ ],
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "n_external_images": 17122,
+ "n_internal_comparator_images": 1353,
+ "normalisation": "Phase 2 training-set statistics, unchanged",
+ "adaptation": "none -- checkpoints loaded and run as-is",
+ "runs": {
+  "C0_seed1": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.77785,
+   "artefact": "phase5_probs_C0_seed1.npz"
+  },
+  "C0_seed2": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.81415,
+   "artefact": "phase5_probs_C0_seed2.npz"
+  },
+  "C0_seed3": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.79717,
+   "artefact": "phase5_probs_C0_seed3.npz"
+  },
+  "C1_seed1": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.79452,
+   "artefact": "phase5_probs_C1_seed1.npz"
+  },
+  "C1_seed2": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.79324,
+   "artefact": "phase5_probs_C1_seed2.npz"
+  },
+  "C1_seed3": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.79747,
+   "artefact": "phase5_probs_C1_seed3.npz"
+  },
+  "C2_seed1": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.69937,
+   "artefact": "phase5_probs_C2_seed1.npz"
+  },
+  "C2_seed2": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.72807,
+   "artefact": "phase5_probs_C2_seed2.npz"
+  },
+  "C2_seed3": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.74469,
+   "artefact": "phase5_probs_C2_seed3.npz"
+  },
+  "C3_seed1": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.43872,
+   "artefact": "phase5_probs_C3_seed1.npz"
+  },
+  "C3_seed2": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.42088,
+   "artefact": "phase5_probs_C3_seed2.npz"
+  },
+  "C3_seed3": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.43275,
+   "artefact": "phase5_probs_C3_seed3.npz"
+  },
+  "C4_seed1": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.71455,
+   "artefact": "phase5_probs_C4_seed1.npz"
+  },
+  "C4_seed2": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.70357,
+   "artefact": "phase5_probs_C4_seed2.npz"
+  },
+  "C4_seed3": {
+   "n": 17122,
+   "argmax_matches_saved_pred": true,
+   "mean_top1_confidence": 0.69206,
+   "artefact": "phase5_probs_C4_seed3.npz"
+  }
+ },
+ "gates": {
+  "P5.5a_row_order_matches_index": {
+   "n_index_rows": 17122,
+   "pass": true
+  },
+  "P5.5b_argmax_equals_saved_pred": {
+   "pass": true
+  },
+  "P5.5c_reproduces_phase4_internal_probs": {
+   "checked": 12,
+   "n_bit_identical": 12,
+   "pass": true,
+   "per_arm": {
+    "C1_seed1": {
+     "bit_identical": true,
+     "max_abs_diff": 0.0,
+     "n_argmax_disagreements": 0
+    },
+    "C1_seed2": {
+     "bit_identical": true,
+     "max_abs_diff": 0.0,
+     "n_argmax_disagreements": 0
+    },
+    "C1_seed3": {
+     "bit_identical": true,
+     "max_abs_diff": 0.0,
+     "n_argmax_disagreements": 0
+    },
+    "C2_seed1": {
+     "bit_identical": true,
+     "max_abs_diff": 0.0,
+     "n_argmax_disagreements": 0
+    },
+    "C2_seed2": {
+     "bit_identical": true,
+     "max_abs_diff": 0.0,
+     "n_argmax_disagreements": 0
+    },
+    "C2_seed3": {
+     "bit_identical": true,
+     "max_abs_diff": 0.0,
+     "n_argmax_disagreements": 0
+    },
+    "C3_seed1": {
+     "bit_identical": true,
+     "max_abs_diff": 0.0,
+     "n_argmax_disagreements": 0
+    },
+    "C3_seed2": {
+     "bit_identical": true,
+     "max_abs_diff": 0.0,
+     "n_argmax_disagreements": 0
+    },
+    "C3_seed3": {
+     "bit_identical": true,
+     "max_abs_diff": 0.0,
+     "n_argmax_disagreements": 0
+    },
+    "C4_seed1": {
+     "bit_identical": true,
+     "max_abs_diff": 0.0,
+     "n_argmax_disagreements": 0
+    },
+    "C4_seed2": {
+     "bit_identical": true,
+     "max_abs_diff": 0.0,
+     "n_argmax_disagreements": 0
+    },
+    "C4_seed3": {
+     "bit_identical": true,
+     "max_abs_diff": 0.0,
+     "n_argmax_disagreements": 0
+    }
+   },
+   "note": "re-scoring the GastroHUN test split through this module must reproduce the Phase 4 probabilities exactly; otherwise the external numbers and the internal comparator would come from different pipelines and the drop would be uninterpretable."
+  }
+ },
+ "runtime_sec": 8304.5
+}

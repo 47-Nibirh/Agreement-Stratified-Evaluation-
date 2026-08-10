@@ -1,0 +1,34 @@
+[P5.5] device=cuda arms=['C0', 'C1', 'C2', 'C3', 'C4'] seeds=[1, 2, 3]
+[P5.5] external 17,122 images | internal comparator 1,353 images
+  C0 seed1: external 17,122 rows -> phase5_probs_C0_seed1.npz (mean top-1 conf 0.7778)
+  C0 seed2: external 17,122 rows -> phase5_probs_C0_seed2.npz (mean top-1 conf 0.8141)
+  C0 seed3: external 17,122 rows -> phase5_probs_C0_seed3.npz (mean top-1 conf 0.7972)
+  C1 seed1: internal identity bit=True maxdiff=0.0
+  C1 seed1: external 17,122 rows -> phase5_probs_C1_seed1.npz (mean top-1 conf 0.7945)
+  C1 seed2: internal identity bit=True maxdiff=0.0
+  C1 seed2: external 17,122 rows -> phase5_probs_C1_seed2.npz (mean top-1 conf 0.7932)
+  C1 seed3: internal identity bit=True maxdiff=0.0
+  C1 seed3: external 17,122 rows -> phase5_probs_C1_seed3.npz (mean top-1 conf 0.7975)
+  C2 seed1: internal identity bit=True maxdiff=0.0
+  C2 seed1: external 17,122 rows -> phase5_probs_C2_seed1.npz (mean top-1 conf 0.6994)
+  C2 seed2: internal identity bit=True maxdiff=0.0
+  C2 seed2: external 17,122 rows -> phase5_probs_C2_seed2.npz (mean top-1 conf 0.7281)
+  C2 seed3: internal identity bit=True maxdiff=0.0
+  C2 seed3: external 17,122 rows -> phase5_probs_C2_seed3.npz (mean top-1 conf 0.7447)
+  C3 seed1: internal identity bit=True maxdiff=0.0
+  C3 seed1: external 17,122 rows -> phase5_probs_C3_seed1.npz (mean top-1 conf 0.4387)
+  C3 seed2: internal identity bit=True maxdiff=0.0
+  C3 seed2: external 17,122 rows -> phase5_probs_C3_seed2.npz (mean top-1 conf 0.4209)
+  C3 seed3: internal identity bit=True maxdiff=0.0
+  C3 seed3: external 17,122 rows -> phase5_probs_C3_seed3.npz (mean top-1 conf 0.4327)
+  C4 seed1: internal identity bit=True maxdiff=0.0
+  C4 seed1: external 17,122 rows -> phase5_probs_C4_seed1.npz (mean top-1 conf 0.7146)
+  C4 seed2: internal identity bit=True maxdiff=0.0
+  C4 seed2: external 17,122 rows -> phase5_probs_C4_seed2.npz (mean top-1 conf 0.7036)
+  C4 seed3: internal identity bit=True maxdiff=0.0
+  C4 seed3: external 17,122 rows -> phase5_probs_C4_seed3.npz (mean top-1 conf 0.6921)
+[P5.5] wrote D:\Final defence\reports\phase5_infer_gate.json
+       P5.5a_row_order_matches_index: pass=True
+       P5.5b_argmax_equals_saved_pred: pass=True
+       P5.5c_reproduces_phase4_internal_probs: pass=True
+       done in 8304.5s

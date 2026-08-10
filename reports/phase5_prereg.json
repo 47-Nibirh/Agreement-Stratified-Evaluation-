@@ -1,0 +1,345 @@
+{
+ "frozen_at": "2026-07-28 15:00:33",
+ "phase": 5,
+ "title": "External validation and the limits of the available label spaces",
+ "statement": "This document fixes every decision that could otherwise be made after seeing the result. It is written after the corpora, the mapping table and the 224px cache exist -- so that endpoints are defined against realised counts rather than guesses -- and before any external image has been scored by any model. The script that writes it refuses to overwrite an existing copy.",
+ "governing_blueprint": "THESIS_RESEARCH_BLUEPRINT.md v3.4, sec.4 PHASE 5",
+ "inputs_already_frozen": {
+  "carry_forward": "reports/phase5_carry_forward.json",
+  "mapping": "reports/phase5_mapping.json",
+  "cache_gate": "reports/phase5_cache_gate.json",
+  "provenance": "reports/phase5_provenance.json"
+ },
+ "corpora": {
+  "hyperkvasir": {
+   "name": "HyperKvasir (labeled images)",
+   "licence": "CC BY 4.0",
+   "n_images": 10662,
+   "centre": "Baerum Hospital, Vestre Viken Health Trust, Norway",
+   "archive_sha256": "c603449b1bc0be86948b11d9aea8b2002058a11e6f5499e2a384b9ae9c8dbd3f"
+  },
+  "gastrovision": {
+   "name": "GastroVision",
+   "licence": "CC BY-NC 4.0",
+   "n_images": 8000,
+   "centre": "Baerum Hospital (Norway) and Karolinska University Hospital (Sweden)",
+   "archive_sha256": "583bb7c35871c7e1414f2357aaaee74a724c41367860177ef63eeec74e011800"
+  }
+ },
+ "no_overlap_with_gastrohun": {
+  "checked": true,
+  "n_images_hashed": 18662,
+  "exhaustive": true,
+  "n_collisions": 0,
+  "collisions": [],
+  "pass": true
+ },
+ "label_space": {
+  "why_not_23_way": "GastroHUN's label space is wall x station. Neither external corpus carries the wall axis, and neither has a class for four of the six stations. A 23-way external macro F1 would have a meaningless denominator, so the target space is collapsed to the distinctions the external labels encode, and that collapse is fixed here, before any external image is scored.",
+  "collapse": {
+   "RETROFLEXION": {
+    "stations": [
+     4,
+     5
+    ],
+    "codes": [
+     "A4",
+     "A5",
+     "G4",
+     "L4",
+     "L5",
+     "P4",
+     "P5"
+    ],
+    "class_indices": [
+     3,
+     4,
+     9,
+     13,
+     14,
+     20,
+     21
+    ]
+   },
+   "FORWARD_GASTRIC": {
+    "stations": [
+     1,
+     2,
+     3,
+     6
+    ],
+    "codes": [
+     "A1",
+     "A2",
+     "A3",
+     "A6",
+     "G1",
+     "G2",
+     "G3",
+     "L1",
+     "L2",
+     "L3",
+     "L6",
+     "P1",
+     "P2",
+     "P3",
+     "P6"
+    ],
+    "class_indices": [
+     0,
+     1,
+     2,
+     5,
+     6,
+     7,
+     8,
+     10,
+     11,
+     12,
+     15,
+     17,
+     18,
+     19,
+     22
+    ]
+   },
+   "OTHERCLASS": {
+    "codes": [
+     "OTHERCLASS"
+    ],
+    "class_indices": [
+     16
+    ]
+   }
+  },
+  "n_evaluated": 17122,
+  "n_by_collapsed_label": {
+   "OTHERCLASS": 13997,
+   "FORWARD_GASTRIC": 2361,
+   "RETROFLEXION": 764
+  },
+  "n_discarded_as_indeterminate": 1540
+ },
+ "arms": {
+  "carried": [
+   "C0",
+   "C1",
+   "C2",
+   "C3",
+   "C4"
+  ],
+  "seeds": [
+   1,
+   2,
+   3
+  ],
+  "headline_arm": "C2",
+  "control_arm": "C3, retained explicitly as the calibration control and not as a candidate model",
+  "no_retraining": true,
+  "checkpoints": "the Phase 2 (C0) and Phase 4 (C1-C4) checkpoints, unchanged"
+ },
+ "preprocessing": {
+  "decode_path": "PIL open -> convert('RGB') -> resize(224, LANCZOS) -> uint8; identical to phase2_cache.py and phase4_cache.py",
+  "normalisation": "Phase 2 TRAINING-SET statistics, applied at inference time by phase5_infer.py, NOT recomputed on the external corpora",
+  "gate_p5_3a": {
+   "checked": true,
+   "n_compared": 400,
+   "exhaustive": false,
+   "n_mismatched": 0,
+   "mismatched": [],
+   "pass": true,
+   "note": "re-decoding GastroHUN images through this module and getting the Phase 4 cache back bit-for-bit is what establishes that the external images are preprocessed identically to the training images."
+  },
+  "no_adaptation": "no fine-tuning, no domain adaptation, no self-training, no threshold tuning and no post-hoc temperature scaling on external data. Phase 5 measures transfer, not transfer-after-adaptation. The Phase 5B self-training arm is a separate, later comparison against the numbers this pre-registration governs, and may not begin until they are committed."
+ },
+ "interval_procedure": {
+  "method": "nonparametric bootstrap, 1,000 resamples, seed 20260726",
+  "unit": "IMAGE",
+  "declared_weakness": "Phases 0-4 clustered every interval by patient, because Phase 0 measured per-patient Fleiss kappa at 0.7459 +/- 0.1448 and images within a patient are not independent. Neither external corpus ships a usable grouping key: HyperKvasir's 'Video file' column has 10,662 distinct values over 10,662 images, one per image, and GastroVision ships none. Phase 5 intervals are therefore image-level and are OPTIMISTIC -- narrower than a correctly clustered interval would be. This is declared here rather than discovered later, and no Phase 5 interval may be compared directly against a Phase 0-4 interval.",
+  "n_boot": 1000,
+  "seed": 20260726
+ },
+ "precision_target": {
+  "endpoint": "P5-A primary",
+  "max_ci95_halfwidth_points": 3.0,
+  "rationale": "reports/phase4_amendment.json records the absence of a pre-registered precision target as an outstanding Phase 4 defect: a NOT RESOLVED verdict there cannot be distinguished from an underpowered one. Phase 5 fixes a target in advance, so that a null is interpretable.",
+  "rule": "if the realised half-width exceeds the target, the verdict is reported as UNDERPOWERED rather than as a null, and the report says how many images would have been needed."
+ },
+ "research_questions": {
+  "P5-A": {
+   "question": "does the retroflexion-vs-forward distinction transfer to external centres?",
+   "n_images": 3125,
+   "n_retroflexion": 764,
+   "n_forward": 2361,
+   "primary_endpoint": "binary macro F1 over {RETROFLEXION, FORWARD_GASTRIC} on the 3,125 external gastric images. The model's 23-way argmax is collapsed through the frozen mapping; an OTHERCLASS prediction counts as INCORRECT for whichever class the image truly is, so the endpoint penalises both confusing the two views and failing to recognise a gastric view at all.",
+   "internal_comparator": "the identical collapse applied to the 1,353-image GastroHUN test split, same arms, same seeds, restricted to images whose modal label is a gastric station",
+   "primary_quantity": "external minus internal, in macro F1 points",
+   "hypothesis": "a DROP is expected and is the publishable result (blueprint sec.4 PHASE 5). The pre-registered expectation is a drop of more than 10 points, because the external corpora are different centres, different vendors and different framing conventions, and because the retroflexion class is defined by endoscope orientation rather than by mucosal appearance.",
+   "verdict_rule": "TRANSFERS if the external binary macro F1 exceeds 50.0 (the majority-class floor on this 2-class problem) with a 95% CI excluding it; DOES NOT TRANSFER if the CI includes or falls below it; UNDERPOWERED if the half-width exceeds the precision target.",
+   "secondary_endpoints": [
+    "gastric recognition rate: the fraction NOT routed to OTHERCLASS",
+    "binary macro F1 among recognised images only, which separates the two failure modes",
+    "per-corpus breakout, since all retroflexion images come from HyperKvasir"
+   ]
+  },
+  "P5-B": {
+   "question": "given an image that is not a gastric SSS station at all, does the model route it to OTHERCLASS or confidently assert a station?",
+   "n_images": 13997,
+   "primary_endpoint": "out-of-protocol rejection rate: the fraction of the out-of-protocol images assigned OTHERCLASS",
+   "chance_rate": 0.04348,
+   "hypothesis": "the rejection rate will be LOW -- plausibly at or below the 4.3% chance rate of a 23-way head. GastroHUN contains almost no true out-of-protocol images and OTHERCLASS is a minority class its own annotators disagree about, so the model has had no opportunity to learn a rejection behaviour. This predicts confident misassignment, which is the deployment-relevant failure and the endpoint on which the external data is more informative than GastroHUN itself.",
+   "verdict_rule": "REJECTS OUT-OF-PROTOCOL IMAGES if the rejection rate exceeds the 0.04348 chance rate with a 95% CI excluding it; DOES NOT if the CI includes or falls below chance.",
+   "secondary_endpoints": [
+    "mean top-1 confidence on out-of-protocol images, per arm -- a model that is wrong AND confident is worse than one that is merely wrong",
+    "the station most often asserted on out-of-protocol images",
+    "per-corpus and per-external-class breakout"
+   ]
+  },
+  "P5-C": {
+   "question": "is the Phase 4 calibration ordering preserved under shift?",
+   "primary_endpoint": "Spearman rank correlation between the five arms' ECE ordering internally (Phase 4, pooled contested stratum) and externally (this phase, all evaluated images)",
+   "secondary_endpoints": [
+    "does C3 remain the lowest-ECE arm externally?",
+    "does C3's under-confidence on easy images persist externally?",
+    "absolute ECE per arm, internal vs external"
+   ],
+   "hypothesis": "the ordering is expected to be broadly preserved, because C3's low ECE is produced by a global confidence shift (Phase 4 sec.4.2) and a global shift is a property of the model rather than of the data it is shown. If the ordering does NOT survive, that is evidence the Phase 4 calibration result was dataset-specific, which would be the more important finding.",
+   "verdict_rule": "PRESERVED if the Spearman rank correlation is >= 0.7; PARTIALLY PRESERVED if 0.3 to 0.7; NOT PRESERVED if < 0.3."
+  }
+ },
+ "sensitivity_analyses": {
+  "mapping_ambiguity": {
+   "executed": "every mapping decision flagged ambiguous for an endpoint under test is re-run with its recorded alternative, and each verdict is recomputed",
+   "n_ambiguous_affecting_an_endpoint": 5,
+   "classes": [
+    {
+     "corpus": "gastrovision",
+     "class": "Accessory tools",
+     "ambiguous_for": [
+      "P5-B"
+     ],
+     "affects_an_endpoint": true,
+     "primary": "discard",
+     "alternative": "OTHERCLASS"
+    },
+    {
+     "corpus": "gastrovision",
+     "class": "Angiectasia",
+     "ambiguous_for": [
+      "P5-B"
+     ],
+     "affects_an_endpoint": true,
+     "primary": "discard",
+     "alternative": "OTHERCLASS"
+    },
+    {
+     "corpus": "gastrovision",
+     "class": "Blood in lumen",
+     "ambiguous_for": [
+      "P5-B"
+     ],
+     "affects_an_endpoint": true,
+     "primary": "discard",
+     "alternative": "OTHERCLASS"
+    },
+    {
+     "corpus": "gastrovision",
+     "class": "Erythema",
+     "ambiguous_for": [
+      "P5-B"
+     ],
+     "affects_an_endpoint": true,
+     "primary": "discard",
+     "alternative": "OTHERCLASS"
+    },
+    {
+     "corpus": "gastrovision",
+     "class": "Normal stomach",
+     "ambiguous_for": [
+      "P5-A"
+     ],
+     "affects_an_endpoint": true,
+     "primary": "FORWARD_GASTRIC",
+     "alternative": "discard"
+    },
+    {
+     "corpus": "gastrovision",
+     "class": "Pylorus",
+     "ambiguous_for": [
+      "station_identity"
+     ],
+     "affects_an_endpoint": false,
+     "primary": "FORWARD_GASTRIC",
+     "alternative": null
+    },
+    {
+     "corpus": "hyperkvasir",
+     "class": "pylorus",
+     "ambiguous_for": [
+      "station_identity"
+     ],
+     "affects_an_endpoint": false,
+     "primary": "FORWARD_GASTRIC",
+     "alternative": null
+    }
+   ]
+  },
+  "per_corpus": "every endpoint is reported for HyperKvasir and GastroVision separately as well as pooled, because the corpora contribute asymmetrically: all retroflexion images come from HyperKvasir and most out-of-protocol images from GastroVision",
+  "per_seed": "every headline number is reported per seed and at the 3-seed mean"
+ },
+ "deviations": [
+  {
+   "id": "P5-DEV-1",
+   "item": "which arm is carried into external validation",
+   "blueprint": "status board: 'carry the best-calibrated arm, not the most accurate (Phase 4 sec.4.7)'",
+   "adopted": "all five arms x 3 seeds",
+   "evidence": "C3 attains the lowest contested ECE (19.413 points) but is 6.446 points UNDER-confident on unanimous images, beyond the 5.0-point tolerance. Its calibration is therefore substantially a global confidence shift, not evidence that it knows which images are hard. Carrying it alone would carry an artefact into the external test.",
+   "impact": "none adverse. Phase 5 is inference-only, so carrying five arms costs 15 forward passes; and RQ3's external half is a question about RANKING, which one arm cannot answer."
+  },
+  {
+   "id": "P5-DEV-2",
+   "item": "external agreement-stratified curve and external vote entropy",
+   "blueprint": "Phase 4 sec.4.7: report the agreement-stratified curve externally if per-annotator labels exist, and state plainly that it cannot if they do not",
+   "adopted": "not computed; stated plainly instead, as that clause instructs",
+   "evidence": "neither corpus ships per-annotator votes, so there is no external vote entropy and no external agreement stratification. The within-stratum rho that is RQ3's internal primary quantity has no external counterpart.",
+   "impact": "RQ3's external half is tested as calibration-ordering preservation (P5-C) rather than as a reproduction of the entropy correlation."
+  },
+  {
+   "id": "P5-DEV-3",
+   "item": "interval clustering unit",
+   "blueprint": "sec.6: all intervals patient-clustered, >=1,000 resamples",
+   "adopted": "image-level bootstrap, 1,000 resamples",
+   "evidence": "no usable grouping key exists in either corpus; HyperKvasir's 'Video file' column is unique per image and GastroVision ships none.",
+   "impact": "Phase 5 intervals are optimistic relative to Phases 0-4 and may not be compared directly against them. The >=1,000 resample requirement is met."
+  },
+  {
+   "id": "P5-DEV-4",
+   "item": "granularity of the external endpoint",
+   "blueprint": "sec.4 PHASE 5: build an explicit mapping table, state its coarseness as a limitation, report the performance drop",
+   "adopted": "a 2-way anatomical collapse plus an out-of-protocol rejection endpoint, instead of any station-level metric",
+   "evidence": "The wall axis of the GastroHUN label space is unrecoverable from either external corpus, and four of the six stations have no external counterpart. Phase 5 therefore tests a 2-way anatomical collapse and an out-of-protocol rejection endpoint. It does NOT and cannot test 23-way station classification externally. This is a property of the available public data, not of the model.",
+   "impact": "Phase 5 cannot and does not test 23-way station classification externally. This is a property of the available public data, not of the model, and it is reported as a finding in its own right."
+  }
+ ],
+ "falsification": "P5-A is falsified as a transfer claim if the external binary macro F1 does not exceed the 50-point majority-class floor. P5-B's hypothesis is falsified if the model DOES reject out-of-protocol images above chance, which would be a better result than predicted and would have to be reported as such. P5-C is falsified if the calibration ordering does not survive the shift, which would downgrade the Phase 4 calibration finding to a dataset-specific one.",
+ "scope_exclusions": [
+  "no retraining of any arm",
+  "no fine-tuning or domain adaptation on external data",
+  "no self-training (that is Phase 5B, gated on these numbers being frozen)",
+  "no threshold tuning or post-hoc temperature scaling on external data",
+  "no Grad-CAM (Phase 6)",
+  "no station-level external metric (P5-DEV-4)"
+ ],
+ "artefacts_to_be_produced": [
+  "reports/phase5_infer_gate.json",
+  "reports/phase5_probs_*.npz",
+  "reports/phase5_transfer.json",
+  "reports/phase5_rejection.json",
+  "reports/phase5_calibration.json",
+  "reports/phase5_uncertainty.json",
+  "reports/phase5_sensitivity.json",
+  "figures_phase5/P5_F33..F40_*.png",
+  "Phase5_Report.docx",
+  "Phase5_Report.pdf"
+ ]
+}
