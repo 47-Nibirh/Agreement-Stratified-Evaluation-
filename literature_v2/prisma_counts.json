@@ -1,0 +1,151 @@
+{
+  "run_date": "2026-07-26",
+  "database": "PubMed/MEDLINE (NCBI E-utilities)",
+  "protocol_note": "Replaces the retired NLP-on-reports protocol; themes realigned to the GastroHUN imaging question.",
+  "queries": {
+    "T1_landmark_recognition": {
+      "theme": "T1 Landmark recognition in UGI endoscopy",
+      "search_string": "(endoscopy[All Fields] OR gastroscopy[All Fields] OR \"esophagogastroduodenoscopy\"[All Fields] OR EGD[All Fields] OR \"upper gastrointestinal\"[All Fields]) AND (\"anatomical site\"[All Fields] OR \"anatomical landmark\"[All Fields] OR \"anatomical classification\"[All Fields] OR \"site recognition\"[All Fields] OR \"landmark classification\"[All Fields] OR \"gastric sites\"[All Fields] OR \"image classification\"[All Fields]) AND (\"deep learning\"[All Fields] OR \"convolutional neural network\"[All Fields] OR \"artificial intelligence\"[All Fields] OR \"machine learning\"[All Fields])",
+      "date_from": "2015",
+      "date_to": "2026",
+      "total_hits": 123,
+      "retrieved": 123,
+      "retmax": 220
+    },
+    "T2_quality_blindspot": {
+      "theme": "T2 Endoscopic quality & blind-spot audit",
+      "search_string": "(endoscopy[All Fields] OR gastroscopy[All Fields] OR \"esophagogastroduodenoscopy\"[All Fields]) AND (\"blind spot\"[All Fields] OR \"blind spots\"[All Fields] OR \"photodocumentation\"[All Fields] OR \"quality control\"[All Fields] OR \"quality indicator\"[All Fields] OR \"completeness\"[All Fields] OR \"systematic screening protocol\"[All Fields] OR \"mucosal exposure\"[All Fields]) AND (\"deep learning\"[All Fields] OR \"artificial intelligence\"[All Fields] OR \"neural network\"[All Fields] OR \"monitoring system\"[All Fields])",
+      "date_from": "2015",
+      "date_to": "2026",
+      "total_hits": 159,
+      "retrieved": 159,
+      "retmax": 220
+    },
+    "T3_interobserver": {
+      "theme": "T3 Inter-observer variability in endoscopy",
+      "search_string": "(endoscopy[All Fields] OR gastroscopy[All Fields] OR gastrointestinal[All Fields]) AND (\"interobserver\"[All Fields] OR \"inter-observer\"[All Fields] OR \"interrater\"[All Fields] OR \"inter-rater\"[All Fields] OR \"observer variation\"[MeSH Terms] OR \"observer agreement\"[All Fields]) AND (kappa[All Fields] OR agreement[All Fields] OR reliability[All Fields] OR variability[All Fields])",
+      "date_from": "2005",
+      "date_to": "2026",
+      "total_hits": 2977,
+      "retrieved": 220,
+      "retmax": 220
+    },
+    "T4_noisy_soft_labels": {
+      "theme": "T4 Noisy / soft / multi-annotator labels",
+      "search_string": "(\"noisy labels\"[All Fields] OR \"label noise\"[All Fields] OR \"soft labels\"[All Fields] OR \"soft label\"[All Fields] OR \"multiple annotators\"[All Fields] OR \"multi-annotator\"[All Fields] OR \"annotator disagreement\"[All Fields] OR \"label uncertainty\"[All Fields] OR \"crowdsourced labels\"[All Fields] OR \"inter-observer variability\"[All Fields]) AND (\"deep learning\"[All Fields] OR \"machine learning\"[All Fields] OR \"neural network\"[All Fields] OR \"medical imaging\"[All Fields] OR \"segmentation\"[All Fields] OR \"classification\"[All Fields])",
+      "date_from": "2015",
+      "date_to": "2026",
+      "total_hits": 1584,
+      "retrieved": 220,
+      "retmax": 220
+    },
+    "T5_uncertainty_calibration": {
+      "theme": "T5 Uncertainty & calibration",
+      "search_string": "(\"uncertainty quantification\"[All Fields] OR \"predictive uncertainty\"[All Fields] OR \"model calibration\"[All Fields] OR \"calibration\"[All Fields] OR \"conformal prediction\"[All Fields] OR \"selective prediction\"[All Fields] OR \"deep ensembles\"[All Fields] OR \"Monte Carlo dropout\"[All Fields]) AND (\"medical imaging\"[All Fields] OR \"medical image\"[All Fields] OR \"clinical\"[All Fields] OR \"diagnosis\"[All Fields]) AND (\"deep learning\"[All Fields] OR \"neural network\"[All Fields] OR \"artificial intelligence\"[All Fields])",
+      "date_from": "2015",
+      "date_to": "2026",
+      "total_hits": 3233,
+      "retrieved": 220,
+      "retmax": 220
+    },
+    "T6_external_validation": {
+      "theme": "T6 External validation & dataset shift",
+      "search_string": "(\"external validation\"[All Fields] OR \"generalisability\"[All Fields] OR \"generalizability\"[All Fields] OR \"dataset shift\"[All Fields] OR \"distribution shift\"[All Fields] OR \"domain shift\"[All Fields] OR \"multicenter validation\"[All Fields] OR \"out-of-distribution\"[All Fields]) AND (\"medical imaging\"[All Fields] OR \"medical image\"[All Fields] OR \"endoscopy\"[All Fields] OR \"diagnostic accuracy\"[All Fields]) AND (\"deep learning\"[All Fields] OR \"artificial intelligence\"[All Fields] OR \"machine learning\"[All Fields])",
+      "date_from": "2015",
+      "date_to": "2026",
+      "total_hits": 2891,
+      "retrieved": 220,
+      "retmax": 220
+    },
+    "T7_reporting_standards": {
+      "theme": "T7 Reporting standards for medical AI",
+      "search_string": "(CLAIM[All Fields] OR \"TRIPOD\"[All Fields] OR \"STARD\"[All Fields] OR \"PROBAST\"[All Fields] OR \"CONSORT-AI\"[All Fields] OR \"SPIRIT-AI\"[All Fields] OR \"reporting guideline\"[All Fields] OR \"checklist\"[All Fields]) AND (\"artificial intelligence\"[All Fields] OR \"machine learning\"[All Fields] OR \"deep learning\"[All Fields] OR \"prediction model\"[All Fields] OR \"diagnostic accuracy\"[All Fields])",
+      "date_from": "2010",
+      "date_to": "2026",
+      "total_hits": 7396,
+      "retrieved": 220,
+      "retmax": 220
+    }
+  },
+  "stages": {
+    "records_identified_total": 1382,
+    "duplicates_removed": 33,
+    "records_after_deduplication": 1349,
+    "records_metadata_retrieved": 1349,
+    "records_screened": 1349,
+    "records_excluded_at_screening": 65,
+    "records_passing_screen": 1284,
+    "exclusion_reasons": {
+      "No quantitative evaluation or methodological framework reported": 20,
+      "Editorial/comment/letter (not a primary study or review)": 14,
+      "Non-human study": 12,
+      "Not English": 7,
+      "Off-topic: no AI/agreement/validation/reporting content": 5,
+      "Homonym match (e.g. insurance 'claims', not CLAIM checklist)": 4,
+      "No abstract available for screening": 3
+    }
+  },
+  "theme_counts_passing_screen": {
+    "T3 Inter-observer variability in endoscopy": 218,
+    "T5 Uncertainty & calibration": 208,
+    "T6 External validation & dataset shift": 207,
+    "T4 Noisy / soft / multi-annotator labels": 205,
+    "T7 Reporting standards for medical AI": 199,
+    "T2 Endoscopic quality & blind-spot audit": 131,
+    "T1 Landmark recognition in UGI endoscopy": 116
+  },
+  "year_counts_passing_screen": {
+    "2005": 2,
+    "2006": 4,
+    "2007": 5,
+    "2008": 5,
+    "2009": 2,
+    "2010": 8,
+    "2011": 6,
+    "2012": 7,
+    "2013": 11,
+    "2014": 15,
+    "2015": 16,
+    "2016": 15,
+    "2017": 25,
+    "2018": 20,
+    "2019": 26,
+    "2020": 51,
+    "2021": 76,
+    "2022": 148,
+    "2023": 180,
+    "2024": 217,
+    "2025": 294,
+    "2026": 151
+  },
+  "eligibility": {
+    "records_assessed_for_eligibility": 1284,
+    "excluded_at_eligibility": 1216,
+    "excluded_non_gi_homonym": 88,
+    "excluded_not_luminal_gi": 77,
+    "excluded_failed_criteria": 174,
+    "excluded_below_cap": 877,
+    "included_from_database_search": 68,
+    "included_from_other_methods": 14,
+    "total_included_in_review": 82,
+    "per_theme_caps": {
+      "T1 Landmark recognition in UGI endoscopy": 12,
+      "T2 Endoscopic quality & blind-spot audit": 10,
+      "T3 Inter-observer variability in endoscopy": 10,
+      "T4 Noisy / soft / multi-annotator labels": 12,
+      "T5 Uncertainty & calibration": 8,
+      "T6 External validation & dataset shift": 8,
+      "T7 Reporting standards for medical AI": 8
+    },
+    "per_theme_included": {
+      "T1 Landmark recognition in UGI endoscopy": 17,
+      "T3 Inter-observer variability in endoscopy": 14,
+      "T4 Noisy / soft / multi-annotator labels": 14,
+      "T5 Uncertainty & calibration": 11,
+      "T2 Endoscopic quality & blind-spot audit": 10,
+      "T6 External validation & dataset shift": 8,
+      "T7 Reporting standards for medical AI": 8
+    },
+    "cap_note": "Per-theme totals exceed the cap where hand-searched 'other methods' records were added on top of the capped database-search yield."
+  }
+}

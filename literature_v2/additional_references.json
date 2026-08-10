@@ -1,0 +1,81 @@
+{
+ "_why": [
+  "The PRISMA review in Chapter 4 has a defined scope: seven themed searches over",
+  "MEDLINE plus hand-searching, screened to 82 included studies. Those 82 are the",
+  "evidence base for claims ABOUT THE LITERATURE.",
+  "",
+  "A thesis also has to cite things that are not review findings: the corpus",
+  "descriptor it works on, the reporting guideline it followed, and the second",
+  "backbone used for the replication. Those were never candidates for inclusion --",
+  "they are not studies of the review question -- so silently adding them to the 82",
+  "would corrupt the PRISMA count.",
+  "",
+  "They live here instead. The bibliography generator reads this file and the",
+  "extraction table, numbers both into one reference list, and tags every entry",
+  "with the set it came from so Appendix F can state how many of each were cited.",
+  "Nothing in this file is typed into the document prose; it is committed data read",
+  "by a script, on the same footing as every other artefact."
+ ],
+ "references": [
+  {
+   "key": "gastrohun",
+   "set": "corpus",
+   "note": "The corpus this thesis works on. Screened during the review and excluded from the 82 as a dataset descriptor rather than a study of the review question.",
+   "pmid": "39824869",
+   "year": "2025",
+   "first_author": "Bravo, D.",
+   "authors_full": "Bravo, D.; Frias, J.; Vera, F.; Trejos, J.; Martinez, C.; Gomez, M.; Gonzalez, F.; Romero, E.",
+   "title": "GastroHUN an Endoscopy Dataset of Complete Systematic Screening Protocol for the Stomach",
+   "journal": "Scientific Data",
+   "volume": "12",
+   "pages": "102",
+   "doi": "10.1038/s41597-025-04401-5",
+   "apa": "Bravo, D., Frias, J., Vera, F., Trejos, J., Martinez, C., Gomez, M., Gonzalez, F., & Romero, E. (2025). GastroHUN an Endoscopy Dataset of Complete Systematic Screening Protocol for the Stomach. *Scientific Data*, 12, 102. https://doi.org/10.1038/s41597-025-04401-5"
+  },
+  {
+   "key": "prisma2020",
+   "set": "guideline",
+   "note": "The reporting guideline the review itself followed. Cited as a method, not as a finding.",
+   "pmid": "33782057",
+   "year": "2021",
+   "first_author": "Page, M. J.",
+   "authors_full": "Page, M. J.; McKenzie, J. E.; Bossuyt, P. M.; Boutron, I.; Hoffmann, T. C.; Mulrow, C. D.; et al.",
+   "title": "The PRISMA 2020 statement: an updated guideline for reporting systematic reviews",
+   "journal": "BMJ",
+   "volume": "372",
+   "pages": "n71",
+   "doi": "10.1136/bmj.n71",
+   "apa": "Page, M. J., McKenzie, J. E., Bossuyt, P. M., Boutron, I., Hoffmann, T. C., Mulrow, C. D., et al. (2021). The PRISMA 2020 statement: an updated guideline for reporting systematic reviews. *BMJ*, 372, n71. https://doi.org/10.1136/bmj.n71"
+  },
+  {
+   "key": "efficientnet",
+   "set": "method",
+   "note": "The second backbone used for the Chapter 10 replication. A machine-learning architecture paper, outside the clinical review scope.",
+   "pmid": "",
+   "year": "2019",
+   "first_author": "Tan, M.",
+   "authors_full": "Tan, M.; Le, Q. V.",
+   "title": "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks",
+   "journal": "Proceedings of the 36th International Conference on Machine Learning (ICML)",
+   "volume": "97",
+   "pages": "6105-6114",
+   "doi": "",
+   "apa": "Tan, M., & Le, Q. V. (2019). EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks. In *Proceedings of the 36th International Conference on Machine Learning (ICML)*, 97, 6105-6114."
+  },
+  {
+   "key": "gradcam",
+   "set": "method",
+   "note": "The attribution method used in Chapter 8. Cited as a method.",
+   "pmid": "",
+   "year": "2017",
+   "first_author": "Selvaraju, R. R.",
+   "authors_full": "Selvaraju, R. R.; Cogswell, M.; Das, A.; Vedantam, R.; Parikh, D.; Batra, D.",
+   "title": "Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization",
+   "journal": "Proceedings of the IEEE International Conference on Computer Vision (ICCV)",
+   "volume": "",
+   "pages": "618-626",
+   "doi": "10.1109/ICCV.2017.74",
+   "apa": "Selvaraju, R. R., Cogswell, M., Das, A., Vedantam, R., Parikh, D., & Batra, D. (2017). Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization. In *Proceedings of the IEEE International Conference on Computer Vision (ICCV)*, 618-626. https://doi.org/10.1109/ICCV.2017.74"
+  }
+ ]
+}

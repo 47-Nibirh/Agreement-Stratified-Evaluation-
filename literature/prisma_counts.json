@@ -1,0 +1,147 @@
+{
+  "run_date": "2026-07-26",
+  "database": "PubMed/MEDLINE (NCBI E-utilities)",
+  "queries": {
+    "S1_endoscopy_nlp": {
+      "search_string": "(\"endoscopy report\"[All Fields] OR \"endoscopic report\"[All Fields] OR \"colonoscopy report\"[All Fields] OR \"endoscopy reports\"[All Fields] OR \"colonoscopy reports\"[All Fields]) AND (\"natural language processing\"[All Fields] OR \"text classification\"[All Fields] OR \"machine learning\"[All Fields] OR \"information extraction\"[All Fields])",
+      "date_from": "2015",
+      "date_to": "2026",
+      "total_hits": 22,
+      "retrieved": 22,
+      "retmax": 200
+    },
+    "S2_gi_nlp_broad": {
+      "search_string": "\"natural language processing\"[All Fields] AND (endoscopy[All Fields] OR colonoscopy[All Fields] OR gastroenterology[All Fields] OR \"peptic ulcer\"[All Fields] OR gastritis[All Fields] OR \"Barrett esophagus\"[All Fields]) AND (classification[All Fields] OR extraction[All Fields] OR \"quality\"[All Fields])",
+      "date_from": "2015",
+      "date_to": "2026",
+      "total_hits": 179,
+      "retrieved": 179,
+      "retmax": 200
+    },
+    "S3_rulebased_clinical_nlp": {
+      "search_string": "(\"rule-based\"[All Fields] OR cTAKES[All Fields] OR medspacy[All Fields] OR NegEx[All Fields] OR \"negation detection\"[All Fields] OR \"regular expression\"[All Fields]) AND \"natural language processing\"[All Fields] AND (clinical[All Fields] OR biomedical[All Fields] OR \"electronic health record\"[All Fields])",
+      "date_from": "2001",
+      "date_to": "2026",
+      "total_hits": 829,
+      "retrieved": 200,
+      "retmax": 200
+    },
+    "S4_weak_supervision": {
+      "search_string": "(\"weak supervision\"[All Fields] OR \"weakly supervised\"[All Fields] OR \"labeling functions\"[All Fields] OR snorkel[All Fields] OR \"silver standard\"[All Fields] OR \"distant supervision\"[All Fields] OR \"noisy labels\"[All Fields]) AND (clinical[All Fields] OR biomedical[All Fields] OR \"electronic health record\"[All Fields])",
+      "date_from": "2010",
+      "date_to": "2026",
+      "total_hits": 1046,
+      "retrieved": 200,
+      "retmax": 200
+    },
+    "S5_leakage_validity": {
+      "search_string": "(\"data leakage\"[All Fields] OR \"information leakage\"[All Fields] OR \"target leakage\"[All Fields] OR \"overoptimism\"[All Fields] OR \"optimistic bias\"[All Fields] OR \"reproducibility\"[All Fields]) AND (\"machine learning\"[All Fields] OR \"prediction model\"[All Fields] OR \"artificial intelligence\"[All Fields]) AND (clinical[All Fields] OR medical[All Fields] OR health[All Fields])",
+      "date_from": "2015",
+      "date_to": "2026",
+      "total_hits": 10543,
+      "retrieved": 200,
+      "retmax": 200
+    },
+    "S6_reporting_standards": {
+      "search_string": "(TRIPOD[All Fields] OR PROBAST[All Fields] OR \"reporting guideline\"[All Fields] OR \"model card\"[All Fields] OR \"risk of bias\"[All Fields]) AND (\"prediction model\"[All Fields] OR \"machine learning\"[All Fields] OR \"artificial intelligence\"[All Fields])",
+      "date_from": "2010",
+      "date_to": "2026",
+      "total_hits": 3308,
+      "retrieved": 200,
+      "retmax": 200
+    }
+  },
+  "stages": {
+    "records_identified_total": 1001,
+    "duplicates_removed": 24,
+    "records_after_deduplication": 977,
+    "records_metadata_retrieved": 976,
+    "records_screened": 976,
+    "records_excluded_at_screening": 146,
+    "records_passing_screen": 830,
+    "exclusion_reasons": {
+      "No quantitative evaluation or methodological framework reported": 55,
+      "Image-only study (no free-text or report data)": 38,
+      "Off-topic: no NLP/ML/leakage/weak-supervision content": 28,
+      "Editorial/comment/letter (not a primary study or review)": 15,
+      "No abstract available for screening": 7,
+      "Not English": 3
+    }
+  },
+  "theme_counts_passing_screen": {
+    "T5 Reporting standards": 191,
+    "T2 Rule-based vs ML": 186,
+    "T4 Leakage & validity": 157,
+    "T1 Endoscopy report NLP": 151,
+    "T3 Weak supervision": 145
+  },
+  "year_counts_passing_screen": {
+    "2001": 1,
+    "2006": 1,
+    "2009": 1,
+    "2010": 4,
+    "2011": 1,
+    "2013": 4,
+    "2014": 4,
+    "2015": 17,
+    "2016": 14,
+    "2017": 6,
+    "2018": 18,
+    "2019": 34,
+    "2020": 37,
+    "2021": 62,
+    "2022": 112,
+    "2023": 140,
+    "2024": 134,
+    "2025": 156,
+    "2026": 84
+  },
+  "eligibility": {
+    "records_assessed_for_eligibility": 830,
+    "records_excluded_preprint": 15,
+    "records_excluded_homonym_false_positive": 8,
+    "records_excluded_duplicate_copublication": 2,
+    "records_excluded_primary_not_methodological": 19,
+    "records_failing_theme_criteria": 178,
+    "records_eligible_but_capped": 564,
+    "exclusion_reason_counts": {
+      "Eligible but not retained: outside per-theme relevance cap for a Bachelor's-level review": 564,
+      "Did not meet theme-specific eligibility criteria": 178,
+      "Primary model-development study, not a methodological/validity appraisal": 19,
+      "Preprint - not peer reviewed (inclusion criterion)": 15,
+      "Homonym false positive: 'snorkel' occurs in an unrelated clinical sense": 8,
+      "Duplicate / co-publication of an included record": 2
+    },
+    "records_included_from_pubmed": 44,
+    "records_included_other_methods": 6,
+    "records_included_total": 50,
+    "per_theme_caps": {
+      "T1 Endoscopy report NLP": 14,
+      "T2 Rule-based vs ML": 8,
+      "T3 Weak supervision": 8,
+      "T4 Leakage & validity": 8,
+      "T5 Reporting standards": 6
+    },
+    "theme_counts_final": {
+      "T1 Endoscopy report NLP": 14,
+      "T4 Leakage & validity": 11,
+      "T3 Weak supervision": 9,
+      "T2 Rule-based vs ML": 8,
+      "T5 Reporting standards": 8
+    },
+    "year_counts_final": {
+      "2001": 1,
+      "2006": 1,
+      "2010": 2,
+      "2015": 3,
+      "2017": 1,
+      "2019": 3,
+      "2021": 2,
+      "2022": 7,
+      "2023": 9,
+      "2024": 4,
+      "2025": 9,
+      "2026": 8
+    }
+  }
+}
