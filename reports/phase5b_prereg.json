@@ -1,0 +1,173 @@
+{
+ "frozen_at": "2026-07-28 17:58:27",
+ "phase": "5B",
+ "title": "Self-training adaptation to the external corpora",
+ "statement": "This document fixes every decision that could otherwise be made after seeing the result, and it draws the held-out evaluation split before any pseudo-label exists. Phase 5B measures transfer-AFTER-adaptation. It does not and cannot produce a generalisation claim: a gain here means the domain gap is closable with unlabelled target data, not that the model generalises. The Phase 5 numbers remain the generalisation result, and they are frozen and committed.",
+ "gated_on": {
+  "phase5_frozen_and_committed": true,
+  "why": "adapting to the external images before the clean transfer numbers exist would make the external validation circular and unrecoverable -- once the model has seen the target domain, no un-adapted number can be reconstructed from it."
+ },
+ "comparator": {
+  "baseline": "the frozen Phase 5 predictions for the same arm and seeds, restricted to the held-out eval split",
+  "restriction_declared": "the headline Phase 5 numbers were computed on ALL evaluated external images; the 5B comparison recomputes the baseline on the eval split only, from the same frozen prediction files, so that both sides of the contrast are scored on identical rows. No re-inference and no re-selection is involved."
+ },
+ "arm": "C2",
+ "arm_rationale": "C2 is the configuration Phase 5 recommends, on external calibration and out-of-protocol rejection.",
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "split": {
+  "unit": "IMAGE",
+  "eval_fraction": 0.4,
+  "seed": 20260726,
+  "stratified_by": "corpus x collapsed label",
+  "n_adapt": 10272,
+  "n_eval": 6850,
+  "counts_by_collapsed_label": {
+   "adapt": {
+    "OTHERCLASS": 8398,
+    "FORWARD_GASTRIC": 1416,
+    "RETROFLEXION": 458
+   },
+   "eval": {
+    "OTHERCLASS": 5599,
+    "FORWARD_GASTRIC": 945,
+    "RETROFLEXION": 306
+   }
+  },
+  "artefact": "data/phase5b_split.csv",
+  "sha256": "e0f8bda5feca56182059af3b5c4e2e2d9a16ec764c0f140c0905ecf8d0c8d36a",
+  "declared_weakness": "the split is image-level because neither corpus publishes a patient or case identifier. Frames from the same procedure can therefore fall on both sides of the split, which makes the ADAPTED arm look better than it would under a patient-level split. Any 5B gain is consequently an UPPER BOUND on what adaptation buys, and the report must say so."
+ },
+ "pseudo_labels": {
+  "source": "the frozen C2 checkpoints, checkpoints/phase4_C2_seed*.pt",
+  "construction": "23-way argmax on the adapt-split images, taken as a hard label; the model's own prediction, per seed",
+  "confidence_threshold": 0.9,
+  "threshold_fixed_a_priori": true,
+  "threshold_rationale": "0.90 on the 23-way top-1 probability, chosen before any pseudo-label was generated and not tuned. A threshold selected after seeing retention rates or downstream accuracy would make the whole phase post-hoc.",
+  "images_below_threshold": "discarded, not down-weighted"
+ },
+ "training": {
+  "warm_start_from": "the frozen C2 checkpoint for the matching seed",
+  "mixture": "pseudo-labelled external images CONCATENATED with the original GastroHUN cohort E, at natural proportions",
+  "mixture_rationale": "training on external pseudo-labels alone would let the model drift off the labelled task entirely; keeping cohort E in the mixture means a 5B loss on the internal endpoints is attributable to adaptation rather than to simple forgetting.",
+  "rounds": 1,
+  "schedule": "fine-tune the top 40% of feature modules at 1e-4 with cosine annealing, cap 12 epochs, patience 5",
+  "model_selection": "macro F1 on the GastroHUN extended VALIDATION cohort (n = 1,103), exactly as in Phase 4",
+  "model_selection_rule": "selection NEVER touches the external eval split. Early stopping on the split the result is read from would be the single easiest way to manufacture a gain here, and it is forbidden."
+ },
+ "endpoints": {
+  "P5-A": "binary macro F1 over {RETROFLEXION, FORWARD_GASTRIC} on the eval split, adapted minus baseline",
+  "P5-B": "out-of-protocol rejection rate on the eval split, adapted minus baseline",
+  "P5-C": "ECE on the eval split, adapted minus baseline",
+  "internal_retention": "the same GastroHUN test-split endpoints Phase 4 used, to detect catastrophic forgetting; reported whatever the external result"
+ },
+ "verdict_rules": {
+  "P5-A": "ADAPTATION HELPS if the paired 95% CI of (adapted - baseline) excludes 0 above; HURTS if it excludes 0 below; NOT RESOLVED if it contains 0.",
+  "P5-B": "same rule, applied to the rejection rate.",
+  "P5-C": "BETTER CALIBRATED if the paired CI of (adapted - baseline) ECE excludes 0 below zero.",
+  "forgetting": "REGRESSION ON THE SOURCE DOMAIN if the internal macro F1 falls with a CI excluding 0 below."
+ },
+ "interval_procedure": {
+  "method": "paired bootstrap, 1,000 resamples, seed 20260726",
+  "unit": "IMAGE",
+  "pairing": "one resample of eval-split rows is drawn and BOTH the adapted and the baseline predictions are scored on those same rows before differencing"
+ },
+ "confirmation_bias_diagnostics": {
+  "required": true,
+  "quantities": [
+   "pseudo-label accuracy against the collapsed ground truth, overall and per collapsed class, on the adapt split",
+   "retention rate at the confidence threshold, per collapsed class",
+   "the collapsed-class distribution of the pseudo-labels against the true distribution -- self-training narrows what it is already confident about, and on a label space this collapsed the narrowing may be severe"
+  ],
+  "why": "self-training reinforces what the model already believes. Reporting only the final accuracy would hide whether a gain came from learning or from the evaluation inheriting the model's own biases."
+ },
+ "scope_exclusions": [
+  "no change to the frozen Phase 5 mapping, collapse or endpoints",
+  "no re-inference of the Phase 5 baseline; the committed prediction files are subset, not regenerated",
+  "no threshold tuning, no temperature scaling",
+  "no adaptation of any arm other than C2"
+ ],
+ "falsification": "the premise of this phase is falsified if adaptation does not improve the external endpoints, or if it improves them only at the cost of a significant regression on the GastroHUN test split. Either outcome is reported as the finding.",
+ "inherited_from_phase5": {
+  "collapse": {
+   "RETROFLEXION": {
+    "stations": [
+     4,
+     5
+    ],
+    "codes": [
+     "A4",
+     "A5",
+     "G4",
+     "L4",
+     "L5",
+     "P4",
+     "P5"
+    ],
+    "class_indices": [
+     3,
+     4,
+     9,
+     13,
+     14,
+     20,
+     21
+    ]
+   },
+   "FORWARD_GASTRIC": {
+    "stations": [
+     1,
+     2,
+     3,
+     6
+    ],
+    "codes": [
+     "A1",
+     "A2",
+     "A3",
+     "A6",
+     "G1",
+     "G2",
+     "G3",
+     "L1",
+     "L2",
+     "L3",
+     "L6",
+     "P1",
+     "P2",
+     "P3",
+     "P6"
+    ],
+    "class_indices": [
+     0,
+     1,
+     2,
+     5,
+     6,
+     7,
+     8,
+     10,
+     11,
+     12,
+     15,
+     17,
+     18,
+     19,
+     22
+    ]
+   },
+   "OTHERCLASS": {
+    "codes": [
+     "OTHERCLASS"
+    ],
+    "class_indices": [
+     16
+    ]
+   }
+  },
+  "interval_weakness": "Phases 0-4 clustered every interval by patient, because Phase 0 measured per-patient Fleiss kappa at 0.7459 +/- 0.1448 and images within a patient are not independent. Neither external corpus ships a usable grouping key: HyperKvasir's 'Video file' column has 10,662 distinct values over 10,662 images, one per image, and GastroVision ships none. Phase 5 intervals are therefore image-level and are OPTIMISTIC -- narrower than a correctly clustered interval would be. This is declared here rather than discovered later, and no Phase 5 interval may be compared directly against a Phase 0-4 interval."
+ }
+}

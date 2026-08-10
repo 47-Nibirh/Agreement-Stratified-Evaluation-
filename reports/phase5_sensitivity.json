@@ -1,0 +1,191 @@
+{
+ "generated": "2026-07-28 17:38:51",
+ "phase": 5,
+ "step": "P5.10",
+ "purpose": "re-run every pre-registered ambiguous mapping decision with its frozen alternative and recompute the verdict",
+ "headline_arm": "C2",
+ "arms": [
+  "C0",
+  "C1",
+  "C2",
+  "C3",
+  "C4"
+ ],
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "n_boot": 1000,
+ "boot_unit": "image",
+ "discarded_predictions_available": true,
+ "baseline": {
+  "P5-A": {
+   "n_images": 3125,
+   "macro_f1": 78.413,
+   "ci95": [
+    76.872,
+    79.887
+   ],
+   "halfwidth": 1.507,
+   "verdict": "TRANSFERS"
+  },
+  "P5-B": {
+   "n_images": 13997,
+   "rejection_rate": 0.63399,
+   "ci95": [
+    0.62694,
+    0.6414
+   ],
+   "exceeds_chance": true,
+   "verdict": "REJECTS OUT-OF-PROTOCOL IMAGES"
+  }
+ },
+ "per_flip": {
+  "gastrovision/Accessory tools": {
+   "flip": {
+    "corpus": "gastrovision",
+    "class": "Accessory tools",
+    "ambiguous_for": [
+     "P5-B"
+    ],
+    "affects_an_endpoint": true,
+    "primary": "discard",
+    "alternative": "OTHERCLASS"
+   },
+   "P5-A": null,
+   "P5-B": {
+    "n_images": 15263,
+    "rejection_rate": 0.64395,
+    "ci95": [
+     0.63703,
+     0.65094
+    ],
+    "exceeds_chance": true,
+    "verdict": "REJECTS OUT-OF-PROTOCOL IMAGES"
+   },
+   "changed_P5B_verdict": false
+  },
+  "gastrovision/Angiectasia": {
+   "flip": {
+    "corpus": "gastrovision",
+    "class": "Angiectasia",
+    "ambiguous_for": [
+     "P5-B"
+    ],
+    "affects_an_endpoint": true,
+    "primary": "discard",
+    "alternative": "OTHERCLASS"
+   },
+   "P5-A": null,
+   "P5-B": {
+    "n_images": 14014,
+    "rejection_rate": 0.63365,
+    "ci95": [
+     0.62666,
+     0.6407
+    ],
+    "exceeds_chance": true,
+    "verdict": "REJECTS OUT-OF-PROTOCOL IMAGES"
+   },
+   "changed_P5B_verdict": false
+  },
+  "gastrovision/Blood in lumen": {
+   "flip": {
+    "corpus": "gastrovision",
+    "class": "Blood in lumen",
+    "ambiguous_for": [
+     "P5-B"
+    ],
+    "affects_an_endpoint": true,
+    "primary": "discard",
+    "alternative": "OTHERCLASS"
+   },
+   "P5-A": null,
+   "P5-B": {
+    "n_images": 14168,
+    "rejection_rate": 0.63476,
+    "ci95": [
+     0.62771,
+     0.64156
+    ],
+    "exceeds_chance": true,
+    "verdict": "REJECTS OUT-OF-PROTOCOL IMAGES"
+   },
+   "changed_P5B_verdict": false
+  },
+  "gastrovision/Erythema": {
+   "flip": {
+    "corpus": "gastrovision",
+    "class": "Erythema",
+    "ambiguous_for": [
+     "P5-B"
+    ],
+    "affects_an_endpoint": true,
+    "primary": "discard",
+    "alternative": "OTHERCLASS"
+   },
+   "P5-A": null,
+   "P5-B": {
+    "n_images": 14012,
+    "rejection_rate": 0.63389,
+    "ci95": [
+     0.62663,
+     0.64102
+    ],
+    "exceeds_chance": true,
+    "verdict": "REJECTS OUT-OF-PROTOCOL IMAGES"
+   },
+   "changed_P5B_verdict": false
+  },
+  "gastrovision/Normal stomach": {
+   "flip": {
+    "corpus": "gastrovision",
+    "class": "Normal stomach",
+    "ambiguous_for": [
+     "P5-A"
+    ],
+    "affects_an_endpoint": true,
+    "primary": "FORWARD_GASTRIC",
+    "alternative": "discard"
+   },
+   "P5-A": {
+    "n_images": 2156,
+    "macro_f1": 97.356,
+    "ci95": [
+     96.862,
+     97.838
+    ],
+    "halfwidth": 0.488,
+    "verdict": "TRANSFERS"
+   },
+   "P5-B": null,
+   "changed_P5A_verdict": false
+  }
+ },
+ "all_flips_combined": {
+  "P5-A": {
+   "n_images": 2156,
+   "macro_f1": 97.356,
+   "ci95": [
+    96.862,
+    97.838
+   ],
+   "halfwidth": 0.488,
+   "verdict": "TRANSFERS"
+  },
+  "P5-B": {
+   "n_images": 15466,
+   "rejection_rate": 0.64412,
+   "ci95": [
+    0.63712,
+    0.65076
+   ],
+   "exceeds_chance": true,
+   "verdict": "REJECTS OUT-OF-PROTOCOL IMAGES"
+  }
+ },
+ "verdicts_invariant_to_every_single_flip": true,
+ "note": "the alternatives are read from the frozen mapping's alternative_decision_for_sensitivity field, fixed before any image was scored; this script does not choose them.",
+ "runtime_sec": 98.2
+}

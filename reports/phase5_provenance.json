@@ -1,0 +1,130 @@
+{
+ "generated": "2026-07-28 14:49:42",
+ "phase": 5,
+ "step": "P5.1",
+ "purpose": "acquisition, provenance and inventory of the external corpora",
+ "gastrohun_reference_hashes": 8834,
+ "corpora": {
+  "hyperkvasir": {
+   "archive": "hyper-kvasir-labeled-images.zip",
+   "expected_bytes": 3928814344,
+   "name": "HyperKvasir (labeled images)",
+   "source_url": "https://datasets.simula.no/downloads/hyper-kvasir/hyper-kvasir-labeled-images.zip",
+   "landing_page": "https://datasets.simula.no/hyper-kvasir/",
+   "licence": "CC BY 4.0",
+   "citation": "Borgli et al. (2020). HyperKvasir, a comprehensive multi-class image and video dataset for gastrointestinal endoscopy. Scientific Data 7, 283.",
+   "centre": "Baerum Hospital, Vestre Viken Health Trust, Norway",
+   "archive_present": true,
+   "realised_bytes": 3928814344,
+   "size_matches_expected": true,
+   "archive_sha256": "c603449b1bc0be86948b11d9aea8b2002058a11e6f5499e2a384b9ae9c8dbd3f",
+   "extraction": {
+    "extracted_now": true,
+    "n_members": 10696
+   },
+   "extracted": true,
+   "n_images": 10662,
+   "classes": {
+    "barretts": 41,
+    "barretts-short-segment": 53,
+    "bbps-0-1": 646,
+    "bbps-2-3": 1148,
+    "cecum": 1009,
+    "dyed-lifted-polyps": 1002,
+    "dyed-resection-margins": 989,
+    "esophagitis-a": 403,
+    "esophagitis-b-d": 260,
+    "hemorrhoids": 6,
+    "ileum": 9,
+    "impacted-stool": 131,
+    "polyps": 1028,
+    "pylorus": 999,
+    "retroflex-rectum": 391,
+    "retroflex-stomach": 764,
+    "ulcerative-colitis-grade-0-1": 35,
+    "ulcerative-colitis-grade-1": 201,
+    "ulcerative-colitis-grade-1-2": 11,
+    "ulcerative-colitis-grade-2": 443,
+    "ulcerative-colitis-grade-2-3": 28,
+    "ulcerative-colitis-grade-3": 133,
+    "z-line": 932
+   },
+   "groups": {
+    "anatomical-landmarks": 4104,
+    "pathological-findings": 2642,
+    "quality-of-mucosal-views": 1925,
+    "therapeutic-interventions": 1991
+   }
+  },
+  "gastrovision": {
+   "archive": "Gastrovision.zip",
+   "expected_bytes": 1791000000,
+   "expected_bytes_is_approximate": true,
+   "name": "GastroVision",
+   "source_url": "https://osf.io/download/gvx3q/",
+   "landing_page": "https://osf.io/84e7f/",
+   "licence": "CC BY-NC 4.0",
+   "citation": "Jha et al. (2023). GastroVision: A Multi-class Endoscopy Image Dataset for Computer Aided Gastrointestinal Disease Detection. ICML Workshop on Machine Learning for Multimodal Healthcare Data.",
+   "centre": "Baerum Hospital (Norway) and Karolinska University Hospital (Sweden)",
+   "archive_present": true,
+   "realised_bytes": 1793518442,
+   "size_matches_expected": null,
+   "archive_sha256": "583bb7c35871c7e1414f2357aaaee74a724c41367860177ef63eeec74e011800",
+   "extraction": {
+    "extracted_now": false,
+    "reason": "already extracted"
+   },
+   "extracted": true,
+   "n_images": 8000,
+   "classes": {
+    "Accessory tools": 1266,
+    "Angiectasia": 17,
+    "Barrett's esophagus": 95,
+    "Blood in lumen": 171,
+    "Cecum": 113,
+    "Colon diverticula": 29,
+    "Colon polyps": 820,
+    "Colorectal cancer": 139,
+    "Duodenal bulb": 205,
+    "Dyed-lifted-polyps": 141,
+    "Dyed-resection-margins": 246,
+    "Erythema": 15,
+    "Esophageal varices": 7,
+    "Esophagitis": 107,
+    "Gastric polyps": 65,
+    "Gastroesophageal_junction_normal z-line": 330,
+    "Ileocecal valve": 200,
+    "Mucosal inflammation large bowel": 29,
+    "Normal esophagus": 140,
+    "Normal mucosa and vascular pattern in the large bowel": 1467,
+    "Normal stomach": 969,
+    "Pylorus": 393,
+    "Resected polyps": 92,
+    "Resection margins": 25,
+    "Retroflex rectum": 67,
+    "Small bowel_terminal ileum": 846,
+    "Ulcer": 6
+   },
+   "groups": {
+    "Gastrovision": 8000
+   }
+  }
+ },
+ "gates": {
+  "P5.1a_archive_sha256_recorded": true,
+  "P5.1b_licence_and_citation_captured": true,
+  "P5.1c_no_overlap_with_gastrohun": {
+   "checked": true,
+   "n_images_hashed": 18662,
+   "exhaustive": true,
+   "n_collisions": 0,
+   "collisions": [],
+   "pass": true
+  },
+  "P5.1d_counts_recorded": {
+   "hyperkvasir": 10662,
+   "gastrovision": 8000
+  }
+ },
+ "note": "class_dir is the immediate parent directory of each image and is the raw label as the corpus ships it. No mapping is applied here; P5.2 builds the mapping table from this inventory."
+}

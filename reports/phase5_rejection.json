@@ -1,0 +1,188 @@
+{
+ "generated": "2026-07-28 17:23:56",
+ "phase": 5,
+ "step": "P5.7",
+ "endpoint": "out-of-protocol rejection rate: the fraction of the out-of-protocol images assigned OTHERCLASS",
+ "verdict_rule": "REJECTS OUT-OF-PROTOCOL IMAGES if the rejection rate exceeds the 0.04348 chance rate with a 95% CI excluding it; DOES NOT if the CI includes or falls below chance.",
+ "hypothesis": "the rejection rate will be LOW -- plausibly at or below the 4.3% chance rate of a 23-way head. GastroHUN contains almost no true out-of-protocol images and OTHERCLASS is a minority class its own annotators disagree about, so the model has had no opportunity to learn a rejection behaviour. This predicts confident misassignment, which is the deployment-relevant failure and the endpoint on which the external data is more informative than GastroHUN itself.",
+ "n_out_of_protocol": 13997,
+ "chance_rate": 0.04348,
+ "n_boot": 1000,
+ "boot_unit": "image",
+ "boot_unit_caveat": "Phases 0-4 clustered every interval by patient, because Phase 0 measured per-patient Fleiss kappa at 0.7459 +/- 0.1448 and images within a patient are not independent. Neither external corpus ships a usable grouping key: HyperKvasir's 'Video file' column has 10,662 distinct values over 10,662 images, one per image, and GastroVision ships none. Phase 5 intervals are therefore image-level and are OPTIMISTIC -- narrower than a correctly clustered interval would be. This is declared here rather than discovered later, and no Phase 5 interval may be compared directly against a Phase 0-4 interval.",
+ "arms": [
+  "C0",
+  "C1",
+  "C2",
+  "C3",
+  "C4"
+ ],
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "per_seed": {
+  "C0": {
+   "1": {
+    "rejection_rate": 0.35608,
+    "mean_top1_confidence": 0.7684,
+    "mean_top1_confidence_when_not_rejected": 0.71768,
+    "most_asserted_class": "OTHERCLASS"
+   },
+   "2": {
+    "rejection_rate": 0.49653,
+    "mean_top1_confidence": 0.80938,
+    "mean_top1_confidence_when_not_rejected": 0.72089,
+    "most_asserted_class": "OTHERCLASS"
+   },
+   "3": {
+    "rejection_rate": 0.40509,
+    "mean_top1_confidence": 0.78655,
+    "mean_top1_confidence_when_not_rejected": 0.7203,
+    "most_asserted_class": "OTHERCLASS"
+   }
+  },
+  "C1": {
+   "1": {
+    "rejection_rate": 0.4028,
+    "mean_top1_confidence": 0.78386,
+    "mean_top1_confidence_when_not_rejected": 0.72879,
+    "most_asserted_class": "OTHERCLASS"
+   },
+   "2": {
+    "rejection_rate": 0.42595,
+    "mean_top1_confidence": 0.77866,
+    "mean_top1_confidence_when_not_rejected": 0.71624,
+    "most_asserted_class": "OTHERCLASS"
+   },
+   "3": {
+    "rejection_rate": 0.42502,
+    "mean_top1_confidence": 0.78578,
+    "mean_top1_confidence_when_not_rejected": 0.72495,
+    "most_asserted_class": "OTHERCLASS"
+   }
+  },
+  "C2": {
+   "1": {
+    "rejection_rate": 0.5892,
+    "mean_top1_confidence": 0.69605,
+    "mean_top1_confidence_when_not_rejected": 0.59934,
+    "most_asserted_class": "OTHERCLASS"
+   },
+   "2": {
+    "rejection_rate": 0.64099,
+    "mean_top1_confidence": 0.72756,
+    "mean_top1_confidence_when_not_rejected": 0.60413,
+    "most_asserted_class": "OTHERCLASS"
+   },
+   "3": {
+    "rejection_rate": 0.67179,
+    "mean_top1_confidence": 0.7461,
+    "mean_top1_confidence_when_not_rejected": 0.61371,
+    "most_asserted_class": "OTHERCLASS"
+   }
+  },
+  "C3": {
+   "1": {
+    "rejection_rate": 0.42809,
+    "mean_top1_confidence": 0.40678,
+    "mean_top1_confidence_when_not_rejected": 0.33827,
+    "most_asserted_class": "OTHERCLASS"
+   },
+   "2": {
+    "rejection_rate": 0.42695,
+    "mean_top1_confidence": 0.38516,
+    "mean_top1_confidence_when_not_rejected": 0.31029,
+    "most_asserted_class": "OTHERCLASS"
+   },
+   "3": {
+    "rejection_rate": 0.43674,
+    "mean_top1_confidence": 0.40294,
+    "mean_top1_confidence_when_not_rejected": 0.30702,
+    "most_asserted_class": "OTHERCLASS"
+   }
+  },
+  "C4": {
+   "1": {
+    "rejection_rate": 0.58748,
+    "mean_top1_confidence": 0.71048,
+    "mean_top1_confidence_when_not_rejected": 0.60546,
+    "most_asserted_class": "OTHERCLASS"
+   },
+   "2": {
+    "rejection_rate": 0.56248,
+    "mean_top1_confidence": 0.69472,
+    "mean_top1_confidence_when_not_rejected": 0.59579,
+    "most_asserted_class": "OTHERCLASS"
+   },
+   "3": {
+    "rejection_rate": 0.5429,
+    "mean_top1_confidence": 0.68484,
+    "mean_top1_confidence_when_not_rejected": 0.58056,
+    "most_asserted_class": "OTHERCLASS"
+   }
+  }
+ },
+ "aggregate_3seed": {
+  "C0": {
+   "rejection_rate_mean_3seed": 0.41923,
+   "ci95": [
+    0.41223,
+    0.4261
+   ],
+   "chance_rate": 0.04348,
+   "exceeds_chance": true,
+   "mean_top1_confidence_mean_3seed": 0.78811,
+   "verdict": "REJECTS OUT-OF-PROTOCOL IMAGES"
+  },
+  "C1": {
+   "rejection_rate_mean_3seed": 0.41792,
+   "ci95": [
+    0.41087,
+    0.42545
+   ],
+   "chance_rate": 0.04348,
+   "exceeds_chance": true,
+   "mean_top1_confidence_mean_3seed": 0.78277,
+   "verdict": "REJECTS OUT-OF-PROTOCOL IMAGES"
+  },
+  "C2": {
+   "rejection_rate_mean_3seed": 0.63399,
+   "ci95": [
+    0.62694,
+    0.6414
+   ],
+   "chance_rate": 0.04348,
+   "exceeds_chance": true,
+   "mean_top1_confidence_mean_3seed": 0.72324,
+   "verdict": "REJECTS OUT-OF-PROTOCOL IMAGES"
+  },
+  "C3": {
+   "rejection_rate_mean_3seed": 0.43059,
+   "ci95": [
+    0.4234,
+    0.43831
+   ],
+   "chance_rate": 0.04348,
+   "exceeds_chance": true,
+   "mean_top1_confidence_mean_3seed": 0.39829,
+   "verdict": "REJECTS OUT-OF-PROTOCOL IMAGES"
+  },
+  "C4": {
+   "rejection_rate_mean_3seed": 0.56429,
+   "ci95": [
+    0.55664,
+    0.57146
+   ],
+   "chance_rate": 0.04348,
+   "exceeds_chance": true,
+   "mean_top1_confidence_mean_3seed": 0.69668,
+   "verdict": "REJECTS OUT-OF-PROTOCOL IMAGES"
+  }
+ },
+ "headline_arm": "C2",
+ "verdict": "REJECTS OUT-OF-PROTOCOL IMAGES",
+ "hypothesis_supported": false,
+ "runtime_sec": 4.5
+}

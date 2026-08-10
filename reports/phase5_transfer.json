@@ -1,0 +1,421 @@
+{
+ "generated": "2026-07-28 17:23:51",
+ "phase": 5,
+ "step": "P5.6",
+ "endpoint": "binary macro F1 over {RETROFLEXION, FORWARD_GASTRIC} on the 3,125 external gastric images. The model's 23-way argmax is collapsed through the frozen mapping; an OTHERCLASS prediction counts as INCORRECT for whichever class the image truly is, so the endpoint penalises both confusing the two views and failing to recognise a gastric view at all.",
+ "verdict_rule": "TRANSFERS if the external binary macro F1 exceeds 50.0 (the majority-class floor on this 2-class problem) with a 95% CI excluding it; DOES NOT TRANSFER if the CI includes or falls below it; UNDERPOWERED if the half-width exceeds the precision target.",
+ "majority_class_floor": 50.0,
+ "n_gastric_external": 3125,
+ "n_retroflexion": 764,
+ "n_forward": 2361,
+ "n_gastric_internal_comparator": 1222,
+ "n_boot": 1000,
+ "boot_unit": "image",
+ "boot_unit_caveat": "Phases 0-4 clustered every interval by patient, because Phase 0 measured per-patient Fleiss kappa at 0.7459 +/- 0.1448 and images within a patient are not independent. Neither external corpus ships a usable grouping key: HyperKvasir's 'Video file' column has 10,662 distinct values over 10,662 images, one per image, and GastroVision ships none. Phase 5 intervals are therefore image-level and are OPTIMISTIC -- narrower than a correctly clustered interval would be. This is declared here rather than discovered later, and no Phase 5 interval may be compared directly against a Phase 0-4 interval.",
+ "arms": [
+  "C0",
+  "C1",
+  "C2",
+  "C3",
+  "C4"
+ ],
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "per_seed": {
+  "C0": {
+   "1": {
+    "external_macro_f1": 78.961,
+    "internal_macro_f1": 97.547,
+    "drop_points": -18.586,
+    "gastric_recognition_rate": 0.93056,
+    "macro_f1_among_recognised": 81.341,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 33.851,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 98.517,
+      "n_retroflexion": 764
+     }
+    }
+   },
+   "2": {
+    "external_macro_f1": 76.377,
+    "internal_macro_f1": 96.767,
+    "drop_points": -20.39,
+    "gastric_recognition_rate": 0.84256,
+    "macro_f1_among_recognised": 82.274,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 29.357,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 95.824,
+      "n_retroflexion": 764
+     }
+    }
+   },
+   "3": {
+    "external_macro_f1": 78.749,
+    "internal_macro_f1": 97.978,
+    "drop_points": -19.229,
+    "gastric_recognition_rate": 0.93024,
+    "macro_f1_among_recognised": 81.151,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 34.77,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 96.901,
+      "n_retroflexion": 764
+     }
+    }
+   }
+  },
+  "C1": {
+   "1": {
+    "external_macro_f1": 79.53,
+    "internal_macro_f1": 97.853,
+    "drop_points": -18.323,
+    "gastric_recognition_rate": 0.95008,
+    "macro_f1_among_recognised": 81.194,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 34.988,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 98.92,
+      "n_retroflexion": 764
+     }
+    }
+   },
+   "2": {
+    "external_macro_f1": 79.211,
+    "internal_macro_f1": 97.85,
+    "drop_points": -18.639,
+    "gastric_recognition_rate": 0.9536,
+    "macro_f1_among_recognised": 80.754,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 34.551,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 99.238,
+      "n_retroflexion": 764
+     }
+    }
+   },
+   "3": {
+    "external_macro_f1": 78.532,
+    "internal_macro_f1": 98.141,
+    "drop_points": -19.609,
+    "gastric_recognition_rate": 0.93248,
+    "macro_f1_among_recognised": 80.811,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 33.366,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 98.658,
+      "n_retroflexion": 764
+     }
+    }
+   }
+  },
+  "C2": {
+   "1": {
+    "external_macro_f1": 78.656,
+    "internal_macro_f1": 98.084,
+    "drop_points": -19.428,
+    "gastric_recognition_rate": 0.91232,
+    "macro_f1_among_recognised": 81.81,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 33.038,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 98.195,
+      "n_retroflexion": 764
+     }
+    }
+   },
+   "2": {
+    "external_macro_f1": 78.637,
+    "internal_macro_f1": 98.28,
+    "drop_points": -19.642,
+    "gastric_recognition_rate": 0.90304,
+    "macro_f1_among_recognised": 82.117,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 32.407,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 98.345,
+      "n_retroflexion": 764
+     }
+    }
+   },
+   "3": {
+    "external_macro_f1": 77.946,
+    "internal_macro_f1": 98.131,
+    "drop_points": -20.184,
+    "gastric_recognition_rate": 0.8928,
+    "macro_f1_among_recognised": 81.825,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 31.627,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 97.945,
+      "n_retroflexion": 764
+     }
+    }
+   }
+  },
+  "C3": {
+   "1": {
+    "external_macro_f1": 79.019,
+    "internal_macro_f1": 98.304,
+    "drop_points": -19.285,
+    "gastric_recognition_rate": 0.9552,
+    "macro_f1_among_recognised": 80.504,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 34.988,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 98.54,
+      "n_retroflexion": 764
+     }
+    }
+   },
+   "2": {
+    "external_macro_f1": 79.084,
+    "internal_macro_f1": 98.334,
+    "drop_points": -19.25,
+    "gastric_recognition_rate": 0.95776,
+    "macro_f1_among_recognised": 80.477,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 35.174,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 98.451,
+      "n_retroflexion": 764
+     }
+    }
+   },
+   "3": {
+    "external_macro_f1": 78.147,
+    "internal_macro_f1": 98.249,
+    "drop_points": -20.102,
+    "gastric_recognition_rate": 0.94688,
+    "macro_f1_among_recognised": 79.921,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 34.266,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 97.904,
+      "n_retroflexion": 764
+     }
+    }
+   }
+  },
+  "C4": {
+   "1": {
+    "external_macro_f1": 78.502,
+    "internal_macro_f1": 98.537,
+    "drop_points": -20.035,
+    "gastric_recognition_rate": 0.91616,
+    "macro_f1_among_recognised": 81.51,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 32.84,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 98.59,
+      "n_retroflexion": 764
+     }
+    }
+   },
+   "2": {
+    "external_macro_f1": 79.025,
+    "internal_macro_f1": 98.643,
+    "drop_points": -19.618,
+    "gastric_recognition_rate": 0.93696,
+    "macro_f1_among_recognised": 81.184,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 33.658,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 99.138,
+      "n_retroflexion": 764
+     }
+    }
+   },
+   "3": {
+    "external_macro_f1": 78.598,
+    "internal_macro_f1": 98.275,
+    "drop_points": -19.677,
+    "gastric_recognition_rate": 0.92352,
+    "macro_f1_among_recognised": 81.258,
+    "by_corpus": {
+     "gastrovision": {
+      "n": 1362,
+      "macro_f1": 32.972,
+      "n_retroflexion": 0
+     },
+     "hyperkvasir": {
+      "n": 1763,
+      "macro_f1": 98.71,
+      "n_retroflexion": 764
+     }
+    }
+   }
+  }
+ },
+ "aggregate_3seed": {
+  "C0": {
+   "external_macro_f1_mean_3seed": 78.029,
+   "external_ci95": [
+    76.553,
+    79.484
+   ],
+   "ci95_halfwidth_points": 1.466,
+   "precision_target_points": 3.0,
+   "meets_precision_target": true,
+   "internal_macro_f1_mean_3seed": 97.431,
+   "drop_points": -19.402,
+   "drop_ci95": [
+    -20.877,
+    -17.946
+   ],
+   "gastric_recognition_rate_mean": 0.90112,
+   "verdict": "TRANSFERS"
+  },
+  "C1": {
+   "external_macro_f1_mean_3seed": 79.091,
+   "external_ci95": [
+    77.672,
+    80.558
+   ],
+   "ci95_halfwidth_points": 1.443,
+   "precision_target_points": 3.0,
+   "meets_precision_target": true,
+   "internal_macro_f1_mean_3seed": 97.948,
+   "drop_points": -18.857,
+   "drop_ci95": [
+    -20.276,
+    -17.39
+   ],
+   "gastric_recognition_rate_mean": 0.94539,
+   "verdict": "TRANSFERS"
+  },
+  "C2": {
+   "external_macro_f1_mean_3seed": 78.413,
+   "external_ci95": [
+    76.872,
+    79.887
+   ],
+   "ci95_halfwidth_points": 1.507,
+   "precision_target_points": 3.0,
+   "meets_precision_target": true,
+   "internal_macro_f1_mean_3seed": 98.165,
+   "drop_points": -19.752,
+   "drop_ci95": [
+    -21.293,
+    -18.278
+   ],
+   "gastric_recognition_rate_mean": 0.90272,
+   "verdict": "TRANSFERS"
+  },
+  "C3": {
+   "external_macro_f1_mean_3seed": 78.75,
+   "external_ci95": [
+    77.307,
+    80.27
+   ],
+   "ci95_halfwidth_points": 1.482,
+   "precision_target_points": 3.0,
+   "meets_precision_target": true,
+   "internal_macro_f1_mean_3seed": 98.296,
+   "drop_points": -19.546,
+   "drop_ci95": [
+    -20.989,
+    -18.026
+   ],
+   "gastric_recognition_rate_mean": 0.95328,
+   "verdict": "TRANSFERS"
+  },
+  "C4": {
+   "external_macro_f1_mean_3seed": 78.708,
+   "external_ci95": [
+    77.223,
+    80.187
+   ],
+   "ci95_halfwidth_points": 1.482,
+   "precision_target_points": 3.0,
+   "meets_precision_target": true,
+   "internal_macro_f1_mean_3seed": 98.485,
+   "drop_points": -19.777,
+   "drop_ci95": [
+    -21.262,
+    -18.298
+   ],
+   "gastric_recognition_rate_mean": 0.92555,
+   "verdict": "TRANSFERS"
+  }
+ },
+ "headline_arm": "C2",
+ "verdict": "TRANSFERS",
+ "pre_registered_expected_drop_points": -10.0,
+ "expected_drop_realised": true,
+ "runtime_sec": 145.6
+}

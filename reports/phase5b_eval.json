@@ -1,0 +1,73 @@
+{
+ "generated": "2026-07-28 20:35:57",
+ "phase": "5B",
+ "step": "P5.17",
+ "arm": "C2",
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "n_eval_split": 6850,
+ "baseline_source": "the headline Phase 5 numbers were computed on ALL evaluated external images; the 5B comparison recomputes the baseline on the eval split only, from the same frozen prediction files, so that both sides of the contrast are scored on identical rows. No re-inference and no re-selection is involved.",
+ "interval_procedure": {
+  "method": "paired bootstrap, 1,000 resamples, seed 20260726",
+  "unit": "IMAGE",
+  "pairing": "one resample of eval-split rows is drawn and BOTH the adapted and the baseline predictions are scored on those same rows before differencing"
+ },
+ "split_weakness": "the split is image-level because neither corpus publishes a patient or case identifier. Frames from the same procedure can therefore fall on both sides of the split, which makes the ADAPTED arm look better than it would under a patient-level split. Any 5B gain is consequently an UPPER BOUND on what adaptation buys, and the report must say so.",
+ "results": {
+  "P5-A": {
+   "n": 1251,
+   "adapted": 76.451,
+   "baseline": 77.729,
+   "delta_points": -1.279,
+   "ci95": [
+    -1.83,
+    -0.721
+   ],
+   "verdict": "HURTS"
+  },
+  "P5-B": {
+   "n": 5599,
+   "adapted": 0.75537,
+   "baseline": 0.63112,
+   "delta": 0.12425,
+   "ci95": [
+    0.11669,
+    0.13163
+   ],
+   "verdict": "ADAPTATION HELPS"
+  },
+  "P5-C": {
+   "n": 6850,
+   "adapted_ece": 14.609,
+   "baseline_ece": 7.165,
+   "delta_ece": 7.444,
+   "ci95": [
+    6.782,
+    8.041
+   ],
+   "verdict": "WORSE CALIBRATED"
+  },
+  "internal_retention": {
+   "n": 1272,
+   "adapted_macro_f1": 75.941,
+   "baseline_macro_f1": 76.214,
+   "delta_points": -0.274,
+   "ci95": [
+    -1.116,
+    0.516
+   ],
+   "verdict": "NO SIGNIFICANT REGRESSION",
+   "note": "23-way macro F1 on the GastroHUN test split, the metric Phase 4 used. The 81 no-majority images have no modal label and are excluded, as in Phase 5."
+  }
+ },
+ "verdict_rules": {
+  "P5-A": "ADAPTATION HELPS if the paired 95% CI of (adapted - baseline) excludes 0 above; HURTS if it excludes 0 below; NOT RESOLVED if it contains 0.",
+  "P5-B": "same rule, applied to the rejection rate.",
+  "P5-C": "BETTER CALIBRATED if the paired CI of (adapted - baseline) ECE excludes 0 below zero.",
+  "forgetting": "REGRESSION ON THE SOURCE DOMAIN if the internal macro F1 falls with a CI excluding 0 below."
+ },
+ "runtime_sec": 1776.8
+}
