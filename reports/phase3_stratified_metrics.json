@@ -1,0 +1,467 @@
+{
+  "generated": "2026-07-27 01:10:14",
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "n_test_images": 1353,
+  "consistency_gate": {
+    "1": {
+      "n_compared": 803,
+      "n_mismatch": 0
+    },
+    "2": {
+      "n_compared": 803,
+      "n_mismatch": 0
+    },
+    "3": {
+      "n_compared": 803,
+      "n_mismatch": 0
+    }
+  },
+  "per_seed_stratum": {
+    "1": {
+      "S-dispersed": {
+        "n_images": 8,
+        "n_patients": 6,
+        "annotator_marginalized_macro_f1": 0.05797,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.04583,
+        "per_annotator_macro_f1": [
+          0.0,
+          0.08696,
+          0.10145,
+          0.04348
+        ],
+        "expected_accuracy": 0.1875,
+        "any_annotator_hit_rate": 0.75,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.01812,
+          0.05978
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.01132
+      },
+      "S-majority": {
+        "n_images": 342,
+        "n_patients": 57,
+        "annotator_marginalized_macro_f1": 0.48669,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.03936,
+        "per_annotator_macro_f1": [
+          0.43079,
+          0.49728,
+          0.52322,
+          0.49546
+        ],
+        "expected_accuracy": 0.50512,
+        "any_annotator_hit_rate": 0.79825,
+        "single_label_macro_f1": 0.59226,
+        "single_label_accuracy": 0.61111,
+        "single_label_macro_precision": 0.60648,
+        "single_label_macro_recall": 0.61928,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.44077,
+          0.51359
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.01872
+      },
+      "S-plurality": {
+        "n_images": 127,
+        "n_patients": 38,
+        "annotator_marginalized_macro_f1": 0.25032,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.01535,
+        "per_annotator_macro_f1": [
+          0.26719,
+          0.24494,
+          0.25738,
+          0.23178
+        ],
+        "expected_accuracy": 0.26181,
+        "any_annotator_hit_rate": 0.69291,
+        "single_label_macro_f1": 0.33838,
+        "single_label_accuracy": 0.35433,
+        "single_label_macro_precision": 0.39291,
+        "single_label_macro_recall": 0.3896,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.19871,
+          0.26716
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.01721
+      },
+      "S-tied": {
+        "n_images": 73,
+        "n_patients": 38,
+        "annotator_marginalized_macro_f1": 0.30947,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.06993,
+        "per_annotator_macro_f1": [
+          0.26449,
+          0.32933,
+          0.39929,
+          0.24478
+        ],
+        "expected_accuracy": 0.38356,
+        "any_annotator_hit_rate": 0.76712,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.22766,
+          0.32317
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.02445
+      },
+      "S-unanimous": {
+        "n_images": 803,
+        "n_patients": 58,
+        "annotator_marginalized_macro_f1": 0.83673,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.0,
+        "per_annotator_macro_f1": [
+          0.83673,
+          0.83673,
+          0.83673,
+          0.83673
+        ],
+        "expected_accuracy": 0.84184,
+        "any_annotator_hit_rate": 0.84184,
+        "single_label_macro_f1": 0.83673,
+        "single_label_accuracy": 0.84184,
+        "single_label_macro_precision": 0.84758,
+        "single_label_macro_recall": 0.83815,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.8098,
+          0.86336
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.01392
+      },
+      "S-no-majority": {
+        "n_images": 81,
+        "n_patients": 39,
+        "annotator_marginalized_macro_f1": 0.3038,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.07548,
+        "per_annotator_macro_f1": [
+          0.23984,
+          0.33211,
+          0.39766,
+          0.24558
+        ],
+        "expected_accuracy": 0.3642,
+        "any_annotator_hit_rate": 0.76543,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.22528,
+          0.31579
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.02367
+      }
+    },
+    "2": {
+      "S-dispersed": {
+        "n_images": 8,
+        "n_patients": 6,
+        "annotator_marginalized_macro_f1": 0.05435,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.05072,
+        "per_annotator_macro_f1": [
+          0.0,
+          0.02899,
+          0.11594,
+          0.07246
+        ],
+        "expected_accuracy": 0.1875,
+        "any_annotator_hit_rate": 0.75,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.0163,
+          0.05761
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.01126
+      },
+      "S-majority": {
+        "n_images": 342,
+        "n_patients": 57,
+        "annotator_marginalized_macro_f1": 0.49151,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.04508,
+        "per_annotator_macro_f1": [
+          0.43151,
+          0.49869,
+          0.54085,
+          0.49498
+        ],
+        "expected_accuracy": 0.50877,
+        "any_annotator_hit_rate": 0.80117,
+        "single_label_macro_f1": 0.60096,
+        "single_label_accuracy": 0.61696,
+        "single_label_macro_precision": 0.61812,
+        "single_label_macro_recall": 0.61944,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.43964,
+          0.52631
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.02242
+      },
+      "S-plurality": {
+        "n_images": 127,
+        "n_patients": 38,
+        "annotator_marginalized_macro_f1": 0.27552,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.02087,
+        "per_annotator_macro_f1": [
+          0.26472,
+          0.25163,
+          0.29588,
+          0.28985
+        ],
+        "expected_accuracy": 0.30709,
+        "any_annotator_hit_rate": 0.79528,
+        "single_label_macro_f1": 0.39428,
+        "single_label_accuracy": 0.43307,
+        "single_label_macro_precision": 0.38991,
+        "single_label_macro_recall": 0.44422,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.22362,
+          0.28352
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.01512
+      },
+      "S-tied": {
+        "n_images": 73,
+        "n_patients": 38,
+        "annotator_marginalized_macro_f1": 0.32562,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.06786,
+        "per_annotator_macro_f1": [
+          0.28573,
+          0.33386,
+          0.41779,
+          0.26511
+        ],
+        "expected_accuracy": 0.41781,
+        "any_annotator_hit_rate": 0.83562,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.25114,
+          0.33675
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.0225
+      },
+      "S-unanimous": {
+        "n_images": 803,
+        "n_patients": 58,
+        "annotator_marginalized_macro_f1": 0.83136,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.0,
+        "per_annotator_macro_f1": [
+          0.83136,
+          0.83136,
+          0.83136,
+          0.83136
+        ],
+        "expected_accuracy": 0.83811,
+        "any_annotator_hit_rate": 0.83811,
+        "single_label_macro_f1": 0.83136,
+        "single_label_accuracy": 0.83811,
+        "single_label_macro_precision": 0.83948,
+        "single_label_macro_recall": 0.83347,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.80097,
+          0.85846
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.0149
+      },
+      "S-no-majority": {
+        "n_images": 81,
+        "n_patients": 39,
+        "annotator_marginalized_macro_f1": 0.31378,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.06716,
+        "per_annotator_macro_f1": [
+          0.25359,
+          0.3159,
+          0.40692,
+          0.27872
+        ],
+        "expected_accuracy": 0.39506,
+        "any_annotator_hit_rate": 0.82716,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.24632,
+          0.32415
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.02017
+      }
+    },
+    "3": {
+      "S-dispersed": {
+        "n_images": 8,
+        "n_patients": 6,
+        "annotator_marginalized_macro_f1": 0.04529,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.04241,
+        "per_annotator_macro_f1": [
+          0.0,
+          0.06522,
+          0.0942,
+          0.02174
+        ],
+        "expected_accuracy": 0.1875,
+        "any_annotator_hit_rate": 0.75,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.0163,
+          0.04855
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.00844
+      },
+      "S-majority": {
+        "n_images": 342,
+        "n_patients": 57,
+        "annotator_marginalized_macro_f1": 0.49021,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.0481,
+        "per_annotator_macro_f1": [
+          0.42982,
+          0.52224,
+          0.53494,
+          0.47385
+        ],
+        "expected_accuracy": 0.50731,
+        "any_annotator_hit_rate": 0.80117,
+        "single_label_macro_f1": 0.5937,
+        "single_label_accuracy": 0.61404,
+        "single_label_macro_precision": 0.61649,
+        "single_label_macro_recall": 0.61647,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.43985,
+          0.52228
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.02137
+      },
+      "S-plurality": {
+        "n_images": 127,
+        "n_patients": 38,
+        "annotator_marginalized_macro_f1": 0.25879,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.01535,
+        "per_annotator_macro_f1": [
+          0.27113,
+          0.23636,
+          0.2637,
+          0.26397
+        ],
+        "expected_accuracy": 0.26575,
+        "any_annotator_hit_rate": 0.69291,
+        "single_label_macro_f1": 0.34698,
+        "single_label_accuracy": 0.37008,
+        "single_label_macro_precision": 0.35927,
+        "single_label_macro_recall": 0.40979,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.19797,
+          0.27107
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.01875
+      },
+      "S-tied": {
+        "n_images": 73,
+        "n_patients": 38,
+        "annotator_marginalized_macro_f1": 0.3152,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.06577,
+        "per_annotator_macro_f1": [
+          0.29816,
+          0.31002,
+          0.40509,
+          0.24753
+        ],
+        "expected_accuracy": 0.40411,
+        "any_annotator_hit_rate": 0.80822,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.23076,
+          0.33433
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.02679
+      },
+      "S-unanimous": {
+        "n_images": 803,
+        "n_patients": 58,
+        "annotator_marginalized_macro_f1": 0.84936,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.0,
+        "per_annotator_macro_f1": [
+          0.84936,
+          0.84936,
+          0.84936,
+          0.84936
+        ],
+        "expected_accuracy": 0.85181,
+        "any_annotator_hit_rate": 0.85181,
+        "single_label_macro_f1": 0.84936,
+        "single_label_accuracy": 0.85181,
+        "single_label_macro_precision": 0.8585,
+        "single_label_macro_recall": 0.84902,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.82547,
+          0.87534
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.01274
+      },
+      "S-no-majority": {
+        "n_images": 81,
+        "n_patients": 39,
+        "annotator_marginalized_macro_f1": 0.30606,
+        "annotator_marginalized_macro_f1_sd_across_annotators": 0.07215,
+        "per_annotator_macro_f1": [
+          0.26517,
+          0.31189,
+          0.40513,
+          0.24204
+        ],
+        "expected_accuracy": 0.38272,
+        "any_annotator_hit_rate": 0.80247,
+        "annotator_marginalized_macro_f1_ci95": [
+          0.23233,
+          0.31916
+        ],
+        "annotator_marginalized_macro_f1_boot_sd": 0.02298
+      }
+    }
+  },
+  "aggregate_3seed": {
+    "S-unanimous": {
+      "n_images": 803,
+      "n_patients": 58,
+      "annotator_marginalized_macro_f1_mean_3seed": 0.83915,
+      "annotator_marginalized_macro_f1_sd_3seed": 0.00924,
+      "expected_accuracy_mean_3seed": 0.84392,
+      "any_annotator_hit_rate_mean_3seed": 0.84392,
+      "single_label_macro_f1_mean_3seed": 0.83915
+    },
+    "S-majority": {
+      "n_images": 342,
+      "n_patients": 57,
+      "annotator_marginalized_macro_f1_mean_3seed": 0.48947,
+      "annotator_marginalized_macro_f1_sd_3seed": 0.00249,
+      "expected_accuracy_mean_3seed": 0.50707,
+      "any_annotator_hit_rate_mean_3seed": 0.8002,
+      "single_label_macro_f1_mean_3seed": 0.59564
+    },
+    "S-plurality": {
+      "n_images": 127,
+      "n_patients": 38,
+      "annotator_marginalized_macro_f1_mean_3seed": 0.26154,
+      "annotator_marginalized_macro_f1_sd_3seed": 0.01282,
+      "expected_accuracy_mean_3seed": 0.27822,
+      "any_annotator_hit_rate_mean_3seed": 0.72703,
+      "single_label_macro_f1_mean_3seed": 0.35988
+    },
+    "S-no-majority": {
+      "n_images": 81,
+      "n_patients": 39,
+      "annotator_marginalized_macro_f1_mean_3seed": 0.30788,
+      "annotator_marginalized_macro_f1_sd_3seed": 0.00523,
+      "expected_accuracy_mean_3seed": 0.38066,
+      "any_annotator_hit_rate_mean_3seed": 0.79835
+    }
+  },
+  "rq1": {
+    "tier_order": [
+      "S-unanimous",
+      "S-majority",
+      "S-plurality",
+      "S-no-majority"
+    ],
+    "annotator_marginalized_macro_f1_by_tier": {
+      "S-unanimous": 0.83915,
+      "S-majority": 0.48947,
+      "S-plurality": 0.26154,
+      "S-no-majority": 0.30788
+    },
+    "spearman_rho": -0.8,
+    "spearman_p": 0.2,
+    "strictly_monotonic_non_increasing": false,
+    "gap_S_unanimous_minus_S_no_majority_points": 53.127,
+    "architecture_gap_benchmark_points": 3.25,
+    "gap_exceeds_architecture_benchmark": true
+  },
+  "runtime_sec": 486.4
+}

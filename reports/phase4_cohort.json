@@ -1,0 +1,173 @@
+{
+  "generated": "2026-07-27 11:31:09",
+  "purpose": "extended (majority-or-better) training cohort for the Phase 4 C1-C4 configurations; cohort held constant across configurations so that only the target construction varies",
+  "gates": {
+    "P4.1a_counts": true,
+    "P4.1b_classes": true,
+    "P4.1c_no_patient_overlap": true,
+    "P4.1d_hash_and_disk": true,
+    "P4.1e_matches_phase2_consensus": true
+  },
+  "cohort_definition": "tier in {S-unanimous (4/4), S-majority (3/4)}, Train+Validation",
+  "n_images": 6331,
+  "by_split": {
+    "Train": 5228,
+    "Validation": 1103
+  },
+  "tier_by_split": {
+    "Train": {
+      "S-unanimous": 3722,
+      "S-majority": 1506
+    },
+    "Validation": {
+      "S-unanimous": 793,
+      "S-majority": 310
+    }
+  },
+  "phase2_cohort_by_split": {
+    "Train": 3722,
+    "Validation": 793
+  },
+  "growth_vs_phase2": {
+    "Train": 1.4046,
+    "Validation": 1.3909
+  },
+  "n_patients_by_split": {
+    "Train": 270,
+    "Validation": 58
+  },
+  "n_classes": 23,
+  "classes": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "G1",
+    "G2",
+    "G3",
+    "G4",
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5",
+    "L6",
+    "OTHERCLASS",
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6"
+  ],
+  "patient_overlap": {
+    "train_val": [],
+    "train_test": [],
+    "val_test": []
+  },
+  "hash_resolution": {
+    "n_cohort": 6331,
+    "n_unresolved": 0,
+    "n_present_on_disk": 6331,
+    "n_duplicate_filenames": 0
+  },
+  "fraction_contested_by_split": {
+    "Train": 0.28806,
+    "Validation": 0.28105
+  },
+  "class_by_split": {
+    "Train": {
+      "A1": 251,
+      "A2": 252,
+      "A3": 205,
+      "A4": 216,
+      "A5": 212,
+      "A6": 238,
+      "G1": 256,
+      "G2": 247,
+      "G3": 238,
+      "G4": 270,
+      "L1": 243,
+      "L2": 230,
+      "L3": 208,
+      "L4": 195,
+      "L5": 217,
+      "L6": 255,
+      "OTHERCLASS": 117,
+      "P1": 261,
+      "P2": 232,
+      "P3": 229,
+      "P4": 204,
+      "P5": 206,
+      "P6": 246
+    },
+    "Validation": {
+      "A1": 56,
+      "A2": 47,
+      "A3": 47,
+      "A4": 48,
+      "A5": 41,
+      "A6": 53,
+      "G1": 59,
+      "G2": 47,
+      "G3": 53,
+      "G4": 57,
+      "L1": 52,
+      "L2": 49,
+      "L3": 46,
+      "L4": 37,
+      "L5": 41,
+      "L6": 54,
+      "OTHERCLASS": 23,
+      "P1": 56,
+      "P2": 45,
+      "P3": 49,
+      "P4": 45,
+      "P5": 47,
+      "P6": 51
+    }
+  },
+  "class_split_chi2": 3.997,
+  "class_split_p": 0.9999917501269655,
+  "stream_by_split": {
+    "Train": {
+      "direct_capture": 4654,
+      "video_frame": 574
+    },
+    "Validation": {
+      "direct_capture": 1069,
+      "video_frame": 34
+    }
+  },
+  "stream_split_chi2": 64.521,
+  "stream_split_p": 9.549048135304984e-16,
+  "top_majority_minority_pairs": {
+    "A5|L5": 64,
+    "G3|A3": 52,
+    "A4|L4": 44,
+    "L5|A5": 42,
+    "G4|A4": 40,
+    "P3|G3": 34,
+    "L4|A4": 33,
+    "A1|G1": 32,
+    "A4|G4": 32,
+    "P3|L3": 30,
+    "G1|P1": 27,
+    "G2|G3": 27,
+    "L3|P3": 27,
+    "P5|L5": 27,
+    "P2|P3": 26
+  },
+  "excluded_trainval_images": {
+    "n": 1150,
+    "by_tier": {
+      "S-plurality": 617,
+      "S-tied": 466,
+      "S-dispersed": 67
+    },
+    "reason": "no majority label exists, so the C1/C3 hard-label arms are undefined on them; excluding them from every arm keeps the C2-vs-C3 contrast a pure target-construction contrast"
+  },
+  "runtime_sec": 0.6
+}

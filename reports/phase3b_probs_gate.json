@@ -1,0 +1,23 @@
+{
+  "generated": "2026-07-27 10:09:57",
+  "n_images": 1353,
+  "gates": {
+    "1": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "max_abs_confidence_deviation": 2.974472046446408e-08
+    },
+    "2": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "max_abs_confidence_deviation": 2.9776763943445417e-08
+    },
+    "3": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "max_abs_confidence_deviation": 2.978515623031086e-08
+    }
+  },
+  "gate_pass": true,
+  "runtime_sec": 149.1
+}

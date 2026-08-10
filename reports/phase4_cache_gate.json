@@ -1,0 +1,28 @@
+{
+  "generated": "2026-07-27 11:36:43",
+  "n_images": 6331,
+  "shape": [
+    6331,
+    224,
+    224,
+    3
+  ],
+  "dtype": "uint8",
+  "resample": "LANCZOS",
+  "bytes": 952992896,
+  "by_split": {
+    "Train": 5228,
+    "Validation": 1103
+  },
+  "by_tier": {
+    "S-unanimous": 4515,
+    "S-majority": 1816
+  },
+  "gate_p4_2_byte_identity": {
+    "n_shared_with_phase2_cache": 4515,
+    "n_mismatched": 0,
+    "pass": true,
+    "note": "exhaustive comparison, not sampled; guarantees the Phase 4 arms and the Phase 2 reference arm see identical pixels"
+  },
+  "runtime_sec": 308.6
+}

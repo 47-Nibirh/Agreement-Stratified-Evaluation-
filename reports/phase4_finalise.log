@@ -1,0 +1,171 @@
+all 12 training runs present
+=== START python src/models/phase4_infer.py 07:42:34 ===
+  C1 seed1: deterministic + 20 MC passes done
+  C1 seed2: deterministic + 20 MC passes done
+  C1 seed3: deterministic + 20 MC passes done
+  C2 seed1: deterministic + 20 MC passes done
+  C2 seed2: deterministic + 20 MC passes done
+  C2 seed3: deterministic + 20 MC passes done
+  C3 seed1: deterministic + 20 MC passes done
+  C3 seed2: deterministic + 20 MC passes done
+  C3 seed3: deterministic + 20 MC passes done
+  C4 seed1: deterministic + 20 MC passes done
+  C4 seed2: deterministic + 20 MC passes done
+  C4 seed3: deterministic + 20 MC passes done
+  C0 seed1: Phase 3 predictions reproduced exactly, 20 MC passes done
+  C0 seed2: Phase 3 predictions reproduced exactly, 20 MC passes done
+  C0 seed3: Phase 3 predictions reproduced exactly, 20 MC passes done
+
+inference complete for 15 checkpoints in 13111.0s
+=== DONE  python src/models/phase4_infer.py 11:21:45 ===
+=== START python src/models/phase4_eval.py 11:21:45 ===
+  contrast C1 - C0 done
+  contrast C2 - C1 done
+  contrast C2 - C3 done
+  contrast C3 - C1 done
+  contrast C4 - C2 done
+  contrast C4 - C1 done
+
+--- annotator-marginalized macro F1 (%), 3-seed mean --------------
+  config    unanimous     majority    plurality  no-majority  contested (
+  C0            83.91        48.95        26.15        30.79        42.42
+  C1            84.49        50.76        26.42        31.15        43.76
+  C2            85.14        53.01        26.68        31.35        45.75
+  C3            85.03        51.95        25.67        31.05        44.35
+  C4            85.25        52.60        26.58        33.48        45.47
+
+--- paired contrasts on the pooled contested stratum (points) -----
+  C1 - C0      +1.34  CI [-0.68, +3.53]  excl.0=False
+  C2 - C1      +1.99  CI [-0.31, +4.09]  excl.0=False
+  C2 - C3      +1.40  CI [-0.88, +3.61]  excl.0=False
+  C3 - C1      +0.59  CI [-1.48, +2.60]  excl.0=False
+  C4 - C2      -0.28  CI [-1.78, +1.21]  excl.0=False
+  C4 - C1      +1.71  CI [-0.41, +3.85]  excl.0=False
+
+  RQ2 PRIMARY VERDICT: NOT RESOLVED
+done in 69.6s
+=== DONE  python src/models/phase4_eval.py 11:22:57 ===
+=== START python src/models/phase4_calibration.py 11:22:57 ===
+  calibration contrast C2 - C3 done
+  calibration contrast C2 - C1 done
+  calibration contrast C3 - C1 done
+  calibration contrast C1 - C0 done
+  calibration contrast C4 - C2 done
+
+--- ECE (%) vs expected accuracy, 3-seed mean ---------------------
+  config    unanimous     majority    plurality  no-majority  contested (
+  C0             9.15        38.23        56.40        49.05        43.96
+  C1             9.49        37.35        56.72        50.07        43.61
+  C2             4.72        27.45        44.23        39.86        33.08
+  C3             6.51        15.21        26.45        29.84        19.41
+  C4             4.07        26.80        44.79        38.90        32.71
+
+  RQ2 calibration verdict (C2 - C3 on S-contested (pooled)): NOT SUPPORTED  dECE = +13.67 pts CI [11.214, 15.603]
+done in 53.2s
+=== DONE  python src/models/phase4_calibration.py 11:23:53 ===
+=== START python src/models/phase4_uncertainty.py 11:23:53 ===
+  C0 softmax done
+  C0 mc_stochastic_depth done
+  C0 deep_ensemble_3seed done
+  C1 softmax done
+  C1 mc_stochastic_depth done
+  C1 deep_ensemble_3seed done
+  C2 softmax done
+  C2 mc_stochastic_depth done
+  C2 deep_ensemble_3seed done
+  C3 softmax done
+  C3 mc_stochastic_depth done
+  C3 deep_ensemble_3seed done
+  C4 softmax done
+  C4 mc_stochastic_depth done
+  C4 deep_ensemble_3seed done
+
+--- within-stratum Spearman rho (softmax entropy vs vote entropy) --
+  config      majority     plurality   no-majority   contested (    pooled-all
+  C0             0.077         0.021         0.036         0.153         0.320
+  C1             0.057         0.074         0.029         0.136         0.330
+  C2             0.059         0.140         0.063         0.192         0.377
+  C3             0.031         0.197        -0.024         0.196         0.354
+  C4             0.064         0.128         0.106         0.187         0.371
+done in 71.8s
+=== DONE  python src/models/phase4_uncertainty.py 11:25:07 ===
+=== START python src/models/phase4_structure_eval.py 11:25:07 ===
+  C0 structure metrics done
+  C1 structure metrics done
+  C2 structure metrics done
+  C3 structure metrics done
+  C4 structure metrics done
+  distance contrast C4 - C2 done
+  distance contrast C4 - C1 done
+  distance contrast C2 - C3 done
+  distance contrast C2 - C1 done
+  distance contrast C1 - C0 done
+
+--- mean anatomical error distance, 3-seed mean -------------------
+  config    unanimous     majority    plurality  no-majority  contested (
+  C0           0.0442       0.1709       0.3326       0.2359       0.2178
+  C1           0.0383       0.1607       0.3202       0.2293       0.2076
+  C2           0.0392       0.1530       0.3265       0.2245       0.2036
+  C3           0.0378       0.1509       0.3191       0.2286       0.2011
+  C4           0.0382       0.1511       0.3206       0.2236       0.2009
+
+--- error geometry on S-unanimous (human: 89.8% wall / 93.1% station) ---
+  C0     err=15.61%  wall-adj=89.68%  stn-neigh=85.57%
+  C1     err=15.03%  wall-adj=97.48%  stn-neigh=85.29%
+  C2     err=14.40%  wall-adj=96.25%  stn-neigh=86.98%
+  C3     err=14.41%  wall-adj=96.17%  stn-neigh=86.43%
+  C4     err=14.41%  wall-adj=96.35%  stn-neigh=89.15%
+
+  RQ4 VERDICT: NOT RESOLVED
+done in 6.8s
+=== DONE  python src/models/phase4_structure_eval.py 11:25:16 ===
+=== START python src/models/phase4_loao.py 11:25:16 ===
+  RQ2 verdict under all4 done
+  RQ2 verdict under drop_FG1 done
+  RQ2 verdict under drop_FG2 done
+  RQ2 verdict under drop_G1 done
+  RQ2 verdict under drop_G2 done
+
+--- annotator-marginalized macro F1 (%) on the pooled contested stratum, by LOAO subset ---
+  config         all4     drop_FG1     drop_FG2      drop_G1      drop_G2
+  C0            42.42        43.89        42.05        41.12        42.62
+  C1            43.76        44.88        43.57        42.25        44.34
+  C2            45.75        47.05        45.10        44.76        46.09
+  C3            44.35        45.08        44.41        42.99        44.91
+  C4            45.47        46.74        44.80        44.48        45.85
+
+--- RQ2 (C2 - C3) verdict stability ------------------------------
+  all4             +1.40 pts  CI [-0.85, +3.64]  NOT RESOLVED
+  drop_FG1         +1.97 pts  CI [-0.45, +4.42]  NOT RESOLVED
+  drop_FG2         +0.69 pts  CI [-1.88, +3.19]  NOT RESOLVED
+  drop_G1          +1.77 pts  CI [-0.40, +4.02]  NOT RESOLVED
+  drop_G2          +1.18 pts  CI [-1.29, +3.69]  NOT RESOLVED
+  invariant to dropping any single annotator: True
+done in 1.1s
+=== DONE  python src/models/phase4_loao.py 11:25:19 ===
+=== START python src/report/figures_phase4.py 11:25:19 ===
+Phase 4 figures -> C:\Users\DFIT\Downloads\Final defence\figures_phase4
+  wrote P4_F25_design.png
+  wrote P4_F26_stratified_by_config.png
+  wrote P4_F27_contrast_forest.png
+  wrote P4_F28_calibration.png
+  wrote P4_F29_overconfidence.png
+  wrote P4_F30_uncertainty.png
+  wrote P4_F31_structure.png
+  wrote P4_F32_robustness.png
+8 figures written
+=== DONE  python src/report/figures_phase4.py 11:25:28 ===
+=== START python src/report/build_phase4_docx.py 11:25:28 ===
+[report] 8 images, 8 figure captions, 24 table captions -> C:\Users\DFIT\Downloads\Final defence\Phase4_Report.docx
+=== DONE  python src/report/build_phase4_docx.py 11:25:30 ===
+=== START python src/report/finalise_phase4.py 11:25:30 ===
+[finalise] pages=31 words=10024
+[finalise] docx fields populated -> C:\Users\DFIT\Downloads\Final defence\Phase4_Report.docx
+[finalise] pdf exported          -> C:\Users\DFIT\Downloads\Final defence\Phase4_Report.pdf
+=== DONE  python src/report/finalise_phase4.py 11:25:49 ===
+=== START python src/report/update_blueprint_phase4.py 11:25:49 ===
+blueprint updated to v3.4
+  Phase 4 row: RQ2 accuracy NOT RESOLVED, calibration NOT SUPPORTED, RQ4 NOT RESOLVED
+  9 register entries written between the delimiters
+=== DONE  python src/report/update_blueprint_phase4.py 11:25:49 ===
+=== PHASE 4 FINALISE COMPLETE 11:25:49 ===

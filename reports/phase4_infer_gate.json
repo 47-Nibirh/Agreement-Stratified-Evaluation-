@@ -1,0 +1,170 @@
+{
+  "generated": "2026-07-28 11:21:42",
+  "n_test_images": 1353,
+  "n_mc_samples": 20,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "partial_sweep": false,
+  "batch_size": 24,
+  "gates": {
+    "P4.6a_row_order": true,
+    "P4.6b_argmax_matches_saved_prediction": true,
+    "P4.6c_architecture_stochastic_inventory": {
+      "n_stochastic_depth_modules": 18,
+      "stochastic_depth_p_values": [
+        0.0,
+        0.0059,
+        0.0118,
+        0.0176,
+        0.0235,
+        0.0294,
+        0.0353,
+        0.0412,
+        0.0471,
+        0.0529,
+        0.0588,
+        0.0647,
+        0.0706,
+        0.0765,
+        0.0824,
+        0.0882,
+        0.0941,
+        0.1
+      ],
+      "n_dropout_modules": 0,
+      "n_batchnorm_modules": 0,
+      "interpretation": "MC stochastic depth samples the only stochastic mechanism present, and the absence of BatchNorm means no other module changes behaviour when the StochasticDepth layers are put back in train mode"
+    }
+  },
+  "per_checkpoint": {
+    "C1_seed1": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.98226,
+      "mc_mean_top1_std": 0.051866
+    },
+    "C1_seed2": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.98226,
+      "mc_mean_top1_std": 0.052702
+    },
+    "C1_seed3": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.983,
+      "mc_mean_top1_std": 0.0529
+    },
+    "C2_seed1": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.98744,
+      "mc_mean_top1_std": 0.047721
+    },
+    "C2_seed2": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.9867,
+      "mc_mean_top1_std": 0.049076
+    },
+    "C2_seed3": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.9867,
+      "mc_mean_top1_std": 0.048421
+    },
+    "C3_seed1": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.97857,
+      "mc_mean_top1_std": 0.05718
+    },
+    "C3_seed2": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.97857,
+      "mc_mean_top1_std": 0.056894
+    },
+    "C3_seed3": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.97709,
+      "mc_mean_top1_std": 0.059665
+    },
+    "C4_seed1": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.98522,
+      "mc_mean_top1_std": 0.047667
+    },
+    "C4_seed2": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.98152,
+      "mc_mean_top1_std": 0.051064
+    },
+    "C4_seed3": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.98744,
+      "mc_mean_top1_std": 0.055937
+    },
+    "C0_seed1": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "reused_from": "phase3_predictions_seed1.csv",
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.983,
+      "mc_mean_top1_std": 0.058859
+    },
+    "C0_seed2": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "reused_from": "phase3_predictions_seed2.csv",
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.98596,
+      "mc_mean_top1_std": 0.055286
+    },
+    "C0_seed3": {
+      "n_rows": 1353,
+      "n_argmax_mismatch": 0,
+      "reused_from": "phase3_predictions_seed3.csv",
+      "mc_samples": 20,
+      "mc_mean_pred_agreement_with_deterministic": 0.98965,
+      "mc_mean_top1_std": 0.051681
+    }
+  },
+  "completed": [
+    "C1_seed1",
+    "C1_seed2",
+    "C1_seed3",
+    "C2_seed1",
+    "C2_seed2",
+    "C2_seed3",
+    "C3_seed1",
+    "C3_seed2",
+    "C3_seed3",
+    "C4_seed1",
+    "C4_seed2",
+    "C4_seed3",
+    "C0_seed1",
+    "C0_seed2",
+    "C0_seed3"
+  ],
+  "runtime_sec": 13111.0
+}

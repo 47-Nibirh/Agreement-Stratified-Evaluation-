@@ -1,0 +1,128 @@
+{
+  "generated": "2026-07-27 10:24:05",
+  "n_boot": 2000,
+  "boot_unit": "patient",
+  "boot_seed": 20260726,
+  "o3_confusion_structure_with_intervals": {
+    "per_seed": {
+      "1": {
+        "n_wall_differing_errors": 72,
+        "n_station_differing_errors": 64,
+        "wall_adjacent_pct": 91.67,
+        "wall_adjacent_ci95": [
+          86.11,
+          97.01
+        ],
+        "station_neighbouring_pct": 87.5,
+        "station_neighbouring_ci95": [
+          79.16,
+          94.6
+        ],
+        "wall_ci_contains_human_value": true,
+        "station_ci_contains_human_value": true
+      },
+      "2": {
+        "n_wall_differing_errors": 67,
+        "n_station_differing_errors": 69,
+        "wall_adjacent_pct": 85.07,
+        "wall_adjacent_ci95": [
+          77.27,
+          92.59
+        ],
+        "station_neighbouring_pct": 81.16,
+        "station_neighbouring_ci95": [
+          70.88,
+          90.48
+        ],
+        "wall_ci_contains_human_value": true,
+        "station_ci_contains_human_value": false
+      },
+      "3": {
+        "n_wall_differing_errors": 65,
+        "n_station_differing_errors": 67,
+        "wall_adjacent_pct": 92.31,
+        "wall_adjacent_ci95": [
+          86.15,
+          98.39
+        ],
+        "station_neighbouring_pct": 88.06,
+        "station_neighbouring_ci95": [
+          80.0,
+          95.0
+        ],
+        "wall_ci_contains_human_value": true,
+        "station_ci_contains_human_value": true
+      }
+    },
+    "summary": {
+      "wall_adjacent_pct_3seed": 89.68,
+      "wall_adjacent_ci95_3seed": [
+        83.18,
+        96.0
+      ],
+      "wall_ci_width_points": 12.82,
+      "human_wall_adjacent_pct": 89.8,
+      "wall_consistent_with_human": true,
+      "station_neighbouring_pct_3seed": 85.57,
+      "station_neighbouring_ci95_3seed": [
+        76.68,
+        93.36
+      ],
+      "station_ci_width_points": 16.68,
+      "human_station_neighbouring_pct": 93.1,
+      "station_consistent_with_human": true,
+      "interpretation": "The wall-geometry match is consistent with the human value, but the interval is far too wide to support the originally reported 'within 0.12 points' near-exact match. The station comparison is reported the same way rather than as a point difference."
+    }
+  },
+  "acquisition_stream_sensitivity": {
+    "streams_px_width": [
+      900,
+      1350
+    ],
+    "dominant_stream_px": 1350,
+    "composition_by_tier": {
+      "S-unanimous": {
+        "n_total": 803,
+        "stream_900px": 38,
+        "stream_1350px": 765,
+        "minority_stream_pct": 4.73
+      },
+      "S-majority": {
+        "n_total": 342,
+        "stream_900px": 16,
+        "stream_1350px": 326,
+        "minority_stream_pct": 4.68
+      },
+      "S-plurality": {
+        "n_total": 127,
+        "stream_900px": 11,
+        "stream_1350px": 116,
+        "minority_stream_pct": 8.66
+      },
+      "S-no-majority": {
+        "n_total": 81,
+        "stream_900px": 4,
+        "stream_1350px": 77,
+        "minority_stream_pct": 4.94
+      }
+    },
+    "chi2": 3.6828,
+    "dof": 3,
+    "p_value": 0.2978214180333209,
+    "composition_differs_across_tiers": false,
+    "tier_curve_all_streams": {
+      "S-unanimous": 83.91,
+      "S-majority": 48.95,
+      "S-plurality": 26.15,
+      "S-no-majority": 30.79
+    },
+    "tier_curve_dominant_stream_only": {
+      "S-unanimous": 83.87,
+      "S-majority": 49.13,
+      "S-plurality": 26.23,
+      "S-no-majority": 30.7
+    },
+    "max_abs_shift_points": 0.18
+  },
+  "runtime_sec": 45.0
+}

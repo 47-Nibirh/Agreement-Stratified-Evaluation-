@@ -1,0 +1,222 @@
+{
+  "generated": "2026-07-27 10:25:26",
+  "document": "Phase 3 protocol amendment and analysis-provenance record",
+  "why": "Phase 3 shipped without a machine-readable pre-registration file (Phase 2 had one) and with a prose Appendix E rather than the verbatim timestamped record its own blueprint sec.14 specifies. This record cannot restore a pre-registration after the fact; it classifies every analysis so a reader can tell confirmatory from exploratory.",
+  "categories": {
+    "PRE-REGISTERED, EXECUTED": "specified before the run and delivered",
+    "PRE-REGISTERED, NOT EXECUTED -> NOW EXECUTED IN 3B": "specified before the run, omitted from the delivered report, supplied in Phase 3B; still confirmatory",
+    "POST-HOC (EXPLORATORY)": "devised after seeing Phase 3 results; hypothesis-generating only"
+  },
+  "analysis_register": [
+    {
+      "id": "A1",
+      "analysis": "Agreement-tier construction from the 4-annotator vote matrix; tier counts gated at 803/342/127/73/8 before any inference",
+      "status": "PRE-REGISTERED, EXECUTED",
+      "artefact": "phase3_manifest_summary.json",
+      "blueprint_ref": "sec.4 Phase 3; sec.13 P3.1"
+    },
+    {
+      "id": "A2",
+      "analysis": "Pooling of S-tied and S-dispersed into S-no-majority",
+      "status": "PRE-REGISTERED, EXECUTED",
+      "artefact": "phase3_manifest_summary.json",
+      "blueprint_ref": "sec.4 Phase 3 decision 3"
+    },
+    {
+      "id": "A3",
+      "analysis": "Consistency gate: S-unanimous predictions reproduce Phase 2 exactly",
+      "status": "PRE-REGISTERED, EXECUTED",
+      "artefact": "phase3_stratified_metrics.json",
+      "blueprint_ref": "sec.13 P3.3"
+    },
+    {
+      "id": "A4",
+      "analysis": "Per-stratum annotator-marginalized macro F1, expected accuracy, any-annotator hit rate, per-tier patient-clustered bootstrap CIs",
+      "status": "PRE-REGISTERED, EXECUTED",
+      "artefact": "phase3_stratified_metrics.json",
+      "blueprint_ref": "sec.13 P3.4"
+    },
+    {
+      "id": "A5",
+      "analysis": "Spearman monotonicity test across the four ordered tiers",
+      "status": "PRE-REGISTERED, EXECUTED",
+      "artefact": "phase3_stratified_metrics.json",
+      "blueprint_ref": "sec.4 Phase 3 decision 4"
+    },
+    {
+      "id": "A6",
+      "analysis": "O3 wall-adjacent / station-neighbouring error shares vs the Phase 0 human benchmarks",
+      "status": "PRE-REGISTERED, EXECUTED",
+      "artefact": "phase3_confusion_structure.json",
+      "blueprint_ref": "sec.13 P3.5"
+    },
+    {
+      "id": "B1",
+      "analysis": "Patient-clustered bootstrap CI on the S-unanimous - S-no-majority gap, and its comparison against the 3.25-point architecture benchmark. Explicitly required by pre-registered decision 4 and absent from the delivered report: the headline claim was published with no interval on the quantity actually claimed.",
+      "status": "PRE-REGISTERED, NOT EXECUTED -> NOW EXECUTED IN 3B",
+      "artefact": "phase3b_ceiling_gaps.json",
+      "blueprint_ref": "sec.4 Phase 3 decision 4"
+    },
+    {
+      "id": "B2",
+      "analysis": "Per-class behaviour across strata (\u00a73.6) and the per-class per-stratum tables promised by Appendix A",
+      "status": "PRE-REGISTERED, NOT EXECUTED -> NOW EXECUTED IN 3B",
+      "artefact": "phase3b_perclass.json",
+      "blueprint_ref": "sec.14 \u00a73.6, Appendix A"
+    },
+    {
+      "id": "B3",
+      "analysis": "Calibration by stratum: ECE, MCE, reliability diagrams (\u00a73.8). Blueprint sec.15 names absent calibration reporting as one of the four literature gaps this design claims to address directly.",
+      "status": "PRE-REGISTERED, NOT EXECUTED -> NOW EXECUTED IN 3B",
+      "artefact": "phase3b_calibration.json",
+      "blueprint_ref": "sec.14 \u00a73.8; sec.15"
+    },
+    {
+      "id": "B4",
+      "analysis": "Acquisition-stream composition per stratum and the within-stream sensitivity re-run (\u00a73.9.2, limitation L4)",
+      "status": "PRE-REGISTERED, NOT EXECUTED -> NOW EXECUTED IN 3B",
+      "artefact": "phase3b_sensitivity.json",
+      "blueprint_ref": "sec.14 \u00a73.9.2"
+    },
+    {
+      "id": "B5",
+      "analysis": "Per-stratum 23x23 confusion matrices (Appendix B)",
+      "status": "PRE-REGISTERED, NOT EXECUTED -> NOW EXECUTED IN 3B",
+      "artefact": "phase3b_confusion_matrices.npz",
+      "blueprint_ref": "sec.14 Appendix B"
+    },
+    {
+      "id": "B6",
+      "analysis": "Bootstrap distribution diagnostics (Appendix C)",
+      "status": "PRE-REGISTERED, NOT EXECUTED -> NOW EXECUTED IN 3B",
+      "artefact": "phase3b_ceiling_gaps.json",
+      "blueprint_ref": "sec.14 Appendix C"
+    },
+    {
+      "id": "C1",
+      "analysis": "ATTAINABLE-CEILING NORMALISATION of the primary metric. Devised after observing that the raw tier curve conflates model degradation with the falling maximum score a single-label predictor can obtain as annotators disagree. Materially changes the headline RQ1 magnitude claim. POST-HOC and reported as such; the pre-registered raw-scale result is retained alongside it.",
+      "status": "POST-HOC (EXPLORATORY)",
+      "artefact": "phase3b_ceiling_gaps.json",
+      "blueprint_ref": "not pre-registered"
+    },
+    {
+      "id": "C2",
+      "analysis": "Class-composition control: S-unanimous per-class accuracy re-weighted by each contested tier's class mix, to test whether the tier effect is a class-mix effect",
+      "status": "POST-HOC (EXPLORATORY)",
+      "artefact": "phase3b_perclass.json",
+      "blueprint_ref": "not pre-registered"
+    },
+    {
+      "id": "C3",
+      "analysis": "Predictive entropy vs annotator vote entropy correlation, within and across tiers. De-risks Phase 4 RQ3 before it is committed to.",
+      "status": "POST-HOC (EXPLORATORY)",
+      "artefact": "phase3b_calibration.json",
+      "blueprint_ref": "sec.4 Phase 4 RQ3 (early read)"
+    },
+    {
+      "id": "C4",
+      "analysis": "Patient-clustered intervals on the O3 geometry shares, replacing the point-difference comparison against the human benchmarks",
+      "status": "POST-HOC (EXPLORATORY)",
+      "artefact": "phase3b_sensitivity.json",
+      "blueprint_ref": "extends sec.13 P3.5"
+    },
+    {
+      "id": "C5",
+      "analysis": "Zero-support diagnostic: how many classes enter the 23-class macro average with no support, and the resulting deflation",
+      "status": "POST-HOC (EXPLORATORY)",
+      "artefact": "phase3b_perclass.json",
+      "blueprint_ref": "not pre-registered"
+    }
+  ],
+  "corrections_to_the_delivered_report": [
+    {
+      "id": "X1",
+      "location": "Phase3_Report \u00a74.1 and THESIS_RESEARCH_BLUEPRINT.md completed-task register",
+      "claim": "the any-annotator hit rate 'shows no such reversal' and therefore the non-monotonicity at S-plurality is measurement noise",
+      "status": "FACTUALLY INCORRECT",
+      "evidence": "The report's own Table 2 gives any-hit 84.39 / 80.02 / 72.70 / 79.83 across the four ordered tiers -- the identical dip at S-plurality followed by recovery. The metric shows the same reversal it was cited as not showing.",
+      "replacement": "The non-monotonicity is assessed by the S-plurality - S-no-majority bootstrap gap: -4.63 points, 95% CI [-9.29, +1.87] on the raw scale (not distinguishable from zero), and -17.83 points, 95% CI [-31.25, -2.64] on the ceiling-normalised scale (significantly negative -- a genuine reversal, not noise)."
+    },
+    {
+      "id": "X2",
+      "location": "Phase3_Report \u00a73.5, \u00a74.1",
+      "claim": "the any-annotator hit rate is a fair cross-tier comparator",
+      "status": "CONFOUNDED",
+      "evidence": "The size of the accepted label set differs by tier: mean distinct annotator labels per image is 1.00 (S-unanimous), 2.00 (S-majority), 3.00 (S-plurality), 2.20 (S-no-majority). A prediction has up to three times as many ways to score a hit on S-plurality as on S-unanimous.",
+      "replacement": "Any-hit retained as a descriptive statistic only, reported with its acceptance-set size, and never used to adjudicate a cross-tier comparison."
+    },
+    {
+      "id": "X3",
+      "location": "Phase3_Report \u00a73.7, \u00a74.2, Table 4",
+      "claim": "the model's wall-confusion geometry is 'within 0.12 points' of the human value and its station geometry 'trails by 7.53 points'",
+      "status": "OVERPRECISE / NOT SUPPORTED",
+      "evidence": "Both shares are ratios over 65-72 wall errors and 64-69 station errors. Patient-clustered 95% CIs are [83.18, 96.00] for wall and [76.68, 93.36] for station. The station interval CONTAINS the human value 93.1, so the 7.5-point shortfall -- and the Phase 6 Grad-CAM lead built on it -- is not statistically supported.",
+      "replacement": "Both comparisons reported as intervals. The wall result is stated as consistent with the human value; the station result is stated as underpowered, and the Phase 6 lead is downgraded from a finding to an untested hypothesis."
+    },
+    {
+      "id": "X4",
+      "location": "Phase3_Report abstract, \u00a73.4, \u00a75.1; blueprint status board",
+      "claim": "a 53.1-point gap, 16.3x the 3.25-point architecture benchmark",
+      "status": "SCALE ARTEFACT (direction survives, magnitude does not)",
+      "evidence": "The primary metric's attainable maximum falls with agreement (oracle marginalized macro F1: 100.00 / 74.23 / 44.55 / 40.23). Holding the ceiling constant, the S-unanimous - S-no-majority gap is 7.38 points, 95% CI [-3.08, +18.85] -- it does not exclude zero and does not exceed the 3.25 benchmark. The S-unanimous - S-majority (17.98, CI [12.49, 24.37]) and S-unanimous - S-plurality (25.21, CI [16.11, 34.11]) contrasts do both survive.",
+      "replacement": "RQ1 is answered as supported for the 4/4 -> 3/4 and 4/4 -> 2-1-1 contrasts at 5.5-7.8x the architecture benchmark, and NOT supported for the 4/4 -> no-majority contrast the report led with. Raw and ceiling-normalised scales are both reported."
+    }
+  ],
+  "counts": {
+    "pre_registered_executed": 6,
+    "pre_registered_not_executed_now_supplied": 6,
+    "post_hoc": 5,
+    "corrections": 4
+  },
+  "artefact_provenance": {
+    "phase3_confusion_structure.json": {
+      "exists": true,
+      "sha256": "83ef4464c956ce43c1acd0df3f22f665cb3346f0c8013c0a1f6bf2ddffd4a615",
+      "modified_utc": "2026-07-26T19:11:44.943305+00:00",
+      "bytes": 1654
+    },
+    "phase3_manifest_summary.json": {
+      "exists": true,
+      "sha256": "fca6151022ca528e008ff27ed42ac2f5100e4558f6f92b6b7ed0c564e3fada3e",
+      "modified_utc": "2026-07-26T18:56:36.174702+00:00",
+      "bytes": 562
+    },
+    "phase3_stratified_metrics.json": {
+      "exists": true,
+      "sha256": "88ef0faf135fe4c013b070590fd303fa42c7ee62f134402e049c6086113b785c",
+      "modified_utc": "2026-07-26T19:10:14.894978+00:00",
+      "bytes": 14555
+    },
+    "phase3b_calibration.json": {
+      "exists": true,
+      "sha256": "ad17aca73dd80299a02d6f9b513bba7bc266484256aa185f00d1896215c482b4",
+      "modified_utc": "2026-07-27T04:21:13.774575+00:00",
+      "bytes": 62143
+    },
+    "phase3b_ceiling_gaps.json": {
+      "exists": true,
+      "sha256": "480884fe475b38159c96184cead7c9b16678931345a3da6f61268a5a3daa2a0d",
+      "modified_utc": "2026-07-27T04:19:25.761678+00:00",
+      "bytes": 16024
+    },
+    "phase3b_confusion_matrices.npz": {
+      "exists": true,
+      "sha256": "6d11cff8a815157ef753d3d6868f59c05561575904de72a698b66f2e9cbccc68",
+      "modified_utc": "2026-07-27T04:22:04.013521+00:00",
+      "bytes": 2968
+    },
+    "phase3b_perclass.json": {
+      "exists": true,
+      "sha256": "550eaffe3d9f2c36b1d9a30a2a7c5e7c0bc8637390988d8d3717c4da8733005f",
+      "modified_utc": "2026-07-27T04:22:04.115491+00:00",
+      "bytes": 10785
+    },
+    "phase3b_sensitivity.json": {
+      "exists": true,
+      "sha256": "f048967a613a7031eb89aa122151106bda35cc92a3e4b70209ef99ae2f29cb13",
+      "modified_utc": "2026-07-27T04:24:05.663949+00:00",
+      "bytes": 3646
+    }
+  },
+  "runtime_sec": 0.0
+}

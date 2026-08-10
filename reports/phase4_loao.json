@@ -1,0 +1,1157 @@
+{
+  "generated": "2026-07-28 14:21:28",
+  "purpose": "leave-one-annotator-out sensitivity of the Phase 4 metrics and of the RQ2 verdict",
+  "motivation": "blueprint sec.2.3: FG2 is the outlier annotator on every measure, and its pairwise kappa with the other resident (0.6799) is the lowest in the panel",
+  "what_varies": "only the metric: marginalization, expected accuracy and vote entropy are rebuilt from 3 annotator columns. The strata remain defined by the full 4-annotator vote matrix and no model is retrained.",
+  "training_side_loao_not_executed": "training-side LOAO, i.e. rebuilding the C2 targets from 3 annotators and retraining. That is 4 further runs (~5 h) and does not fit the declared budget. The command to run it is implemented (phase4_train.py --drop-annotator) so the analysis is reproducible, and its absence is declared rather than concealed.",
+  "annotators": [
+    "FG1 (Team A)",
+    "FG2 (Team A)",
+    "G1 (Team B)",
+    "G2 (Team B)"
+  ],
+  "configurations_evaluated": [
+    "C0",
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+  ],
+  "config_labels": {
+    "C0": "C0 hard label, 4/4 cohort (Phase 2 reference)",
+    "C1": "C1 hard majority label, extended cohort",
+    "C2": "C2 vote proportions",
+    "C3": "C3 hard label + matched label smoothing (control)",
+    "C4": "C4 vote proportions + anatomical penalty"
+  },
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "partial_sweep": false,
+  "n_boot": 1000,
+  "boot_unit": "patient",
+  "boot_seed": 20260726,
+  "by_subset": {
+    "all4": {
+      "C0": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.83915,
+          "sd_3seed": 0.00924,
+          "expected_accuracy_3seed": 0.84392
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.48947,
+          "sd_3seed": 0.00249,
+          "expected_accuracy_3seed": 0.50707,
+          "entropy_spearman_rho_3seed": 0.0771
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.26154,
+          "sd_3seed": 0.01282,
+          "expected_accuracy_3seed": 0.27822,
+          "entropy_spearman_rho_3seed": 0.02067
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.30788,
+          "sd_3seed": 0.00524,
+          "expected_accuracy_3seed": 0.38066,
+          "entropy_spearman_rho_3seed": 0.03564
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.42418,
+          "sd_3seed": 0.00643,
+          "expected_accuracy_3seed": 0.43561,
+          "entropy_spearman_rho_3seed": 0.15264
+        }
+      },
+      "C1": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.84486,
+          "sd_3seed": 0.00393,
+          "expected_accuracy_3seed": 0.84973
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.50757,
+          "sd_3seed": 0.02102,
+          "expected_accuracy_3seed": 0.52217,
+          "entropy_spearman_rho_3seed": 0.05688
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.26416,
+          "sd_3seed": 0.0099,
+          "expected_accuracy_3seed": 0.28281,
+          "entropy_spearman_rho_3seed": 0.07387
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.31148,
+          "sd_3seed": 0.01023,
+          "expected_accuracy_3seed": 0.38477,
+          "entropy_spearman_rho_3seed": 0.02858
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.4376,
+          "sd_3seed": 0.01175,
+          "expected_accuracy_3seed": 0.44667,
+          "entropy_spearman_rho_3seed": 0.13605
+        }
+      },
+      "C2": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85139,
+          "sd_3seed": 0.00601,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.53007,
+          "sd_3seed": 0.00505,
+          "expected_accuracy_3seed": 0.5463,
+          "entropy_spearman_rho_3seed": 0.05939
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.26679,
+          "sd_3seed": 0.00633,
+          "expected_accuracy_3seed": 0.30249,
+          "entropy_spearman_rho_3seed": 0.14004
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.31349,
+          "sd_3seed": 0.02302,
+          "expected_accuracy_3seed": 0.41152,
+          "entropy_spearman_rho_3seed": 0.06335
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.45751,
+          "sd_3seed": 0.00274,
+          "expected_accuracy_3seed": 0.47015,
+          "entropy_spearman_rho_3seed": 0.19166
+        }
+      },
+      "C3": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85027,
+          "sd_3seed": 0.00525,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.5195,
+          "sd_3seed": 0.00614,
+          "expected_accuracy_3seed": 0.53436,
+          "entropy_spearman_rho_3seed": 0.03077
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.25667,
+          "sd_3seed": 0.02152,
+          "expected_accuracy_3seed": 0.28084,
+          "entropy_spearman_rho_3seed": 0.19661
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.31055,
+          "sd_3seed": 0.0263,
+          "expected_accuracy_3seed": 0.38889,
+          "entropy_spearman_rho_3seed": -0.02424
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.4435,
+          "sd_3seed": 0.00315,
+          "expected_accuracy_3seed": 0.45439,
+          "entropy_spearman_rho_3seed": 0.19571
+        }
+      },
+      "C4": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85251,
+          "sd_3seed": 0.00219,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.52598,
+          "sd_3seed": 0.01628,
+          "expected_accuracy_3seed": 0.54191,
+          "entropy_spearman_rho_3seed": 0.06434
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.26584,
+          "sd_3seed": 0.00788,
+          "expected_accuracy_3seed": 0.29659,
+          "entropy_spearman_rho_3seed": 0.12835
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.33476,
+          "sd_3seed": 0.00848,
+          "expected_accuracy_3seed": 0.41358,
+          "entropy_spearman_rho_3seed": 0.10642
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.45469,
+          "sd_3seed": 0.0107,
+          "expected_accuracy_3seed": 0.46636,
+          "entropy_spearman_rho_3seed": 0.18713
+        }
+      },
+      "_mean_vote_entropy_by_stratum": {
+        "S-unanimous": 0.0,
+        "S-majority": 0.56234,
+        "S-plurality": 1.03972,
+        "S-no-majority": 0.76161,
+        "S-contested (pooled)": 0.70192
+      }
+    },
+    "drop_FG1": {
+      "C0": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.83915,
+          "sd_3seed": 0.00924,
+          "expected_accuracy_3seed": 0.84392
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.50906,
+          "sd_3seed": 0.00329,
+          "expected_accuracy_3seed": 0.52274,
+          "entropy_spearman_rho_3seed": 0.08197
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.2595,
+          "sd_3seed": 0.01771,
+          "expected_accuracy_3seed": 0.27034,
+          "entropy_spearman_rho_3seed": -0.01788
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.32622,
+          "sd_3seed": 0.00714,
+          "expected_accuracy_3seed": 0.39781,
+          "entropy_spearman_rho_3seed": 0.04787
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.43888,
+          "sd_3seed": 0.00854,
+          "expected_accuracy_3seed": 0.44606,
+          "entropy_spearman_rho_3seed": 0.10906
+        }
+      },
+      "C1": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.84486,
+          "sd_3seed": 0.00393,
+          "expected_accuracy_3seed": 0.84973
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.51967,
+          "sd_3seed": 0.01833,
+          "expected_accuracy_3seed": 0.53151,
+          "entropy_spearman_rho_3seed": 0.08764
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.26767,
+          "sd_3seed": 0.01805,
+          "expected_accuracy_3seed": 0.28609,
+          "entropy_spearman_rho_3seed": -0.03135
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.32602,
+          "sd_3seed": 0.01261,
+          "expected_accuracy_3seed": 0.39918,
+          "entropy_spearman_rho_3seed": 0.08225
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.44884,
+          "sd_3seed": 0.01153,
+          "expected_accuracy_3seed": 0.45535,
+          "entropy_spearman_rho_3seed": 0.11047
+        }
+      },
+      "C2": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85139,
+          "sd_3seed": 0.00601,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.54365,
+          "sd_3seed": 0.0062,
+          "expected_accuracy_3seed": 0.55653,
+          "entropy_spearman_rho_3seed": 0.16219
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.2685,
+          "sd_3seed": 0.00494,
+          "expected_accuracy_3seed": 0.30796,
+          "entropy_spearman_rho_3seed": 0.11565
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.33387,
+          "sd_3seed": 0.03536,
+          "expected_accuracy_3seed": 0.43621,
+          "entropy_spearman_rho_3seed": 0.16379
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.47051,
+          "sd_3seed": 0.00321,
+          "expected_accuracy_3seed": 0.48141,
+          "entropy_spearman_rho_3seed": 0.21778
+        }
+      },
+      "C3": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85027,
+          "sd_3seed": 0.00525,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.52653,
+          "sd_3seed": 0.00954,
+          "expected_accuracy_3seed": 0.53834,
+          "entropy_spearman_rho_3seed": 0.06329
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.25603,
+          "sd_3seed": 0.02237,
+          "expected_accuracy_3seed": 0.28346,
+          "entropy_spearman_rho_3seed": 0.12166
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.32224,
+          "sd_3seed": 0.02449,
+          "expected_accuracy_3seed": 0.39918,
+          "entropy_spearman_rho_3seed": 0.05605
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.45085,
+          "sd_3seed": 0.00346,
+          "expected_accuracy_3seed": 0.45899,
+          "entropy_spearman_rho_3seed": 0.1701
+        }
+      },
+      "C4": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85251,
+          "sd_3seed": 0.00219,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.53981,
+          "sd_3seed": 0.01654,
+          "expected_accuracy_3seed": 0.55231,
+          "entropy_spearman_rho_3seed": 0.14449
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.2692,
+          "sd_3seed": 0.00341,
+          "expected_accuracy_3seed": 0.30184,
+          "entropy_spearman_rho_3seed": 0.10075
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.3569,
+          "sd_3seed": 0.01143,
+          "expected_accuracy_3seed": 0.43347,
+          "entropy_spearman_rho_3seed": 0.22259
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.46745,
+          "sd_3seed": 0.01034,
+          "expected_accuracy_3seed": 0.47697,
+          "entropy_spearman_rho_3seed": 0.2102
+        }
+      },
+      "_mean_vote_entropy_by_stratum": {
+        "S-unanimous": 0.0,
+        "S-majority": 0.49693,
+        "S-plurality": 0.85119,
+        "S-no-majority": 0.68215,
+        "S-contested (pooled)": 0.60601
+      }
+    },
+    "drop_FG2": {
+      "C0": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.83915,
+          "sd_3seed": 0.00924,
+          "expected_accuracy_3seed": 0.84392
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.48394,
+          "sd_3seed": 0.00484,
+          "expected_accuracy_3seed": 0.50422,
+          "entropy_spearman_rho_3seed": -0.0512
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.26729,
+          "sd_3seed": 0.01571,
+          "expected_accuracy_3seed": 0.28784,
+          "entropy_spearman_rho_3seed": -0.06415
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.30385,
+          "sd_3seed": 0.00936,
+          "expected_accuracy_3seed": 0.36626,
+          "entropy_spearman_rho_3seed": 0.04787
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.42045,
+          "sd_3seed": 0.00823,
+          "expected_accuracy_3seed": 0.43394,
+          "entropy_spearman_rho_3seed": 0.04891
+        }
+      },
+      "C1": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.84486,
+          "sd_3seed": 0.00393,
+          "expected_accuracy_3seed": 0.84973
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.50739,
+          "sd_3seed": 0.02612,
+          "expected_accuracy_3seed": 0.52469,
+          "entropy_spearman_rho_3seed": -0.0619
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.26857,
+          "sd_3seed": 0.01323,
+          "expected_accuracy_3seed": 0.28959,
+          "entropy_spearman_rho_3seed": -0.05895
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.30208,
+          "sd_3seed": 0.00969,
+          "expected_accuracy_3seed": 0.36214,
+          "entropy_spearman_rho_3seed": 0.08225
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.4357,
+          "sd_3seed": 0.01294,
+          "expected_accuracy_3seed": 0.44646,
+          "entropy_spearman_rho_3seed": 0.03357
+        }
+      },
+      "C2": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85139,
+          "sd_3seed": 0.00601,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.52696,
+          "sd_3seed": 0.0033,
+          "expected_accuracy_3seed": 0.54483,
+          "entropy_spearman_rho_3seed": -0.15709
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.26691,
+          "sd_3seed": 0.01092,
+          "expected_accuracy_3seed": 0.29221,
+          "entropy_spearman_rho_3seed": -0.16314
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.30067,
+          "sd_3seed": 0.02141,
+          "expected_accuracy_3seed": 0.38409,
+          "entropy_spearman_rho_3seed": 0.16379
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.45104,
+          "sd_3seed": 0.00294,
+          "expected_accuracy_3seed": 0.46283,
+          "entropy_spearman_rho_3seed": -0.00264
+        }
+      },
+      "C3": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85027,
+          "sd_3seed": 0.00525,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.52412,
+          "sd_3seed": 0.00128,
+          "expected_accuracy_3seed": 0.54386,
+          "entropy_spearman_rho_3seed": -0.07529
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.2648,
+          "sd_3seed": 0.01917,
+          "expected_accuracy_3seed": 0.28959,
+          "entropy_spearman_rho_3seed": -0.09362
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.30219,
+          "sd_3seed": 0.03289,
+          "expected_accuracy_3seed": 0.36626,
+          "entropy_spearman_rho_3seed": 0.05605
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.44411,
+          "sd_3seed": 0.00462,
+          "expected_accuracy_3seed": 0.45899,
+          "entropy_spearman_rho_3seed": 0.05837
+        }
+      },
+      "C4": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85251,
+          "sd_3seed": 0.00219,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.52167,
+          "sd_3seed": 0.02171,
+          "expected_accuracy_3seed": 0.53996,
+          "entropy_spearman_rho_3seed": -0.15612
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.26261,
+          "sd_3seed": 0.00779,
+          "expected_accuracy_3seed": 0.28784,
+          "entropy_spearman_rho_3seed": -0.1278
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.3219,
+          "sd_3seed": 0.01287,
+          "expected_accuracy_3seed": 0.39095,
+          "entropy_spearman_rho_3seed": 0.22259
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.44796,
+          "sd_3seed": 0.01468,
+          "expected_accuracy_3seed": 0.4598,
+          "entropy_spearman_rho_3seed": 0.00572
+        }
+      },
+      "_mean_vote_entropy_by_stratum": {
+        "S-unanimous": 0.0,
+        "S-majority": 0.37595,
+        "S-plurality": 0.84027,
+        "S-no-majority": 0.68215,
+        "S-contested (pooled)": 0.52826
+      }
+    },
+    "drop_G1": {
+      "C0": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.83915,
+          "sd_3seed": 0.00924,
+          "expected_accuracy_3seed": 0.84392
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.47496,
+          "sd_3seed": 0.00041,
+          "expected_accuracy_3seed": 0.49578,
+          "entropy_spearman_rho_3seed": 0.08246
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.25795,
+          "sd_3seed": 0.01041,
+          "expected_accuracy_3seed": 0.27209,
+          "entropy_spearman_rho_3seed": 0.182
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.27609,
+          "sd_3seed": 0.00576,
+          "expected_accuracy_3seed": 0.36214,
+          "entropy_spearman_rho_3seed": 0.0509
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.41115,
+          "sd_3seed": 0.00531,
+          "expected_accuracy_3seed": 0.42444,
+          "entropy_spearman_rho_3seed": 0.1692
+        }
+      },
+      "C1": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.84486,
+          "sd_3seed": 0.00393,
+          "expected_accuracy_3seed": 0.84973
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.49107,
+          "sd_3seed": 0.02259,
+          "expected_accuracy_3seed": 0.50877,
+          "entropy_spearman_rho_3seed": 0.04035
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.25169,
+          "sd_3seed": 0.00229,
+          "expected_accuracy_3seed": 0.26947,
+          "entropy_spearman_rho_3seed": 0.07137
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.28418,
+          "sd_3seed": 0.01203,
+          "expected_accuracy_3seed": 0.37586,
+          "entropy_spearman_rho_3seed": 0.0841
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.42248,
+          "sd_3seed": 0.0161,
+          "expected_accuracy_3seed": 0.43394,
+          "entropy_spearman_rho_3seed": 0.11958
+        }
+      },
+      "C2": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85139,
+          "sd_3seed": 0.00601,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.51567,
+          "sd_3seed": 0.00567,
+          "expected_accuracy_3seed": 0.53574,
+          "entropy_spearman_rho_3seed": 0.06822
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.26376,
+          "sd_3seed": 0.00465,
+          "expected_accuracy_3seed": 0.30446,
+          "entropy_spearman_rho_3seed": 0.13687
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.29861,
+          "sd_3seed": 0.01236,
+          "expected_accuracy_3seed": 0.41289,
+          "entropy_spearman_rho_3seed": 0.16536
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.44762,
+          "sd_3seed": 0.00176,
+          "expected_accuracy_3seed": 0.46424,
+          "entropy_spearman_rho_3seed": 0.19356
+        }
+      },
+      "C3": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85027,
+          "sd_3seed": 0.00525,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.50153,
+          "sd_3seed": 0.00556,
+          "expected_accuracy_3seed": 0.51852,
+          "entropy_spearman_rho_3seed": 0.03988
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.2515,
+          "sd_3seed": 0.02145,
+          "expected_accuracy_3seed": 0.27472,
+          "entropy_spearman_rho_3seed": 0.10467
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.28527,
+          "sd_3seed": 0.01457,
+          "expected_accuracy_3seed": 0.37997,
+          "entropy_spearman_rho_3seed": 0.061
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.4299,
+          "sd_3seed": 0.00206,
+          "expected_accuracy_3seed": 0.44182,
+          "entropy_spearman_rho_3seed": 0.17111
+        }
+      },
+      "C4": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85251,
+          "sd_3seed": 0.00219,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.51122,
+          "sd_3seed": 0.01415,
+          "expected_accuracy_3seed": 0.53086,
+          "entropy_spearman_rho_3seed": 0.08238
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.26542,
+          "sd_3seed": 0.00801,
+          "expected_accuracy_3seed": 0.29834,
+          "entropy_spearman_rho_3seed": 0.13121
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.32033,
+          "sd_3seed": 0.00097,
+          "expected_accuracy_3seed": 0.41427,
+          "entropy_spearman_rho_3seed": 0.22283
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.44482,
+          "sd_3seed": 0.01,
+          "expected_accuracy_3seed": 0.46,
+          "entropy_spearman_rho_3seed": 0.20305
+        }
+      },
+      "_mean_vote_entropy_by_stratum": {
+        "S-unanimous": 0.0,
+        "S-majority": 0.53229,
+        "S-plurality": 0.90577,
+        "S-no-majority": 0.68215,
+        "S-contested (pooled)": 0.6406
+      }
+    },
+    "drop_G2": {
+      "C0": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.83915,
+          "sd_3seed": 0.00924,
+          "expected_accuracy_3seed": 0.84392
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.48993,
+          "sd_3seed": 0.00596,
+          "expected_accuracy_3seed": 0.50552,
+          "entropy_spearman_rho_3seed": 0.03342
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.26144,
+          "sd_3seed": 0.00806,
+          "expected_accuracy_3seed": 0.28259,
+          "entropy_spearman_rho_3seed": 0.01399
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.32536,
+          "sd_3seed": 0.0021,
+          "expected_accuracy_3seed": 0.39643,
+          "entropy_spearman_rho_3seed": 0.0509
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.42623,
+          "sd_3seed": 0.0042,
+          "expected_accuracy_3seed": 0.43798,
+          "entropy_spearman_rho_3seed": 0.10551
+        }
+      },
+      "C1": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.84486,
+          "sd_3seed": 0.00393,
+          "expected_accuracy_3seed": 0.84973
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.51216,
+          "sd_3seed": 0.01793,
+          "expected_accuracy_3seed": 0.52372,
+          "entropy_spearman_rho_3seed": 0.031
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.2687,
+          "sd_3seed": 0.01164,
+          "expected_accuracy_3seed": 0.28609,
+          "entropy_spearman_rho_3seed": 0.09345
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.33363,
+          "sd_3seed": 0.02469,
+          "expected_accuracy_3seed": 0.40192,
+          "entropy_spearman_rho_3seed": 0.0841
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.44337,
+          "sd_3seed": 0.00737,
+          "expected_accuracy_3seed": 0.45091,
+          "entropy_spearman_rho_3seed": 0.12393
+        }
+      },
+      "C2": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85139,
+          "sd_3seed": 0.00601,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.534,
+          "sd_3seed": 0.00523,
+          "expected_accuracy_3seed": 0.54808,
+          "entropy_spearman_rho_3seed": 0.03403
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.26798,
+          "sd_3seed": 0.00937,
+          "expected_accuracy_3seed": 0.30534,
+          "entropy_spearman_rho_3seed": 0.07752
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.32082,
+          "sd_3seed": 0.02305,
+          "expected_accuracy_3seed": 0.41289,
+          "entropy_spearman_rho_3seed": 0.16536
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.46088,
+          "sd_3seed": 0.00365,
+          "expected_accuracy_3seed": 0.47212,
+          "entropy_spearman_rho_3seed": 0.15402
+        }
+      },
+      "C3": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85027,
+          "sd_3seed": 0.00525,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.52584,
+          "sd_3seed": 0.00931,
+          "expected_accuracy_3seed": 0.53671,
+          "entropy_spearman_rho_3seed": 0.01475
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.25434,
+          "sd_3seed": 0.02362,
+          "expected_accuracy_3seed": 0.27559,
+          "entropy_spearman_rho_3seed": 0.04759
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.33249,
+          "sd_3seed": 0.03491,
+          "expected_accuracy_3seed": 0.41015,
+          "entropy_spearman_rho_3seed": 0.061
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.44914,
+          "sd_3seed": 0.00737,
+          "expected_accuracy_3seed": 0.45778,
+          "entropy_spearman_rho_3seed": 0.14159
+        }
+      },
+      "C4": {
+        "S-unanimous": {
+          "n_images": 803,
+          "annotator_marginalized_macro_f1_3seed": 0.85251,
+          "sd_3seed": 0.00219,
+          "expected_accuracy_3seed": 0.85596
+        },
+        "S-majority": {
+          "n_images": 342,
+          "annotator_marginalized_macro_f1_3seed": 0.53123,
+          "sd_3seed": 0.01301,
+          "expected_accuracy_3seed": 0.54451,
+          "entropy_spearman_rho_3seed": 0.05052
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "annotator_marginalized_macro_f1_3seed": 0.26614,
+          "sd_3seed": 0.01373,
+          "expected_accuracy_3seed": 0.29834,
+          "entropy_spearman_rho_3seed": 0.06605
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "annotator_marginalized_macro_f1_3seed": 0.33989,
+          "sd_3seed": 0.0104,
+          "expected_accuracy_3seed": 0.41564,
+          "entropy_spearman_rho_3seed": 0.22283
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "annotator_marginalized_macro_f1_3seed": 0.45853,
+          "sd_3seed": 0.00831,
+          "expected_accuracy_3seed": 0.46869,
+          "entropy_spearman_rho_3seed": 0.1624
+        }
+      },
+      "_mean_vote_entropy_by_stratum": {
+        "S-unanimous": 0.0,
+        "S-majority": 0.50437,
+        "S-plurality": 0.87302,
+        "S-no-majority": 0.68215,
+        "S-contested (pooled)": 0.61568
+      }
+    }
+  },
+  "rq2_verdict_stability": {
+    "all4": {
+      "diff_points_3seed_mean": 1.401,
+      "ci95_points_3seed_mean": [
+        -0.88,
+        3.68
+      ],
+      "verdict": "NOT RESOLVED",
+      "per_seed": [
+        {
+          "seed": 1,
+          "diff_points_plugin": 1.149,
+          "ci95_points": [
+            -1.543,
+            3.546
+          ]
+        },
+        {
+          "seed": 2,
+          "diff_points_plugin": 2.068,
+          "ci95_points": [
+            0.241,
+            4.112
+          ]
+        },
+        {
+          "seed": 3,
+          "diff_points_plugin": 0.987,
+          "ci95_points": [
+            -1.337,
+            3.383
+          ]
+        }
+      ]
+    },
+    "drop_FG1": {
+      "diff_points_3seed_mean": 1.965,
+      "ci95_points_3seed_mean": [
+        -0.396,
+        4.383
+      ],
+      "verdict": "NOT RESOLVED",
+      "per_seed": [
+        {
+          "seed": 1,
+          "diff_points_plugin": 1.431,
+          "ci95_points": [
+            -1.207,
+            4.018
+          ]
+        },
+        {
+          "seed": 2,
+          "diff_points_plugin": 2.475,
+          "ci95_points": [
+            0.599,
+            4.546
+          ]
+        },
+        {
+          "seed": 3,
+          "diff_points_plugin": 1.99,
+          "ci95_points": [
+            -0.579,
+            4.585
+          ]
+        }
+      ]
+    },
+    "drop_FG2": {
+      "diff_points_3seed_mean": 0.692,
+      "ci95_points_3seed_mean": [
+        -1.886,
+        3.238
+      ],
+      "verdict": "NOT RESOLVED",
+      "per_seed": [
+        {
+          "seed": 1,
+          "diff_points_plugin": 0.825,
+          "ci95_points": [
+            -2.243,
+            3.484
+          ]
+        },
+        {
+          "seed": 2,
+          "diff_points_plugin": 1.263,
+          "ci95_points": [
+            -0.725,
+            3.601
+          ]
+        },
+        {
+          "seed": 3,
+          "diff_points_plugin": -0.011,
+          "ci95_points": [
+            -2.69,
+            2.628
+          ]
+        }
+      ]
+    },
+    "drop_G1": {
+      "diff_points_3seed_mean": 1.773,
+      "ci95_points_3seed_mean": [
+        -0.464,
+        3.97
+      ],
+      "verdict": "NOT RESOLVED",
+      "per_seed": [
+        {
+          "seed": 1,
+          "diff_points_plugin": 1.778,
+          "ci95_points": [
+            -0.799,
+            4.102
+          ]
+        },
+        {
+          "seed": 2,
+          "diff_points_plugin": 2.115,
+          "ci95_points": [
+            0.213,
+            4.213
+          ]
+        },
+        {
+          "seed": 3,
+          "diff_points_plugin": 1.425,
+          "ci95_points": [
+            -0.806,
+            3.596
+          ]
+        }
+      ]
+    },
+    "drop_G2": {
+      "diff_points_3seed_mean": 1.175,
+      "ci95_points_3seed_mean": [
+        -1.271,
+        3.631
+      ],
+      "verdict": "NOT RESOLVED",
+      "per_seed": [
+        {
+          "seed": 1,
+          "diff_points_plugin": 0.56,
+          "ci95_points": [
+            -2.132,
+            3.306
+          ]
+        },
+        {
+          "seed": 2,
+          "diff_points_plugin": 2.418,
+          "ci95_points": [
+            0.289,
+            4.573
+          ]
+        },
+        {
+          "seed": 3,
+          "diff_points_plugin": 0.546,
+          "ci95_points": [
+            -1.97,
+            3.014
+          ]
+        }
+      ]
+    }
+  },
+  "rq2_verdict_invariant_to_dropping_any_single_annotator": true,
+  "runtime_sec": 2.4
+}
