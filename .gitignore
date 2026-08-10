@@ -1,0 +1,34 @@
+# Regenerable binary artefacts. None of this is a source of truth; the pipeline
+# in THESIS_RESEARCH_BLUEPRINT.md sec.9 reproduces all of it exactly.
+
+# 224x224 uint8 preprocessing caches
+data/*.npy
+# ...except the C4 anatomical distance matrix, a pre-registered artefact.
+!data/phase4_distance_matrix.npy
+
+# trained weights, ~111 MB each
+checkpoints/
+*.pt
+
+# raw corpora — not redistributed here (see README, "Not in this repository")
+Labeled Images/
+data/raw/
+
+# retired negative-control corpus: severe re-identification exposure, see
+# DATASET_DECISION_REPORT.md D10. Never commit this file or anything derived
+# from it at row level.
+*.xlsx
+*.joblib
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# OS / editor lock and metadata files
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*.docx
+~$*.pptx
+~$*.xlsx

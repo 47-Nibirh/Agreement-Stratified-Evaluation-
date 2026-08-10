@@ -1,0 +1,13 @@
+column,class,temporality,admissibility,justification
+Patient_ID,identifier,none,Drop before modelling,Surrogate key; no clinical content
+Age,independent,pre-procedure,Admissible,"Demographic, recorded before endoscopy"
+Sex,independent,pre-procedure,Admissible,"Demographic, recorded before endoscopy"
+Visit_Date,independent,pre-procedure,Admissible (temporal split only),Procedural metadata
+Indication,independent,pre-procedure,Admissible,"Referral reason, precedes findings"
+Medication,independent,intra-procedure,Admissible,Sedation agent; procedural not diagnostic
+Oesophagus,label-constituent,intra-procedure,BLOCKED for label T-A,Used by _is_varices / _is_esophagitis / _is_polyp
+Stomach,label-constituent,intra-procedure,BLOCKED for label T-A,Used by _is_gastric_ulcer / _is_polyp
+Duodenum,label-constituent,intra-procedure,BLOCKED for label T-A,Used by _is_duodenal_ulcer
+Biopsy,independent,intra-procedure,Admissible,Not referenced by any labelling rule
+Comments,label-constituent / target,post-procedure,TARGET - never a feature,Diagnosis field; used by 4 of 7 rules
+Advice,post-hoc,post-procedure,BLOCKED,Management decision taken after diagnosis is known
