@@ -1,0 +1,140 @@
+{
+  "generated": "2026-07-26 18:18:01",
+  "gate1_cuda_available": true,
+  "torch": "2.12.0+cu126",
+  "torch_cuda": "12.6",
+  "python": "3.14.5",
+  "device_name": "NVIDIA GeForce GTX 1650",
+  "compute_capability": "7.5",
+  "bf16_supported": true,
+  "total_vram_mib": 4095.7,
+  "free_vram_mib_at_probe": 3294.8,
+  "vram_occupied_by_desktop_mib": 800.9,
+  "precision_factorial": [
+    {
+      "batch": 24,
+      "amp_fp16": true,
+      "channels_last": true,
+      "head_only": false,
+      "oom": false,
+      "sec_per_step": 2.1134,
+      "images_per_sec": 11.36,
+      "peak_alloc_mib": 1651.6
+    },
+    {
+      "batch": 24,
+      "amp_fp16": true,
+      "channels_last": false,
+      "head_only": false,
+      "oom": false,
+      "sec_per_step": 2.1158,
+      "images_per_sec": 11.34,
+      "peak_alloc_mib": 1626.5
+    },
+    {
+      "batch": 24,
+      "amp_fp16": false,
+      "channels_last": true,
+      "head_only": false,
+      "oom": false,
+      "sec_per_step": 0.7948,
+      "images_per_sec": 30.2,
+      "peak_alloc_mib": 2894.9
+    },
+    {
+      "batch": 24,
+      "amp_fp16": false,
+      "channels_last": false,
+      "head_only": false,
+      "oom": false,
+      "sec_per_step": 0.7982,
+      "images_per_sec": 30.07,
+      "peak_alloc_mib": 2896.5
+    }
+  ],
+  "amp_vs_fp32_speedup": 0.376,
+  "amp_adopted": false,
+  "amp_decision_note": "AMP float16 REJECTED on measured evidence: TU117 has no tensor cores, so autocast and GradScaler cost more than FP16 saves",
+  "batch_ladder": [
+    {
+      "batch": 48,
+      "amp_fp16": false,
+      "channels_last": true,
+      "head_only": false,
+      "oom": false,
+      "sec_per_step": 11.0695,
+      "images_per_sec": 4.34,
+      "peak_alloc_mib": 5430.1,
+      "fits": false
+    },
+    {
+      "batch": 32,
+      "amp_fp16": false,
+      "channels_last": true,
+      "head_only": false,
+      "oom": false,
+      "sec_per_step": 1.989,
+      "images_per_sec": 16.09,
+      "peak_alloc_mib": 3716.9,
+      "fits": false
+    },
+    {
+      "batch": 24,
+      "amp_fp16": false,
+      "channels_last": true,
+      "head_only": false,
+      "oom": false,
+      "sec_per_step": 0.799,
+      "images_per_sec": 30.04,
+      "peak_alloc_mib": 2895.0,
+      "fits": true
+    },
+    {
+      "batch": 16,
+      "amp_fp16": false,
+      "channels_last": true,
+      "head_only": false,
+      "oom": false,
+      "sec_per_step": 0.5211,
+      "images_per_sec": 30.7,
+      "peak_alloc_mib": 3085.6,
+      "fits": true
+    },
+    {
+      "batch": 12,
+      "amp_fp16": false,
+      "channels_last": true,
+      "head_only": false,
+      "oom": false,
+      "sec_per_step": 0.3981,
+      "images_per_sec": 30.14,
+      "peak_alloc_mib": 2680.7,
+      "fits": true
+    },
+    {
+      "batch": 8,
+      "amp_fp16": false,
+      "channels_last": true,
+      "head_only": false,
+      "oom": false,
+      "sec_per_step": 0.2648,
+      "images_per_sec": 30.21,
+      "peak_alloc_mib": 2245.2,
+      "fits": true
+    }
+  ],
+  "chosen_batch": 24,
+  "safety_margin_mib": 400,
+  "head_only_step": {
+    "batch": 24,
+    "amp_fp16": false,
+    "channels_last": true,
+    "head_only": true,
+    "oom": false,
+    "sec_per_step": 0.1941,
+    "images_per_sec": 123.65,
+    "peak_alloc_mib": 414.3
+  },
+  "projected_epoch_sec_finetune": 134.5,
+  "projected_epoch_sec_warmup": 32.7
+}

@@ -1,0 +1,14 @@
+{
+  "n_feature_modules": 8,
+  "fraction_requested": 0.4,
+  "n_modules_unfrozen": 3,
+  "modules_unfrozen": [
+    5,
+    6,
+    7
+  ],
+  "module_fraction": 0.375,
+  "feature_params_total": 27818592,
+  "feature_params_unfrozen": 26287872,
+  "param_fraction_unfrozen": 0.945
+}

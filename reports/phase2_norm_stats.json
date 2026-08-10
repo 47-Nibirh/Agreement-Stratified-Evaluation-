@@ -1,0 +1,39 @@
+{
+  "generated": "2026-07-26 18:06:34",
+  "split_used": "Train (complete-agreement only)",
+  "n_images": 3722,
+  "n_pixels_per_channel": 186755072,
+  "resample": "LANCZOS",
+  "size": 224,
+  "mean": [
+    0.601014,
+    0.368776,
+    0.278841
+  ],
+  "std": [
+    0.305054,
+    0.233516,
+    0.190944
+  ],
+  "imagenet_mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "imagenet_std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "abs_delta_mean": [
+    0.116014,
+    0.087224,
+    0.127159
+  ],
+  "abs_delta_std": [
+    0.076054,
+    0.009516,
+    0.034056
+  ],
+  "runtime_sec": 79.1
+}

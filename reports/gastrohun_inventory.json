@@ -1,0 +1,327 @@
+{
+  "generated": "2026-07-26 16:20:10",
+  "image_root": "C:\\Users\\DFIT\\Downloads\\Final defence\\Labeled Images",
+  "n_manifest_rows": 8834,
+  "n_manifest_unique_filenames": 8834,
+  "n_files_on_disk": 8834,
+  "n_patient_folders": 387,
+  "n_decoded_ok": 8834,
+  "n_missing_from_disk": 0,
+  "missing_examples": [],
+  "n_orphan_on_disk": 0,
+  "orphan_examples": [],
+  "n_corrupt": 0,
+  "corrupt": [],
+  "folder_patient_mismatch": 0,
+  "formats": {
+    "JPEG": 8834
+  },
+  "modes": {
+    "RGB": 8834
+  },
+  "resolutions": {
+    "1350x1080": 8427,
+    "900x720": 407
+  },
+  "bytes": {
+    "total_gb": 2.707,
+    "mean_kb": 321.3,
+    "median_kb": 324.23,
+    "min_kb": 120.15,
+    "max_kb": 546.48
+  },
+  "images_per_patient": {
+    "min": 7,
+    "max": 32,
+    "mean": 22.83,
+    "median": 22.0,
+    "std": 2.88
+  },
+  "exact_duplicates": {
+    "n_groups": 0,
+    "n_extra_files": 0,
+    "n_groups_cross_patient": 0,
+    "n_groups_cross_split": 0,
+    "examples": []
+  },
+  "near_duplicates_dhash_le4": {
+    "n_pairs": 24737,
+    "n_pairs_cross_patient": 15822,
+    "n_pairs_cross_split": 7424,
+    "cross_split_examples": [
+      {
+        "a": "dd37893f-4162-456c-a246-688afc0301c2.jpg",
+        "b": "c9947c7f-1d69-49aa-9dd5-d399f4a73799.jpg",
+        "hamming": 2,
+        "patient_a": 18,
+        "patient_b": 108,
+        "split_a": "Validation",
+        "split_b": "Train"
+      },
+      {
+        "a": "38bc7d59-ba69-47de-a928-696845a55889.jpg",
+        "b": "5d58d290-0a3e-4549-8a06-1ecf93e757ae.jpg",
+        "hamming": 4,
+        "patient_a": 91,
+        "patient_b": 347,
+        "split_a": "Train",
+        "split_b": "Validation"
+      },
+      {
+        "a": "c9947c7f-1d69-49aa-9dd5-d399f4a73799.jpg",
+        "b": "dd37893f-4162-456c-a246-688afc0301c2.jpg",
+        "hamming": 2,
+        "patient_a": 108,
+        "patient_b": 18,
+        "split_a": "Train",
+        "split_b": "Validation"
+      },
+      {
+        "a": "779efe9f-3b1e-441a-8f1c-f045ed92186a.jpg",
+        "b": "c4ad3686-9bd6-4c62-959c-2eb153052fec.jpg",
+        "hamming": 4,
+        "patient_a": 266,
+        "patient_b": 370,
+        "split_a": "Test",
+        "split_b": "Validation"
+      },
+      {
+        "a": "5d58d290-0a3e-4549-8a06-1ecf93e757ae.jpg",
+        "b": "38bc7d59-ba69-47de-a928-696845a55889.jpg",
+        "hamming": 4,
+        "patient_a": 347,
+        "patient_b": 91,
+        "split_a": "Validation",
+        "split_b": "Train"
+      },
+      {
+        "a": "c8d43911-ca40-467a-a438-430185e5ed09.jpg",
+        "b": "adc9f316-a9af-4c71-8574-8d4cb811e6f9.jpg",
+        "hamming": 4,
+        "patient_a": 364,
+        "patient_b": 375,
+        "split_a": "Train",
+        "split_b": "Test"
+      },
+      {
+        "a": "c4ad3686-9bd6-4c62-959c-2eb153052fec.jpg",
+        "b": "779efe9f-3b1e-441a-8f1c-f045ed92186a.jpg",
+        "hamming": 4,
+        "patient_a": 370,
+        "patient_b": 266,
+        "split_a": "Validation",
+        "split_b": "Test"
+      },
+      {
+        "a": "adc9f316-a9af-4c71-8574-8d4cb811e6f9.jpg",
+        "b": "c8d43911-ca40-467a-a438-430185e5ed09.jpg",
+        "hamming": 4,
+        "patient_a": 375,
+        "patient_b": 364,
+        "split_a": "Test",
+        "split_b": "Train"
+      },
+      {
+        "a": "2eb9f6f9-1e03-442a-83d3-573a0edbeee1.jpg",
+        "b": "6c597bbd-8a7e-4155-9a50-c8b9faf28658.jpg",
+        "hamming": 4,
+        "patient_a": 3,
+        "patient_b": 379,
+        "split_a": "Validation",
+        "split_b": "Train"
+      },
+      {
+        "a": "6c597bbd-8a7e-4155-9a50-c8b9faf28658.jpg",
+        "b": "2eb9f6f9-1e03-442a-83d3-573a0edbeee1.jpg",
+        "hamming": 4,
+        "patient_a": 379,
+        "patient_b": 3,
+        "split_a": "Train",
+        "split_b": "Validation"
+      },
+      {
+        "a": "9badf162-38d7-475d-b002-2e798dca5efc.jpg",
+        "b": "a7909dfb-f8ec-4baf-b388-8f7ea066a14a.jpg",
+        "hamming": 4,
+        "patient_a": 260,
+        "patient_b": 261,
+        "split_a": "Train",
+        "split_b": "Test"
+      },
+      {
+        "a": "a7909dfb-f8ec-4baf-b388-8f7ea066a14a.jpg",
+        "b": "9badf162-38d7-475d-b002-2e798dca5efc.jpg",
+        "hamming": 4,
+        "patient_a": 261,
+        "patient_b": 260,
+        "split_a": "Test",
+        "split_b": "Train"
+      },
+      {
+        "a": "ed4839a6-c227-4f68-a86c-eaf764109219.jpg",
+        "b": "36c14a90-ef06-4fa2-9344-6b718de8bee8.jpg",
+        "hamming": 3,
+        "patient_a": 184,
+        "patient_b": 197,
+        "split_a": "Train",
+        "split_b": "Validation"
+      },
+      {
+        "a": "36c14a90-ef06-4fa2-9344-6b718de8bee8.jpg",
+        "b": "ed4839a6-c227-4f68-a86c-eaf764109219.jpg",
+        "hamming": 3,
+        "patient_a": 197,
+        "patient_b": 184,
+        "split_a": "Validation",
+        "split_b": "Train"
+      },
+      {
+        "a": "c73a4bd3-7536-410b-85d1-09e5761f43f9.jpg",
+        "b": "bf8a18b3-40fd-421d-8e65-a097b076b7fa.jpg",
+        "hamming": 4,
+        "patient_a": 129,
+        "patient_b": 309,
+        "split_a": "Validation",
+        "split_b": "Train"
+      }
+    ],
+    "cross_patient_examples": [
+      {
+        "a": "dd37893f-4162-456c-a246-688afc0301c2.jpg",
+        "b": "c9947c7f-1d69-49aa-9dd5-d399f4a73799.jpg",
+        "hamming": 2,
+        "patient_a": 18,
+        "patient_b": 108,
+        "split_a": "Validation",
+        "split_b": "Train"
+      },
+      {
+        "a": "8bdcba92-6dce-43b9-8ecb-3a3f48f1d323.jpg",
+        "b": "8869450d-f3ad-4206-a703-fc40f9872590.jpg",
+        "hamming": 3,
+        "patient_a": 72,
+        "patient_b": 90,
+        "split_a": "Train",
+        "split_b": "Train"
+      },
+      {
+        "a": "f03b0f2e-b22e-4409-a765-ddd67bde416f.jpg",
+        "b": "c4ad3686-9bd6-4c62-959c-2eb153052fec.jpg",
+        "hamming": 3,
+        "patient_a": 76,
+        "patient_b": 370,
+        "split_a": "Validation",
+        "split_b": "Validation"
+      },
+      {
+        "a": "8869450d-f3ad-4206-a703-fc40f9872590.jpg",
+        "b": "8bdcba92-6dce-43b9-8ecb-3a3f48f1d323.jpg",
+        "hamming": 3,
+        "patient_a": 90,
+        "patient_b": 72,
+        "split_a": "Train",
+        "split_b": "Train"
+      },
+      {
+        "a": "38bc7d59-ba69-47de-a928-696845a55889.jpg",
+        "b": "5d58d290-0a3e-4549-8a06-1ecf93e757ae.jpg",
+        "hamming": 4,
+        "patient_a": 91,
+        "patient_b": 347,
+        "split_a": "Train",
+        "split_b": "Validation"
+      },
+      {
+        "a": "cfb12bd8-baeb-4aa5-ae2d-4bb6a205d80e.jpg",
+        "b": "f39a35fb-9ab0-4984-8778-34f78a7c67f3.jpg",
+        "hamming": 4,
+        "patient_a": 102,
+        "patient_b": 366,
+        "split_a": "Train",
+        "split_b": "Train"
+      },
+      {
+        "a": "c9947c7f-1d69-49aa-9dd5-d399f4a73799.jpg",
+        "b": "dd37893f-4162-456c-a246-688afc0301c2.jpg",
+        "hamming": 2,
+        "patient_a": 108,
+        "patient_b": 18,
+        "split_a": "Train",
+        "split_b": "Validation"
+      },
+      {
+        "a": "525efa70-d701-452c-b5dc-729040cd9511.jpg",
+        "b": "934eddc5-e383-4ce0-b511-04284894f123.jpg",
+        "hamming": 3,
+        "patient_a": 144,
+        "patient_b": 147,
+        "split_a": "Train",
+        "split_b": "Train"
+      },
+      {
+        "a": "525efa70-d701-452c-b5dc-729040cd9511.jpg",
+        "b": "6e1a1d61-1581-42c2-8a6f-ee167306d9c5.jpg",
+        "hamming": 4,
+        "patient_a": 144,
+        "patient_b": 221,
+        "split_a": "Train",
+        "split_b": "Train"
+      },
+      {
+        "a": "934eddc5-e383-4ce0-b511-04284894f123.jpg",
+        "b": "525efa70-d701-452c-b5dc-729040cd9511.jpg",
+        "hamming": 3,
+        "patient_a": 147,
+        "patient_b": 144,
+        "split_a": "Train",
+        "split_b": "Train"
+      },
+      {
+        "a": "80f715d5-be32-4b41-9b7f-23db7e2dcff6.jpg",
+        "b": "5d58d290-0a3e-4549-8a06-1ecf93e757ae.jpg",
+        "hamming": 4,
+        "patient_a": 200,
+        "patient_b": 347,
+        "split_a": "Validation",
+        "split_b": "Validation"
+      },
+      {
+        "a": "6e1a1d61-1581-42c2-8a6f-ee167306d9c5.jpg",
+        "b": "525efa70-d701-452c-b5dc-729040cd9511.jpg",
+        "hamming": 4,
+        "patient_a": 221,
+        "patient_b": 144,
+        "split_a": "Train",
+        "split_b": "Train"
+      },
+      {
+        "a": "779efe9f-3b1e-441a-8f1c-f045ed92186a.jpg",
+        "b": "c4ad3686-9bd6-4c62-959c-2eb153052fec.jpg",
+        "hamming": 4,
+        "patient_a": 266,
+        "patient_b": 370,
+        "split_a": "Test",
+        "split_b": "Validation"
+      },
+      {
+        "a": "b46fb9d2-f2c4-4020-bfe9-b0bcdb0bb45a.jpg",
+        "b": "5d58d290-0a3e-4549-8a06-1ecf93e757ae.jpg",
+        "hamming": 3,
+        "patient_a": 272,
+        "patient_b": 347,
+        "split_a": "Validation",
+        "split_b": "Validation"
+      },
+      {
+        "a": "5d58d290-0a3e-4549-8a06-1ecf93e757ae.jpg",
+        "b": "38bc7d59-ba69-47de-a928-696845a55889.jpg",
+        "hamming": 4,
+        "patient_a": 347,
+        "patient_b": 91,
+        "split_a": "Validation",
+        "split_b": "Train"
+      }
+    ]
+  },
+  "runtime_sec": 142.7
+}

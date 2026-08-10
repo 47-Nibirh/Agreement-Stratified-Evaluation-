@@ -1,0 +1,69 @@
+{
+  "generated": "2026-07-27 01:11:44",
+  "stratum": "S-unanimous (the only stratum with an uncontested reference label)",
+  "per_seed": {
+    "1": {
+      "n_test_images": 803,
+      "n_errors": 127,
+      "error_rate_pct": 15.82,
+      "n_wall_differing_errors": 72,
+      "wall_adjacent_pct": 91.67,
+      "n_station_differing_errors": 64,
+      "station_neighbouring_pct": 87.5
+    },
+    "2": {
+      "n_test_images": 803,
+      "n_errors": 130,
+      "error_rate_pct": 16.19,
+      "n_wall_differing_errors": 67,
+      "wall_adjacent_pct": 85.07,
+      "n_station_differing_errors": 69,
+      "station_neighbouring_pct": 81.16
+    },
+    "3": {
+      "n_test_images": 803,
+      "n_errors": 119,
+      "error_rate_pct": 14.82,
+      "n_wall_differing_errors": 65,
+      "wall_adjacent_pct": 92.31,
+      "n_station_differing_errors": 67,
+      "station_neighbouring_pct": 88.06
+    }
+  },
+  "mean_wall_adjacent_pct_3seed": 89.68,
+  "mean_station_neighbouring_pct_3seed": 85.57,
+  "human_wall_adjacent_pct": 89.8,
+  "human_station_neighbouring_pct": 93.1,
+  "wall_gap_points": -0.12,
+  "station_gap_points": -7.53,
+  "pooled_wall_confusion_pairs": {
+    "A-L": 49,
+    "L-P": 25,
+    "G-A": 24,
+    "P-L": 19,
+    "L-A": 19,
+    "P-G": 18,
+    "A-G": 15,
+    "G-P": 14,
+    "G-L": 10,
+    "L-G": 4,
+    "A-P": 4,
+    "P-A": 3
+  },
+  "pooled_station_confusion_pairs": {
+    "2-3": 86,
+    "4-5": 42,
+    "1-2": 36,
+    "1-6": 17,
+    "3-4": 4,
+    "5-6": 3,
+    "2-6": 3,
+    "3-6": 2,
+    "2-5": 2,
+    "4-6": 2,
+    "1-3": 1,
+    "1-5": 1,
+    "1-4": 1
+  },
+  "runtime_sec": 0.1
+}

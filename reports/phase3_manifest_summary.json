@@ -1,0 +1,27 @@
+{
+  "generated": "2026-07-27 00:56:36",
+  "n_test_images": 1353,
+  "n_test_patients": 59,
+  "tier_counts": {
+    "S-unanimous": 803,
+    "S-majority": 342,
+    "S-plurality": 127,
+    "S-tied": 73,
+    "S-dispersed": 8
+  },
+  "tier_counts_expected": {
+    "S-unanimous": 803,
+    "S-majority": 342,
+    "S-plurality": 127,
+    "S-tied": 73,
+    "S-dispersed": 8
+  },
+  "tier_pooled_counts": {
+    "S-unanimous": 803,
+    "S-majority": 342,
+    "S-plurality": 127,
+    "S-no-majority": 81
+  },
+  "gate_pass": true,
+  "runtime_sec": 0.4
+}

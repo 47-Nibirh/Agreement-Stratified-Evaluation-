@@ -1,0 +1,304 @@
+{
+  "generated": "2026-07-26 22:28:13",
+  "seed": 1,
+  "device": "NVIDIA GeForce GTX 1650",
+  "torch": "2.12.0+cu126",
+  "cuda": "12.6",
+  "python": "3.14.5",
+  "batch_size": 24,
+  "grad_accum_steps": 1,
+  "effective_batch": 24,
+  "precision": "float32",
+  "memory_format": "channels_last",
+  "lr_head": 0.001,
+  "lr_finetune": 0.0001,
+  "weight_decay": 0.05,
+  "warmup_epochs": 10,
+  "max_finetune_epochs": 51,
+  "patience": 10,
+  "trainable_layers": {
+    "n_feature_modules": 8,
+    "fraction_requested": 0.4,
+    "n_modules_unfrozen": 3,
+    "modules_unfrozen": [
+      5,
+      6,
+      7
+    ],
+    "module_fraction": 0.375,
+    "feature_params_total": 27818592,
+    "feature_params_unfrozen": 26287872,
+    "param_fraction_unfrozen": 0.945
+  },
+  "norm_stats": {
+    "mean": [
+      0.601014,
+      0.368776,
+      0.278841
+    ],
+    "std": [
+      0.305054,
+      0.233516,
+      0.190944
+    ]
+  },
+  "n_train": 3722,
+  "n_val": 793,
+  "n_test": 803,
+  "best_val_macro_f1": 0.84967,
+  "best_epoch_overall": 21,
+  "n_epochs_run": 31,
+  "stop_reason": "early_stopping",
+  "peak_vram_mib": 2323.7,
+  "wallclock_sec": 2321.7,
+  "history": [
+    {
+      "phase": "warmup",
+      "epoch": 1,
+      "train_loss": 2.24305,
+      "val_macro_f1": 0.47987,
+      "lr": 0.001,
+      "sec": 58.4
+    },
+    {
+      "phase": "warmup",
+      "epoch": 2,
+      "train_loss": 1.52613,
+      "val_macro_f1": 0.60285,
+      "lr": 0.001,
+      "sec": 41.1
+    },
+    {
+      "phase": "warmup",
+      "epoch": 3,
+      "train_loss": 1.28533,
+      "val_macro_f1": 0.60276,
+      "lr": 0.001,
+      "sec": 41.1
+    },
+    {
+      "phase": "warmup",
+      "epoch": 4,
+      "train_loss": 1.14527,
+      "val_macro_f1": 0.62514,
+      "lr": 0.001,
+      "sec": 41.0
+    },
+    {
+      "phase": "warmup",
+      "epoch": 5,
+      "train_loss": 1.04472,
+      "val_macro_f1": 0.64445,
+      "lr": 0.001,
+      "sec": 40.8
+    },
+    {
+      "phase": "warmup",
+      "epoch": 6,
+      "train_loss": 0.97132,
+      "val_macro_f1": 0.66601,
+      "lr": 0.001,
+      "sec": 40.8
+    },
+    {
+      "phase": "warmup",
+      "epoch": 7,
+      "train_loss": 0.90046,
+      "val_macro_f1": 0.65472,
+      "lr": 0.001,
+      "sec": 40.7
+    },
+    {
+      "phase": "warmup",
+      "epoch": 8,
+      "train_loss": 0.86515,
+      "val_macro_f1": 0.67638,
+      "lr": 0.001,
+      "sec": 40.8
+    },
+    {
+      "phase": "warmup",
+      "epoch": 9,
+      "train_loss": 0.82128,
+      "val_macro_f1": 0.67014,
+      "lr": 0.001,
+      "sec": 40.7
+    },
+    {
+      "phase": "warmup",
+      "epoch": 10,
+      "train_loss": 0.81334,
+      "val_macro_f1": 0.68431,
+      "lr": 0.001,
+      "sec": 40.5
+    },
+    {
+      "phase": "finetune",
+      "epoch": 1,
+      "train_loss": 0.64905,
+      "val_macro_f1": 0.78877,
+      "lr": 9.991e-05,
+      "sec": 98.8
+    },
+    {
+      "phase": "finetune",
+      "epoch": 2,
+      "train_loss": 0.32167,
+      "val_macro_f1": 0.82099,
+      "lr": 9.962e-05,
+      "sec": 89.5
+    },
+    {
+      "phase": "finetune",
+      "epoch": 3,
+      "train_loss": 0.14299,
+      "val_macro_f1": 0.78901,
+      "lr": 9.915e-05,
+      "sec": 88.7
+    },
+    {
+      "phase": "finetune",
+      "epoch": 4,
+      "train_loss": 0.07968,
+      "val_macro_f1": 0.81462,
+      "lr": 9.849e-05,
+      "sec": 88.8
+    },
+    {
+      "phase": "finetune",
+      "epoch": 5,
+      "train_loss": 0.06765,
+      "val_macro_f1": 0.80397,
+      "lr": 9.765e-05,
+      "sec": 92.2
+    },
+    {
+      "phase": "finetune",
+      "epoch": 6,
+      "train_loss": 0.04143,
+      "val_macro_f1": 0.81778,
+      "lr": 9.662e-05,
+      "sec": 89.9
+    },
+    {
+      "phase": "finetune",
+      "epoch": 7,
+      "train_loss": 0.04779,
+      "val_macro_f1": 0.82314,
+      "lr": 9.542e-05,
+      "sec": 89.3
+    },
+    {
+      "phase": "finetune",
+      "epoch": 8,
+      "train_loss": 0.02746,
+      "val_macro_f1": 0.82378,
+      "lr": 9.405e-05,
+      "sec": 89.5
+    },
+    {
+      "phase": "finetune",
+      "epoch": 9,
+      "train_loss": 0.02929,
+      "val_macro_f1": 0.82124,
+      "lr": 9.251e-05,
+      "sec": 88.9
+    },
+    {
+      "phase": "finetune",
+      "epoch": 10,
+      "train_loss": 0.11331,
+      "val_macro_f1": 0.79944,
+      "lr": 9.081e-05,
+      "sec": 90.5
+    },
+    {
+      "phase": "finetune",
+      "epoch": 11,
+      "train_loss": 0.03423,
+      "val_macro_f1": 0.84967,
+      "lr": 8.895e-05,
+      "sec": 90.3
+    },
+    {
+      "phase": "finetune",
+      "epoch": 12,
+      "train_loss": 0.01205,
+      "val_macro_f1": 0.83166,
+      "lr": 8.695e-05,
+      "sec": 90.0
+    },
+    {
+      "phase": "finetune",
+      "epoch": 13,
+      "train_loss": 0.01412,
+      "val_macro_f1": 0.84384,
+      "lr": 8.481e-05,
+      "sec": 90.3
+    },
+    {
+      "phase": "finetune",
+      "epoch": 14,
+      "train_loss": 0.01843,
+      "val_macro_f1": 0.82579,
+      "lr": 8.253e-05,
+      "sec": 89.3
+    },
+    {
+      "phase": "finetune",
+      "epoch": 15,
+      "train_loss": 0.02071,
+      "val_macro_f1": 0.80487,
+      "lr": 8.013e-05,
+      "sec": 89.4
+    },
+    {
+      "phase": "finetune",
+      "epoch": 16,
+      "train_loss": 0.02343,
+      "val_macro_f1": 0.82668,
+      "lr": 7.762e-05,
+      "sec": 89.0
+    },
+    {
+      "phase": "finetune",
+      "epoch": 17,
+      "train_loss": 0.06232,
+      "val_macro_f1": 0.8378,
+      "lr": 7.5e-05,
+      "sec": 88.9
+    },
+    {
+      "phase": "finetune",
+      "epoch": 18,
+      "train_loss": 0.01827,
+      "val_macro_f1": 0.83929,
+      "lr": 7.229e-05,
+      "sec": 89.2
+    },
+    {
+      "phase": "finetune",
+      "epoch": 19,
+      "train_loss": 0.00891,
+      "val_macro_f1": 0.84512,
+      "lr": 6.949e-05,
+      "sec": 90.3
+    },
+    {
+      "phase": "finetune",
+      "epoch": 20,
+      "train_loss": 0.00849,
+      "val_macro_f1": 0.8358,
+      "lr": 6.662e-05,
+      "sec": 89.8
+    },
+    {
+      "phase": "finetune",
+      "epoch": 21,
+      "train_loss": 0.00908,
+      "val_macro_f1": 0.83769,
+      "lr": 6.368e-05,
+      "sec": 89.2
+    }
+  ]
+}

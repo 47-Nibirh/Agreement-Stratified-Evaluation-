@@ -1,0 +1,25 @@
+{
+  "generated": "2026-07-26 21:52:13",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+  "python": "3.14.5",
+  "packages": {
+    "torch": "2.12.0+cu126",
+    "torchvision": "0.27.0+cu126",
+    "numpy": "2.4.5",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.18.0",
+    "pillow": "12.2.0",
+    "matplotlib": "3.11.1",
+    "python-docx": "1.2.0"
+  },
+  "torch_build": "2.12.0+cu126",
+  "torch_cuda_version": "12.6",
+  "cudnn_version": 91002,
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce GTX 1650",
+  "compute_capability": "7.5",
+  "nvidia_smi": "NVIDIA GeForce GTX 1650, 592.82, 4096 MiB",
+  "note": "torch was reinstalled from the cu126 index; the previously installed 2.12.0+cpu build is recorded in reports/phase2_env_before.txt"
+}

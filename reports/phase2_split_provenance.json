@@ -1,0 +1,226 @@
+{
+  "generated": "2026-07-26 18:04:43",
+  "gate2_pass": true,
+  "gate3_pass": true,
+  "corpus": {
+    "n_images": 8834,
+    "by_split": {
+      "Test": 1353,
+      "Train": 6165,
+      "Validation": 1316
+    },
+    "n_patients": 387
+  },
+  "cohort": {
+    "n_images": 5318,
+    "by_split": {
+      "Train": 3722,
+      "Validation": 793,
+      "Test": 803
+    },
+    "retention_pct": 60.2,
+    "retention_pct_by_split": {
+      "Train": 60.37,
+      "Validation": 60.26,
+      "Test": 59.35
+    },
+    "n_classes": 23,
+    "classes": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "L1",
+      "L2",
+      "L3",
+      "L4",
+      "L5",
+      "L6",
+      "OTHERCLASS",
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6"
+    ],
+    "n_patients": 385,
+    "patients_by_split": {
+      "Test": 58,
+      "Train": 269,
+      "Validation": 58
+    },
+    "patients_by_split_corpus": {
+      "Test": 59,
+      "Train": 270,
+      "Validation": 58
+    },
+    "patients_lost_to_consensus": {
+      "Test": [
+        101
+      ],
+      "Train": [
+        278
+      ]
+    },
+    "images_per_patient": {
+      "Test": {
+        "min": 2,
+        "max": 23,
+        "mean": 13.84,
+        "std": 4.6
+      },
+      "Train": {
+        "min": 2,
+        "max": 23,
+        "mean": 13.84,
+        "std": 4.41
+      },
+      "Validation": {
+        "min": 2,
+        "max": 23,
+        "mean": 13.67,
+        "std": 4.77
+      }
+    }
+  },
+  "patient_overlap": {
+    "train_val": [],
+    "train_test": [],
+    "val_test": []
+  },
+  "hash_resolution": {
+    "n_cohort": 5318,
+    "n_resolved": 5318,
+    "n_unresolved": 0,
+    "n_duplicate_filenames": 0,
+    "n_present_on_disk": 5318
+  },
+  "class_by_split": {
+    "Test": {
+      "A1": 43,
+      "A2": 31,
+      "A3": 27,
+      "A4": 30,
+      "A5": 25,
+      "A6": 45,
+      "G1": 46,
+      "G2": 30,
+      "G3": 35,
+      "G4": 41,
+      "L1": 35,
+      "L2": 35,
+      "L3": 34,
+      "L4": 28,
+      "L5": 29,
+      "L6": 45,
+      "OTHERCLASS": 19,
+      "P1": 51,
+      "P2": 30,
+      "P3": 37,
+      "P4": 34,
+      "P5": 30,
+      "P6": 43
+    },
+    "Train": {
+      "A1": 182,
+      "A2": 162,
+      "A3": 143,
+      "A4": 133,
+      "A5": 136,
+      "A6": 194,
+      "G1": 197,
+      "G2": 159,
+      "G3": 151,
+      "G4": 188,
+      "L1": 179,
+      "L2": 157,
+      "L3": 141,
+      "L4": 121,
+      "L5": 144,
+      "L6": 215,
+      "OTHERCLASS": 81,
+      "P1": 209,
+      "P2": 151,
+      "P3": 152,
+      "P4": 152,
+      "P5": 162,
+      "P6": 213
+    },
+    "Validation": {
+      "A1": 45,
+      "A2": 38,
+      "A3": 30,
+      "A4": 27,
+      "A5": 23,
+      "A6": 45,
+      "G1": 45,
+      "G2": 31,
+      "G3": 35,
+      "G4": 43,
+      "L1": 39,
+      "L2": 37,
+      "L3": 24,
+      "L4": 24,
+      "L5": 26,
+      "L6": 49,
+      "OTHERCLASS": 16,
+      "P1": 44,
+      "P2": 27,
+      "P3": 29,
+      "P4": 39,
+      "P5": 31,
+      "P6": 46
+    }
+  },
+  "class_split_chi2": 13.48,
+  "class_split_p": 0.9999974944602527,
+  "stream_by_split": {
+    "Test": {
+      "direct_capture": 764,
+      "video_frame": 39
+    },
+    "Train": {
+      "direct_capture": 3324,
+      "video_frame": 398
+    },
+    "Validation": {
+      "direct_capture": 773,
+      "video_frame": 20
+    }
+  },
+  "stream_split_chi2": 72.38,
+  "stream_split_p": 1.9197425682640401e-16,
+  "test_class_support": {
+    "P1": 51,
+    "G1": 46,
+    "A6": 45,
+    "L6": 45,
+    "A1": 43,
+    "P6": 43,
+    "G4": 41,
+    "P3": 37,
+    "L2": 35,
+    "G3": 35,
+    "L1": 35,
+    "L3": 34,
+    "P4": 34,
+    "A2": 31,
+    "P5": 30,
+    "G2": 30,
+    "P2": 30,
+    "A4": 30,
+    "L5": 29,
+    "L4": 28,
+    "A3": 27,
+    "A5": 25,
+    "OTHERCLASS": 19
+  },
+  "runtime_sec": 0.3
+}

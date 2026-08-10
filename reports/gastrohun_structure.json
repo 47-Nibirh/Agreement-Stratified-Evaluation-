@@ -1,0 +1,410 @@
+{
+  "generated": "2026-07-26 16:26:12",
+  "taxonomy": [
+    {
+      "code": "A1",
+      "wall": "A",
+      "wall_name": "Anterior wall",
+      "station": 1,
+      "station_name": "Antrum",
+      "is_landmark": true
+    },
+    {
+      "code": "A2",
+      "wall": "A",
+      "wall_name": "Anterior wall",
+      "station": 2,
+      "station_name": "Distal gastric body",
+      "is_landmark": true
+    },
+    {
+      "code": "A3",
+      "wall": "A",
+      "wall_name": "Anterior wall",
+      "station": 3,
+      "station_name": "Upper-middle gastric body",
+      "is_landmark": true
+    },
+    {
+      "code": "A4",
+      "wall": "A",
+      "wall_name": "Anterior wall",
+      "station": 4,
+      "station_name": "Retroflexion - cardia / fundus",
+      "is_landmark": true
+    },
+    {
+      "code": "A5",
+      "wall": "A",
+      "wall_name": "Anterior wall",
+      "station": 5,
+      "station_name": "Retroflexion - lesser curvature exposed",
+      "is_landmark": true
+    },
+    {
+      "code": "A6",
+      "wall": "A",
+      "wall_name": "Anterior wall",
+      "station": 6,
+      "station_name": "Final aligned view",
+      "is_landmark": true
+    },
+    {
+      "code": "G1",
+      "wall": "G",
+      "wall_name": "Greater curvature",
+      "station": 1,
+      "station_name": "Antrum",
+      "is_landmark": true
+    },
+    {
+      "code": "G2",
+      "wall": "G",
+      "wall_name": "Greater curvature",
+      "station": 2,
+      "station_name": "Distal gastric body",
+      "is_landmark": true
+    },
+    {
+      "code": "G3",
+      "wall": "G",
+      "wall_name": "Greater curvature",
+      "station": 3,
+      "station_name": "Upper-middle gastric body",
+      "is_landmark": true
+    },
+    {
+      "code": "G4",
+      "wall": "G",
+      "wall_name": "Greater curvature",
+      "station": 4,
+      "station_name": "Retroflexion - cardia / fundus",
+      "is_landmark": true
+    },
+    {
+      "code": "L1",
+      "wall": "L",
+      "wall_name": "Lesser curvature",
+      "station": 1,
+      "station_name": "Antrum",
+      "is_landmark": true
+    },
+    {
+      "code": "L2",
+      "wall": "L",
+      "wall_name": "Lesser curvature",
+      "station": 2,
+      "station_name": "Distal gastric body",
+      "is_landmark": true
+    },
+    {
+      "code": "L3",
+      "wall": "L",
+      "wall_name": "Lesser curvature",
+      "station": 3,
+      "station_name": "Upper-middle gastric body",
+      "is_landmark": true
+    },
+    {
+      "code": "L4",
+      "wall": "L",
+      "wall_name": "Lesser curvature",
+      "station": 4,
+      "station_name": "Retroflexion - cardia / fundus",
+      "is_landmark": true
+    },
+    {
+      "code": "L5",
+      "wall": "L",
+      "wall_name": "Lesser curvature",
+      "station": 5,
+      "station_name": "Retroflexion - lesser curvature exposed",
+      "is_landmark": true
+    },
+    {
+      "code": "L6",
+      "wall": "L",
+      "wall_name": "Lesser curvature",
+      "station": 6,
+      "station_name": "Final aligned view",
+      "is_landmark": true
+    },
+    {
+      "code": "OTHERCLASS",
+      "wall": null,
+      "wall_name": null,
+      "station": null,
+      "station_name": null,
+      "is_landmark": false
+    },
+    {
+      "code": "P1",
+      "wall": "P",
+      "wall_name": "Posterior wall",
+      "station": 1,
+      "station_name": "Antrum",
+      "is_landmark": true
+    },
+    {
+      "code": "P2",
+      "wall": "P",
+      "wall_name": "Posterior wall",
+      "station": 2,
+      "station_name": "Distal gastric body",
+      "is_landmark": true
+    },
+    {
+      "code": "P3",
+      "wall": "P",
+      "wall_name": "Posterior wall",
+      "station": 3,
+      "station_name": "Upper-middle gastric body",
+      "is_landmark": true
+    },
+    {
+      "code": "P4",
+      "wall": "P",
+      "wall_name": "Posterior wall",
+      "station": 4,
+      "station_name": "Retroflexion - cardia / fundus",
+      "is_landmark": true
+    },
+    {
+      "code": "P5",
+      "wall": "P",
+      "wall_name": "Posterior wall",
+      "station": 5,
+      "station_name": "Retroflexion - lesser curvature exposed",
+      "is_landmark": true
+    },
+    {
+      "code": "P6",
+      "wall": "P",
+      "wall_name": "Posterior wall",
+      "station": 6,
+      "station_name": "Final aligned view",
+      "is_landmark": true
+    }
+  ],
+  "wall_names": {
+    "G": "Greater curvature",
+    "A": "Anterior wall",
+    "L": "Lesser curvature",
+    "P": "Posterior wall"
+  },
+  "station_names": {
+    "1": "Antrum",
+    "2": "Distal gastric body",
+    "3": "Upper-middle gastric body",
+    "4": "Retroflexion - cardia / fundus",
+    "5": "Retroflexion - lesser curvature exposed",
+    "6": "Final aligned view"
+  },
+  "disagreement_decomposition": {
+    "same_station_different_wall": 6523,
+    "same_wall_different_station": 2548,
+    "different_wall_and_station": 1066,
+    "landmark_vs_OTHERCLASS": 2663
+  },
+  "disagreement_decomposition_pct": {
+    "same_station_different_wall": 50.96,
+    "same_wall_different_station": 19.91,
+    "different_wall_and_station": 8.33,
+    "landmark_vs_OTHERCLASS": 20.8
+  },
+  "n_disagreement_pair_events": 12800,
+  "wall_confusion_pairs": {
+    "A-L": 2010,
+    "L-P": 1438,
+    "A-G": 1356,
+    "G-P": 1056,
+    "G-L": 337,
+    "A-P": 326
+  },
+  "station_confusion_pairs": {
+    "2-3": 1101,
+    "4-5": 625,
+    "1-2": 547,
+    "5-6": 92,
+    "2-6": 83,
+    "1-6": 37,
+    "1-3": 25,
+    "3-4": 14,
+    "3-6": 12,
+    "1-4": 6,
+    "4-6": 4,
+    "3-5": 1,
+    "2-5": 1
+  },
+  "station_gap_distribution": {
+    "1": 3364,
+    "2": 54,
+    "3": 29,
+    "4": 112,
+    "5": 55
+  },
+  "agreement_by_granularity": {
+    "full": {
+      "mean_pairwise_kappa": 0.7476,
+      "min_pairwise_kappa": 0.6799,
+      "max_pairwise_kappa": 0.8031,
+      "mean_raw_agreement": 0.7585,
+      "n_categories": 23
+    },
+    "station": {
+      "mean_pairwise_kappa": 0.8597,
+      "min_pairwise_kappa": 0.8149,
+      "max_pairwise_kappa": 0.9161,
+      "mean_raw_agreement": 0.8816,
+      "n_categories": 7
+    },
+    "wall": {
+      "mean_pairwise_kappa": 0.7481,
+      "min_pairwise_kappa": 0.6761,
+      "max_pairwise_kappa": 0.8039,
+      "mean_raw_agreement": 0.8066,
+      "n_categories": 5
+    }
+  },
+  "unanimity_rate_pct_by_granularity": {
+    "full": 60.2,
+    "station": 78.99,
+    "wall": 66.86
+  },
+  "station_difficulty": {
+    "station_1": {
+      "name": "Antrum",
+      "n_rater_pair_observations": 11535,
+      "disagreement_rate_pct": 30.95
+    },
+    "station_2": {
+      "name": "Distal gastric body",
+      "n_rater_pair_observations": 11853,
+      "disagreement_rate_pct": 40.45
+    },
+    "station_3": {
+      "name": "Upper-middle gastric body",
+      "n_rater_pair_observations": 11642,
+      "disagreement_rate_pct": 42.68
+    },
+    "station_4": {
+      "name": "Retroflexion - cardia / fundus",
+      "n_rater_pair_observations": 11049,
+      "disagreement_rate_pct": 39.18
+    },
+    "station_5": {
+      "name": "Retroflexion - lesser curvature exposed",
+      "n_rater_pair_observations": 8673,
+      "disagreement_rate_pct": 44.45
+    },
+    "station_6": {
+      "name": "Final aligned view",
+      "n_rater_pair_observations": 7355,
+      "disagreement_rate_pct": 19.31
+    }
+  },
+  "otherclass": {
+    "n_images_any_rater_called_OTHERCLASS": 948,
+    "n_images_unanimous_OTHERCLASS": 116,
+    "pct_of_OTHERCLASS_nominations_that_are_unanimous": 12.24,
+    "per_rater_OTHERCLASS_rate_pct": {
+      "FG1": 1.48,
+      "FG2": 8.9,
+      "G1": 2.06,
+      "G2": 5.41
+    },
+    "share_of_all_disagreement_pct": 20.8
+  },
+  "provenance": {
+    "by_source_type": {
+      "direct_capture": {
+        "n": 8053,
+        "pct_of_corpus": 91.16,
+        "pct_unanimous": 60.36,
+        "mean_distinct_labels": 1.498,
+        "n_patients": 351,
+        "resolutions": {
+          "1350x1080": 8053
+        }
+      },
+      "video_frame": {
+        "n": 781,
+        "pct_of_corpus": 8.84,
+        "pct_unanimous": 58.51,
+        "mean_distinct_labels": 1.507,
+        "n_patients": 37,
+        "resolutions": {
+          "900x720": 407,
+          "1350x1080": 374
+        }
+      }
+    },
+    "unanimity_chi2": 0.94,
+    "unanimity_p": 0.33253916510743947,
+    "mannwhitney_u": 3101943.5,
+    "mannwhitney_p": 0.4689943354867222,
+    "source_type_by_split": {
+      "Test": {
+        "direct_capture": 1283,
+        "video_frame": 70
+      },
+      "Train": {
+        "direct_capture": 5499,
+        "video_frame": 666
+      },
+      "Validation": {
+        "direct_capture": 1271,
+        "video_frame": 45
+      }
+    },
+    "source_type_split_chi2": 100.02,
+    "source_type_split_p": 1.9101035217988836e-22
+  },
+  "resolution": {
+    "by_width": {
+      "900": {
+        "n": 407,
+        "pct_unanimous": 55.04
+      },
+      "1350": {
+        "n": 8427,
+        "pct_unanimous": 60.45
+      }
+    },
+    "chi2": 4.52,
+    "p": 0.03345251718036904
+  },
+  "per_patient_agreement": {
+    "n_patients_scored": 387,
+    "mean": 0.7459,
+    "sd": 0.1448,
+    "min": 0.0694,
+    "max": 1.0,
+    "quartiles": [
+      0.6465,
+      0.7572,
+      0.8601
+    ],
+    "n_below_0.4_poor": 7,
+    "n_0.4_to_0.6_moderate": 45,
+    "n_0.6_to_0.8_substantial": 175,
+    "n_above_0.8_almost_perfect": 160,
+    "by_split": {
+      "Test": {
+        "n": 59,
+        "mean_kappa": 0.7383
+      },
+      "Train": {
+        "n": 270,
+        "mean_kappa": 0.7476
+      },
+      "Validation": {
+        "n": 58,
+        "mean_kappa": 0.7459
+      }
+    },
+    "kruskal_h": 0.037,
+    "kruskal_p": 0.9817668814144342
+  },
+  "runtime_sec": 1.5
+}
