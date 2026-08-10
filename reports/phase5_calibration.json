@@ -1,0 +1,274 @@
+{
+ "generated": "2026-07-28 17:24:35",
+ "phase": 5,
+ "step": "P5.8",
+ "endpoint": "Spearman rank correlation between the five arms' ECE ordering internally (Phase 4, pooled contested stratum) and externally (this phase, all evaluated images)",
+ "hypothesis": "the ordering is expected to be broadly preserved, because C3's low ECE is produced by a global confidence shift (Phase 4 sec.4.2) and a global shift is a property of the model rather than of the data it is shown. If the ordering does NOT survive, that is evidence the Phase 4 calibration result was dataset-specific, which would be the more important finding.",
+ "n_images": 17122,
+ "n_bins": 10,
+ "n_boot": 1000,
+ "boot_unit": "image",
+ "boot_unit_caveat": "Phases 0-4 clustered every interval by patient, because Phase 0 measured per-patient Fleiss kappa at 0.7459 +/- 0.1448 and images within a patient are not independent. Neither external corpus ships a usable grouping key: HyperKvasir's 'Video file' column has 10,662 distinct values over 10,662 images, one per image, and GastroVision ships none. Phase 5 intervals are therefore image-level and are OPTIMISTIC -- narrower than a correctly clustered interval would be. This is declared here rather than discovered later, and no Phase 5 interval may be compared directly against a Phase 0-4 interval.",
+ "definitional_differences_from_phase4": [
+  "Phase 4 scored ECE against annotator-marginalised EXPECTED accuracy; the external corpora ship no per-annotator votes, so external correctness is plain 0/1 against the collapsed label.",
+  "confidence is the 23-way top-1 probability while correctness is judged at collapsed granularity, so mass split across members of the correct group reads as under-confidence. ECE on the collapsed group mass is reported alongside as the secondary definition.",
+  "consequence: absolute external ECE is NOT directly comparable to absolute internal ECE. The P5-C verdict is a RANK correlation, which is invariant to both differences."
+ ],
+ "arms": [
+  "C0",
+  "C1",
+  "C2",
+  "C3",
+  "C4"
+ ],
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "per_seed": {
+  "C0": {
+   "1": {
+    "accuracy_collapsed": 0.43248,
+    "mean_top1_confidence": 0.77785,
+    "ece_top1": 34.536,
+    "mce_top1": 47.584,
+    "ece_group_mass": 47.511,
+    "overconfidence_points": 34.536,
+    "brier_top1": 0.35028
+   },
+   "2": {
+    "accuracy_collapsed": 0.53498,
+    "mean_top1_confidence": 0.81415,
+    "ece_top1": 27.917,
+    "mce_top1": 42.404,
+    "ece_group_mass": 37.582,
+    "overconfidence_points": 27.917,
+    "brier_top1": 0.29522
+   },
+   "3": {
+    "accuracy_collapsed": 0.47267,
+    "mean_top1_confidence": 0.79717,
+    "ece_top1": 32.45,
+    "mce_top1": 45.05,
+    "ece_group_mass": 43.792,
+    "overconfidence_points": 32.45,
+    "brier_top1": 0.32645
+   }
+  },
+  "C1": {
+   "1": {
+    "accuracy_collapsed": 0.47354,
+    "mean_top1_confidence": 0.79452,
+    "ece_top1": 32.098,
+    "mce_top1": 42.183,
+    "ece_group_mass": 43.842,
+    "overconfidence_points": 32.098,
+    "brier_top1": 0.33554
+   },
+   "2": {
+    "accuracy_collapsed": 0.49223,
+    "mean_top1_confidence": 0.79324,
+    "ece_top1": 30.102,
+    "mce_top1": 42.801,
+    "ece_group_mass": 40.603,
+    "overconfidence_points": 30.101,
+    "brier_top1": 0.31642
+   },
+   "3": {
+    "accuracy_collapsed": 0.48814,
+    "mean_top1_confidence": 0.79747,
+    "ece_top1": 30.933,
+    "mce_top1": 40.911,
+    "ece_group_mass": 41.86,
+    "overconfidence_points": 30.933,
+    "brier_top1": 0.32465
+   }
+  },
+  "C2": {
+   "1": {
+    "accuracy_collapsed": 0.62107,
+    "mean_top1_confidence": 0.69937,
+    "ece_top1": 8.66,
+    "mce_top1": 17.42,
+    "ece_group_mass": 26.57,
+    "overconfidence_points": 7.83,
+    "brier_top1": 0.22073
+   },
+   "2": {
+    "accuracy_collapsed": 0.66231,
+    "mean_top1_confidence": 0.72807,
+    "ece_top1": 7.556,
+    "mce_top1": 14.429,
+    "ece_group_mass": 23.381,
+    "overconfidence_points": 6.576,
+    "brier_top1": 0.20088
+   },
+   "3": {
+    "accuracy_collapsed": 0.68538,
+    "mean_top1_confidence": 0.74469,
+    "ece_top1": 7.185,
+    "mce_top1": 31.624,
+    "ece_group_mass": 21.577,
+    "overconfidence_points": 5.931,
+    "brier_top1": 0.19343
+   }
+  },
+  "C3": {
+   "1": {
+    "accuracy_collapsed": 0.49387,
+    "mean_top1_confidence": 0.43872,
+    "ece_top1": 8.42,
+    "mce_top1": 11.745,
+    "ece_group_mass": 33.59,
+    "overconfidence_points": -5.514,
+    "brier_top1": 0.22652
+   },
+   "2": {
+    "accuracy_collapsed": 0.49346,
+    "mean_top1_confidence": 0.42088,
+    "ece_top1": 8.462,
+    "mce_top1": 13.212,
+    "ece_group_mass": 32.589,
+    "overconfidence_points": -7.258,
+    "brier_top1": 0.22111
+   },
+   "3": {
+    "accuracy_collapsed": 0.49877,
+    "mean_top1_confidence": 0.43275,
+    "ece_top1": 7.107,
+    "mce_top1": 10.61,
+    "ece_group_mass": 30.731,
+    "overconfidence_points": -6.603,
+    "brier_top1": 0.20949
+   }
+  },
+  "C4": {
+   "1": {
+    "accuracy_collapsed": 0.61967,
+    "mean_top1_confidence": 0.71455,
+    "ece_top1": 9.745,
+    "mce_top1": 19.83,
+    "ece_group_mass": 27.601,
+    "overconfidence_points": 9.488,
+    "brier_top1": 0.21934
+   },
+   "2": {
+    "accuracy_collapsed": 0.60192,
+    "mean_top1_confidence": 0.70357,
+    "ece_top1": 10.562,
+    "mce_top1": 18.181,
+    "ece_group_mass": 28.981,
+    "overconfidence_points": 10.165,
+    "brier_top1": 0.22413
+   },
+   "3": {
+    "accuracy_collapsed": 0.58393,
+    "mean_top1_confidence": 0.69206,
+    "ece_top1": 10.886,
+    "mce_top1": 20.639,
+    "ece_group_mass": 30.647,
+    "overconfidence_points": 10.813,
+    "brier_top1": 0.22551
+   }
+  }
+ },
+ "aggregate_3seed": {
+  "C0": {
+   "ece_top1_mean_3seed": 31.634,
+   "ece_top1_ci95": [
+    31.028,
+    32.206
+   ],
+   "ece_group_mass_mean_3seed": 42.962,
+   "accuracy_collapsed_mean_3seed": 0.48004,
+   "overconfidence_points_mean_3seed": 31.634
+  },
+  "C1": {
+   "ece_top1_mean_3seed": 31.044,
+   "ece_top1_ci95": [
+    30.414,
+    31.708
+   ],
+   "ece_group_mass_mean_3seed": 42.102,
+   "accuracy_collapsed_mean_3seed": 0.48464,
+   "overconfidence_points_mean_3seed": 31.044
+  },
+  "C2": {
+   "ece_top1_mean_3seed": 7.8,
+   "ece_top1_ci95": [
+    7.362,
+    8.364
+   ],
+   "ece_group_mass_mean_3seed": 23.843,
+   "accuracy_collapsed_mean_3seed": 0.65625,
+   "overconfidence_points_mean_3seed": 6.779
+  },
+  "C3": {
+   "ece_top1_mean_3seed": 7.996,
+   "ece_top1_ci95": [
+    7.5,
+    8.602
+   ],
+   "ece_group_mass_mean_3seed": 32.303,
+   "accuracy_collapsed_mean_3seed": 0.49537,
+   "overconfidence_points_mean_3seed": -6.458
+  },
+  "C4": {
+   "ece_top1_mean_3seed": 10.398,
+   "ece_top1_ci95": [
+    9.896,
+    11.004
+   ],
+   "ece_group_mass_mean_3seed": 29.076,
+   "accuracy_collapsed_mean_3seed": 0.60184,
+   "overconfidence_points_mean_3seed": 10.155
+  }
+ },
+ "verdict_P5C": {
+  "computable": true,
+  "arms": [
+   "C0",
+   "C1",
+   "C2",
+   "C3",
+   "C4"
+  ],
+  "internal_ece_points": {
+   "C0": 43.965,
+   "C1": 43.613,
+   "C2": 33.079,
+   "C3": 19.413,
+   "C4": 32.715
+  },
+  "external_ece_points": {
+   "C0": 31.634,
+   "C1": 31.044,
+   "C2": 7.8,
+   "C3": 7.996,
+   "C4": 10.398
+  },
+  "internal_rank_order": [
+   "C3",
+   "C4",
+   "C2",
+   "C1",
+   "C0"
+  ],
+  "external_rank_order": [
+   "C2",
+   "C3",
+   "C4",
+   "C1",
+   "C0"
+  ],
+  "spearman_rho": 0.7,
+  "spearman_p": 0.1881204043741873,
+  "lowest_ece_internal": "C3",
+  "lowest_ece_external": "C2",
+  "lowest_ece_arm_preserved": false,
+  "verdict": "PRESERVED",
+  "rule": "PRESERVED if the Spearman rank correlation is >= 0.7; PARTIALLY PRESERVED if 0.3 to 0.7; NOT PRESERVED if < 0.3."
+ },
+ "runtime_sec": 25.0
+}

@@ -1,0 +1,3467 @@
+{
+  "generated": "2026-07-28 14:21:16",
+  "purpose": "RQ3 -- does predictive uncertainty track human disagreement",
+  "primary_quantity": "WITHIN-stratum Spearman rho between predictive entropy and per-image annotator vote entropy -- fixed by the Phase 3 carry-forward decision, because the pooled correlation (0.320) was shown to be almost entirely a between-tier effect that collapses to 0.02-0.08 within tiers",
+  "strata_where_defined": [
+    "S-majority",
+    "S-plurality",
+    "S-no-majority",
+    "S-contested (pooled)"
+  ],
+  "configurations_evaluated": [
+    "C0",
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+  ],
+  "config_labels": {
+    "C0": "C0 hard label, 4/4 cohort (Phase 2 reference)",
+    "C1": "C1 hard majority label, extended cohort",
+    "C2": "C2 vote proportions",
+    "C3": "C3 hard label + matched label smoothing (control)",
+    "C4": "C4 vote proportions + anatomical penalty"
+  },
+  "n_mc_samples": 20,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "partial_sweep": false,
+  "n_boot": 1000,
+  "boot_unit": "patient",
+  "boot_seed": 20260726,
+  "mean_vote_entropy_by_stratum": {
+    "S-unanimous": 0.0,
+    "S-majority": 0.56234,
+    "S-plurality": 1.03972,
+    "S-no-majority": 0.76161,
+    "S-contested (pooled)": 0.70192
+  },
+  "results": {
+    "C0|softmax": {
+      "per_member": {
+        "1": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.09448,
+            "spearman_p": 0.08101793549770708,
+            "ci95": [
+              -0.02623,
+              0.22188
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.04519,
+            "spearman_p": 0.6139528601942726,
+            "ci95": [
+              -0.12699,
+              0.18411
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": -0.06956,
+            "spearman_p": 0.5371715105218509,
+            "ci95": [
+              -0.29277,
+              0.18494
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.1229,
+            "spearman_p": 0.0038926190841429603,
+            "ci95": [
+              0.03011,
+              0.20544
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.3125,
+            "spearman_p": 4.9285681783572697e-32,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.18614,
+            "S-majority": 0.32074,
+            "S-plurality": 0.42757,
+            "S-no-majority": 0.35273,
+            "S-contested (pooled)": 0.35012
+          }
+        },
+        "2": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.09089,
+            "spearman_p": 0.09331526093301087,
+            "ci95": [
+              -0.01617,
+              0.19636
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.01298,
+            "spearman_p": 0.8848497313211348,
+            "ci95": [
+              -0.18324,
+              0.18832
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.11221,
+            "spearman_p": 0.3185902455773201,
+            "ci95": [
+              -0.10514,
+              0.30264
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.17059,
+            "spearman_p": 5.7911694089042245e-05,
+            "ci95": [
+              0.063,
+              0.27001
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.31206,
+            "spearman_p": 6.06879941003778e-32,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.16664,
+            "S-majority": 0.27798,
+            "S-plurality": 0.44468,
+            "S-no-majority": 0.33399,
+            "S-contested (pooled)": 0.32472
+          }
+        },
+        "3": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.04593,
+            "spearman_p": 0.3971137647960622,
+            "ci95": [
+              -0.06015,
+              0.15732
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.00385,
+            "spearman_p": 0.965773912391364,
+            "ci95": [
+              -0.15319,
+              0.1559
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.06428,
+            "spearman_p": 0.5686256166845401,
+            "ci95": [
+              -0.12109,
+              0.23292
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.16443,
+            "spearman_p": 0.00010714593901453608,
+            "ci95": [
+              0.07899,
+              0.24408
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.33641,
+            "spearman_p": 3.735731298348905e-37,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.14932,
+            "S-majority": 0.26395,
+            "S-plurality": 0.41818,
+            "S-no-majority": 0.31649,
+            "S-contested (pooled)": 0.3073
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.0771,
+          "n_members": 3
+        },
+        "S-plurality": {
+          "mean_rho": 0.02067,
+          "n_members": 3
+        },
+        "S-no-majority": {
+          "mean_rho": 0.03564,
+          "n_members": 3
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.15264,
+          "n_members": 3
+        }
+      }
+    },
+    "C0|mc_stochastic_depth": {
+      "per_member": {
+        "1": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.09571,
+            "spearman_p": 0.07714736366995818,
+            "ci95": [
+              -0.03026,
+              0.2182
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.05528,
+            "spearman_p": 0.5370435625121938,
+            "ci95": [
+              -0.10922,
+              0.1978
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": -0.04507,
+            "spearman_p": 0.6895007875447288,
+            "ci95": [
+              -0.27396,
+              0.18188
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.13386,
+            "spearman_p": 0.0016528276224543875,
+            "ci95": [
+              0.04055,
+              0.21845
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.31549,
+            "spearman_p": 1.1942361317423835e-32,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.24894,
+            "S-majority": 0.42113,
+            "S-plurality": 0.55644,
+            "S-no-majority": 0.4638,
+            "S-contested (pooled)": 0.45866
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.24894,
+              "aleatoric": 0.204,
+              "epistemic_mutual_information": 0.04494
+            },
+            "S-majority": {
+              "total": 0.42113,
+              "aleatoric": 0.348,
+              "epistemic_mutual_information": 0.07313,
+              "epistemic_vs_vote_entropy_rho": 0.08803
+            },
+            "S-plurality": {
+              "total": 0.55644,
+              "aleatoric": 0.46496,
+              "epistemic_mutual_information": 0.09148,
+              "epistemic_vs_vote_entropy_rho": -0.00529
+            },
+            "S-no-majority": {
+              "total": 0.4638,
+              "aleatoric": 0.38624,
+              "epistemic_mutual_information": 0.07756,
+              "epistemic_vs_vote_entropy_rho": -0.00184
+            },
+            "S-contested (pooled)": {
+              "total": 0.45866,
+              "aleatoric": 0.38064,
+              "epistemic_mutual_information": 0.07802,
+              "epistemic_vs_vote_entropy_rho": 0.12281
+            }
+          }
+        },
+        "2": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.09561,
+            "spearman_p": 0.07743472246525389,
+            "ci95": [
+              -0.019,
+              0.20539
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.01923,
+            "spearman_p": 0.8301064299485921,
+            "ci95": [
+              -0.1632,
+              0.18516
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.1375,
+            "spearman_p": 0.22092625824908327,
+            "ci95": [
+              -0.09044,
+              0.32862
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.18114,
+            "spearman_p": 1.9207174339687798e-05,
+            "ci95": [
+              0.07105,
+              0.28117
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.31682,
+            "spearman_p": 6.319619667824871e-33,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.22538,
+            "S-majority": 0.3682,
+            "S-plurality": 0.56512,
+            "S-no-majority": 0.42668,
+            "S-contested (pooled)": 0.42229
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.22538,
+              "aleatoric": 0.1846,
+              "epistemic_mutual_information": 0.04078
+            },
+            "S-majority": {
+              "total": 0.3682,
+              "aleatoric": 0.30019,
+              "epistemic_mutual_information": 0.06801,
+              "epistemic_vs_vote_entropy_rho": 0.09447
+            },
+            "S-plurality": {
+              "total": 0.56512,
+              "aleatoric": 0.47038,
+              "epistemic_mutual_information": 0.09474,
+              "epistemic_vs_vote_entropy_rho": 0.03653
+            },
+            "S-no-majority": {
+              "total": 0.42668,
+              "aleatoric": 0.35484,
+              "epistemic_mutual_information": 0.07184,
+              "epistemic_vs_vote_entropy_rho": 0.16185
+            },
+            "S-contested (pooled)": {
+              "total": 0.42229,
+              "aleatoric": 0.34754,
+              "epistemic_mutual_information": 0.07475,
+              "epistemic_vs_vote_entropy_rho": 0.1325
+            }
+          }
+        },
+        "3": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.06363,
+            "spearman_p": 0.24058190454176046,
+            "ci95": [
+              -0.04123,
+              0.17124
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.00769,
+            "spearman_p": 0.931610017011839,
+            "ci95": [
+              -0.14454,
+              0.15978
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.12511,
+            "spearman_p": 0.26578054134614626,
+            "ci95": [
+              -0.07506,
+              0.30998
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.17735,
+            "spearman_p": 2.8767031781190734e-05,
+            "ci95": [
+              0.08323,
+              0.25772
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.34329,
+            "spearman_p": 1.0286572801818937e-38,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.20361,
+            "S-majority": 0.3499,
+            "S-plurality": 0.54289,
+            "S-no-majority": 0.40343,
+            "S-contested (pooled)": 0.40235
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.20361,
+              "aleatoric": 0.16575,
+              "epistemic_mutual_information": 0.03785
+            },
+            "S-majority": {
+              "total": 0.3499,
+              "aleatoric": 0.28579,
+              "epistemic_mutual_information": 0.06411,
+              "epistemic_vs_vote_entropy_rho": 0.08491
+            },
+            "S-plurality": {
+              "total": 0.54289,
+              "aleatoric": 0.45093,
+              "epistemic_mutual_information": 0.09196,
+              "epistemic_vs_vote_entropy_rho": -0.03846
+            },
+            "S-no-majority": {
+              "total": 0.40343,
+              "aleatoric": 0.33662,
+              "epistemic_mutual_information": 0.06681,
+              "epistemic_vs_vote_entropy_rho": 0.22351
+            },
+            "S-contested (pooled)": {
+              "total": 0.40235,
+              "aleatoric": 0.33141,
+              "epistemic_mutual_information": 0.07094,
+              "epistemic_vs_vote_entropy_rho": 0.149
+            }
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.08498,
+          "n_members": 3
+        },
+        "S-plurality": {
+          "mean_rho": 0.0274,
+          "n_members": 3
+        },
+        "S-no-majority": {
+          "mean_rho": 0.07251,
+          "n_members": 3
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.16412,
+          "n_members": 3
+        }
+      }
+    },
+    "C0|deep_ensemble_3seed": {
+      "per_member": {
+        "ens": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.09932,
+            "spearman_p": 0.06657413982480452,
+            "ci95": [
+              -0.02584,
+              0.21848
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.00913,
+            "spearman_p": 0.9188272334464814,
+            "ci95": [
+              -0.16376,
+              0.15814
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.06248,
+            "spearman_p": 0.5795150678153695,
+            "ci95": [
+              -0.13325,
+              0.26017
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.16628,
+            "spearman_p": 8.929899819421249e-05,
+            "ci95": [
+              0.06322,
+              0.2641
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.33378,
+            "spearman_p": 1.443884856919419e-36,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.24195,
+            "S-majority": 0.41466,
+            "S-plurality": 0.59921,
+            "S-no-majority": 0.47212,
+            "S-contested (pooled)": 0.46574
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.24195,
+              "aleatoric": 0.16737,
+              "epistemic_mutual_information": 0.07458
+            },
+            "S-majority": {
+              "total": 0.41466,
+              "aleatoric": 0.28756,
+              "epistemic_mutual_information": 0.1271,
+              "epistemic_vs_vote_entropy_rho": 0.10296
+            },
+            "S-plurality": {
+              "total": 0.59921,
+              "aleatoric": 0.43014,
+              "epistemic_mutual_information": 0.16907,
+              "epistemic_vs_vote_entropy_rho": -0.02548
+            },
+            "S-no-majority": {
+              "total": 0.47212,
+              "aleatoric": 0.3344,
+              "epistemic_mutual_information": 0.13772,
+              "epistemic_vs_vote_entropy_rho": 0.10148
+            },
+            "S-contested (pooled)": {
+              "total": 0.46574,
+              "aleatoric": 0.32738,
+              "epistemic_mutual_information": 0.13835,
+              "epistemic_vs_vote_entropy_rho": 0.13161
+            }
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.09932,
+          "n_members": 1
+        },
+        "S-plurality": {
+          "mean_rho": 0.00913,
+          "n_members": 1
+        },
+        "S-no-majority": {
+          "mean_rho": 0.06248,
+          "n_members": 1
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.16628,
+          "n_members": 1
+        }
+      }
+    },
+    "C1|softmax": {
+      "per_member": {
+        "1": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.08927,
+            "spearman_p": 0.09932484006623755,
+            "ci95": [
+              -0.01021,
+              0.18611
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.05672,
+            "spearman_p": 0.5264602427245139,
+            "ci95": [
+              -0.12417,
+              0.22785
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": -0.0209,
+            "spearman_p": 0.8530976204085872,
+            "ci95": [
+              -0.19124,
+              0.1484
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.16085,
+            "spearman_p": 0.00015169556681008368,
+            "ci95": [
+              0.08637,
+              0.23004
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.32923,
+            "spearman_p": 1.4394415608914256e-35,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.15603,
+            "S-majority": 0.26441,
+            "S-plurality": 0.39452,
+            "S-no-majority": 0.3231,
+            "S-contested (pooled)": 0.3031
+          }
+        },
+        "2": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.04389,
+            "spearman_p": 0.41845952432790884,
+            "ci95": [
+              -0.04647,
+              0.1431
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.10479,
+            "spearman_p": 0.24099519823714483,
+            "ci95": [
+              -0.08204,
+              0.27404
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.13896,
+            "spearman_p": 0.21600450540484714,
+            "ci95": [
+              -0.04706,
+              0.31419
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.11722,
+            "spearman_p": 0.005918115049041256,
+            "ci95": [
+              0.03443,
+              0.19404
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.32741,
+            "spearman_p": 3.575992131853523e-35,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.14712,
+            "S-majority": 0.28085,
+            "S-plurality": 0.39565,
+            "S-no-majority": 0.27991,
+            "S-contested (pooled)": 0.30722
+          }
+        },
+        "3": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.03749,
+            "spearman_p": 0.48951019564396586,
+            "ci95": [
+              -0.07803,
+              0.14459
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.06009,
+            "spearman_p": 0.502181939571018,
+            "ci95": [
+              -0.10759,
+              0.21766
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": -0.03233,
+            "spearman_p": 0.7744903239787148,
+            "ci95": [
+              -0.23908,
+              0.17572
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.13009,
+            "spearman_p": 0.002236011874255673,
+            "ci95": [
+              0.04808,
+              0.2146
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.33482,
+            "spearman_p": 8.45595516591692e-37,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.14407,
+            "S-majority": 0.26886,
+            "S-plurality": 0.39825,
+            "S-no-majority": 0.29393,
+            "S-contested (pooled)": 0.30243
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.05688,
+          "n_members": 3
+        },
+        "S-plurality": {
+          "mean_rho": 0.07387,
+          "n_members": 3
+        },
+        "S-no-majority": {
+          "mean_rho": 0.02858,
+          "n_members": 3
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.13605,
+          "n_members": 3
+        }
+      }
+    },
+    "C1|mc_stochastic_depth": {
+      "per_member": {
+        "1": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.08621,
+            "spearman_p": 0.11151904621889357,
+            "ci95": [
+              -0.01385,
+              0.1889
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.06057,
+            "spearman_p": 0.498762022208626,
+            "ci95": [
+              -0.10757,
+              0.2224
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": -0.02027,
+            "spearman_p": 0.8574438957860239,
+            "ci95": [
+              -0.20475,
+              0.15313
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.17144,
+            "spearman_p": 5.311401061508697e-05,
+            "ci95": [
+              0.09165,
+              0.24538
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.33645,
+            "spearman_p": 3.6578468433387047e-37,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.20606,
+            "S-majority": 0.3437,
+            "S-plurality": 0.52452,
+            "S-no-majority": 0.39597,
+            "S-contested (pooled)": 0.39315
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.20606,
+              "aleatoric": 0.1668,
+              "epistemic_mutual_information": 0.03926
+            },
+            "S-majority": {
+              "total": 0.3437,
+              "aleatoric": 0.28002,
+              "epistemic_mutual_information": 0.06369,
+              "epistemic_vs_vote_entropy_rho": 0.06906
+            },
+            "S-plurality": {
+              "total": 0.52452,
+              "aleatoric": 0.42836,
+              "epistemic_mutual_information": 0.09616,
+              "epistemic_vs_vote_entropy_rho": -0.03653
+            },
+            "S-no-majority": {
+              "total": 0.39597,
+              "aleatoric": 0.32399,
+              "epistemic_mutual_information": 0.07198,
+              "epistemic_vs_vote_entropy_rho": -0.04946
+            },
+            "S-contested (pooled)": {
+              "total": 0.39315,
+              "aleatoric": 0.32075,
+              "epistemic_mutual_information": 0.07241,
+              "epistemic_vs_vote_entropy_rho": 0.1524
+            }
+          }
+        },
+        "2": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.07134,
+            "spearman_p": 0.18814845483462264,
+            "ci95": [
+              -0.02101,
+              0.16812
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.09902,
+            "spearman_p": 0.26802042887514954,
+            "ci95": [
+              -0.08549,
+              0.2568
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.11395,
+            "spearman_p": 0.3111061156424713,
+            "ci95": [
+              -0.05678,
+              0.28265
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.13661,
+            "spearman_p": 0.0013201432592357433,
+            "ci95": [
+              0.05363,
+              0.21174
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.33835,
+            "spearman_p": 1.370191055808577e-37,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.19995,
+            "S-majority": 0.37305,
+            "S-plurality": 0.5203,
+            "S-no-majority": 0.38526,
+            "S-contested (pooled)": 0.40885
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.19995,
+              "aleatoric": 0.16323,
+              "epistemic_mutual_information": 0.03672
+            },
+            "S-majority": {
+              "total": 0.37305,
+              "aleatoric": 0.29972,
+              "epistemic_mutual_information": 0.07333,
+              "epistemic_vs_vote_entropy_rho": 0.09863
+            },
+            "S-plurality": {
+              "total": 0.5203,
+              "aleatoric": 0.42794,
+              "epistemic_mutual_information": 0.09237,
+              "epistemic_vs_vote_entropy_rho": 0.06201
+            },
+            "S-no-majority": {
+              "total": 0.38526,
+              "aleatoric": 0.31223,
+              "epistemic_mutual_information": 0.07302,
+              "epistemic_vs_vote_entropy_rho": 0.17376
+            },
+            "S-contested (pooled)": {
+              "total": 0.40885,
+              "aleatoric": 0.33117,
+              "epistemic_mutual_information": 0.07768,
+              "epistemic_vs_vote_entropy_rho": 0.13737
+            }
+          }
+        },
+        "3": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.03701,
+            "spearman_p": 0.49510940681910254,
+            "ci95": [
+              -0.07734,
+              0.14268
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.06537,
+            "spearman_p": 0.4652462530756347,
+            "ci95": [
+              -0.10433,
+              0.22764
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": -0.04198,
+            "spearman_p": 0.7098337864631258,
+            "ci95": [
+              -0.21974,
+              0.17111
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.14216,
+            "spearman_p": 0.0008274390804743982,
+            "ci95": [
+              0.05207,
+              0.23032
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.33639,
+            "spearman_p": 3.779904411527993e-37,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.19717,
+            "S-majority": 0.35267,
+            "S-plurality": 0.51378,
+            "S-no-majority": 0.40077,
+            "S-contested (pooled)": 0.39695
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.19717,
+              "aleatoric": 0.15813,
+              "epistemic_mutual_information": 0.03904
+            },
+            "S-majority": {
+              "total": 0.35267,
+              "aleatoric": 0.28585,
+              "epistemic_mutual_information": 0.06682,
+              "epistemic_vs_vote_entropy_rho": 0.03971
+            },
+            "S-plurality": {
+              "total": 0.51378,
+              "aleatoric": 0.41919,
+              "epistemic_mutual_information": 0.0946,
+              "epistemic_vs_vote_entropy_rho": 0.07883
+            },
+            "S-no-majority": {
+              "total": 0.40077,
+              "aleatoric": 0.3213,
+              "epistemic_mutual_information": 0.07947,
+              "epistemic_vs_vote_entropy_rho": -0.03754
+            },
+            "S-contested (pooled)": {
+              "total": 0.39695,
+              "aleatoric": 0.32186,
+              "epistemic_mutual_information": 0.0751,
+              "epistemic_vs_vote_entropy_rho": 0.13989
+            }
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.06485,
+          "n_members": 3
+        },
+        "S-plurality": {
+          "mean_rho": 0.07499,
+          "n_members": 3
+        },
+        "S-no-majority": {
+          "mean_rho": 0.01723,
+          "n_members": 3
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.15007,
+          "n_members": 3
+        }
+      }
+    },
+    "C1|deep_ensemble_3seed": {
+      "per_member": {
+        "ens": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.05809,
+            "spearman_p": 0.28408014066400555,
+            "ci95": [
+              -0.04908,
+              0.16278
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.01009,
+            "spearman_p": 0.9103166744196103,
+            "ci95": [
+              -0.15966,
+              0.17347
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.0119,
+            "spearman_p": 0.9159995120036403,
+            "ci95": [
+              -0.1762,
+              0.19104
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.15833,
+            "spearman_p": 0.00019276281291063903,
+            "ci95": [
+              0.06989,
+              0.24571
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.34959,
+            "spearman_p": 3.551216335669173e-40,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.20561,
+            "S-majority": 0.36955,
+            "S-plurality": 0.54633,
+            "S-no-majority": 0.41652,
+            "S-contested (pooled)": 0.41729
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.20561,
+              "aleatoric": 0.14907,
+              "epistemic_mutual_information": 0.05654
+            },
+            "S-majority": {
+              "total": 0.36955,
+              "aleatoric": 0.27137,
+              "epistemic_mutual_information": 0.09818,
+              "epistemic_vs_vote_entropy_rho": 0.03949
+            },
+            "S-plurality": {
+              "total": 0.54633,
+              "aleatoric": 0.39614,
+              "epistemic_mutual_information": 0.15019,
+              "epistemic_vs_vote_entropy_rho": -0.0971
+            },
+            "S-no-majority": {
+              "total": 0.41652,
+              "aleatoric": 0.29898,
+              "epistemic_mutual_information": 0.11754,
+              "epistemic_vs_vote_entropy_rho": 0.00434
+            },
+            "S-contested (pooled)": {
+              "total": 0.41729,
+              "aleatoric": 0.30425,
+              "epistemic_mutual_information": 0.11304,
+              "epistemic_vs_vote_entropy_rho": 0.15148
+            }
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.05809,
+          "n_members": 1
+        },
+        "S-plurality": {
+          "mean_rho": 0.01009,
+          "n_members": 1
+        },
+        "S-no-majority": {
+          "mean_rho": 0.0119,
+          "n_members": 1
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.15833,
+          "n_members": 1
+        }
+      }
+    },
+    "C2|softmax": {
+      "per_member": {
+        "1": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.05875,
+            "spearman_p": 0.2786061089227421,
+            "ci95": [
+              -0.05238,
+              0.16806
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.18218,
+            "spearman_p": 0.04036387631124957,
+            "ci95": [
+              -0.00402,
+              0.33447
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.03821,
+            "spearman_p": 0.734848732517956,
+            "ci95": [
+              -0.14209,
+              0.22004
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.20613,
+            "spearman_p": 1.0843306312079298e-06,
+            "ci95": [
+              0.1133,
+              0.29605
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.3865,
+            "spearman_p": 1.9235847169486287e-49,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.27602,
+            "S-majority": 0.49133,
+            "S-plurality": 0.72455,
+            "S-no-majority": 0.52709,
+            "S-contested (pooled)": 0.55045
+          }
+        },
+        "2": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.07266,
+            "spearman_p": 0.18006260719732378,
+            "ci95": [
+              -0.03981,
+              0.18912
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.12546,
+            "spearman_p": 0.1598822517751059,
+            "ci95": [
+              -0.04504,
+              0.27345
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.16685,
+            "spearman_p": 0.13653974029953803,
+            "ci95": [
+              -0.05304,
+              0.35875
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.19566,
+            "spearman_p": 3.7846289576998e-06,
+            "ci95": [
+              0.10835,
+              0.28049
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.38169,
+            "spearman_p": 3.633800213229884e-48,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.28084,
+            "S-majority": 0.49932,
+            "S-plurality": 0.71833,
+            "S-no-majority": 0.54339,
+            "S-contested (pooled)": 0.55638
+          }
+        },
+        "3": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.04677,
+            "spearman_p": 0.38852627376071575,
+            "ci95": [
+              -0.05786,
+              0.16056
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.11248,
+            "spearman_p": 0.20799794041946343,
+            "ci95": [
+              -0.08031,
+              0.28395
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": -0.01503,
+            "spearman_p": 0.8940649933061495,
+            "ci95": [
+              -0.21158,
+              0.1542
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.17319,
+            "spearman_p": 4.438846652702744e-05,
+            "ci95": [
+              0.07123,
+              0.26508
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.36402,
+            "spearman_p": 1.177902834204744e-43,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.27395,
+            "S-majority": 0.47992,
+            "S-plurality": 0.68081,
+            "S-no-majority": 0.53388,
+            "S-contested (pooled)": 0.53425
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.05939,
+          "n_members": 3
+        },
+        "S-plurality": {
+          "mean_rho": 0.14004,
+          "n_members": 3
+        },
+        "S-no-majority": {
+          "mean_rho": 0.06334,
+          "n_members": 3
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.19166,
+          "n_members": 3
+        }
+      }
+    },
+    "C2|mc_stochastic_depth": {
+      "per_member": {
+        "1": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.0726,
+            "spearman_p": 0.18042965186895957,
+            "ci95": [
+              -0.03918,
+              0.18017
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.18411,
+            "spearman_p": 0.038263837844792856,
+            "ci95": [
+              -0.00265,
+              0.34055
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.08679,
+            "spearman_p": 0.4410601485541051,
+            "ci95": [
+              -0.11194,
+              0.27006
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.21822,
+            "spearman_p": 2.3595855397268385e-07,
+            "ci95": [
+              0.12363,
+              0.30939
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.39058,
+            "spearman_p": 1.5239150948621817e-50,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.32734,
+            "S-majority": 0.56347,
+            "S-plurality": 0.81663,
+            "S-no-majority": 0.60617,
+            "S-contested (pooled)": 0.62821
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.32734,
+              "aleatoric": 0.30751,
+              "epistemic_mutual_information": 0.01983
+            },
+            "S-majority": {
+              "total": 0.56347,
+              "aleatoric": 0.53109,
+              "epistemic_mutual_information": 0.03238,
+              "epistemic_vs_vote_entropy_rho": 0.04879
+            },
+            "S-plurality": {
+              "total": 0.81663,
+              "aleatoric": 0.77092,
+              "epistemic_mutual_information": 0.0457,
+              "epistemic_vs_vote_entropy_rho": 0.13652
+            },
+            "S-no-majority": {
+              "total": 0.60617,
+              "aleatoric": 0.57224,
+              "epistemic_mutual_information": 0.03393,
+              "epistemic_vs_vote_entropy_rho": 0.07409
+            },
+            "S-contested (pooled)": {
+              "total": 0.62821,
+              "aleatoric": 0.59253,
+              "epistemic_mutual_information": 0.03568,
+              "epistemic_vs_vote_entropy_rho": 0.15896
+            }
+          }
+        },
+        "2": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.08432,
+            "spearman_p": 0.11961945914817193,
+            "ci95": [
+              -0.02688,
+              0.19979
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.13508,
+            "spearman_p": 0.12999325552823043,
+            "ci95": [
+              -0.03846,
+              0.28875
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.17993,
+            "spearman_p": 0.10797538422044661,
+            "ci95": [
+              -0.04962,
+              0.38001
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.21646,
+            "spearman_p": 2.964236338997783e-07,
+            "ci95": [
+              0.12699,
+              0.30298
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.38909,
+            "spearman_p": 3.867308991471479e-50,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.33073,
+            "S-majority": 0.57031,
+            "S-plurality": 0.81389,
+            "S-no-majority": 0.61765,
+            "S-contested (pooled)": 0.63352
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.33073,
+              "aleatoric": 0.31141,
+              "epistemic_mutual_information": 0.01932
+            },
+            "S-majority": {
+              "total": 0.57031,
+              "aleatoric": 0.53817,
+              "epistemic_mutual_information": 0.03214,
+              "epistemic_vs_vote_entropy_rho": 0.07763
+            },
+            "S-plurality": {
+              "total": 0.81389,
+              "aleatoric": 0.76581,
+              "epistemic_mutual_information": 0.04808,
+              "epistemic_vs_vote_entropy_rho": 0.16248
+            },
+            "S-no-majority": {
+              "total": 0.61765,
+              "aleatoric": 0.58152,
+              "epistemic_mutual_information": 0.03613,
+              "epistemic_vs_vote_entropy_rho": 0.14381
+            },
+            "S-contested (pooled)": {
+              "total": 0.63352,
+              "aleatoric": 0.59712,
+              "epistemic_mutual_information": 0.03641,
+              "epistemic_vs_vote_entropy_rho": 0.19996
+            }
+          }
+        },
+        "3": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.06565,
+            "spearman_p": 0.22590896285537787,
+            "ci95": [
+              -0.0416,
+              0.17888
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.13075,
+            "spearman_p": 0.142864899825032,
+            "ci95": [
+              -0.06567,
+              0.30646
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.01221,
+            "spearman_p": 0.9138565261806381,
+            "ci95": [
+              -0.19282,
+              0.19333
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.18852,
+            "spearman_p": 8.544194675979062e-06,
+            "ci95": [
+              0.08249,
+              0.28194
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.37524,
+            "spearman_p": 1.7339494280854384e-46,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.32205,
+            "S-majority": 0.5538,
+            "S-plurality": 0.77184,
+            "S-no-majority": 0.60384,
+            "S-contested (pooled)": 0.61151
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.32205,
+              "aleatoric": 0.30285,
+              "epistemic_mutual_information": 0.0192
+            },
+            "S-majority": {
+              "total": 0.5538,
+              "aleatoric": 0.5206,
+              "epistemic_mutual_information": 0.0332,
+              "epistemic_vs_vote_entropy_rho": 0.07945
+            },
+            "S-plurality": {
+              "total": 0.77184,
+              "aleatoric": 0.72841,
+              "epistemic_mutual_information": 0.04343,
+              "epistemic_vs_vote_entropy_rho": 0.06201
+            },
+            "S-no-majority": {
+              "total": 0.60384,
+              "aleatoric": 0.57062,
+              "epistemic_mutual_information": 0.03322,
+              "epistemic_vs_vote_entropy_rho": 0.15126
+            },
+            "S-contested (pooled)": {
+              "total": 0.61151,
+              "aleatoric": 0.57595,
+              "epistemic_mutual_information": 0.03556,
+              "epistemic_vs_vote_entropy_rho": 0.15224
+            }
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.07419,
+          "n_members": 3
+        },
+        "S-plurality": {
+          "mean_rho": 0.14998,
+          "n_members": 3
+        },
+        "S-no-majority": {
+          "mean_rho": 0.09298,
+          "n_members": 3
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.20773,
+          "n_members": 3
+        }
+      }
+    },
+    "C2|deep_ensemble_3seed": {
+      "per_member": {
+        "ens": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.05821,
+            "spearman_p": 0.2830532235887233,
+            "ci95": [
+              -0.0489,
+              0.16987
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.15527,
+            "spearman_p": 0.08132669690428783,
+            "ci95": [
+              -0.02868,
+              0.31048
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.08793,
+            "spearman_p": 0.43504304543354133,
+            "ci95": [
+              -0.12773,
+              0.28644
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.20557,
+            "spearman_p": 1.1611067639203835e-06,
+            "ci95": [
+              0.11323,
+              0.29403
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.38446,
+            "spearman_p": 6.732258113628877e-49,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.2939,
+            "S-majority": 0.517,
+            "S-plurality": 0.74864,
+            "S-no-majority": 0.57181,
+            "S-contested (pooled)": 0.57856
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.2939,
+              "aleatoric": 0.27694,
+              "epistemic_mutual_information": 0.01696
+            },
+            "S-majority": {
+              "total": 0.517,
+              "aleatoric": 0.49019,
+              "epistemic_mutual_information": 0.02681,
+              "epistemic_vs_vote_entropy_rho": -0.0138
+            },
+            "S-plurality": {
+              "total": 0.74864,
+              "aleatoric": 0.7079,
+              "epistemic_mutual_information": 0.04075,
+              "epistemic_vs_vote_entropy_rho": 0.03749
+            },
+            "S-no-majority": {
+              "total": 0.57181,
+              "aleatoric": 0.53478,
+              "epistemic_mutual_information": 0.03702,
+              "epistemic_vs_vote_entropy_rho": 0.11592
+            },
+            "S-contested (pooled)": {
+              "total": 0.57856,
+              "aleatoric": 0.54703,
+              "epistemic_mutual_information": 0.03153,
+              "epistemic_vs_vote_entropy_rho": 0.16366
+            }
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.05821,
+          "n_members": 1
+        },
+        "S-plurality": {
+          "mean_rho": 0.15527,
+          "n_members": 1
+        },
+        "S-no-majority": {
+          "mean_rho": 0.08793,
+          "n_members": 1
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.20557,
+          "n_members": 1
+        }
+      }
+    },
+    "C3|softmax": {
+      "per_member": {
+        "1": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.02459,
+            "spearman_p": 0.6504488479679031,
+            "ci95": [
+              -0.0943,
+              0.13865
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.16584,
+            "spearman_p": 0.06240914461429378,
+            "ci95": [
+              0.02071,
+              0.30871
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": -0.0061,
+            "spearman_p": 0.9569202796071973,
+            "ci95": [
+              -0.22615,
+              0.18937
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.20043,
+            "spearman_p": 2.157655189340632e-06,
+            "ci95": [
+              0.10764,
+              0.28202
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.36748,
+            "spearman_p": 1.6216547485250504e-44,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.92333,
+            "S-majority": 1.3191,
+            "S-plurality": 1.74808,
+            "S-no-majority": 1.36344,
+            "S-contested (pooled)": 1.42468
+          }
+        },
+        "2": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.0261,
+            "spearman_p": 0.6304609493478046,
+            "ci95": [
+              -0.08394,
+              0.13675
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.19228,
+            "spearman_p": 0.03033387416106429,
+            "ci95": [
+              0.04558,
+              0.33956
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.0465,
+            "spearman_p": 0.6801584497100405,
+            "ci95": [
+              -0.18902,
+              0.25463
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.20228,
+            "spearman_p": 1.7302000074297257e-06,
+            "ci95": [
+              0.11155,
+              0.28472
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.35521,
+            "spearman_p": 1.6435475439387047e-41,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.93215,
+            "S-majority": 1.31753,
+            "S-plurality": 1.7425,
+            "S-no-majority": 1.36713,
+            "S-contested (pooled)": 1.42296
+          }
+        },
+        "3": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.04161,
+            "spearman_p": 0.44310235365083805,
+            "ci95": [
+              -0.08647,
+              0.1614
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.2317,
+            "spearman_p": 0.008766262851890803,
+            "ci95": [
+              0.09009,
+              0.38149
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": -0.11314,
+            "spearman_p": 0.3145713130752523,
+            "ci95": [
+              -0.32139,
+              0.0916
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.18441,
+            "spearman_p": 1.3476194655651811e-05,
+            "ci95": [
+              0.09329,
+              0.27262
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.33839,
+            "spearman_p": 1.3450089873283482e-37,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.98082,
+            "S-majority": 1.35796,
+            "S-plurality": 1.75974,
+            "S-no-majority": 1.32639,
+            "S-contested (pooled)": 1.44609
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.03077,
+          "n_members": 3
+        },
+        "S-plurality": {
+          "mean_rho": 0.19661,
+          "n_members": 3
+        },
+        "S-no-majority": {
+          "mean_rho": -0.02425,
+          "n_members": 3
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.19571,
+          "n_members": 3
+        }
+      }
+    },
+    "C3|mc_stochastic_depth": {
+      "per_member": {
+        "1": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.02172,
+            "spearman_p": 0.6890219185292663,
+            "ci95": [
+              -0.10216,
+              0.13704
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.19276,
+            "spearman_p": 0.029914455199920382,
+            "ci95": [
+              0.04243,
+              0.33228
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": -0.00899,
+            "spearman_p": 0.9364930169378064,
+            "ci95": [
+              -0.22838,
+              0.19317
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.21289,
+            "spearman_p": 4.672090102402254e-07,
+            "ci95": [
+              0.11927,
+              0.29406
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.37222,
+            "spearman_p": 1.0270381646139152e-45,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 1.05273,
+            "S-majority": 1.45536,
+            "S-plurality": 1.89199,
+            "S-no-majority": 1.4983,
+            "S-contested (pooled)": 1.5625
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 1.05273,
+              "aleatoric": 1.02918,
+              "epistemic_mutual_information": 0.02355
+            },
+            "S-majority": {
+              "total": 1.45536,
+              "aleatoric": 1.41911,
+              "epistemic_mutual_information": 0.03625,
+              "epistemic_vs_vote_entropy_rho": 0.01074
+            },
+            "S-plurality": {
+              "total": 1.89199,
+              "aleatoric": 1.84591,
+              "epistemic_mutual_information": 0.04608,
+              "epistemic_vs_vote_entropy_rho": -0.0423
+            },
+            "S-no-majority": {
+              "total": 1.4983,
+              "aleatoric": 1.45972,
+              "epistemic_mutual_information": 0.03858,
+              "epistemic_vs_vote_entropy_rho": 0.02556
+            },
+            "S-contested (pooled)": {
+              "total": 1.5625,
+              "aleatoric": 1.52364,
+              "epistemic_mutual_information": 0.03886,
+              "epistemic_vs_vote_entropy_rho": 0.14089
+            }
+          }
+        },
+        "2": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.03559,
+            "spearman_p": 0.5117877117190447,
+            "ci95": [
+              -0.079,
+              0.14941
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.20814,
+            "spearman_p": 0.018862792095250727,
+            "ci95": [
+              0.06306,
+              0.35015
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.02532,
+            "spearman_p": 0.8224877080238457,
+            "ci95": [
+              -0.20805,
+              0.23259
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.21269,
+            "spearman_p": 4.792699727962756e-07,
+            "ci95": [
+              0.12344,
+              0.29695
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.35977,
+            "spearman_p": 1.299512198085241e-42,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 1.06449,
+            "S-majority": 1.45476,
+            "S-plurality": 1.87437,
+            "S-no-majority": 1.51507,
+            "S-contested (pooled)": 1.56053
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 1.06449,
+              "aleatoric": 1.04101,
+              "epistemic_mutual_information": 0.02348
+            },
+            "S-majority": {
+              "total": 1.45476,
+              "aleatoric": 1.41769,
+              "epistemic_mutual_information": 0.03707,
+              "epistemic_vs_vote_entropy_rho": 0.02468
+            },
+            "S-plurality": {
+              "total": 1.87437,
+              "aleatoric": 1.82786,
+              "epistemic_mutual_information": 0.04652,
+              "epistemic_vs_vote_entropy_rho": -0.02163
+            },
+            "S-no-majority": {
+              "total": 1.51507,
+              "aleatoric": 1.47278,
+              "epistemic_mutual_information": 0.04229,
+              "epistemic_vs_vote_entropy_rho": 0.12523
+            },
+            "S-contested (pooled)": {
+              "total": 1.56053,
+              "aleatoric": 1.52051,
+              "epistemic_mutual_information": 0.04002,
+              "epistemic_vs_vote_entropy_rho": 0.16056
+            }
+          }
+        },
+        "3": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.0492,
+            "spearman_p": 0.364316142782418,
+            "ci95": [
+              -0.07165,
+              0.16111
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.22112,
+            "spearman_p": 0.012479896321817821,
+            "ci95": [
+              0.06298,
+              0.38042
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": -0.09267,
+            "spearman_p": 0.41059369617953373,
+            "ci95": [
+              -0.30303,
+              0.10905
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.19756,
+            "spearman_p": 3.0307262231810507e-06,
+            "ci95": [
+              0.10468,
+              0.28205
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.34939,
+            "spearman_p": 3.958397900131028e-40,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 1.10373,
+            "S-majority": 1.49179,
+            "S-plurality": 1.89669,
+            "S-no-majority": 1.47203,
+            "S-contested (pooled)": 1.58238
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 1.10373,
+              "aleatoric": 1.07781,
+              "epistemic_mutual_information": 0.02591
+            },
+            "S-majority": {
+              "total": 1.49179,
+              "aleatoric": 1.45286,
+              "epistemic_mutual_information": 0.03893,
+              "epistemic_vs_vote_entropy_rho": 0.03567
+            },
+            "S-plurality": {
+              "total": 1.89669,
+              "aleatoric": 1.84675,
+              "epistemic_mutual_information": 0.04995,
+              "epistemic_vs_vote_entropy_rho": -0.05913
+            },
+            "S-no-majority": {
+              "total": 1.47203,
+              "aleatoric": 1.42875,
+              "epistemic_mutual_information": 0.04327,
+              "epistemic_vs_vote_entropy_rho": 0.08048
+            },
+            "S-contested (pooled)": {
+              "total": 1.58238,
+              "aleatoric": 1.54026,
+              "epistemic_mutual_information": 0.04212,
+              "epistemic_vs_vote_entropy_rho": 0.17161
+            }
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.0355,
+          "n_members": 3
+        },
+        "S-plurality": {
+          "mean_rho": 0.20734,
+          "n_members": 3
+        },
+        "S-no-majority": {
+          "mean_rho": -0.02545,
+          "n_members": 3
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.20771,
+          "n_members": 3
+        }
+      }
+    },
+    "C3|deep_ensemble_3seed": {
+      "per_member": {
+        "ens": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.01907,
+            "spearman_p": 0.7253041779262601,
+            "ci95": [
+              -0.10235,
+              0.13627
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.20766,
+            "spearman_p": 0.01914544598567225,
+            "ci95": [
+              0.0618,
+              0.3506
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.00299,
+            "spearman_p": 0.978883285478353,
+            "ci95": [
+              -0.23197,
+              0.21032
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.20162,
+            "spearman_p": 1.8730820563828712e-06,
+            "ci95": [
+              0.11395,
+              0.28612
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.3655,
+            "spearman_p": 5.064377404645034e-44,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.96876,
+            "S-majority": 1.37024,
+            "S-plurality": 1.79438,
+            "S-no-majority": 1.39385,
+            "S-contested (pooled)": 1.47166
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.96876,
+              "aleatoric": 0.94543,
+              "epistemic_mutual_information": 0.02333
+            },
+            "S-majority": {
+              "total": 1.37024,
+              "aleatoric": 1.33153,
+              "epistemic_mutual_information": 0.03871,
+              "epistemic_vs_vote_entropy_rho": -0.03031
+            },
+            "S-plurality": {
+              "total": 1.79438,
+              "aleatoric": 1.75011,
+              "epistemic_mutual_information": 0.04428,
+              "epistemic_vs_vote_entropy_rho": 0.06489
+            },
+            "S-no-majority": {
+              "total": 1.39385,
+              "aleatoric": 1.35232,
+              "epistemic_mutual_information": 0.04153,
+              "epistemic_vs_vote_entropy_rho": 0.0276
+            },
+            "S-contested (pooled)": {
+              "total": 1.47166,
+              "aleatoric": 1.43125,
+              "epistemic_mutual_information": 0.04041,
+              "epistemic_vs_vote_entropy_rho": 0.10247
+            }
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.01907,
+          "n_members": 1
+        },
+        "S-plurality": {
+          "mean_rho": 0.20766,
+          "n_members": 1
+        },
+        "S-no-majority": {
+          "mean_rho": 0.00299,
+          "n_members": 1
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.20162,
+          "n_members": 1
+        }
+      }
+    },
+    "C4|softmax": {
+      "per_member": {
+        "1": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.0512,
+            "spearman_p": 0.3452038398233717,
+            "ci95": [
+              -0.05617,
+              0.16671
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.137,
+            "spearman_p": 0.1245663273877206,
+            "ci95": [
+              -0.0499,
+              0.30173
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.03635,
+            "spearman_p": 0.7473087653076815,
+            "ci95": [
+              -0.16473,
+              0.22766
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.18661,
+            "spearman_p": 1.0571669618705248e-05,
+            "ci95": [
+              0.09132,
+              0.27833
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.37411,
+            "spearman_p": 3.3799366871897084e-46,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.26233,
+            "S-majority": 0.47479,
+            "S-plurality": 0.68342,
+            "S-no-majority": 0.49245,
+            "S-contested (pooled)": 0.52557
+          }
+        },
+        "2": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.09947,
+            "spearman_p": 0.06616776521808211,
+            "ci95": [
+              -0.01615,
+              0.22026
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.11296,
+            "spearman_p": 0.2060488066736188,
+            "ci95": [
+              -0.0953,
+              0.2691
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.24968,
+            "spearman_p": 0.024581943982831398,
+            "ci95": [
+              0.00801,
+              0.44977
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.19328,
+            "spearman_p": 4.98225297254603e-06,
+            "ci95": [
+              0.10844,
+              0.26853
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.37648,
+            "spearman_p": 8.30913716955385e-47,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.2931,
+            "S-majority": 0.52259,
+            "S-plurality": 0.73295,
+            "S-no-majority": 0.57024,
+            "S-contested (pooled)": 0.57818
+          }
+        },
+        "3": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.04237,
+            "spearman_p": 0.43477370140930094,
+            "ci95": [
+              -0.07188,
+              0.15863
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.13508,
+            "spearman_p": 0.12999325552823043,
+            "ci95": [
+              -0.05204,
+              0.30384
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.03323,
+            "spearman_p": 0.7683907818179762,
+            "ci95": [
+              -0.15215,
+              0.20779
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.18152,
+            "spearman_p": 1.8444507370474463e-05,
+            "ci95": [
+              0.09663,
+              0.26207
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.36354,
+            "spearman_p": 1.5510863918913252e-43,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.31258,
+            "S-majority": 0.52709,
+            "S-plurality": 0.74243,
+            "S-no-majority": 0.56347,
+            "S-contested (pooled)": 0.58217
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.06435,
+          "n_members": 3
+        },
+        "S-plurality": {
+          "mean_rho": 0.12835,
+          "n_members": 3
+        },
+        "S-no-majority": {
+          "mean_rho": 0.10642,
+          "n_members": 3
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.18714,
+          "n_members": 3
+        }
+      }
+    },
+    "C4|mc_stochastic_depth": {
+      "per_member": {
+        "1": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.05663,
+            "spearman_p": 0.29634069596355406,
+            "ci95": [
+              -0.05116,
+              0.17014
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.13075,
+            "spearman_p": 0.142864899825032,
+            "ci95": [
+              -0.06112,
+              0.29451
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.08514,
+            "spearman_p": 0.4498063875623538,
+            "ci95": [
+              -0.11996,
+              0.27337
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.20267,
+            "spearman_p": 1.6508983089038146e-06,
+            "ci95": [
+              0.10464,
+              0.2969
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.37965,
+            "spearman_p": 1.2449555605401168e-47,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.31212,
+            "S-majority": 0.54254,
+            "S-plurality": 0.77731,
+            "S-no-majority": 0.56773,
+            "S-contested (pooled)": 0.60046
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.31212,
+              "aleatoric": 0.29147,
+              "epistemic_mutual_information": 0.02065
+            },
+            "S-majority": {
+              "total": 0.54254,
+              "aleatoric": 0.50931,
+              "epistemic_mutual_information": 0.03323,
+              "epistemic_vs_vote_entropy_rho": 0.04446
+            },
+            "S-plurality": {
+              "total": 0.77731,
+              "aleatoric": 0.72975,
+              "epistemic_mutual_information": 0.04756,
+              "epistemic_vs_vote_entropy_rho": 0.11344
+            },
+            "S-no-majority": {
+              "total": 0.56773,
+              "aleatoric": 0.53336,
+              "epistemic_mutual_information": 0.03436,
+              "epistemic_vs_vote_entropy_rho": 0.10808
+            },
+            "S-contested (pooled)": {
+              "total": 0.60046,
+              "aleatoric": 0.56375,
+              "epistemic_mutual_information": 0.0367,
+              "epistemic_vs_vote_entropy_rho": 0.1626
+            }
+          }
+        },
+        "2": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.10926,
+            "spearman_p": 0.043458129472700745,
+            "ci95": [
+              -0.0009,
+              0.22406
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.13027,
+            "spearman_p": 0.1443527227067667,
+            "ci95": [
+              -0.07326,
+              0.29249
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.24547,
+            "spearman_p": 0.02718708328589557,
+            "ci95": [
+              0.00441,
+              0.44394
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.20326,
+            "spearman_p": 1.5371496909202923e-06,
+            "ci95": [
+              0.11846,
+              0.28047
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.37974,
+            "spearman_p": 1.1764987550529324e-47,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.34454,
+            "S-majority": 0.59361,
+            "S-plurality": 0.82274,
+            "S-no-majority": 0.64913,
+            "S-contested (pooled)": 0.6547
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.34454,
+              "aleatoric": 0.32449,
+              "epistemic_mutual_information": 0.02004
+            },
+            "S-majority": {
+              "total": 0.59361,
+              "aleatoric": 0.55797,
+              "epistemic_mutual_information": 0.03564,
+              "epistemic_vs_vote_entropy_rho": 0.09706
+            },
+            "S-plurality": {
+              "total": 0.82274,
+              "aleatoric": 0.7752,
+              "epistemic_mutual_information": 0.04755,
+              "epistemic_vs_vote_entropy_rho": 0.11296
+            },
+            "S-no-majority": {
+              "total": 0.64913,
+              "aleatoric": 0.60938,
+              "epistemic_mutual_information": 0.03975,
+              "epistemic_vs_vote_entropy_rho": 0.20849
+            },
+            "S-contested (pooled)": {
+              "total": 0.6547,
+              "aleatoric": 0.6157,
+              "epistemic_mutual_information": 0.039,
+              "epistemic_vs_vote_entropy_rho": 0.16945
+            }
+          }
+        },
+        "3": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.05817,
+            "spearman_p": 0.2833618436307023,
+            "ci95": [
+              -0.05684,
+              0.17166
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.14277,
+            "spearman_p": 0.10932997420460513,
+            "ci95": [
+              -0.05335,
+              0.32016
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.05687,
+            "spearman_p": 0.6140765182439134,
+            "ci95": [
+              -0.13616,
+              0.23697
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.19755,
+            "spearman_p": 3.0326918342036653e-06,
+            "ci95": [
+              0.10833,
+              0.27807
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.37107,
+            "spearman_p": 2.0219968405367295e-45,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.36953,
+            "S-majority": 0.60991,
+            "S-plurality": 0.84575,
+            "S-no-majority": 0.64779,
+            "S-contested (pooled)": 0.66995
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.36953,
+              "aleatoric": 0.34286,
+              "epistemic_mutual_information": 0.02667
+            },
+            "S-majority": {
+              "total": 0.60991,
+              "aleatoric": 0.56747,
+              "epistemic_mutual_information": 0.04244,
+              "epistemic_vs_vote_entropy_rho": 0.07508
+            },
+            "S-plurality": {
+              "total": 0.84575,
+              "aleatoric": 0.78981,
+              "epistemic_mutual_information": 0.05595,
+              "epistemic_vs_vote_entropy_rho": 0.0697
+            },
+            "S-no-majority": {
+              "total": 0.64779,
+              "aleatoric": 0.60539,
+              "epistemic_mutual_information": 0.0424,
+              "epistemic_vs_vote_entropy_rho": 0.1525
+            },
+            "S-contested (pooled)": {
+              "total": 0.66995,
+              "aleatoric": 0.62439,
+              "epistemic_mutual_information": 0.04555,
+              "epistemic_vs_vote_entropy_rho": 0.16559
+            }
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.07469,
+          "n_members": 3
+        },
+        "S-plurality": {
+          "mean_rho": 0.1346,
+          "n_members": 3
+        },
+        "S-no-majority": {
+          "mean_rho": 0.12916,
+          "n_members": 3
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.20116,
+          "n_members": 3
+        }
+      }
+    },
+    "C4|deep_ensemble_3seed": {
+      "per_member": {
+        "ens": {
+          "S-unanimous": {
+            "n_images": 803,
+            "spearman_rho": null,
+            "spearman_p": null,
+            "ci95": [
+              null,
+              null
+            ],
+            "undefined_reason": "vote entropy is identically 0 on this stratum"
+          },
+          "S-majority": {
+            "n_images": 342,
+            "spearman_rho": 0.07919,
+            "spearman_p": 0.14390241559563555,
+            "ci95": [
+              -0.03797,
+              0.19475
+            ]
+          },
+          "S-plurality": {
+            "n_images": 127,
+            "spearman_rho": 0.13027,
+            "spearman_p": 0.1443527227067667,
+            "ci95": [
+              -0.0552,
+              0.28568
+            ]
+          },
+          "S-no-majority": {
+            "n_images": 81,
+            "spearman_rho": 0.14393,
+            "spearman_p": 0.199870420539301,
+            "ci95": [
+              -0.05562,
+              0.32438
+            ]
+          },
+          "S-contested (pooled)": {
+            "n_images": 550,
+            "spearman_rho": 0.20095,
+            "spearman_p": 2.0293440469129326e-06,
+            "ci95": [
+              0.1171,
+              0.28477
+            ]
+          },
+          "_pooled_all_1353_images": {
+            "n_images": 1353,
+            "spearman_rho": 0.38635,
+            "spearman_p": 2.105860150363213e-49,
+            "note": "reported only to expose the between-tier artefact Phase 3 identified; NOT the RQ3 endpoint"
+          },
+          "_mean_predictive_entropy_by_stratum": {
+            "S-unanimous": 0.31979,
+            "S-majority": 0.55889,
+            "S-plurality": 0.78984,
+            "S-no-majority": 0.59381,
+            "S-contested (pooled)": 0.61736
+          },
+          "_uncertainty_decomposition": {
+            "S-unanimous": {
+              "total": 0.31979,
+              "aleatoric": 0.28933,
+              "epistemic_mutual_information": 0.03045
+            },
+            "S-majority": {
+              "total": 0.55889,
+              "aleatoric": 0.50816,
+              "epistemic_mutual_information": 0.05074,
+              "epistemic_vs_vote_entropy_rho": 0.06696
+            },
+            "S-plurality": {
+              "total": 0.78984,
+              "aleatoric": 0.7196,
+              "epistemic_mutual_information": 0.07024,
+              "epistemic_vs_vote_entropy_rho": 0.03461
+            },
+            "S-no-majority": {
+              "total": 0.59381,
+              "aleatoric": 0.54205,
+              "epistemic_mutual_information": 0.05176,
+              "epistemic_vs_vote_entropy_rho": 0.21923
+            },
+            "S-contested (pooled)": {
+              "total": 0.61736,
+              "aleatoric": 0.56197,
+              "epistemic_mutual_information": 0.05539,
+              "epistemic_vs_vote_entropy_rho": 0.15801
+            }
+          }
+        }
+      },
+      "aggregate": {
+        "S-unanimous": {
+          "mean_rho": null,
+          "n_members": 0
+        },
+        "S-majority": {
+          "mean_rho": 0.07919,
+          "n_members": 1
+        },
+        "S-plurality": {
+          "mean_rho": 0.13027,
+          "n_members": 1
+        },
+        "S-no-majority": {
+          "mean_rho": 0.14393,
+          "n_members": 1
+        },
+        "S-contested (pooled)": {
+          "mean_rho": 0.20095,
+          "n_members": 1
+        }
+      }
+    }
+  },
+  "estimator_utility": {
+    "C0": {
+      "S-unanimous": {
+        "single_model_mean_macro_f1": 0.83915,
+        "deep_ensemble_3seed_macro_f1": 0.85678,
+        "ensemble_gain_points": 1.763,
+        "mc_stochastic_depth_macro_f1": 0.85903,
+        "mc_gain_points": 1.989
+      },
+      "S-majority": {
+        "single_model_mean_macro_f1": 0.48947,
+        "deep_ensemble_3seed_macro_f1": 0.50612,
+        "ensemble_gain_points": 1.665,
+        "mc_stochastic_depth_macro_f1": 0.50852,
+        "mc_gain_points": 1.905
+      },
+      "S-plurality": {
+        "single_model_mean_macro_f1": 0.26154,
+        "deep_ensemble_3seed_macro_f1": 0.26634,
+        "ensemble_gain_points": 0.48,
+        "mc_stochastic_depth_macro_f1": 0.26995,
+        "mc_gain_points": 0.841
+      },
+      "S-no-majority": {
+        "single_model_mean_macro_f1": 0.30788,
+        "deep_ensemble_3seed_macro_f1": 0.29469,
+        "ensemble_gain_points": -1.319,
+        "mc_stochastic_depth_macro_f1": 0.29896,
+        "mc_gain_points": -0.892
+      },
+      "S-contested (pooled)": {
+        "single_model_mean_macro_f1": 0.42418,
+        "deep_ensemble_3seed_macro_f1": 0.4335,
+        "ensemble_gain_points": 0.932,
+        "mc_stochastic_depth_macro_f1": 0.43636,
+        "mc_gain_points": 1.219
+      }
+    },
+    "C1": {
+      "S-unanimous": {
+        "single_model_mean_macro_f1": 0.84486,
+        "deep_ensemble_3seed_macro_f1": 0.85155,
+        "ensemble_gain_points": 0.669,
+        "mc_stochastic_depth_macro_f1": 0.85265,
+        "mc_gain_points": 0.778
+      },
+      "S-majority": {
+        "single_model_mean_macro_f1": 0.50757,
+        "deep_ensemble_3seed_macro_f1": 0.52632,
+        "ensemble_gain_points": 1.875,
+        "mc_stochastic_depth_macro_f1": 0.52969,
+        "mc_gain_points": 2.212
+      },
+      "S-plurality": {
+        "single_model_mean_macro_f1": 0.26416,
+        "deep_ensemble_3seed_macro_f1": 0.28827,
+        "ensemble_gain_points": 2.411,
+        "mc_stochastic_depth_macro_f1": 0.28871,
+        "mc_gain_points": 2.456
+      },
+      "S-no-majority": {
+        "single_model_mean_macro_f1": 0.31148,
+        "deep_ensemble_3seed_macro_f1": 0.32441,
+        "ensemble_gain_points": 1.293,
+        "mc_stochastic_depth_macro_f1": 0.32729,
+        "mc_gain_points": 1.581
+      },
+      "S-contested (pooled)": {
+        "single_model_mean_macro_f1": 0.4376,
+        "deep_ensemble_3seed_macro_f1": 0.45678,
+        "ensemble_gain_points": 1.918,
+        "mc_stochastic_depth_macro_f1": 0.45978,
+        "mc_gain_points": 2.219
+      }
+    },
+    "C2": {
+      "S-unanimous": {
+        "single_model_mean_macro_f1": 0.85139,
+        "deep_ensemble_3seed_macro_f1": 0.85492,
+        "ensemble_gain_points": 0.353,
+        "mc_stochastic_depth_macro_f1": 0.8572,
+        "mc_gain_points": 0.581
+      },
+      "S-majority": {
+        "single_model_mean_macro_f1": 0.53007,
+        "deep_ensemble_3seed_macro_f1": 0.53911,
+        "ensemble_gain_points": 0.904,
+        "mc_stochastic_depth_macro_f1": 0.54231,
+        "mc_gain_points": 1.224
+      },
+      "S-plurality": {
+        "single_model_mean_macro_f1": 0.26679,
+        "deep_ensemble_3seed_macro_f1": 0.28621,
+        "ensemble_gain_points": 1.943,
+        "mc_stochastic_depth_macro_f1": 0.2834,
+        "mc_gain_points": 1.661
+      },
+      "S-no-majority": {
+        "single_model_mean_macro_f1": 0.31349,
+        "deep_ensemble_3seed_macro_f1": 0.30273,
+        "ensemble_gain_points": -1.076,
+        "mc_stochastic_depth_macro_f1": 0.30128,
+        "mc_gain_points": -1.221
+      },
+      "S-contested (pooled)": {
+        "single_model_mean_macro_f1": 0.45751,
+        "deep_ensemble_3seed_macro_f1": 0.4658,
+        "ensemble_gain_points": 0.829,
+        "mc_stochastic_depth_macro_f1": 0.46819,
+        "mc_gain_points": 1.067
+      }
+    },
+    "C3": {
+      "S-unanimous": {
+        "single_model_mean_macro_f1": 0.85027,
+        "deep_ensemble_3seed_macro_f1": 0.85527,
+        "ensemble_gain_points": 0.5,
+        "mc_stochastic_depth_macro_f1": 0.86166,
+        "mc_gain_points": 1.139
+      },
+      "S-majority": {
+        "single_model_mean_macro_f1": 0.5195,
+        "deep_ensemble_3seed_macro_f1": 0.537,
+        "ensemble_gain_points": 1.749,
+        "mc_stochastic_depth_macro_f1": 0.54127,
+        "mc_gain_points": 2.176
+      },
+      "S-plurality": {
+        "single_model_mean_macro_f1": 0.25667,
+        "deep_ensemble_3seed_macro_f1": 0.25184,
+        "ensemble_gain_points": -0.482,
+        "mc_stochastic_depth_macro_f1": 0.25253,
+        "mc_gain_points": -0.413
+      },
+      "S-no-majority": {
+        "single_model_mean_macro_f1": 0.31055,
+        "deep_ensemble_3seed_macro_f1": 0.32989,
+        "ensemble_gain_points": 1.935,
+        "mc_stochastic_depth_macro_f1": 0.32989,
+        "mc_gain_points": 1.935
+      },
+      "S-contested (pooled)": {
+        "single_model_mean_macro_f1": 0.4435,
+        "deep_ensemble_3seed_macro_f1": 0.45676,
+        "ensemble_gain_points": 1.326,
+        "mc_stochastic_depth_macro_f1": 0.45952,
+        "mc_gain_points": 1.602
+      }
+    },
+    "C4": {
+      "S-unanimous": {
+        "single_model_mean_macro_f1": 0.85251,
+        "deep_ensemble_3seed_macro_f1": 0.85829,
+        "ensemble_gain_points": 0.578,
+        "mc_stochastic_depth_macro_f1": 0.8587,
+        "mc_gain_points": 0.618
+      },
+      "S-majority": {
+        "single_model_mean_macro_f1": 0.52598,
+        "deep_ensemble_3seed_macro_f1": 0.53387,
+        "ensemble_gain_points": 0.789,
+        "mc_stochastic_depth_macro_f1": 0.53803,
+        "mc_gain_points": 1.205
+      },
+      "S-plurality": {
+        "single_model_mean_macro_f1": 0.26584,
+        "deep_ensemble_3seed_macro_f1": 0.27456,
+        "ensemble_gain_points": 0.872,
+        "mc_stochastic_depth_macro_f1": 0.27375,
+        "mc_gain_points": 0.79
+      },
+      "S-no-majority": {
+        "single_model_mean_macro_f1": 0.33476,
+        "deep_ensemble_3seed_macro_f1": 0.32763,
+        "ensemble_gain_points": -0.712,
+        "mc_stochastic_depth_macro_f1": 0.32664,
+        "mc_gain_points": -0.812
+      },
+      "S-contested (pooled)": {
+        "single_model_mean_macro_f1": 0.45469,
+        "deep_ensemble_3seed_macro_f1": 0.46227,
+        "ensemble_gain_points": 0.758,
+        "mc_stochastic_depth_macro_f1": 0.46418,
+        "mc_gain_points": 0.949
+      }
+    }
+  },
+  "verdicts": {
+    "C0": {
+      "stratum": "S-majority",
+      "estimator": "softmax entropy",
+      "mean_rho_3seed": 0.0771,
+      "ci95_pooled_paired": [
+        -0.02918,
+        0.17781
+      ],
+      "n_valid_replicates": 1000,
+      "ci95_mean_of_per_seed_bounds": [
+        -0.03418,
+        0.19185
+      ],
+      "interval_note": "the verdict is read off ci95_pooled_paired, a patient-clustered bootstrap on the 3-seed mean rho over shared resamples. ci95_mean_of_per_seed_bounds is the arithmetic mean of the three per-seed intervals, reported only for continuity with the first run of this analysis; it is not a calibrated 95% interval and must not be quoted as one.",
+      "verdict": "NOT RESOLVED"
+    },
+    "C1": {
+      "stratum": "S-majority",
+      "estimator": "softmax entropy",
+      "mean_rho_3seed": 0.05688,
+      "ci95_pooled_paired": [
+        -0.03902,
+        0.14774
+      ],
+      "n_valid_replicates": 1000,
+      "ci95_mean_of_per_seed_bounds": [
+        -0.0449,
+        0.15793
+      ],
+      "interval_note": "the verdict is read off ci95_pooled_paired, a patient-clustered bootstrap on the 3-seed mean rho over shared resamples. ci95_mean_of_per_seed_bounds is the arithmetic mean of the three per-seed intervals, reported only for continuity with the first run of this analysis; it is not a calibrated 95% interval and must not be quoted as one.",
+      "verdict": "NOT RESOLVED"
+    },
+    "C2": {
+      "stratum": "S-majority",
+      "estimator": "softmax entropy",
+      "mean_rho_3seed": 0.05939,
+      "ci95_pooled_paired": [
+        -0.04431,
+        0.16972
+      ],
+      "n_valid_replicates": 1000,
+      "ci95_mean_of_per_seed_bounds": [
+        -0.05002,
+        0.17258
+      ],
+      "interval_note": "the verdict is read off ci95_pooled_paired, a patient-clustered bootstrap on the 3-seed mean rho over shared resamples. ci95_mean_of_per_seed_bounds is the arithmetic mean of the three per-seed intervals, reported only for continuity with the first run of this analysis; it is not a calibrated 95% interval and must not be quoted as one.",
+      "verdict": "NOT RESOLVED"
+    },
+    "C3": {
+      "stratum": "S-majority",
+      "estimator": "softmax entropy",
+      "mean_rho_3seed": 0.03077,
+      "ci95_pooled_paired": [
+        -0.08682,
+        0.14032
+      ],
+      "n_valid_replicates": 1000,
+      "ci95_mean_of_per_seed_bounds": [
+        -0.08824,
+        0.1456
+      ],
+      "interval_note": "the verdict is read off ci95_pooled_paired, a patient-clustered bootstrap on the 3-seed mean rho over shared resamples. ci95_mean_of_per_seed_bounds is the arithmetic mean of the three per-seed intervals, reported only for continuity with the first run of this analysis; it is not a calibrated 95% interval and must not be quoted as one.",
+      "verdict": "NOT RESOLVED"
+    },
+    "C4": {
+      "stratum": "S-majority",
+      "estimator": "softmax entropy",
+      "mean_rho_3seed": 0.06435,
+      "ci95_pooled_paired": [
+        -0.04324,
+        0.17841
+      ],
+      "n_valid_replicates": 1000,
+      "ci95_mean_of_per_seed_bounds": [
+        -0.04807,
+        0.18187
+      ],
+      "interval_note": "the verdict is read off ci95_pooled_paired, a patient-clustered bootstrap on the 3-seed mean rho over shared resamples. ci95_mean_of_per_seed_bounds is the arithmetic mean of the three per-seed intervals, reported only for continuity with the first run of this analysis; it is not a calibrated 95% interval and must not be quoted as one.",
+      "verdict": "NOT RESOLVED"
+    }
+  },
+  "phase3_reference": {
+    "pooled_all_images_rho": 0.32,
+    "within_tier_rho_range": [
+      0.02,
+      0.08
+    ],
+    "source": "reports/phase3b_calibration.json"
+  },
+  "runtime_sec": 51.3
+}

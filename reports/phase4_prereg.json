@@ -1,0 +1,245 @@
+{
+  "frozen_at": "2026-07-27 11:48:21",
+  "phase": 4,
+  "title": "Soft-label and uncertainty training (RQ2, RQ3, RQ4)",
+  "statement": "This document fixes every decision that could otherwise be made after seeing the result. It is written after the cohort, the cache, the distance matrix and the timing probe exist, and before the first Phase 4 training run. It is not edited afterwards.",
+  "governing_blueprint": "THESIS_RESEARCH_BLUEPRINT.md v3.3, sec.4 PHASE 4",
+  "cohort": {
+    "definition": "tier in {S-unanimous (4/4), S-majority (3/4)}, Train+Validation",
+    "n_train": 5228,
+    "n_validation": 1103,
+    "fraction_contested_train": 0.28806,
+    "held_constant_across": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "rationale": "A hard label is undefined on the 2-2 and 1-1-1-1 tiers, so the C3 control cannot be scored on them. Holding the cohort at the majority-or-better set makes C1 vs C2 vs C3 vs C4 a pure target-construction contrast; C0 vs C1 is the separate, and separately reported, cohort contrast.",
+    "excluded": {
+      "n": 1150,
+      "by_tier": {
+        "S-plurality": 617,
+        "S-tied": 466,
+        "S-dispersed": 67
+      },
+      "reason": "no majority label exists, so the C1/C3 hard-label arms are undefined on them; excluding them from every arm keeps the C2-vs-C3 contrast a pure target-construction contrast"
+    }
+  },
+  "configurations": {
+    "C0": {
+      "target": "hard unanimous label, 4/4 cohort only",
+      "cohort": "Phase 2 consensus cohort (3,722 / 793)",
+      "role": "reference arm",
+      "retrained_in_phase_4": false,
+      "source": "checkpoints/phase2_convnext_tiny_seed{1,2,3}.pt",
+      "note": "reused unchanged. Its model-selection criterion was macro F1 on the 793-image unanimous validation subset, not the 1,103-image extended one used by C1-C4; this asymmetry is unavoidable because C0's cohort does not contain the contested validation images, and it is the reason C1, not C0, is the control for the target-construction contrasts."
+    },
+    "C1": {
+      "target": "one-hot at the majority label",
+      "cohort": "E",
+      "role": "isolates the effect of adding the 3/4 contested images"
+    },
+    "C2": {
+      "target": "vote proportions across the 4 annotators",
+      "cohort": "E",
+      "role": "RQ2 treatment arm"
+    },
+    "C3": {
+      "target": "one-hot at the majority label + uniform label smoothing",
+      "cohort": "E",
+      "role": "control: the soft-target gain must exceed generic regularisation",
+      "label_smoothing_epsilon": 0.07529,
+      "epsilon_derivation": "mass-matched to C2 (see below)",
+      "epsilon_entropy_matched_reference": 0.021228,
+      "epsilon_conventional_reference": 0.1
+    },
+    "C4": {
+      "target": "vote proportions + anatomical structured penalty",
+      "cohort": "E",
+      "role": "RQ4 treatment arm",
+      "structure_penalty_lambda": 1.0,
+      "penalty": "lambda * sum_i sum_j t_i q_j d(i,j), q = softmax(z)",
+      "distance_matrix": "reports/phase4_distance_matrix.json",
+      "lambda_derivation": "fixed a priori at unit weight; no sweep was run. At initialisation the cross-entropy is ln(23) = 3.135 nats and the mean off-diagonal distance is 0.50474, so the penalty contributes roughly 14% of the initial objective."
+    }
+  },
+  "epsilon_derivation_detail": {
+    "criterion": "equal expected probability mass displaced from the modal label",
+    "c2_mean_mass_displaced": 0.072016,
+    "c2_mean_target_entropy_nats": 0.161989,
+    "formula": "epsilon = E[1 - t_modal] / (1 - 1/K)",
+    "K": 23,
+    "epsilon_mass_matched": 0.07529,
+    "epsilon_entropy_matched": 0.021228,
+    "why_mass_not_entropy": "the gradient of the soft-target cross-entropy with respect to the logits is (q - t), so the perturbation C2 introduces relative to a one-hot target is exactly the displaced mass; matching that makes the two arms comparable in the quantity that actually drives learning. Entropy matching gives a markedly smaller epsilon (0.0212 vs 0.0753) and is reported so the sensitivity of the control to this choice is visible.",
+    "note": "both derived values are computed from the training cohort's vote matrix, not chosen; the conventional epsilon = 0.1 is recorded only as an external reference point and was not run."
+  },
+  "training_protocol": {
+    "inherited_from": "src/models/phase2_train.py, unchanged",
+    "backbone": "ConvNeXt-Tiny, ImageNet-1k pretrained, 23-way head",
+    "input": "224x224, Lanczos, Phase 2 TRAINING-SET normalisation statistics",
+    "normalisation_reused_deliberately": "the Phase 2 channel statistics are reused rather than recomputed on the extended cohort, so that C0 and C1-C4 see identical pixels; recomputing them would make every C-vs-C0 difference partly a preprocessing difference",
+    "augmentation": "RandomResizedCrop(0.85-1.0) + ColorJitter, no flips (a flip changes the anatomical wall and would corrupt the label)",
+    "schedule": "10-epoch head warm-up at constant LR 1e-3, then fine-tune the top 40% of feature modules at 1e-4 with cosine annealing",
+    "patience": 10,
+    "effective_batch": 32,
+    "precision": "float32, channels_last (Phase 2 DEV-1, measured)",
+    "loss": "soft-target cross-entropy -sum_j t_j log softmax(z)_j for every arm; asserted bit-equal to nn.CrossEntropyLoss on one-hot targets at import time, so the hard-label arms are not disadvantaged by a different code path"
+  },
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "batch_size": 24,
+  "epoch_cap_finetune": 34,
+  "epoch_cap_derivation": {
+    "measured_warmup_epoch_sec": 82.1,
+    "measured_finetune_epoch_sec": 132.4,
+    "measured_on": "the extended cohort with the C4 penalty active (the most expensive arm)",
+    "declared_budget_hours": 18.0,
+    "n_runs": 12,
+    "formula": "max_ft = floor((budget/n_runs - 10 * warmup_epoch) / finetune_epoch)",
+    "binds_only_if_early_stopping_has_not_fired": true,
+    "phase2_realised_finetune_epochs": [
+      21,
+      28,
+      32
+    ]
+  },
+  "model_selection": {
+    "criterion": "macro F1 on the extended validation cohort (n=1,103) against the hard majority label",
+    "identical_across": [
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ],
+    "rationale": "a single criterion for every arm; scored against a hard label so that the soft-target arms are not selected on a metric that mechanically favours them, and computed on the same images for every arm so selection cannot differ by cohort."
+  },
+  "evaluation": {
+    "test_set": "the full 1,353-image official test split, unchanged from Phase 3",
+    "strata": [
+      "S-unanimous",
+      "S-majority",
+      "S-plurality",
+      "S-no-majority"
+    ],
+    "primary_metric": "annotator-marginalized macro F1 (Phase 3 definition)",
+    "ceiling_normalisation": "reported alongside the raw scale for every stratum, per the Phase 3 carry-forward decision, using the modal-vote oracle of phase3b_common.modal_oracle",
+    "secondary_metrics": [
+      "expected accuracy",
+      "any-annotator hit rate",
+      "single-label macro F1 where a majority label exists"
+    ],
+    "calibration": "ECE, MCE, Brier on the top-1 probability, reliability curves, all against expected accuracy (Phase 3B definition)",
+    "interval_procedure": "patient-clustered bootstrap, 1,000 resamples, seed 20260726, applied independently within each stratum -- identical to Phases 2 and 3",
+    "paired_comparison_procedure": "config-vs-config differences use a PAIRED patient-clustered bootstrap: one patient resample is drawn and both configurations are scored on that same resample before differencing, so the interval reflects the difference and not the sum of two independent sampling errors. Differences are computed per seed and averaged across the 3 seeds.",
+    "never_resample_images": true
+  },
+  "research_questions": {
+    "RQ2": {
+      "question": "Does training on soft targets from all four votes beat hard consensus labels?",
+      "hypothesis": "matches on the unanimous stratum, exceeds on contested strata, better calibrated throughout",
+      "primary_contrast": "C2 - C3",
+      "why_C3_not_C1": "C3 is the pre-registered control (blueprint: 'C3 is not optional'). Beating C1 only shows that softening helps; beating C3 shows that softening WHERE THE ANNOTATORS ACTUALLY DISAGREED helps beyond softening everywhere by the same total amount.",
+      "primary_endpoint": "annotator-marginalized macro F1 on the pooled contested test set (S-majority + S-plurality + S-no-majority, n = 550)",
+      "verdict_rule": "SUPPORTED if the paired patient-clustered 95% CI of (C2 - C3) on the pooled contested set excludes 0 in C2's favour; NOT SUPPORTED if it excludes 0 in C3's favour; NOT RESOLVED if it contains 0.",
+      "secondary_endpoints": [
+        "the same contrast per stratum",
+        "parity on S-unanimous: (C2 - C1) CI containing 0",
+        "delta ECE (C2 - C3) per stratum, negative = better calibrated",
+        "C1 - C0 on every stratum, the cohort effect"
+      ],
+      "calibration_verdict_rule": "BETTER CALIBRATED if the paired CI of ECE(C2) - ECE(C3) on the pooled contested set excludes 0 below zero."
+    },
+    "RQ3": {
+      "question": "Does predictive uncertainty track human disagreement?",
+      "primary_quantity": "WITHIN-stratum Spearman rho between predictive entropy and per-image annotator vote entropy -- fixed by the Phase 3 carry-forward decision, because the pooled correlation (0.320) was shown to be almost entirely a between-tier effect that collapses to 0.02-0.08 within tiers",
+      "strata_where_defined": "S-majority, S-plurality, S-no-majority. Vote entropy is identically 0 on S-unanimous, so the correlation is undefined there and is reported as null, never as 0.",
+      "uncertainty_estimators": [
+        "single-model softmax entropy",
+        "MC stochastic depth: the ConvNeXt StochasticDepth modules are the only stochastic component of this architecture and are active during training, so re-enabling them at inference is the architecture-appropriate form of the MC-dropout argument. LayerNorm (not BatchNorm) means no other module changes behaviour between train and eval mode.",
+        "3-member deep ensemble over the 3 seeds of each configuration"
+      ],
+      "n_mc_samples": 20,
+      "verdict_rule": "SUPPORTED for a configuration if its within-stratum rho is positive with a patient-clustered 95% CI excluding 0 on S-majority, the largest contested stratum. Cross-configuration ranking is reported descriptively.",
+      "out_of_scope_here": "the external-transfer half of RQ3 ('ranking preserved externally') requires HyperKvasir / GastroVision and is Phase 5"
+    },
+    "RQ4": {
+      "question": "Does an anatomy-aware loss exploiting the wall/station structure help on contested images?",
+      "primary_contrast": "C4 - C2 (both use vote-proportion targets, so the contrast isolates the structured penalty)",
+      "primary_endpoint": "mean anatomical error distance on the test split, using the pre-registered distance matrix",
+      "secondary_endpoints": [
+        "annotator-marginalized macro F1 on the pooled contested set",
+        "share of wall confusions that are circumferentially adjacent (S-unanimous, Phase 0 / phase3_confusion definition)",
+        "share of station confusions that are neighbouring"
+      ],
+      "verdict_rule": "SUPPORTED if the paired CI of mean anatomical error distance (C4 - C2) excludes 0 below zero AND the paired CI of macro F1 (C4 - C2) does not exclude 0 below zero, i.e. the penalty reshapes the errors without costing accuracy. PARTIALLY SUPPORTED if the distance falls but macro F1 also falls significantly."
+    }
+  },
+  "sensitivity_analyses": {
+    "leave_one_annotator_out": {
+      "motivation": "blueprint sec.2.3: FG2 is the outlier annotator on every measure, and its pairwise kappa with the other resident (0.6799) is the lowest in the panel",
+      "executed": "evaluation-side, for every configuration: the annotator-marginalized macro F1 and the expected accuracy are recomputed dropping each annotator in turn",
+      "not_executed": "training-side LOAO, i.e. rebuilding the C2 targets from 3 annotators and retraining. That is 4 further runs (~5 h) and does not fit the declared budget. The command to run it is implemented (phase4_train.py --drop-annotator) so the analysis is reproducible, and its absence is declared rather than concealed."
+    },
+    "per_seed_stability": "every headline number is reported per seed as well as at the 3-seed mean"
+  },
+  "deviations": [
+    {
+      "id": "P4-DEV-1",
+      "item": "MC dropout",
+      "blueprint": "sec.4 PHASE 4: 'MC dropout as the cheap route'",
+      "adopted": "MC stochastic depth",
+      "evidence": "torchvision's ConvNeXt-Tiny contains no nn.Dropout module; its only stochastic component is StochasticDepth (p up to 0.1 per block). Inserting a dropout layer that was absent during training would change the function being sampled, which is exactly what the MC-dropout argument forbids. Sampling the stochastic mechanism the network was actually trained with is the faithful translation.",
+      "impact": "none on the scientific claim; the estimator is still a Monte-Carlo average over the training-time stochastic mechanism"
+    },
+    {
+      "id": "P4-DEV-2",
+      "item": "Deep ensemble size",
+      "blueprint": "sec.4 PHASE 4: 'a 5-member deep ensemble ... if the budget allows'",
+      "adopted": "3 members (the 3 seeds already trained per configuration)",
+      "evidence": "the budget does not allow. 4 configurations x 3 seeds is 12 runs at a measured 132 s per fine-tuning epoch on the extended cohort; 5 members would be 20 runs. The blueprint made the 5-member ensemble explicitly conditional on budget.",
+      "impact": "a 3-member ensemble is a weaker uncertainty estimator than a 5-member one; the ensemble result is therefore reported as a lower bound on what ensembling buys"
+    },
+    {
+      "id": "P4-DEV-3",
+      "item": "lambda for the C4 penalty",
+      "blueprint": "not specified",
+      "adopted": "lambda = 1.0, fixed a priori, no sweep",
+      "evidence": "a sweep over 3 values would cost 9 further runs. Unit weight is the neutral choice and, being fixed before any C4 result was seen, cannot be a post-hoc selection.",
+      "impact": "RQ4 is tested at one point in lambda-space. A null result is therefore evidence about unit weight, not about the family of structured penalties."
+    },
+    {
+      "id": "P4-DEV-4",
+      "item": "Dataloader worker count",
+      "blueprint": "not specified",
+      "adopted": "2 (Phase 2 used 3)",
+      "evidence": "3 workers over the 953 MB extended cache reproducibly raised CUDNN_STATUS_INTERNAL_ERROR_HOST_ALLOCATION_FAILED on this 16 GB machine with ~4.4 GB free.",
+      "impact": "throughput only; the sampled data and the RNG stream are unaffected because shuffling is driven by a seeded generator on the main process."
+    }
+  ],
+  "falsification": "RQ2 is falsified if the paired interval on (C2 - C3) over the pooled contested set excludes 0 in C3's favour: that would mean vote-proportion targets are worse than an equally-soft uninformative target, i.e. the annotator disagreement pattern carries no usable signal beyond its magnitude. RQ4 is falsified if the anatomical error distance does not fall. A finding of 'no difference' is reported as such and is a publishable negative result, not a failure of the phase.",
+  "scope_exclusions": [
+    "no architecture change (ConvNeXt-Tiny throughout)",
+    "no external dataset (Phase 5)",
+    "no Grad-CAM (Phase 6)",
+    "no retraining of C0; the Phase 2 checkpoints are reused unchanged",
+    "no threshold tuning, no post-hoc temperature scaling (a separate intervention that would confound the calibration comparison)"
+  ],
+  "artefacts_to_be_produced": [
+    "checkpoints/phase4_{C1,C2,C3,C4}_seed{1,2,3}.pt",
+    "reports/phase4_run_*.json",
+    "reports/phase4_predictions_{config}_seed{k}.csv",
+    "reports/phase4_probs_{config}_seed{k}.npz",
+    "reports/phase4_stratified_metrics.json",
+    "reports/phase4_calibration.json",
+    "reports/phase4_uncertainty.json",
+    "reports/phase4_structure_eval.json",
+    "reports/phase4_loao.json",
+    "figures_phase4/P4_F25..F32_*.png",
+    "Phase4_Report.docx / .pdf"
+  ]
+}

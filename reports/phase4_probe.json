@@ -1,0 +1,13 @@
+{
+  "generated": "2026-07-27 11:45:38",
+  "purpose": "measured epoch cost on the extended Phase 4 cohort, including the C4 structured-penalty term (the most expensive arm), used to set the pre-registered epoch cap",
+  "device": "NVIDIA GeForce GTX 1650",
+  "batch_size": 24,
+  "grad_accum_steps": 1,
+  "n_train": 5228,
+  "n_val": 1103,
+  "measured_warmup_epoch_sec": 82.1,
+  "measured_finetune_epoch_sec": 132.4,
+  "phase2_finetune_epoch_sec_measured": 75.0,
+  "peak_vram_mib": 2370.4
+}

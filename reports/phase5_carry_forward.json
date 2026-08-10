@@ -1,0 +1,106 @@
+{
+ "generated": "2026-07-28 14:28:33",
+ "phase": 5,
+ "step": "P5.0",
+ "title": "Carry-forward decision for external validation",
+ "frozen_before": "any external image was acquired, cached or scored. The decision is a function of Phase 4 artefacts only.",
+ "governing_clauses": {
+  "blueprint_status_board": "pre-condition: carry the best-calibrated arm, not the most accurate (Phase 4 sec.4.7)",
+  "phase4_s47": "Phase 5 should carry the best-calibrated configuration, not the most accurate one, into external validation",
+  "rq3_external_half": "whether the uncertainty ranking is preserved outside the training distribution"
+ },
+ "evidence_from_phase4": {
+  "C0": {
+   "ece_unanimous_points": 9.15,
+   "ece_contested_points": 43.965,
+   "overconfidence_unanimous_points": 9.15,
+   "overconfidence_contested_points": 43.965,
+   "macro_f1_unanimous_points": 83.915,
+   "macro_f1_contested_points": 42.418
+  },
+  "C1": {
+   "ece_unanimous_points": 9.494,
+   "ece_contested_points": 43.613,
+   "overconfidence_unanimous_points": 9.136,
+   "overconfidence_contested_points": 43.596,
+   "macro_f1_unanimous_points": 84.487,
+   "macro_f1_contested_points": 43.76
+  },
+  "C2": {
+   "ece_unanimous_points": 4.719,
+   "ece_contested_points": 33.079,
+   "overconfidence_unanimous_points": 4.38,
+   "overconfidence_contested_points": 33.079,
+   "macro_f1_unanimous_points": 85.139,
+   "macro_f1_contested_points": 45.752
+  },
+  "C3": {
+   "ece_unanimous_points": 6.512,
+   "ece_contested_points": 19.413,
+   "overconfidence_unanimous_points": -6.446,
+   "overconfidence_contested_points": 18.958,
+   "macro_f1_unanimous_points": 85.027,
+   "macro_f1_contested_points": 44.35
+  },
+  "C4": {
+   "ece_unanimous_points": 4.073,
+   "ece_contested_points": 32.715,
+   "overconfidence_unanimous_points": 3.923,
+   "overconfidence_contested_points": 32.661,
+   "macro_f1_unanimous_points": 85.251,
+   "macro_f1_contested_points": 45.469
+  }
+ },
+ "global_shift_tolerance_points": 5.0,
+ "literal_rule_evaluation": {
+  "rule": "select argmin ECE on the pooled contested stratum",
+  "selects": "C3",
+  "its_ece_contested_points": 19.413,
+  "its_overconfidence_unanimous_points": -6.446,
+  "disqualified_as_global_shift": true,
+  "why": "C3 attains the lowest contested ECE (19.413 points) but is 6.446 points UNDER-confident on unanimous images, beyond the 5.0-point tolerance. Its calibration is therefore substantially a global confidence shift, not evidence that it knows which images are hard. Carrying it alone would carry an artefact into the external test.",
+  "best_arm_excluding_global_shift": "C4"
+ },
+ "decision": {
+  "carry": [
+   "C0",
+   "C1",
+   "C2",
+   "C3",
+   "C4"
+  ],
+  "n_arms": 5,
+  "seeds": [
+   1,
+   2,
+   3
+  ],
+  "n_inference_passes": 15,
+  "supersedes": "the single-arm reading of Phase 4 sec.4.7 recorded on the blueprint status board",
+  "rationale": [
+   "RQ3's external half is a question about RANKING preservation. A ranking cannot be measured with one arm, so a single-arm carry-forward would make the phase's own research question untestable.",
+   "The literal best-calibrated rule selects C3, which is disqualified above as a global confidence shift. Carrying every arm exposes that pattern externally instead of concealing it behind a single selected model.",
+   "Phase 5 is inference-only. The compute argument that justifies selecting one arm during training does not apply: the whole carry-forward is 15 forward passes.",
+   "Carrying C0 preserves the Phase 2/3 reference arm, so the external drop can be quoted against the internal baseline the rest of the thesis uses."
+  ],
+  "primary_arm_for_headline_numbers": "C2",
+  "primary_arm_rationale": "C2 is the RQ2 treatment arm and the soft-target construction the thesis is about. Headline external numbers are quoted for C2 with every other arm tabulated alongside; C3 is retained explicitly as the calibration control, not as a candidate model."
+ },
+ "inherited_outstanding_from_phase4": [
+  {
+   "item": "statistical power on the RQ2 primary endpoint",
+   "status": "NOT fixed by this amendment, and not fixable by re-analysis",
+   "detail": "the pooled contested stratum is 550 images clustered within patients, and no precision or power statement was pre-registered. The realised half-width on C2-C3 cannot resolve an effect of the size observed. Phase 5 should pre-register a target precision."
+  },
+  {
+   "item": "epoch-cap censoring",
+   "status": "declared, not removed",
+   "detail": "see P4-AMD-3; requires the Phase 4B retraining amendment."
+  }
+ ],
+ "binding_on_phase5": [
+  "no fine-tuning, adaptation or self-training on external data before the clean transfer numbers are recorded and frozen; any adaptation arm is a SEPARATE, later, declared comparison against these numbers",
+  "Phase 2 training-set normalisation statistics reused unchanged",
+  "all intervals >=1,000 resamples (blueprint sec.6; see phase4_amendment P4-AMD-1)"
+ ]
+}

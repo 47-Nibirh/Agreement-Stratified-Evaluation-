@@ -1,0 +1,1888 @@
+{
+  "generated": "2026-07-28 14:20:20",
+  "purpose": "RQ4 -- effect of the anatomical structured penalty on error geometry",
+  "distance_matrix": "reports/phase4_distance_matrix.json",
+  "primary_metric": "annotator-marginalized mean anatomical distance: mean over images and over the 4 annotator labels of d(vote, prediction); 0 for a prediction every annotator gave, 1 for a prediction maximally far from all of them",
+  "independent_checks": "wall-adjacent and station-neighbouring error shares on S-unanimous, Phase 0 definitions, which C4 was not trained against",
+  "configurations_evaluated": [
+    "C0",
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+  ],
+  "config_labels": {
+    "C0": "C0 hard label, 4/4 cohort (Phase 2 reference)",
+    "C1": "C1 hard majority label, extended cohort",
+    "C2": "C2 vote proportions",
+    "C3": "C3 hard label + matched label smoothing (control)",
+    "C4": "C4 vote proportions + anatomical penalty"
+  },
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "partial_sweep": false,
+  "n_boot": 1000,
+  "boot_unit": "patient",
+  "boot_seed": 20260726,
+  "per_seed": {
+    "C0": {
+      "1": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.04271,
+          "mean_anatomical_distance_given_miss": 0.27008,
+          "annotator_miss_rate": 0.15816
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.17065,
+          "mean_anatomical_distance_given_miss": 0.34483,
+          "annotator_miss_rate": 0.49488
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.33829,
+          "mean_anatomical_distance_given_miss": 0.45827,
+          "annotator_miss_rate": 0.73819
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.24306,
+          "mean_anatomical_distance_given_miss": 0.38228,
+          "annotator_miss_rate": 0.6358
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.22002,
+          "mean_anatomical_distance_given_miss": 0.38478,
+          "annotator_miss_rate": 0.57182
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 127,
+          "error_rate_pct": 15.82,
+          "n_wall_differing_errors": 72,
+          "wall_adjacent_pct": 91.67,
+          "n_station_differing_errors": 64,
+          "station_neighbouring_pct": 87.5
+        }
+      },
+      "2": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.05149,
+          "mean_anatomical_distance_given_miss": 0.31808,
+          "annotator_miss_rate": 0.16189
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.1723,
+          "mean_anatomical_distance_given_miss": 0.35074,
+          "annotator_miss_rate": 0.49123
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.32933,
+          "mean_anatomical_distance_given_miss": 0.47528,
+          "annotator_miss_rate": 0.69291
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.22793,
+          "mean_anatomical_distance_given_miss": 0.37679,
+          "annotator_miss_rate": 0.60494
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.21675,
+          "mean_anatomical_distance_given_miss": 0.39086,
+          "annotator_miss_rate": 0.55455
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 130,
+          "error_rate_pct": 16.19,
+          "n_wall_differing_errors": 67,
+          "wall_adjacent_pct": 85.07,
+          "n_station_differing_errors": 69,
+          "station_neighbouring_pct": 81.16
+        }
+      },
+      "3": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.03848,
+          "mean_anatomical_distance_given_miss": 0.25966,
+          "annotator_miss_rate": 0.14819
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.16985,
+          "mean_anatomical_distance_given_miss": 0.34473,
+          "annotator_miss_rate": 0.49269
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.33031,
+          "mean_anatomical_distance_given_miss": 0.44987,
+          "annotator_miss_rate": 0.73425
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.23673,
+          "mean_anatomical_distance_given_miss": 0.3835,
+          "annotator_miss_rate": 0.61728
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.21675,
+          "mean_anatomical_distance_given_miss": 0.3824,
+          "annotator_miss_rate": 0.56682
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 119,
+          "error_rate_pct": 14.82,
+          "n_wall_differing_errors": 65,
+          "wall_adjacent_pct": 92.31,
+          "n_station_differing_errors": 67,
+          "station_neighbouring_pct": 88.06
+        }
+      }
+    },
+    "C1": {
+      "1": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.03643,
+          "mean_anatomical_distance_given_miss": 0.25216,
+          "annotator_miss_rate": 0.14446
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.15172,
+          "mean_anatomical_distance_given_miss": 0.32685,
+          "annotator_miss_rate": 0.46418
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.32067,
+          "mean_anatomical_distance_given_miss": 0.44753,
+          "annotator_miss_rate": 0.71654
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.21713,
+          "mean_anatomical_distance_given_miss": 0.35893,
+          "annotator_miss_rate": 0.60494
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.20036,
+          "mean_anatomical_distance_given_miss": 0.36887,
+          "annotator_miss_rate": 0.54318
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 116,
+          "error_rate_pct": 14.45,
+          "n_wall_differing_errors": 60,
+          "wall_adjacent_pct": 98.33,
+          "n_station_differing_errors": 65,
+          "station_neighbouring_pct": 87.69
+        }
+      },
+      "2": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.03867,
+          "mean_anatomical_distance_given_miss": 0.25244,
+          "annotator_miss_rate": 0.15318
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.15998,
+          "mean_anatomical_distance_given_miss": 0.34465,
+          "annotator_miss_rate": 0.46418
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.32116,
+          "mean_anatomical_distance_given_miss": 0.44455,
+          "annotator_miss_rate": 0.72244
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.22716,
+          "mean_anatomical_distance_given_miss": 0.37551,
+          "annotator_miss_rate": 0.60494
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.20709,
+          "mean_anatomical_distance_given_miss": 0.3803,
+          "annotator_miss_rate": 0.54455
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 123,
+          "error_rate_pct": 15.32,
+          "n_wall_differing_errors": 67,
+          "wall_adjacent_pct": 97.01,
+          "n_station_differing_errors": 66,
+          "station_neighbouring_pct": 84.85
+        }
+      },
+      "3": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.03991,
+          "mean_anatomical_distance_given_miss": 0.26057,
+          "annotator_miss_rate": 0.15318
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.17039,
+          "mean_anatomical_distance_given_miss": 0.33734,
+          "annotator_miss_rate": 0.50512
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.3187,
+          "mean_anatomical_distance_given_miss": 0.44724,
+          "annotator_miss_rate": 0.7126
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.24352,
+          "mean_anatomical_distance_given_miss": 0.38301,
+          "annotator_miss_rate": 0.6358
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.21541,
+          "mean_anatomical_distance_given_miss": 0.37641,
+          "annotator_miss_rate": 0.57227
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 123,
+          "error_rate_pct": 15.32,
+          "n_wall_differing_errors": 69,
+          "wall_adjacent_pct": 97.1,
+          "n_station_differing_errors": 66,
+          "station_neighbouring_pct": 83.33
+        }
+      }
+    },
+    "C2": {
+      "1": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.03817,
+          "mean_anatomical_distance_given_miss": 0.27366,
+          "annotator_miss_rate": 0.13948
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.15281,
+          "mean_anatomical_distance_given_miss": 0.33827,
+          "annotator_miss_rate": 0.45175
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.33789,
+          "mean_anatomical_distance_given_miss": 0.47813,
+          "annotator_miss_rate": 0.70669
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.22639,
+          "mean_anatomical_distance_given_miss": 0.38203,
+          "annotator_miss_rate": 0.59259
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.20639,
+          "mean_anatomical_distance_given_miss": 0.38841,
+          "annotator_miss_rate": 0.53136
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 112,
+          "error_rate_pct": 13.95,
+          "n_wall_differing_errors": 62,
+          "wall_adjacent_pct": 95.16,
+          "n_station_differing_errors": 57,
+          "station_neighbouring_pct": 85.96
+        }
+      },
+      "2": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.04054,
+          "mean_anatomical_distance_given_miss": 0.27125,
+          "annotator_miss_rate": 0.14944
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.15044,
+          "mean_anatomical_distance_given_miss": 0.33355,
+          "annotator_miss_rate": 0.45102
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.31732,
+          "mean_anatomical_distance_given_miss": 0.45666,
+          "annotator_miss_rate": 0.69488
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.22562,
+          "mean_anatomical_distance_given_miss": 0.38883,
+          "annotator_miss_rate": 0.58025
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.20005,
+          "mean_anatomical_distance_given_miss": 0.38005,
+          "annotator_miss_rate": 0.52636
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 120,
+          "error_rate_pct": 14.94,
+          "n_wall_differing_errors": 61,
+          "wall_adjacent_pct": 96.72,
+          "n_station_differing_errors": 62,
+          "station_neighbouring_pct": 88.71
+        }
+      },
+      "3": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.03885,
+          "mean_anatomical_distance_given_miss": 0.2713,
+          "annotator_miss_rate": 0.14321
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.15577,
+          "mean_anatomical_distance_given_miss": 0.33987,
+          "annotator_miss_rate": 0.45833
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.32441,
+          "mean_anatomical_distance_given_miss": 0.46952,
+          "annotator_miss_rate": 0.69094
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.2216,
+          "mean_anatomical_distance_given_miss": 0.37396,
+          "annotator_miss_rate": 0.59259
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.20441,
+          "mean_anatomical_distance_given_miss": 0.38436,
+          "annotator_miss_rate": 0.53182
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 115,
+          "error_rate_pct": 14.32,
+          "n_wall_differing_errors": 64,
+          "wall_adjacent_pct": 96.88,
+          "n_station_differing_errors": 51,
+          "station_neighbouring_pct": 86.27
+        }
+      }
+    },
+    "C3": {
+      "1": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.03555,
+          "mean_anatomical_distance_given_miss": 0.25491,
+          "annotator_miss_rate": 0.13948
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.1474,
+          "mean_anatomical_distance_given_miss": 0.3242,
+          "annotator_miss_rate": 0.45468
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.32195,
+          "mean_anatomical_distance_given_miss": 0.44443,
+          "annotator_miss_rate": 0.72441
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.22685,
+          "mean_anatomical_distance_given_miss": 0.37121,
+          "annotator_miss_rate": 0.61111
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.19941,
+          "mean_anatomical_distance_given_miss": 0.36928,
+          "annotator_miss_rate": 0.54
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 112,
+          "error_rate_pct": 13.95,
+          "n_wall_differing_errors": 58,
+          "wall_adjacent_pct": 98.28,
+          "n_station_differing_errors": 63,
+          "station_neighbouring_pct": 88.89
+        }
+      },
+      "2": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.03811,
+          "mean_anatomical_distance_given_miss": 0.26842,
+          "annotator_miss_rate": 0.14197
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.14985,
+          "mean_anatomical_distance_given_miss": 0.32132,
+          "annotator_miss_rate": 0.46637
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.31762,
+          "mean_anatomical_distance_given_miss": 0.43491,
+          "annotator_miss_rate": 0.73031
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.22793,
+          "mean_anatomical_distance_given_miss": 0.37298,
+          "annotator_miss_rate": 0.61111
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.20009,
+          "mean_anatomical_distance_given_miss": 0.36471,
+          "annotator_miss_rate": 0.54864
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 114,
+          "error_rate_pct": 14.2,
+          "n_wall_differing_errors": 60,
+          "wall_adjacent_pct": 96.67,
+          "n_station_differing_errors": 67,
+          "station_neighbouring_pct": 86.57
+        }
+      },
+      "3": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.03985,
+          "mean_anatomical_distance_given_miss": 0.26446,
+          "annotator_miss_rate": 0.15068
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.1553,
+          "mean_anatomical_distance_given_miss": 0.32634,
+          "annotator_miss_rate": 0.47588
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.31781,
+          "mean_anatomical_distance_given_miss": 0.45224,
+          "annotator_miss_rate": 0.70276
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.23086,
+          "mean_anatomical_distance_given_miss": 0.37778,
+          "annotator_miss_rate": 0.61111
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.20395,
+          "mean_anatomical_distance_given_miss": 0.37206,
+          "annotator_miss_rate": 0.54818
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 121,
+          "error_rate_pct": 15.07,
+          "n_wall_differing_errors": 62,
+          "wall_adjacent_pct": 93.55,
+          "n_station_differing_errors": 68,
+          "station_neighbouring_pct": 83.82
+        }
+      }
+    },
+    "C4": {
+      "1": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.03562,
+          "mean_anatomical_distance_given_miss": 0.25088,
+          "annotator_miss_rate": 0.14197
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.15033,
+          "mean_anatomical_distance_given_miss": 0.33169,
+          "annotator_miss_rate": 0.45322
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.32037,
+          "mean_anatomical_distance_given_miss": 0.46236,
+          "annotator_miss_rate": 0.69291
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.22731,
+          "mean_anatomical_distance_given_miss": 0.38763,
+          "annotator_miss_rate": 0.58642
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.20093,
+          "mean_anatomical_distance_given_miss": 0.38042,
+          "annotator_miss_rate": 0.52818
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 114,
+          "error_rate_pct": 14.2,
+          "n_wall_differing_errors": 62,
+          "wall_adjacent_pct": 96.77,
+          "n_station_differing_errors": 60,
+          "station_neighbouring_pct": 88.33
+        }
+      },
+      "2": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.04029,
+          "mean_anatomical_distance_given_miss": 0.27888,
+          "annotator_miss_rate": 0.14446
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.14437,
+          "mean_anatomical_distance_given_miss": 0.32324,
+          "annotator_miss_rate": 0.44664
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.32077,
+          "mean_anatomical_distance_given_miss": 0.45517,
+          "annotator_miss_rate": 0.70472
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.22284,
+          "mean_anatomical_distance_given_miss": 0.38,
+          "annotator_miss_rate": 0.58642
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.19666,
+          "mean_anatomical_distance_given_miss": 0.3733,
+          "annotator_miss_rate": 0.52682
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 116,
+          "error_rate_pct": 14.45,
+          "n_wall_differing_errors": 66,
+          "wall_adjacent_pct": 95.45,
+          "n_station_differing_errors": 59,
+          "station_neighbouring_pct": 89.83
+        }
+      },
+      "3": {
+        "S-unanimous": {
+          "n_images": 803,
+          "mean_anatomical_distance": 0.03867,
+          "mean_anatomical_distance_given_miss": 0.26538,
+          "annotator_miss_rate": 0.1457
+        },
+        "S-majority": {
+          "n_images": 342,
+          "mean_anatomical_distance": 0.15863,
+          "mean_anatomical_distance_given_miss": 0.33436,
+          "annotator_miss_rate": 0.47442
+        },
+        "S-plurality": {
+          "n_images": 127,
+          "mean_anatomical_distance": 0.32057,
+          "mean_anatomical_distance_given_miss": 0.44986,
+          "annotator_miss_rate": 0.7126
+        },
+        "S-no-majority": {
+          "n_images": 81,
+          "mean_anatomical_distance": 0.22068,
+          "mean_anatomical_distance_given_miss": 0.37632,
+          "annotator_miss_rate": 0.58642
+        },
+        "S-contested (pooled)": {
+          "n_images": 550,
+          "mean_anatomical_distance": 0.20516,
+          "mean_anatomical_distance_given_miss": 0.37581,
+          "annotator_miss_rate": 0.54591
+        },
+        "_error_geometry_S_unanimous": {
+          "n_images": 803,
+          "n_errors": 117,
+          "error_rate_pct": 14.57,
+          "n_wall_differing_errors": 63,
+          "wall_adjacent_pct": 96.83,
+          "n_station_differing_errors": 56,
+          "station_neighbouring_pct": 89.29
+        }
+      }
+    }
+  },
+  "aggregate_3seed": {
+    "C0": {
+      "S-unanimous": {
+        "n_images": 803,
+        "mean_anatomical_distance_3seed": 0.04423,
+        "sd_3seed": 0.00664,
+        "ci95_seed1": [
+          0.03329,
+          0.05278
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.28261
+      },
+      "S-majority": {
+        "n_images": 342,
+        "mean_anatomical_distance_3seed": 0.17093,
+        "sd_3seed": 0.00125,
+        "ci95_seed1": [
+          0.15126,
+          0.19222
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.34677
+      },
+      "S-plurality": {
+        "n_images": 127,
+        "mean_anatomical_distance_3seed": 0.33264,
+        "sd_3seed": 0.00491,
+        "ci95_seed1": [
+          0.29516,
+          0.38068
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.46114
+      },
+      "S-no-majority": {
+        "n_images": 81,
+        "mean_anatomical_distance_3seed": 0.23591,
+        "sd_3seed": 0.0076,
+        "ci95_seed1": [
+          0.19603,
+          0.29607
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.38086
+      },
+      "S-contested (pooled)": {
+        "n_images": 550,
+        "mean_anatomical_distance_3seed": 0.21784,
+        "sd_3seed": 0.00189,
+        "ci95_seed1": [
+          0.19902,
+          0.24484
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.38601
+      },
+      "_error_geometry_S_unanimous": {
+        "error_rate_pct_3seed": 15.61,
+        "wall_adjacent_pct_3seed": 89.68,
+        "station_neighbouring_pct_3seed": 85.57,
+        "n_wall_differing_errors_3seed_mean": 68.0,
+        "human_wall_adjacent_pct": 89.8,
+        "human_station_neighbouring_pct": 93.1
+      }
+    },
+    "C1": {
+      "S-unanimous": {
+        "n_images": 803,
+        "mean_anatomical_distance_3seed": 0.03834,
+        "sd_3seed": 0.00176,
+        "ci95_seed1": [
+          0.02762,
+          0.04603
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.25506
+      },
+      "S-majority": {
+        "n_images": 342,
+        "mean_anatomical_distance_3seed": 0.1607,
+        "sd_3seed": 0.00936,
+        "ci95_seed1": [
+          0.13611,
+          0.1681
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.33628
+      },
+      "S-plurality": {
+        "n_images": 127,
+        "mean_anatomical_distance_3seed": 0.32018,
+        "sd_3seed": 0.0013,
+        "ci95_seed1": [
+          0.28029,
+          0.36105
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.44644
+      },
+      "S-no-majority": {
+        "n_images": 81,
+        "mean_anatomical_distance_3seed": 0.22927,
+        "sd_3seed": 0.01332,
+        "ci95_seed1": [
+          0.17606,
+          0.26567
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.37248
+      },
+      "S-contested (pooled)": {
+        "n_images": 550,
+        "mean_anatomical_distance_3seed": 0.20762,
+        "sd_3seed": 0.00754,
+        "ci95_seed1": [
+          0.17991,
+          0.22329
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.37519
+      },
+      "_error_geometry_S_unanimous": {
+        "error_rate_pct_3seed": 15.03,
+        "wall_adjacent_pct_3seed": 97.48,
+        "station_neighbouring_pct_3seed": 85.29,
+        "n_wall_differing_errors_3seed_mean": 65.3,
+        "human_wall_adjacent_pct": 89.8,
+        "human_station_neighbouring_pct": 93.1
+      }
+    },
+    "C2": {
+      "S-unanimous": {
+        "n_images": 803,
+        "mean_anatomical_distance_3seed": 0.03919,
+        "sd_3seed": 0.00122,
+        "ci95_seed1": [
+          0.02979,
+          0.04801
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.27207
+      },
+      "S-majority": {
+        "n_images": 342,
+        "mean_anatomical_distance_3seed": 0.15301,
+        "sd_3seed": 0.00267,
+        "ci95_seed1": [
+          0.1341,
+          0.17208
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.33723
+      },
+      "S-plurality": {
+        "n_images": 127,
+        "mean_anatomical_distance_3seed": 0.32654,
+        "sd_3seed": 0.01045,
+        "ci95_seed1": [
+          0.28857,
+          0.38511
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.4681
+      },
+      "S-no-majority": {
+        "n_images": 81,
+        "mean_anatomical_distance_3seed": 0.22454,
+        "sd_3seed": 0.00257,
+        "ci95_seed1": [
+          0.18768,
+          0.27351
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.38161
+      },
+      "S-contested (pooled)": {
+        "n_images": 550,
+        "mean_anatomical_distance_3seed": 0.20362,
+        "sd_3seed": 0.00324,
+        "ci95_seed1": [
+          0.18511,
+          0.23063
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.38427
+      },
+      "_error_geometry_S_unanimous": {
+        "error_rate_pct_3seed": 14.4,
+        "wall_adjacent_pct_3seed": 96.25,
+        "station_neighbouring_pct_3seed": 86.98,
+        "n_wall_differing_errors_3seed_mean": 62.3,
+        "human_wall_adjacent_pct": 89.8,
+        "human_station_neighbouring_pct": 93.1
+      }
+    },
+    "C3": {
+      "S-unanimous": {
+        "n_images": 803,
+        "mean_anatomical_distance_3seed": 0.03784,
+        "sd_3seed": 0.00216,
+        "ci95_seed1": [
+          0.02758,
+          0.04446
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.2626
+      },
+      "S-majority": {
+        "n_images": 342,
+        "mean_anatomical_distance_3seed": 0.15085,
+        "sd_3seed": 0.00404,
+        "ci95_seed1": [
+          0.12966,
+          0.16591
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.32395
+      },
+      "S-plurality": {
+        "n_images": 127,
+        "mean_anatomical_distance_3seed": 0.31913,
+        "sd_3seed": 0.00245,
+        "ci95_seed1": [
+          0.28058,
+          0.36335
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.44386
+      },
+      "S-no-majority": {
+        "n_images": 81,
+        "mean_anatomical_distance_3seed": 0.22855,
+        "sd_3seed": 0.00207,
+        "ci95_seed1": [
+          0.18704,
+          0.27857
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.37399
+      },
+      "S-contested (pooled)": {
+        "n_images": 550,
+        "mean_anatomical_distance_3seed": 0.20115,
+        "sd_3seed": 0.00245,
+        "ci95_seed1": [
+          0.17714,
+          0.22439
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.36868
+      },
+      "_error_geometry_S_unanimous": {
+        "error_rate_pct_3seed": 14.41,
+        "wall_adjacent_pct_3seed": 96.17,
+        "station_neighbouring_pct_3seed": 86.43,
+        "n_wall_differing_errors_3seed_mean": 60.0,
+        "human_wall_adjacent_pct": 89.8,
+        "human_station_neighbouring_pct": 93.1
+      }
+    },
+    "C4": {
+      "S-unanimous": {
+        "n_images": 803,
+        "mean_anatomical_distance_3seed": 0.03819,
+        "sd_3seed": 0.00237,
+        "ci95_seed1": [
+          0.02778,
+          0.04496
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.26505
+      },
+      "S-majority": {
+        "n_images": 342,
+        "mean_anatomical_distance_3seed": 0.15111,
+        "sd_3seed": 0.00716,
+        "ci95_seed1": [
+          0.13385,
+          0.16732
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.32976
+      },
+      "S-plurality": {
+        "n_images": 127,
+        "mean_anatomical_distance_3seed": 0.32057,
+        "sd_3seed": 0.0002,
+        "ci95_seed1": [
+          0.28074,
+          0.35896
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.4558
+      },
+      "S-no-majority": {
+        "n_images": 81,
+        "mean_anatomical_distance_3seed": 0.22361,
+        "sd_3seed": 0.00338,
+        "ci95_seed1": [
+          0.18733,
+          0.27445
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.38132
+      },
+      "S-contested (pooled)": {
+        "n_images": 550,
+        "mean_anatomical_distance_3seed": 0.20092,
+        "sd_3seed": 0.00425,
+        "ci95_seed1": [
+          0.18209,
+          0.22264
+        ],
+        "mean_anatomical_distance_given_miss_3seed": 0.37651
+      },
+      "_error_geometry_S_unanimous": {
+        "error_rate_pct_3seed": 14.41,
+        "wall_adjacent_pct_3seed": 96.35,
+        "station_neighbouring_pct_3seed": 89.15,
+        "n_wall_differing_errors_3seed_mean": 63.7,
+        "human_wall_adjacent_pct": 89.8,
+        "human_station_neighbouring_pct": 93.1
+      }
+    }
+  },
+  "contrasts": {
+    "C4 - C2": {
+      "S-unanimous": {
+        "delta_distance_3seed_mean": -0.001,
+        "ci95_3seed_mean": [
+          -0.00603,
+          0.00364
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": true,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": -0.00255,
+            "ci95": [
+              -0.00738,
+              0.00139
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.00025,
+            "ci95": [
+              -0.00401,
+              0.00336
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.00019,
+            "ci95": [
+              -0.00671,
+              0.00618
+            ]
+          }
+        ]
+      },
+      "S-majority": {
+        "delta_distance_3seed_mean": -0.0019,
+        "ci95_3seed_mean": [
+          -0.0119,
+          0.00659
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": -0.00249,
+            "ci95": [
+              -0.00827,
+              0.00279
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.00607,
+            "ci95": [
+              -0.01801,
+              0.00361
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": 0.00285,
+            "ci95": [
+              -0.00943,
+              0.01337
+            ]
+          }
+        ]
+      },
+      "S-plurality": {
+        "delta_distance_3seed_mean": -0.00597,
+        "ci95_3seed_mean": [
+          -0.02348,
+          0.00994
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": -0.01752,
+            "ci95": [
+              -0.03781,
+              -0.00126
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": 0.00344,
+            "ci95": [
+              -0.00872,
+              0.01606
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.00384,
+            "ci95": [
+              -0.0239,
+              0.01502
+            ]
+          }
+        ]
+      },
+      "S-no-majority": {
+        "delta_distance_3seed_mean": -0.00093,
+        "ci95_3seed_mean": [
+          -0.01216,
+          0.01038
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": 0.00093,
+            "ci95": [
+              -0.00455,
+              0.0075
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.00278,
+            "ci95": [
+              -0.01794,
+              0.00853
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.00093,
+            "ci95": [
+              -0.01399,
+              0.01512
+            ]
+          }
+        ]
+      },
+      "S-contested (pooled)": {
+        "delta_distance_3seed_mean": -0.0027,
+        "ci95_3seed_mean": [
+          -0.01068,
+          0.00469
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": -0.00545,
+            "ci95": [
+              -0.01252,
+              0.00119
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.00339,
+            "ci95": [
+              -0.0108,
+              0.00327
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": 0.00075,
+            "ci95": [
+              -0.00873,
+              0.00962
+            ]
+          }
+        ]
+      }
+    },
+    "C4 - C1": {
+      "S-unanimous": {
+        "delta_distance_3seed_mean": -0.00015,
+        "ci95_3seed_mean": [
+          -0.00651,
+          0.00649
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": -0.00081,
+            "ci95": [
+              -0.00683,
+              0.00488
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": 0.00162,
+            "ci95": [
+              -0.00395,
+              0.00794
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.00125,
+            "ci95": [
+              -0.00874,
+              0.00666
+            ]
+          }
+        ]
+      },
+      "S-majority": {
+        "delta_distance_3seed_mean": -0.00959,
+        "ci95_3seed_mean": [
+          -0.0234,
+          0.00362
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": true,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": -0.00139,
+            "ci95": [
+              -0.0143,
+              0.01253
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.01561,
+            "ci95": [
+              -0.02744,
+              -0.00436
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.01177,
+            "ci95": [
+              -0.02846,
+              0.00269
+            ]
+          }
+        ]
+      },
+      "S-plurality": {
+        "delta_distance_3seed_mean": 0.00039,
+        "ci95_3seed_mean": [
+          -0.01422,
+          0.01342
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": -0.0003,
+            "ci95": [
+              -0.01389,
+              0.01237
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.00039,
+            "ci95": [
+              -0.01462,
+              0.0125
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": 0.00187,
+            "ci95": [
+              -0.01414,
+              0.01538
+            ]
+          }
+        ]
+      },
+      "S-no-majority": {
+        "delta_distance_3seed_mean": -0.00566,
+        "ci95_3seed_mean": [
+          -0.02211,
+          0.00895
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": 0.01019,
+            "ci95": [
+              -0.00165,
+              0.02468
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.00432,
+            "ci95": [
+              -0.02167,
+              0.01094
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.02284,
+            "ci95": [
+              -0.043,
+              -0.00878
+            ]
+          }
+        ]
+      },
+      "S-contested (pooled)": {
+        "delta_distance_3seed_mean": -0.0067,
+        "ci95_3seed_mean": [
+          -0.01644,
+          0.00231
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": 0.00057,
+            "ci95": [
+              -0.00825,
+              0.00985
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.01043,
+            "ci95": [
+              -0.01879,
+              -0.00273
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.01025,
+            "ci95": [
+              -0.02229,
+              -0.00018
+            ]
+          }
+        ]
+      }
+    },
+    "C2 - C3": {
+      "S-unanimous": {
+        "delta_distance_3seed_mean": 0.00135,
+        "ci95_3seed_mean": [
+          -0.00657,
+          0.00933
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": 0.00262,
+            "ci95": [
+              -0.00421,
+              0.01016
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": 0.00243,
+            "ci95": [
+              -0.00454,
+              0.01045
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.001,
+            "ci95": [
+              -0.01097,
+              0.00739
+            ]
+          }
+        ]
+      },
+      "S-majority": {
+        "delta_distance_3seed_mean": 0.00216,
+        "ci95_3seed_mean": [
+          -0.011,
+          0.01731
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": true,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": 0.00541,
+            "ci95": [
+              -0.00774,
+              0.02016
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": 0.00058,
+            "ci95": [
+              -0.01204,
+              0.01603
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": 0.00048,
+            "ci95": [
+              -0.01323,
+              0.01573
+            ]
+          }
+        ]
+      },
+      "S-plurality": {
+        "delta_distance_3seed_mean": 0.00741,
+        "ci95_3seed_mean": [
+          -0.0123,
+          0.02697
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": 0.01594,
+            "ci95": [
+              -0.00811,
+              0.03952
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.0003,
+            "ci95": [
+              -0.01546,
+              0.01459
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": 0.00659,
+            "ci95": [
+              -0.01334,
+              0.02679
+            ]
+          }
+        ]
+      },
+      "S-no-majority": {
+        "delta_distance_3seed_mean": -0.00401,
+        "ci95_3seed_mean": [
+          -0.02159,
+          0.01264
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": true,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": -0.00046,
+            "ci95": [
+              -0.01501,
+              0.015
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.00231,
+            "ci95": [
+              -0.02151,
+              0.0163
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.00926,
+            "ci95": [
+              -0.02826,
+              0.00663
+            ]
+          }
+        ]
+      },
+      "S-contested (pooled)": {
+        "delta_distance_3seed_mean": 0.00246,
+        "ci95_3seed_mean": [
+          -0.00725,
+          0.01262
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": 0.00698,
+            "ci95": [
+              -0.0035,
+              0.01754
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -5e-05,
+            "ci95": [
+              -0.00833,
+              0.00876
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": 0.00045,
+            "ci95": [
+              -0.00993,
+              0.01155
+            ]
+          }
+        ]
+      }
+    },
+    "C2 - C1": {
+      "S-unanimous": {
+        "delta_distance_3seed_mean": 0.00085,
+        "ci95_3seed_mean": [
+          -0.00717,
+          0.00891
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": 0.00174,
+            "ci95": [
+              -0.00529,
+              0.00862
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": 0.00187,
+            "ci95": [
+              -0.00495,
+              0.00971
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.00106,
+            "ci95": [
+              -0.01127,
+              0.00839
+            ]
+          }
+        ]
+      },
+      "S-majority": {
+        "delta_distance_3seed_mean": -0.00769,
+        "ci95_3seed_mean": [
+          -0.02079,
+          0.0055
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": 0.0011,
+            "ci95": [
+              -0.01147,
+              0.0149
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.00954,
+            "ci95": [
+              -0.02235,
+              0.00309
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.01462,
+            "ci95": [
+              -0.02856,
+              -0.00148
+            ]
+          }
+        ]
+      },
+      "S-plurality": {
+        "delta_distance_3seed_mean": 0.00636,
+        "ci95_3seed_mean": [
+          -0.01037,
+          0.02257
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": 0.01722,
+            "ci95": [
+              -0.00425,
+              0.03759
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.00384,
+            "ci95": [
+              -0.01652,
+              0.00764
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": 0.00571,
+            "ci95": [
+              -0.01035,
+              0.02249
+            ]
+          }
+        ]
+      },
+      "S-no-majority": {
+        "delta_distance_3seed_mean": -0.00473,
+        "ci95_3seed_mean": [
+          -0.01986,
+          0.0097
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": 0.00926,
+            "ci95": [
+              -0.00317,
+              0.02444
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.00154,
+            "ci95": [
+              -0.01347,
+              0.01081
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.02191,
+            "ci95": [
+              -0.04293,
+              -0.00616
+            ]
+          }
+        ]
+      },
+      "S-contested (pooled)": {
+        "delta_distance_3seed_mean": -0.00401,
+        "ci95_3seed_mean": [
+          -0.01361,
+          0.0053
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": 0.00602,
+            "ci95": [
+              -0.00386,
+              0.01595
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.00705,
+            "ci95": [
+              -0.01551,
+              0.00123
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.011,
+            "ci95": [
+              -0.02147,
+              -0.00127
+            ]
+          }
+        ]
+      }
+    },
+    "C1 - C0": {
+      "S-unanimous": {
+        "delta_distance_3seed_mean": -0.0059,
+        "ci95_3seed_mean": [
+          -0.01413,
+          0.00234
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": -0.00629,
+            "ci95": [
+              -0.01442,
+              0.0019
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.01283,
+            "ci95": [
+              -0.02175,
+              -0.00369
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": 0.00143,
+            "ci95": [
+              -0.00623,
+              0.00882
+            ]
+          }
+        ]
+      },
+      "S-majority": {
+        "delta_distance_3seed_mean": -0.01023,
+        "ci95_3seed_mean": [
+          -0.02323,
+          0.00271
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": -0.01893,
+            "ci95": [
+              -0.03257,
+              -0.00581
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.01232,
+            "ci95": [
+              -0.02435,
+              0.00012
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": 0.00055,
+            "ci95": [
+              -0.01277,
+              0.01382
+            ]
+          }
+        ]
+      },
+      "S-plurality": {
+        "delta_distance_3seed_mean": -0.01247,
+        "ci95_3seed_mean": [
+          -0.02852,
+          0.00423
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": true,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": -0.01762,
+            "ci95": [
+              -0.03517,
+              -0.00024
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.00817,
+            "ci95": [
+              -0.02689,
+              0.01171
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.01161,
+            "ci95": [
+              -0.0235,
+              0.00122
+            ]
+          }
+        ]
+      },
+      "S-no-majority": {
+        "delta_distance_3seed_mean": -0.00664,
+        "ci95_3seed_mean": [
+          -0.02536,
+          0.0124
+        ],
+        "excludes_zero": false,
+        "reduces_distance": false,
+        "sign_consistent_across_seeds": false,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": -0.02593,
+            "ci95": [
+              -0.04471,
+              -0.01034
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.00077,
+            "ci95": [
+              -0.01677,
+              0.01712
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": 0.00679,
+            "ci95": [
+              -0.01459,
+              0.03041
+            ]
+          }
+        ]
+      },
+      "S-contested (pooled)": {
+        "delta_distance_3seed_mean": -0.01022,
+        "ci95_3seed_mean": [
+          -0.02056,
+          -0.00014
+        ],
+        "excludes_zero": true,
+        "reduces_distance": true,
+        "sign_consistent_across_seeds": true,
+        "per_seed": [
+          {
+            "seed": 1,
+            "delta_distance_plugin": -0.01966,
+            "ci95": [
+              -0.03077,
+              -0.00921
+            ]
+          },
+          {
+            "seed": 2,
+            "delta_distance_plugin": -0.00966,
+            "ci95": [
+              -0.01939,
+              -0.0009
+            ]
+          },
+          {
+            "seed": 3,
+            "delta_distance_plugin": -0.00134,
+            "ci95": [
+              -0.01152,
+              0.00969
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "verdicts": {
+    "RQ4": {
+      "primary_endpoint": "mean anatomical error distance on the test split, using the pre-registered distance matrix",
+      "stratum": "S-contested (pooled)",
+      "delta_distance": -0.0027,
+      "ci95": [
+        -0.01068,
+        0.00469
+      ],
+      "distance_reduced_significantly": false,
+      "macro_f1_side_condition_met": true,
+      "macro_f1_delta_points": -0.283,
+      "verdict": "NOT RESOLVED",
+      "rule": "SUPPORTED if the paired CI of mean anatomical error distance (C4 - C2) excludes 0 below zero AND the paired CI of macro F1 (C4 - C2) does not exclude 0 below zero, i.e. the penalty reshapes the errors without costing accuracy. PARTIALLY SUPPORTED if the distance falls but macro F1 also falls significantly."
+    }
+  },
+  "runtime_sec": 5.9
+}

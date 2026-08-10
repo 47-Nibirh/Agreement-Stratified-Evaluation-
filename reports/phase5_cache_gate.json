@@ -1,0 +1,121 @@
+{
+ "generated": "2026-07-28 14:58:45",
+ "phase": 5,
+ "step": "P5.3",
+ "cache": {
+  "path": "data/phase5_cache_224.npy",
+  "shape": [
+   17122,
+   224,
+   224,
+   3
+  ],
+  "dtype": "uint8",
+  "bytes": 2577340544
+ },
+ "decode_path": "PIL open -> convert('RGB') -> resize(224, LANCZOS) -> uint8; identical to phase2_cache.py and phase4_cache.py",
+ "normalisation": "Phase 2 TRAINING-SET statistics, applied at inference time by phase5_infer.py, NOT recomputed on the external corpora",
+ "counts_by_collapsed_label": {
+  "RETROFLEXION": 764,
+  "FORWARD_GASTRIC": 2361,
+  "OTHERCLASS": 13997
+ },
+ "counts_by_corpus": {
+  "gastrovision": 6460,
+  "hyperkvasir": 10662
+ },
+ "collapse_definition": {
+  "RETROFLEXION": {
+   "stations": [
+    4,
+    5
+   ],
+   "codes": [
+    "A4",
+    "A5",
+    "G4",
+    "L4",
+    "L5",
+    "P4",
+    "P5"
+   ],
+   "class_indices": [
+    3,
+    4,
+    9,
+    13,
+    14,
+    20,
+    21
+   ]
+  },
+  "FORWARD_GASTRIC": {
+   "stations": [
+    1,
+    2,
+    3,
+    6
+   ],
+   "codes": [
+    "A1",
+    "A2",
+    "A3",
+    "A6",
+    "G1",
+    "G2",
+    "G3",
+    "L1",
+    "L2",
+    "L3",
+    "L6",
+    "P1",
+    "P2",
+    "P3",
+    "P6"
+   ],
+   "class_indices": [
+    0,
+    1,
+    2,
+    5,
+    6,
+    7,
+    8,
+    10,
+    11,
+    12,
+    15,
+    17,
+    18,
+    19,
+    22
+   ]
+  },
+  "OTHERCLASS": {
+   "codes": [
+    "OTHERCLASS"
+   ],
+   "class_indices": [
+    16
+   ]
+  }
+ },
+ "gates": {
+  "P5.3a_decode_path_identity": {
+   "checked": true,
+   "n_compared": 400,
+   "exhaustive": false,
+   "n_mismatched": 0,
+   "mismatched": [],
+   "pass": true,
+   "note": "re-decoding GastroHUN images through this module and getting the Phase 4 cache back bit-for-bit is what establishes that the external images are preprocessed identically to the training images."
+  },
+  "P5.3b_index_reproducible": {
+   "sha256_of_index": "77071d00fcc936f0373e1856e15dd214279d289fed0dea7fb3d1a4d01e356d06",
+   "n_rows": 17122,
+   "ordering": "corpus, external_class, path (deterministic)",
+   "pass": true
+  }
+ },
+ "runtime_sec": 310.4
+}
